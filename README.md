@@ -1,1 +1,1 @@
-# 2017.1 ---Escola-X
+# 2017.1 --- Escola Centro de Ensino Médio 01 do Gama (CG).
