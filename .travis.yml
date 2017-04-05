@@ -1,15 +1,20 @@
-addons:
-  code_climate:
-    repo_token: eeaa06a888388e77f5137dde75ddb580696f32796ce7eb75f065ea53930df966
+before_script:
+  - bundle exec rails db:create db:migrate
+  - gem install codeclimate-test-reporter
 
-before_script: bundle exec rails db:create db:migrate
 cache: bundler
+
 language: ruby
+
 rvm:
   - 2.3.1
-sript:
+
+script:
   - bundle exec rspec
+
 after_success:
-  - bundle exec codeclimate-test-reporter
+  - CODECLIMATE_REPO_TOKEN=eeaa06a888388e77f5137dde75ddb580696f32796ce7eb75f065ea53930df966 bundle exec codeclimate-test-reporter 
+
 sudo: false
+
 dist: xenial
