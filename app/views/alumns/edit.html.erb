@@ -1,3 +1,6 @@
+<h1> Editar Aluno </h1>
+
+
 <%= form_for :alumn, url: alumns_path do |f| %>
   <p>
     <%= f.label :registry %>
@@ -40,10 +43,8 @@
   </p>
 
   <p>
-  <%= f.submit 'Salvar', class:'btn btn-success' %>
+  <%= f.submit 'Voltar', class:'btn btn-success' %>
   <%= link_to "Voltar", alumns_path, class:'btn btn-warning' %>
   </p>
-
-
 
 <% end %>
