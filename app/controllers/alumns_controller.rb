@@ -12,7 +12,7 @@ class AlumnsController < ApplicationController
   end
 
   def edit
-
+    @alumn = Alumn.find(params[:id])
   end
 
   def create
