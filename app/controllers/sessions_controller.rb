@@ -2,11 +2,8 @@
 #Class name: SessionsController
 #Description: Control the session login of the users
 class SessionsController < ApplicationController
-  def new
-  end
-
   def create
-      if !!User.find_by_registry(params[:login])
+      if !User.find_by_registry(params[:login]).nil?
         user =  User.find_by_registry(params[:login])
       else
         user =  User.find_by_cpf(params[:login])
@@ -23,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:authorization_token)
-    redirect_to #root
+    redirect_to root_url
   end
 end
