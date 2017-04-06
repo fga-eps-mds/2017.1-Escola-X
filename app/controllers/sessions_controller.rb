@@ -2,6 +2,8 @@
 #Class name: SessionsController
 #Description: Control the session login of the users
 class SessionsController < ApplicationController
+  def new
+  end
 
   def create
       if !!User.find_by_registry(params[:login])
