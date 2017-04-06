@@ -1,2 +1,2 @@
-class Alumn < ApplicationRecord
+class Alumn < User
 end
