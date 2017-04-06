@@ -8,7 +8,7 @@ class AlumnsController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def edit
@@ -16,7 +16,10 @@ class AlumnsController < ApplicationController
   end
 
   def create
+    @alumn = Alumn.new(alumn_params)
 
+    @alumn.save
+    redirect_to @alumn
   end
 
   def update
@@ -24,7 +27,7 @@ class AlumnsController < ApplicationController
   end
 
   def destroy
-
+    
   end
 
   private
