@@ -3,47 +3,50 @@
 
 <%= form_for :alumn, url: alumns_path do |f| %>
   <p>
-    <%= f.label :registry_alumn %>
-    <%= f.number_field :registry_alumn %>
+    <%= f.label :registry %>
+    <%= f.number_field :registry %>
   </p>
 
   <p>
-    <%= f.label :name_alumn %>
-    <%= f.text_field :name_alumn %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :class_alumn %>
-    <%= f.text_field :class_alumn %>
+    <%= f.label :class %>
+    <%= f.text_field :class %>
   </p>
 
   <p>
-    <%= f.label :shift_alumn %>
-    <%= f.text_field :shift_alumn %>
+    <%= f.label :shift %>
+    <%= f.text_field :shift %>
   </p>
 
   <p>
-    <%= f.label :address_alumn %>
-    <%= f.text_field :address_alumn %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
   </p>
 
   <p>
-    <%= f.label :phone_alumn %>
-    <%= f.text_field :phone_alumn %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
   </p>
 
   <p>
-    <%= f.label :birth_date_alumn %>
-    <%= f.text_field :birth_date_alumn %>
+    <%= f.label :birth_date %>
+    <%= f.text_field :birth_date %>
   </p>
 
   <p>
-    <%= f.label :gender_alumn %>
-    <%= f.text_field :gender_alumn %>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
   </p>
 
   <p>
-  <%= f.submit %>
+  <%= f.submit 'Salvar', class:'btn btn-success' %>
+  <%= link_to "Voltar", alumns_path, class:'btn btn-warning' %>
   </p>
+
+
 
 <% end %>
