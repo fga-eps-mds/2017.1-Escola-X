@@ -1,6 +1,6 @@
 module UsersHelper
   def sti_user_path ( permission = "alumn", user = nil, action = nil )
-    send "#{format_sti (action, permission, user)}_path", user
+    send "#{format_sti(action, permission, user)}_path", user
   end
 
   def format_sti (action, permission, user)
