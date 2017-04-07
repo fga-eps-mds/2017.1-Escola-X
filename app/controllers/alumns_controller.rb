@@ -1,7 +1,7 @@
 # File name: alumns_controller.rb
 # Class name: AlumnsController
 # Description: Controller used to communicate with the proprietary view of alumns
- begin class AlumnsController < ApplicationController
+ class AlumnsController < ApplicationController
 #   def index
 #     @alumns = Alumn.all
 #   end
