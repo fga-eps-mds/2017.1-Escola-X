@@ -5,13 +5,13 @@ class SessionsController < ApplicationController
   def create
       if !User.find_by_registry(params[:login]).nil?
         user =  User.find_by_registry(params[:login])
-      else
+      elsif !User.find_by_cpf(params[:login]).nil?
         user =  User.find_by_cpf(params[:login])
       end
 
       if user && user.authenticate(params[:password])
         cookies[:authorization_token] = user.authorization_token
-        redirect_to #to define
+          redirect_to #to define
       else
         redirect_to #root
         #Show error

@@ -6,7 +6,7 @@ module SessionsHelper
 
   end
   def is_principal
-
+    
   end
   def is_alumn
 
