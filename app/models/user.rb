@@ -5,7 +5,7 @@ class User < ApplicationRecord
   self.inheritance_column = :permission
 
   def self.permissions
-    ("Alumn", "Principal")
+    ['Alumn', 'Principal']
   end
 
   scope :alumns,    -> where permission: 'Alumn'
