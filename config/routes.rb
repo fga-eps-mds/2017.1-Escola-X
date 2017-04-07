@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   root 'alumns#index'
 
-  resources :alumns
+  resources :users
 end
