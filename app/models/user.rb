@@ -8,6 +8,6 @@ class User < ApplicationRecord
     ("Alumn", "Principal")
   end
 
-  scope :alumns,    -> where permission: 'Alumn'
-  scope :principal, -> where permission: 'Principal'
+  scope :alumns,    -> { where (permission: 'Alumn') }
+  scope :principal, -> { where (permission: 'Principal') }
 end
