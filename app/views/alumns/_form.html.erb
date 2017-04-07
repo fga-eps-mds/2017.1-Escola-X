@@ -5,8 +5,11 @@
   </p>
 
   <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :name, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-user"></span>
+      <%= f.text_field :name, class:"form-control", placeholder:"Nome do aluno" %>
+    </div>
   </p>
 
   <p>
