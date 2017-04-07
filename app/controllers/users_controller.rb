@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   private
   # Strong params to be passed to users
   def users_params
-    @ params.require(:user).permit(:registry,
+    params.require(:user).permit(:registry,
                                    :cpf,
                                    :name,
                                    :address,
