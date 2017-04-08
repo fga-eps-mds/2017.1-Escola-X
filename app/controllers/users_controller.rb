@@ -19,9 +19,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-
-    @user.save
-    redirect_to @user
+    @permission = :permission
+    if (@user.save)
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -44,15 +47,14 @@ class UsersController < ApplicationController
   # Strong params to be passed to users
   def users_params
     params.require(:user).permit(:registry,
-                                   :cpf,
-                                   :name,
-                                   :address,
-                                   :phone,
-                                   :gender,
-                                   :permission,
-                                   :birth_date,
-                                   :class,
-                                   :shift,
-                                   :admission_date)
+                                  :cpf,
+                                  :name,
+                                  :address,
+                                  :phone,
+                                  :gender,
+                                  :birth_date,
+                                  :classroom,
+                                  :shift,
+                                  :admission_date)
   end
 end

@@ -1,0 +1,115 @@
+<%= form_for :user, url: users_path do |f| %>
+  <div class="form-group">
+    <%= f.label :registry, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">Matrícula</span>
+      <%= f.number_field :registry, class:"form-control", placeholder:"Ex.:150023142" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cpf, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">CPF</span>
+      <%= f.text_field :cpf, class:"form-control", placeholder:"Ex.: 000.000.000-00" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-user"></span>
+         Nome
+      </span>
+      <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :classroom, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-education"></span>
+         Sala
+      </span>
+      <%= f.text_field :classroom, class:"form-control", placeholder:"Ex.: 1D" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :shift, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+         Turno
+      </span>
+      <%= f.text_field :shift, class:"form-control", placeholder:"Ex.: Vespertino" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-home"></span>
+         End.
+      </span>
+      <%= f.text_field :address, class:"form-control", placeholder:"Ex.: Rua do limoeiro, casa 53" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-phone"></span>
+         Tel.
+      </span>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :birth_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-gift"></span>
+         Data de nascimento
+      </span>
+      <%= f.text_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :admission_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+         Data de admissão
+      </span>
+      <%= f.text_field :admission_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gender, class:"sr-only" %>
+    <!-- <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-"></span>
+      <%= f.text_field :gender, class:"form-control" %>
+    </div> -->
+    <p class="text-uppercase"><strong>Gênero</strong></p>
+    <div class="checkbox">
+      <%= radio_button_tag(:gender, "Mulher") %>
+      <%= label_tag(:gender_female, "Mulher") %>
+    </div>
+    <div class="checkbox">
+      <%= radio_button_tag(:gender, "Homem") %>
+      <%= label_tag(:gender_male, "Homem") %>
+    </div>
+  </div>
+
+  <%= f.submit 'Salvar', class:'btn btn-lg btn-success' %>
+  <%= link_to "Voltar", users_path, class:'btn btn-lg btn-warning' %>
+
+<% end %>
