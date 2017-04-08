@@ -1,6 +1,7 @@
 #File name:user.rb
 #Class name: User
-#Description: Validates the requeriments made by controller and saves in the data bank
+#Description: Validates the requeriments made by the controller and saves in the
+#            data base
 class User < ApplicationRecord
   self.inheritance_column = :permission
   has_secure_password
