@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
 
       if user && user.authenticate(params[:password])
         cookies[:authorization_token] = user.authorization_token
-          redirect_to #to define
+          redirect_to users_path
       else
-        redirect_to #root
+        redirect_to root_url
         #Show error
       end
   end
