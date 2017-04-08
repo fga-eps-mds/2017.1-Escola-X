@@ -1,4 +1,4 @@
-#File name: alumn.rbAlumn
+#File name: alumn.rb
 #Class name:Alumn
 #Description:Validates alumn's attributes
 class Alumn < User
