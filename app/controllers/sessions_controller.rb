@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
           redirect_to users_path
       else
         redirect_to root_url
-        #Show error
+        #Show error message
       end
   end
 
