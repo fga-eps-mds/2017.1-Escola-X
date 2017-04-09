@@ -39,7 +39,18 @@ class UsersController < ApplicationController
 
   def destroy
     if is_principal?
-      #method 
+      #method
+    end
+  end
+
+  def password_reset
+    if is_principal?
+      @user = User.find(parms[:id])
+      if @user.update(params[:password])
+        redirect_to @user
+      else
+        #error
+      end
     end
   end
 

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   # resources :sessions, only:[:new,:create,:destroy]
-
+  resources :users
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
-  delete 'logout', to:'sessions#destroy', as:'logout'
+  get 'logout', to:'sessions#destroy', as:'logout' #COMO ASSIM É UM GET?????? DELETE NAO FUNCIONA
 
   root 'sessions#new'
 
