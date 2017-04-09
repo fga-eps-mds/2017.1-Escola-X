@@ -1,60 +1,73 @@
 # File name: users_controller.rb
 # Class name: UsersController
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_permission
+
   def index
-    @users = User.all
+    @users = permission_class.all
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def new
-    @user = User.new
+    @user = permission_class.new
   end
 
   def edit
-    @user = User.find(users_params)
   end
 
   def create
-    @user = User.new(users_params)
-    @permission = :permission
-    if (@user.save)
-      redirect_to @user
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
       render 'new'
     end
   end
 
   def update
-    @user = User.find(params[:id])
-
-    if (@user.update(users_params))
-      redirect_to @user
+    if @user.update(user_params)
+      redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
-      render 'edit'
+      render action: 'edit'
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
-
-    @user.destroy
   end
 
   private
+
+  def set_permission
+    @permission = permission
+  end
+
+  def permission
+    User.permissions.include?(params[:type]) ? params[:type] : "Alumn"
+  end
+
+  def permission_class
+    permission.constantize
+  end
+
+  def set_user
+    @user = permission_class.find(params[:id])
+  end
+
   # Strong params to be passed to users
-  def users_params
-    params.require(:user).permit(:registry,
-                                  :cpf,
-                                  :name,
-                                  :address,
-                                  :phone,
-                                  :gender,
-                                  :birth_date,
-                                  :classroom,
-                                  :shift,
-                                  :admission_date)
+  def user_params
+    params.require(permission.underscore.to_sym).permit(:registry,
+                                                        :cpf,
+                                                        :name,
+                                                        :address,
+                                                        :phone,
+                                                        :gender,
+                                                        :birth_date,
+                                                        :classroom,
+                                                        :shift,
+                                                        :permission,
+                                                        :admission_date)
   end
 end
