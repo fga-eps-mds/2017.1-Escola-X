@@ -5,7 +5,7 @@
 class User < ApplicationRecord
   self.inheritance_column = :permission
   has_secure_password
-  validates :password, presence:true
+  validates :password, presence:true,
                         length: { minimum: 8}
 
   before_create{
