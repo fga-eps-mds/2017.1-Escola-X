@@ -1,5 +1,5 @@
 <%= render "layouts/navbar" %>
-<%= form_for :user, url: users_path do |f| %>
+<%= form_for :user do |f| %>
 
   <div class="form-group">
     <%= f.label :registry, class:"sr-only" %>
@@ -111,7 +111,7 @@
     </div>
   </div>
 
-  <%= f.submit 'Salvar', class:'btn btn-lg btn-success' %>
+  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
   <%= link_to "Voltar", users_path, class:'btn btn-lg btn-warning' %>
 
 <% end %>

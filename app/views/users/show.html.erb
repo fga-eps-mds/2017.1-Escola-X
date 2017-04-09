@@ -6,10 +6,11 @@
           <img src="img/foto%20250x300.jpg" alt="" class="img-responsive">
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
-        <h3 class="">John Cena Douglas de Carvalho</h3>
-        <h4 class="">Aluno da escola CEM01</h4>
-        <h5>matrícula: 0102023-04</h5>
-        <p>Sexo: masculino</p>
+        <%= link_to 'Editar', edit_alumn_path %>
+        <h3 class=""><%= @user.name %></h3>
+        <h4 class=""><%= :permission %> da escola CEM01</h4>
+        <h5>matrícula: <%= :registry %></h5>
+        <p>Sexo: <%= :gender %></p>
         <p>Idade: 19</p>
         <p>ano: 1º ano</p>
         <p>data engresso: 20/02/2013</p>
