@@ -1,28 +1,3 @@
-<!--
-<%= form_tag sessions_path do %>
-<div class="row ">
-    <div >
-        <%= label_tag :login, 'Login' %>
-    </div>
-    <div >
-        <%= text_field_tag :login %>
-    </div>
-</div>
-<div >
-    <div >
-        <%= label_tag :password, 'Password' %>
-    </div>
-    <div >
-        <%= password_field_tag :password %>
-    </div>
-</div>
-    <div  >
-        <%= submit_tag "Login"%>
-    </div>
-</div>
-
-
-<% end %> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,33 +8,53 @@
 	<link rel="stylesheet" type="text/css" href="css/master.css">
 </head>
 <body>
-
+<%= form_tag sessions_path do %>
     <header>
         <div class="page-header">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <%= image_tag("Logo_Escola_X_500x500.png", class: "img-responsive", alt: "logo") %>
+                        <%= image_tag("Logo_Escola_X_500x500.png",
+                        class: "img-responsive", alt: "logo") %>
                     </div>
                     <div class="col-sm-12 col-md-6" id="formz">
-                        <h1 class="text-info text-center text-uppercase">Faça login<br><small class="text-muted text-lowercase">para utilizar a ferramenta</small></h1>
+                        <h1 class="text-info text-center text-uppercase">
+                          Faça login<br>
+                          <small class="text-muted text-lowercase">
+                            para utilizar a ferramenta
+                          </small>
+                        </h1>
                         <form>
                             <div class="form-group">
-                                <label for="username" class="sr-only">Nome de usuário</label>
+                                <%= label_tag 'login', 'Login',
+                                class: 'sr-only' %>
                                 <div class="input-group">
-                                    <span class="input-group-addon glyphicon glyphicon-user"></span>
-                                    <input class="form-control" type="email" name="username" id="username" placeholder="Nome de usuário">
+                                    <span class="input-group-addon glyphicon
+                                    glyphicon-user">
+                                    </span>
+                                    <%= text_field_tag('login', nil,
+                                    placeholder: "Login", class: "form-control")
+                                     %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="sr-only">Senha</label>
+                                <%= label_tag 'password', 'Senha',
+                                class: 'sr-only' %>
                                 <div class="input-group">
-                                    <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                                    <input class="form-control" type="password" name="password" id="password" placeholder="Senha">
+                                    <span class="input-group-addon glyphicon
+                                    glyphicon-lock">
+                                    </span>
+                                    <%= password_field_tag('password', nil,
+                                    class: 'form-control', placeholder: 'Senha')
+                                    %>
                                 </div>
                             </div>
-                            <!-- <button type="submit" class="btn btn-block btn-success" name="button">Enviar</button> -->
-                            <a href="resp.html" class="btn btn-block btn-success">Entrar</a>
+                            <!-- <button type="submit" class="btn btn-block
+                            btn-success" name="button">Enviar</button> -->
+                            <%= submit_tag "Entrar", class: 'btn btn-block
+                            btn-success'
+                            %>
+
                         </form>
                     </div>
                 </div>
@@ -80,5 +75,6 @@
 -->
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/master.js"></script>
+<% end %>
 </body>
 </html>
