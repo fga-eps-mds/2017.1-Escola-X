@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    if logged_in?
+    if is_principal?
       #method
     end
   end

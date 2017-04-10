@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         user =  User.find_by_cpf(params[:login])
       end
 
-      if user && user.authenticate(params[:password])
+      if user and user.authenticate(params[:password])
         cookies[:authorization_token] = user.authorization_token
           redirect_to users_path
       else
