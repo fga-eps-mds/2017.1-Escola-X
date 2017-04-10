@@ -1,7 +1,6 @@
 # File name: users_controller.rb
 # Class name: UsersController
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:show, :edit, :update, :destroy, :create]
   before_action :set_permission
 
   def index
@@ -9,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = permission_class.find(params[:id])
   end
 
   def new
@@ -16,14 +16,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = permission_class.find(params[:id])
   end
 
   def create
-
-    @user = User.new(user_params)
-    @user.permission = @permission
-    # debugger
+      @user = permission_class.new(user_params)
+    # @user.permission = @permission
     if @user.save
+      # debugger
       redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
       redirect_to root_url
@@ -31,6 +31,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = permission_class.find(params[:id])
+    debugger
     if @user.update(user_params)
       redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
@@ -39,16 +41,22 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = permission_class.find(params[:id])
+    @user.destroy
   end
 
   private
+
+  def get_years_old
+    @years_old = DateTime.now.year - self.birth_date.year
+  end
 
   def set_permission
     @permission = permission
   end
 
   def permission
-    User.permissions.include?(params[:type]) ? params[:type] : "Alumn"
+    User.permissions.include?(params[:type]) ? params[:type] : "bu"
   end
 
   def permission_class
@@ -61,7 +69,9 @@ class UsersController < ApplicationController
 
   # Strong params to be passed to users
   def user_params
-    params.require(:user).permit(:registry,
+    params.require(permission.underscore.to_sym).permit(:registry,
+                                                        :user,
+                                                        :permission,
                                                         :cpf,
                                                         :name,
                                                         :address,
@@ -70,7 +80,6 @@ class UsersController < ApplicationController
                                                         :birth_date,
                                                         :classroom,
                                                         :shift,
-
                                                         :admission_date)
   end
 end

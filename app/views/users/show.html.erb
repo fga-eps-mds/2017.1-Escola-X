@@ -6,14 +6,14 @@
           <img src="img/foto%20250x300.jpg" alt="" class="img-responsive">
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
-        <%= link_to 'Editar', edit_alumn_path %>
+        <%= link_to 'Editar', edit_user_path(@user) %>
         <h3 class=""><%= @user.name %></h3>
-        <h4 class=""><%= :permission %> da escola CEM01</h4>
-        <h5>matrícula: <%= :registry %></h5>
-        <p>Sexo: <%= :gender %></p>
-        <p>Idade: 19</p>
-        <p>ano: 1º ano</p>
-        <p>data engresso: 20/02/2013</p>
+        <h4 class=""><%= "#{@permission}" %> da escola CEM01</h4>
+        <h5>matrícula: <%= "#{@registry}" %></h5>
+        <p>Sexo: <%= "#{@gender}" %></p>
+        <p>Idade: <%= "#{@years_old}" %></p>
+        <p>ano e turma: <%= "#{@years_old}" %></p>
+        <p>data engresso: <%= "#{@admission_date}" %></p>
         <p>nome responsáveis:</p>
         <ul>
           <li>janaína xavier de jesus</li>
