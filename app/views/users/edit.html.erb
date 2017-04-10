@@ -1,0 +1,12 @@
+<h1>teste edit</h1>
+<h1>Resetar senha</h1>
+<%= form_for @user do |user| %>
+  <p>
+    <%= user.label :password %>
+    <%= user.password_field :password %>
+  </p>
+  <p>
+    <%= user.submit %>
+  </p>
+
+<% end %>

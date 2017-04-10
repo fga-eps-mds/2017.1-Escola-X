@@ -1,0 +1,8 @@
+<h1>Users</h1>
+<table>
+  <% @users.each do |user| %>
+    <td><%= user.name %></td>
+    <td><%= user.registry %></td>
+    <td><%=link_to 'SHow',user_path(user)%></td>
+<% end %>
+</table>

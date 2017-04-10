@@ -3,26 +3,26 @@ class UsersController < ApplicationController
 
   def index
     if logged_in?
-      #method
+      @users = User.all
     end
   end
 
   def show
     if logged_in?
-      #method
+      @user = User.find(params[:id])
     end
   end
 
   def new
     if is_principal?
-      #method
+      @user = User.new
     end
   end
 
   def edit
-    if is_principal?
-      #method
-    end
+    # if is_principal?
+      @user= User.find(params[:id])
+    # end
   end
 
   def create
@@ -32,9 +32,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    if is_principal?
-      #method
-    end
+    # if is_principal?
+      @user = User.find(params[:id])
+    # end
   end
 
   def destroy
@@ -43,9 +43,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def password_reset
+  def update_password
     if is_principal?
-      @user = User.find(parms[:id])
+      @user = User.find(params[:id])
+      debugger
       if @user.update(params[:password])
         redirect_to @user
       else
