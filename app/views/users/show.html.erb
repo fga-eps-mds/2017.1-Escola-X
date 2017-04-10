@@ -1,12 +1,13 @@
 <%= render "layouts/navbar" %>
 <section class="content-section" id="alunos-desc">
   <div class="container">
+    <%= link_to 'Editar', edit_user_path(@user), class:"btn btn-sm btn-default" %>
+    <%= link_to 'Destroy', "", method: :delete, data: { confirm: 'Are you sure?' } %>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
           <img src="img/foto%20250x300.jpg" alt="" class="img-responsive">
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
-        <%= link_to 'Editar', edit_user_path(@user) %>
         <h3 class=""><%= @user.name %></h3>
         <h4 class=""><%= "#{@permission}" %> da escola CEM01</h4>
         <h5>matrícula: <%= "#{@registry}" %></h5>

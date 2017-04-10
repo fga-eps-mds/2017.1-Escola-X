@@ -26,13 +26,13 @@ class UsersController < ApplicationController
       # debugger
       redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
-      redirect_to root_url
+      render action: 'new'
     end
   end
 
   def update
     @user = permission_class.find(params[:id])
-    debugger
+    # debugger
     if @user.update(user_params)
       redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
@@ -41,22 +41,20 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = permission_class.find(params[:id])
-    @user.destroy
   end
 
   private
 
-  def get_years_old
-    @years_old = DateTime.now.year - self.birth_date.year
-  end
+  # def get_years_old
+  #   @years_old = DateTime.now.year - self.birth_date.year
+  # end
 
   def set_permission
     @permission = permission
   end
 
   def permission
-    User.permissions.include?(params[:type]) ? params[:type] : "bu"
+    User.permissions.include?(params[:type]) ? params[:type] : "User"
   end
 
   def permission_class
