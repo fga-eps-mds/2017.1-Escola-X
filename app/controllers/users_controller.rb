@@ -1,7 +1,7 @@
 # File name: users_controller.rb
 # Class name: UsersController
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy, :create]
   before_action :set_permission
 
   def index
@@ -12,18 +12,21 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = permission_class.new
+    @user = permission_class.new()
   end
 
   def edit
   end
 
   def create
+
     @user = User.new(user_params)
+    @user.permission = @permission
+    # debugger
     if @user.save
       redirect_to @user, notice: "#{permission} criado com sucesso!"
     else
-      render 'new'
+      redirect_to root_url
     end
   end
 
@@ -58,7 +61,7 @@ class UsersController < ApplicationController
 
   # Strong params to be passed to users
   def user_params
-    params.require(permission.underscore.to_sym).permit(:registry,
+    params.require(:user).permit(:registry,
                                                         :cpf,
                                                         :name,
                                                         :address,
@@ -67,7 +70,7 @@ class UsersController < ApplicationController
                                                         :birth_date,
                                                         :classroom,
                                                         :shift,
-                                                        :permission,
+
                                                         :admission_date)
   end
 end
