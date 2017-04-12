@@ -11,8 +11,8 @@ class User < ApplicationRecord
   validates :classroom, presence: { message: "não pode estar em branco" },
                         length: { minimum: 2,
                                   maximum: 2,
-                                  :too_short => "deve possuir no mínimo 2 caracteres",
-                                  :too_long => "deve possuir no máximo 2 caracteres" }
+                                  :too_short => "deve possuir 2 caracteres",
+                                  :too_long => "deve possuir 2 caracteres" }
   validates :shift, presence: { message: "não pode estar em branco" },
                     length: { minimum: 2,
                               maximum: 2,
