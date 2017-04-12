@@ -1,3 +1,6 @@
+# File name: users_controller.rb
+# Class name: UsersController
+# Description: Controller used to communicate with the view users/show
 class UsersController < ApplicationController
   include SessionsHelper
   before_action :set_user, only:[:update]
