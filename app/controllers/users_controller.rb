@@ -1,5 +1,6 @@
 # File name: users_controller.rb
 # Class name: UsersController
+# Description: Controller used to making sense of the request users
 class UsersController < ApplicationController
   before_action :set_permission
 
