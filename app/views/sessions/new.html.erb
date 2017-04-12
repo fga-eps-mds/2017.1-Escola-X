@@ -1,59 +1,36 @@
-	<%= form_tag login_path do %>
     <header>
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <%= image_tag("Logo_Escola_X_500x500.png",
-                        class: "img-responsive", alt: "logo") %>
-                    </div>
-                    <div class="col-sm-12 col-md-6" id="formz">
-                        <h1 class="text-info text-center text-uppercase">
-                          Faça login<br>
-                          <small class="text-muted text-lowercase">
-                            para utilizar a ferramenta
-                          </small>
-                        </h1>
-                        <form>
-                            <div class="form-group">
-                                <%= label_tag 'login', 'Login',
-                                class: 'sr-only' %>
-                                <div class="input-group">
-                                    <span class="input-group-addon glyphicon
-                                    glyphicon-user">
-                                    </span>
-                                    <%= text_field_tag('login', nil,
-                                    placeholder: "Login", class: "form-control")
-                                     %>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <%= label_tag 'password', 'Senha',
-                                class: 'sr-only' %>
-                                <div class="input-group">
-                                    <span class="input-group-addon glyphicon
-                                    glyphicon-lock">
-                                    </span>
-                                    <%= password_field_tag('password', nil,
-                                    class: 'form-control', placeholder: 'Senha')
-                                    %>
-                                </div>
-                            </div>
-                            <!-- <button type="submit" class="btn btn-block
-                            btn-success" name="button">Enviar</button> -->
-                            <%= submit_tag "Entrar", class: 'btn btn-block
-                            btn-success'
-                            %>
-
-                        </form>
-                    </div>
+      <div class="page-header">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+              	<%= image_tag("Logo_Escola_X_500x500.png", class: "img-responsive", alt: "logo") %>
+              </div>
+              <div class="col-sm-12 col-md-6" id="formz">
+                <h1 class="text-info text-center text-uppercase">
+									Faça login<br>
+                	<small class="text-muted text-lowercase">
+                  para utilizar a ferramenta
+                  </small>
+                </h1>
+								<%= form_tag login_path do %>
+                <div class="form-group">
+              		<%= label_tag 'login', 'Login', class: 'sr-only' %>
+                  <div class="input-group">
+                  	<span class="input-group-addon glyphicon glyphicon-user"></span>
+                    <%= text_field_tag('login', nil, placeholder: "Login", class: "form-control") %>
+                  </div>
                 </div>
+                <div class="form-group">
+                  <%= label_tag 'password', 'Senha', class: 'sr-only' %>
+                  <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                    <%= password_field_tag('password', nil, class: 'form-control', placeholder: 'Senha') %>
+                  </div>
+                </div>
+                <%= submit_tag "Entrar", class: 'btn btn-block btn-success' %>
+							<% end %>
             </div>
-        </div>
-    </header>
-    <footer>
-        <div class="container text-center text-muted">
-            <p>&copy; GPL-03</p>
-        </div>
-    </footer>
-	<% end %>
+          </div>
+      	</div>
+      </div>
+  	</header>
