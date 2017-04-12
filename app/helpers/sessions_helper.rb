@@ -13,25 +13,25 @@ module SessionsHelper
 
   def is_principal?
     if logged_in?
-      raise 'Not principal' unless current_user.permission == "Principal"
+      current_user.permission == 'Principal'
     end
   end
 
   def is_alumn?
     if logged_in?
-      raise 'Not alumn' unless current_user.permission == "Alumn"
+      current_user.permission == 'Alumn'
     end
   end
 
   def is_parent?
     if logged_in?
-      raise 'Not parent' unless current_user.permission == "Parent"
+      current_user.permission == 'Parent'
     end
   end
 
   def is_teacher?
     if logged_in?
-      raise 'Not teacher' unless current_user.permission == "Teacher"
+      current_user.permission == 'Teacher'
     end
   end
 end

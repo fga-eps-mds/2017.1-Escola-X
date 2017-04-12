@@ -13,9 +13,7 @@ class SessionsController < ApplicationController
         cookies[:authorization_token] = user.authorization_token
           redirect_to users_path
       else
-        #Não funciona por algum motivo.
-        #flash.now[:message] = 'Login ou senha inválidos'
-        redirect_to root_url
+        redirect_to root_url, notice: "Login or password not valid"
       end
   end
 

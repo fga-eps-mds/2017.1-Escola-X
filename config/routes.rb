@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout' #COMO ASSIM É UM GET?????? DELETE NAO FUNCIONA
-  get 'update_password/:id', to:'users#update_password', as:'update_password'
+  get 'users/:id/edit_password', to:'users#edit_password', as:'edit_password'
+  resources :alumns, controller:'users', type: 'Alumn'
+  resources :principals, controller:'users', type: 'Principal'
 
 
   root 'sessions#new'

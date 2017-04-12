@@ -4,6 +4,6 @@
 class Parent < User
   validates :cpf, presence: true, length:{maximum: 11},
                   uniqueness:true
-
-   validates :cpf_attr, :cpf => true
+  #Not working                
+  #  validates :cpf_attr, :cpf => true
 end

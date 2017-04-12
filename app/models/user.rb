@@ -12,6 +12,10 @@ class User < ApplicationRecord
     generate_token(:authorization_token)
   }
 
+  def self.permissions
+    ['Alumn', 'Principal','Parent','Teacher']
+  end
+
   private
   def generate_token(column)
     begin

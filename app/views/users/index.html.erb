@@ -3,6 +3,7 @@
   <% @users.each do |user| %>
     <td><%= user.name %></td>
     <td><%= user.registry %></td>
-    <td><%=link_to 'SHow',user_path(user)%></td>
+    <td><%=link_to 'Show',user_path(user)%></td>
+    <td><%=link_to 'Resetar senha', edit_password_path(user) %></td>
 <% end %>
 </table>
