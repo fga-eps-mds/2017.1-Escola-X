@@ -13,7 +13,7 @@ class User < ApplicationRecord
   }
 
   def self.permissions
-    ['Alumn', 'Principal','Parent','Teacher']
+    ['Alumn','Principal','Parent','Teacher']
   end
 
   private

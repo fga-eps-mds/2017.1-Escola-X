@@ -4,5 +4,5 @@
 class Alumn < User
   validates :registry, presence:true,#,length{to define}
                        uniqueness: true
-
+                       
 end

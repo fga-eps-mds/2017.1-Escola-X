@@ -6,39 +6,39 @@ class UsersController < ApplicationController
   before_action :set_user, only:[:update]
 
   def index
-    if logged_in?
+    if (logged_in?)
       @users = permission_class.all
     end
   end
 
   def show
-    if logged_in?
+    if (logged_in?)
       @user = permission_class.find(params[:id])
     end
   end
 
   def new
-    if is_principal?
+    if (is_principal?)
       #method
     end
   end
 
   def edit
-    if is_principal?
+    if (is_principal?)
       #method
     end
   end
 
   def create
-    if is_principal?
+    if (is_principal?)
     #method
     end
   end
 
   def update
-    if is_principal?
+    if (is_principal?)
       @user = permission_class.find(params[:id])
-      if @user.update(user_params)
+      if ( @user.update(user_params) )
         redirect_to @user, notice: "Password do usuário #{@user.name} foi atualizado!"
       else
         render 'edit_password'
@@ -47,13 +47,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if is_principal?
+    if (is_principal?)
       #method
     end
   end
 
   def edit_password
-    if is_principal?
+    if (is_principal?)
       @user = permission_class.find(params[:id])
     end
   end

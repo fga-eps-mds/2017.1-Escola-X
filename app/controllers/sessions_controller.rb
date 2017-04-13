@@ -3,13 +3,13 @@
 #Description: Control the session login of the users
 class SessionsController < ApplicationController
   def create
-      if !User.find_by_registry(params[:login]).nil?
+      if ( !User.find_by_registry(params[:login]).nil? )
         user =  User.find_by_registry(params[:login])
-      elsif !User.find_by_cpf(params[:login]).nil?
+      elsif ( !User.find_by_cpf(params[:login]).nil? )
         user =  User.find_by_cpf(params[:login])
       end
 
-      if user and user.authenticate(params[:password])
+      if ( user and user.authenticate(params[:password]) )
         cookies[:authorization_token] = user.authorization_token
           redirect_to users_path
       else
