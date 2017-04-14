@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
   def edit_password
     if (is_principal?)
-      @user = permission_class.find(params[:id])
+      @user = User.find(params[:id])
     end
   end
 
