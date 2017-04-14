@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413154957) do
+ActiveRecord::Schema.define(version: 20170414120441) do
 
   create_table "users", force: :cascade do |t|
-    t.integer  "cpf",                 limit: 8
     t.string   "name"
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "password_digest"
     t.string   "permission"
     t.string   "birth_date"
