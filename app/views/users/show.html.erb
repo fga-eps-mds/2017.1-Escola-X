@@ -1,0 +1,15 @@
+<%= render "layouts/navbar" %>
+<section class="content-section" id="alunos-desc">
+  <div class="container">
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+        </div>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h3 class=""><%= @user.name %></h3>
+      </div>
+    </div>
+    <%= link_to 'Editar', edit_user_path(@user), class:"btn btn-sm btn-default" %>
+    <%= link_to 'Destroy', "", method: :delete, data: { confirm: 'Tem certeza?' } %>
+  </div>
+</section>
