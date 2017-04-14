@@ -3,10 +3,9 @@
 #Description: Validates the requeriments made by the controller and saves in the
 #            data base
 class User < ApplicationRecord
-  has_one :employee
+  has_one :parent
   has_one :alumn
 
-  self.inheritance_column = :permission
   has_secure_password
   validates :password, presence:true,
                         length: { minimum: 8}
