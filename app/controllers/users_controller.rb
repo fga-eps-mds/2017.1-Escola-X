@@ -37,6 +37,7 @@ class UsersController < ApplicationController
         redirect_to @user #Maybe change
       else
         render 'new'
+      end
     end
   end
 
@@ -66,9 +67,8 @@ class UsersController < ApplicationController
     end
   end
 
-private
-def user_params
-  params.require(:user).permit(:name,:address,:phone,:gender,:permission,:birth_date,:password)
-end
-
+  private
+  def user_params
+    params.require(:user).permit(:name,:cpf,:address,:phone,:gender,:permission,:birth_date,:password)
+  end
 end
