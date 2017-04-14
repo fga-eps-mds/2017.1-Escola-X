@@ -8,10 +8,12 @@ RSpec.describe UsersController, type: :controller do
   let(:invalid_inputs) { { name: "Ayu", cpf: 1234567891,
                            password: "12345", rg: 123 } }
 
+  let(:valid_session) {{}}
+
 
   describe "Creates a new user" do
     it "assigns a new user to @user" do
-      get :new
+      get :new, params: {}, session: valid_session
       expect(assigns(:user)).to be_a_new(User)
     end
   end

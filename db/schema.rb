@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20170414120441) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "password_digest"
-    t.string   "permission"
     t.string   "birth_date"
     t.string   "authorization_token"
   end
