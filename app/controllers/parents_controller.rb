@@ -4,15 +4,18 @@
 class ParentsController < ApplicationController
 
 
-##  def new
-
-##  end
+  def new
+    @parent = Parent.new
+  end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = User.find(params[id])
     @parent = @user.parents.create(parent_params)
-    redirect_to user_path(@user)
-
+    if @user.save
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def destroy

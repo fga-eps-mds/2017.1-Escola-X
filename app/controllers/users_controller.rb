@@ -11,13 +11,13 @@ end
     @user = User.new
   end
 
-def edit
-  @user = User.find(params[:id])
-end
+  def edit
+    @user = User.find(params[:id])
+  end
 
   def create
     @user = User.new(user_params)
-
+    @user.parent.build
     if @user.save
       redirect_to @user
     else
@@ -25,9 +25,17 @@ end
     end
   end
 
-def update
-  @user = User.find(params[:id])
+  def destroy
+      @parent= Parent.find(params[:id])
+      @parent.destroy
 
+      redirect_to parents_path
+  end
+
+
+def update
+
+  @user = User.find(params[:id])
   if @user.update(user_params)
     redirect_to @users
   else
@@ -44,10 +52,8 @@ end
 
 
 private
-def user_params
-  params.require(:user).permit(:name, :address, :phone, :gender)
-end
-
-
+  def user_params
+    params.require(:user).permit(:name, :address, :phone, :gender)
+  end
 
 end
