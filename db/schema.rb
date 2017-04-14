@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414040548) do
+ActiveRecord::Schema.define(version: 20170414051724) do
 
   create_table "alumns", force: :cascade do |t|
     t.integer  "registry"
