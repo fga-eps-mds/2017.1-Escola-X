@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one :alumn
+  accepts_nested_attributes_for :alumn
   validates :name, presence: { message: "não pode estar em branco" },
                    length: { minimum: 5,
                              maximum: 64,
