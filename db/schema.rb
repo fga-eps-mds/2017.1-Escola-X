@@ -10,22 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406181425) do
+ActiveRecord::Schema.define(version: 20170414040548) do
+
+  create_table "alumns", force: :cascade do |t|
+    t.integer  "registry"
+    t.string   "shift"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_alumns_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "registry"
-    t.integer  "cpf"
     t.string   "name"
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.string   "permission"
-    t.string   "birth_date"
-    t.string   "classroom"
-    t.string   "shift"
-    t.string   "admission_date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.date     "birth_date"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
