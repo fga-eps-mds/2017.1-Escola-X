@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408181241) do
+ActiveRecord::Schema.define(version: 20170413154957) do
 
   create_table "users", force: :cascade do |t|
-    t.integer  "registry"
     t.integer  "cpf",                 limit: 8
     t.string   "name"
     t.string   "address"
@@ -24,9 +23,6 @@ ActiveRecord::Schema.define(version: 20170408181241) do
     t.string   "password_digest"
     t.string   "permission"
     t.string   "birth_date"
-    t.string   "classroom"
-    t.string   "shift"
-    t.string   "admission_date"
     t.string   "authorization_token"
   end
 
