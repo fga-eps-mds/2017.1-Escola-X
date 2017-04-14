@@ -17,7 +17,6 @@ end
 
   def create
     @user = User.new(user_params)
-    @user.parent.build
     if @user.save
       redirect_to @user
     else
@@ -53,7 +52,9 @@ end
 
 private
   def user_params
-    params.require(:user).permit(:name, :address, :phone, :gender)
+    params.require(:user).permit(:name, :address, :phone, :gender,
+     parent_attributes: [:parent_cpf])
+
   end
 
 end
