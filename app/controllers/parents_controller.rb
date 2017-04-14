@@ -8,8 +8,13 @@ class ParentsController < ApplicationController
     @parent = Parent.new
   end
 
+  def edit
+    @user = User.find(params[:id])
+    @parent = @user.parents.find(parent_params)
+  end
+
   def create
-    @user = User.find(params[id])
+    @user = User.find(params[:id])
     @parent = @user.parents.create(parent_params)
     if @user.save
       redirect_to @user
@@ -19,15 +24,20 @@ class ParentsController < ApplicationController
   end
 
   def destroy
-      @parent= Parent.find(params[:id])
+      @user = User.find(params[:id])
+      @parent = @user.parents.find(params[:id])
       @parent.destroy
-
-      redirect_to parents_path
+      redirect_to user_path(@user)
   end
 
-##  def update
-
-##  end
+  def update
+  @user = User.find(params[:id])
+  @parent = @user.parents.find(params[:id])
+  if @user.update
+    redirect_to @user
+  else
+    render 'edit'
+  end
 
 private
   def parent_params
