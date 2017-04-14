@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
   let(:valid_session) {{}}
 
 
-  describe "Creates a new user" do
+  describe "Creates a new user with a valid permission" do
     before(:each) do
       user = User.create(name:"jao",password:"13454366",permission:"Principal")
       cookies[:authorization_token] = user.authorization_token
@@ -48,5 +48,24 @@ RSpec.describe UsersController, type: :controller do
         expect(response).to redirect_to user_path(assigns(:user))
       end
     end
+
+    describe "with invalid params" do
+      it "does not create a new User" do
+        expect{
+          post :create, {:user => invalid_inputs}
+        }.to change(User, :count).by 0
+      end
+
+      it "assigns a new user but no save to @user" do
+        post :create, params: {:user => invalid_inputs}
+        expect(assigns(:user)).not_to be_persisted
+      end
+
+      it "re-render the 'new' template" do
+        post :create, params: {:user => invalid_inputs}
+        expect(response).to render_template("new")
+      end
+    end
   end
+
 end
