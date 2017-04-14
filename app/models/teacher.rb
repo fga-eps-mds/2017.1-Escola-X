@@ -1,7 +1,9 @@
 #File name: teacher.rb
 #Class name:Teacher
 #Description:Validates teacher's attributes
-class Teacher < User
+class Teacher < ApplicationRecord
+  belongs_to :user
+
   validates :registry, presence: true,#length{to define}
                        uniqueness: true
   validates :admission_date, presence: true

@@ -20,12 +20,12 @@ RSpec.describe UsersController, type: :controller do
     describe "with valid params" do
       it "Creates a new User" do
         expect{
-          post :create, {:user => valid_inputs}
+          post :create, params: {:user => valid_inputs}
         }.to change(User, :count).by 1
       end
 
       it "assigns a new user to @user" do
-        post :create, {:user => valid_inputs}
+        post :create, params: {:user => valid_inputs}
         expect(assigns(:user)).to be_a User
         expect(assigns(:user)).to be_persisted
       end

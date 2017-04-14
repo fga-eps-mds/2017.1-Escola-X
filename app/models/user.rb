@@ -3,6 +3,9 @@
 #Description: Validates the requeriments made by the controller and saves in the
 #            data base
 class User < ApplicationRecord
+  has_one :employee
+  has_one :alumn
+
   self.inheritance_column = :permission
   has_secure_password
   validates :password, presence:true,
@@ -11,10 +14,6 @@ class User < ApplicationRecord
   before_create{
     generate_token(:authorization_token)
   }
-
-  def self.permissions
-    ['Alumn','Principal','Parent','Teacher']
-  end
 
   private
   def generate_token(column)
