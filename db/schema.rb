@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414135702) do
+ActiveRecord::Schema.define(version: 20170414153608) do
 
   create_table "parents", force: :cascade do |t|
     t.string   "parent_cpf"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20170414135702) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "string"
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
