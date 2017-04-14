@@ -43,8 +43,9 @@ RSpec.describe UsersController, type: :controller do
         expect(assigns(:user)).to be_persisted
       end
 
-      it "" do
-
+      it "redirects to @user page" do
+        post :create, params: {:user => valid_inputs}
+        expect(response).to redirect_to user_path(assigns(:user))
       end
     end
   end
