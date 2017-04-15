@@ -1,5 +1,6 @@
 <%= render "layouts/navbar" %>
 <section class="content-section" id="alunos-desc">
+~~~~~~ dev_crud_parent
   <div class="container">
     <%= link_to 'Editar', edit_user_path(@user), class:"btn btn-sm btn-info" %>
     <%= link_to 'Destroy', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
@@ -14,6 +15,61 @@
         <h4 class="">Endereço: <%= @user.address %></h4>
         <h4 class="">Data de Nascimento: <%= @user.birth_date %></h4>
         <h4 class="">CPF: <%= @user.parent.parent_cpf %></h4>
+~~~~~~
+  <h1 class="text-center text-uppercase">
+    <span class="fa fa-user-circle-o"></span>
+    detalhes de <%= @user.name %>
+  </h1>
+  <div class="container">
+
+    <%= link_to 'Voltar', users_path, class:"btn btn-sm btn-default" %>
+    <%= link_to 'Editar', edit_user_path(@user), class:"btn btn-sm btn-info" %>
+    <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Esta operação não poderá ser desfeita.' } %>
+
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <img src="img/foto%20250x300.jpg" alt="" class="img-responsive">
+        </div>
+
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h3 class=""><strong><%= @user.name %></h3></strong>
+        <h4 class=""><strong><%= @user.name %> da escola CEM01</h4></strong>
+        <p><strong>matrícula:</strong>  <%= @user.alumn.registry %></p>
+        <p><strong>Endereço:</strong>  <%= @user.address %></p>
+        <p><strong>Gênero:</strong>  <%= @user.gender %></p>
+        <p><strong>Telefone:</strong>  <%= @user.phone %></p>
+        <p><strong>Data de Nascimento: </strong><%= @user.birth_date.day %>/<%= @user.birth_date.month %>/<%= @user.birth_date.year %></p>
+        <p><strong>Turno:</strong>  <%= @user.alumn.shift %></p>
+
+        <p>nome responsáveis:</p>
+        <ul>
+          <li>janaína xavier de jesus</li>
+          <li>robson lucas figueredo</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="nav nav-tabs">
+      <li class="active" role="presentation"><a href="#faltas" aria-controls="faltas" role="tab" data-toggle="tab">Faltas</a></li>
+      <li role="presentation"><a href="#boletim"aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
+      <li role="presentation"><a href="#notificacoes" aria-controls="notificacoes" role="tab" data-toggle="tab">Notificações</a></li>
+    </ul>
+    <div>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="faltas">
+          <ul>
+            <!-- <li>11/09/2003</li>
+            <li>06/06/2013</li>
+            <li>13/13/2013</li>
+            <li>30/02/2002</li> -->
+          </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="boletim">
+          <img src="img/boletim.png" class="img-responsive">
+        </div>
+        <div role="tabpanel" class="tab-pane" id="notificacoes">
+          <p>nenhuma notificação no histórico.</p>
+        </div>
+~~~~~~ dev_crud_alumn
       </div>
     </div>
   </div>

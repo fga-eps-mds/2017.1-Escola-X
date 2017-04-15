@@ -2,13 +2,23 @@
 <html>
   <head>
     <title>Escola X - The application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="../../assets/stylesheets/master.css" media="screen" title="no title">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+
     <%= yield %>
+
+  <footer>
+    <div class="container text-center text-muted">
+        <p>&copy; GPL-v.3</p>
+    </div>
+  </footer>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

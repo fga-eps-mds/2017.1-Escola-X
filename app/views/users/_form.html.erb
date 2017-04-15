@@ -1,5 +1,7 @@
 <%= render "layouts/navbar" %>
 
+~~~~~~ dev_crud_parent
+
 <% if @user.errors.any? %>
   <div class="container">
     <div class="text-danger">
@@ -34,6 +36,11 @@
   </div>
 <% end %>
 
+~~~~~~
+<%= form_for (@user) do |f| %>
+
+~~~~~~ dev_crud_alumn
+
   <div class="form-group">
     <%= f.label :name, class:"sr-only" %>
     <div class="input-group">
@@ -45,12 +52,42 @@
     </div>
   </div>
 
+~~~~~~ dev_crud_parent
+~~~~~~
+  <%= f.fields_for :alumn, Alumn.new do |a| %>
+    <div class="form-group">
+      <%= a.label :registry, class:"sr-only" %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-pencil"></span>
+           Mat.
+        </span>
+        <%= a.number_field :registry, class:"form-control", placeholder:"Ex.: 15345678" %>
+      </div>
+      <div class="form-group">
+    </div>
+    <%= a.label :shift, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-refresh"></span>
+        Turno
+      </span>
+      <%= a.text_field :shift, class:"form-control", placeholder:"Ex.: matutino" %>
+    </div>
+  </div>
+  <% end %>
+
+~~~~~~ dev_crud_alumn
   <div class="form-group">
     <%= f.label :address, class:"sr-only" %>
     <div class="input-group">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-home"></span>
+~~~~~~ dev_crud_parent
          Endereço
+~~~~~~
+         End.
+~~~~~~ dev_crud_alumn
       </span>
       <%= f.text_field :address, class:"form-control", placeholder:"Ex.: Rua do limoeiro, casa 53" %>
     </div>
@@ -61,9 +98,15 @@
     <div class="input-group">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-phone"></span>
+~~~~~~ dev_crud_parent
          Telefone
       </span>
       <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999", :data => {:mask=>'(99) 99999-9999'} %>
+~~~~~~
+         Tel.
+      </span>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999" %>
+~~~~~~ dev_crud_alumn
     </div>
   </div>
 
@@ -86,6 +129,7 @@
     </div> -->
     <p class="text-uppercase"><strong>Gênero</strong></p>
     <div class="checkbox">
+~~~~~~ dev_crud_parent
       <%= f.radio_button(:gender, "Mulher") %>
       <%= label :gender, "Mulher" %>
     </div>
@@ -95,8 +139,17 @@
     </div>
   </div>
 
+~~~~~~
+      <%= f.radio_button(:gender,"Feminino") %>
+      <%= label :gender, "Feminino" %>
+    </div>
+    <div class="checkbox">
+      <%= f.radio_button(:gender,"Masculino") %>
+      <%= label :gender, "Masculino" %>
+    </div>
+  </div>
 
-
+~~~~~~ dev_crud_alumn
   <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
   <%= link_to "Voltar", users_path, class:'btn btn-lg btn-warning' %>
 
