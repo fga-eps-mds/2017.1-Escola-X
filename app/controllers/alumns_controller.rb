@@ -5,54 +5,54 @@
 #   def index
 #     @alumns = Alumn.all
 #   end
-#
+
 #   def show
 #     @alumn = Alumn.find(params[:id])
 #   end
 #
-#   def new
-#     @alumn = Alumn.new
-#   end
-#
-#   def edit
-#     @alumn = User.find(params[:id])
-#   end
-#
-#   def create
-#     @alumn = Alumn.new(alumn_params)
-#
-#     @alumn.save
-#     redirect_to @alumn
-#   end
-#
-#   def update
-#     @alumn = Alumn.find(params[:id])
-#
-#     if (@alumn.update(alumn_params))
-#       redirect_to @alumn
-#     else
-#       render 'edit'
-#     end
-#   end
-#
-#   def destroy
-#     @alumn = Alumn.find (params[:id])
-#     @alumn.destroy
-#
-#     redirect_to alumns_path
-#   end
-#
-#   private
-#   # Strong params to be passed to a alumn
-#   def alumn_params
-#     params.require(:alumn).permit(:name_alumn,
-#                                   :registry_alumn,
-#                                   :class_alumn,
-#                                   :shift_alumn,
-#                                   :address_alumn,
-#                                   :phone_alumn,
-#                                   :birth_date_alumn,
-#                                   :gender_alumn)
-#   end
-# end
+   def new
+     @alumn = Alumn.new
+   end
+
+   def edit
+     @user = User.find(params[:id])
+     @alumn = @user.alumns.find(alumn_params)
+   end
+
+   def create
+     @user = User.find(params[:id])
+     @alumn = @user.alumns.find(alumn_params)
+
+     if @alumn.save
+        redirect_to @alumn
+     else
+        render 'new'
+     end
+   end
+
+   def update
+     @user = User.find(params[:id])
+     @parent = @user.alumns.find(params[:id])
+
+     if @user.update
+       redirect_to @user
+     else
+       render 'edit'
+     end
+   end
+
+   def destroy
+     @user = User.find (params[:id])
+     @alumn = @user.alumns.find(params[:id])
+     @alumn.destroy
+     redirect_to alumns_path(@user)
+   end
+
+   private
+   # Strong params to be passed to a alumn
+   def alumn_params
+     params.require(:alumn).permit(:registry,
+                                   :shift)
+   end
+  end
  end
