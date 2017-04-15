@@ -1,6 +1,21 @@
 <%= render "layouts/navbar" %>
 <%= form_for (@user) do |f| %>
 
+<%= f.fields_for :parent, Parent.new do |pf|%>
+  <div class="form-group">
+    <%= pf.label :parent_cpf, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">CPF</span>
+      <%= pf.text_field :parent_cpf, class:"form-control cpf active", placeholder:"Ex.: 000.000.000-00", :data => {:mask=>'999.999.999-99'} %>
+      <!-- <script type="text/javascript">
+        $(document).ready(function(){
+          $('.cpf').mask('000.000.000-00', {reverse: true});
+        });
+      </script> -->
+    </div>
+  </div>
+<% end %>
+
   <div class="form-group">
     <%= f.label :name, class:"sr-only" %>
     <div class="input-group">
@@ -44,22 +59,6 @@
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>
   </div>
-
-  <%= f.fields_for :parent, Parent.new do |pf|%>
-    <div class="form-group">
-      <%= pf.label :parent_cpf, class:"sr-only" %>
-      <div class="input-group">
-        <span class="input-group-addon">CPF</span>
-        <%= pf.text_field :parent_cpf, class:"form-control cpf", placeholder:"Ex.: 000.000.000-00", :data => {:mask=>'999.999.999-99'} %>
-        <!-- <script type="text/javascript">
-          $(document).ready(function(){
-            $('.cpf').mask('000.000.000-00', {reverse: true});
-          });
-        </script> -->
-      </div>
-    </div>
-  <% end %>
-
 
   <div class="form-group">
     <%= f.label :gender, class:"sr-only" %>
