@@ -1,4 +1,22 @@
 <%= render "layouts/navbar" %>
+
+<% if @user.errors.any? %>
+  <div class="container">
+    <div class="text-danger">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@user.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
 <%= form_for (@user) do |f| %>
 
 <%= f.fields_for :parent, Parent.new do |pf|%>
