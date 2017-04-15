@@ -1,5 +1,5 @@
 class Alumn < ApplicationRecord
-  belongs_to :user
+  belongs_to :user , optional: true
 
   validates :registry, presence: { message: "não pode estar em branco" },
                                            length: { minimum: 5,
