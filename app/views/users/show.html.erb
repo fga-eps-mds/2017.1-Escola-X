@@ -22,7 +22,7 @@
         <p><strong>Endereço:</strong>  <%= @user.address %></p>
         <p><strong>Gênero:</strong>  <%= @user.gender %></p>
         <p><strong>Telefone:</strong>  <%= @user.phone %></p>
-        <p><strong>Data de Nascimento:</strong>  <%= @user.birth_date %></p>
+        <p><strong>Data de Nascimento: </strong><%= @user.birth_date.day %>/<%= @user.birth_date.month %>/<%= @user.birth_date.year %></p>
         <p><strong>Turno:</strong>  <%= @user.alumn.shift %></p>
 
         <p>nome responsáveis:</p>
