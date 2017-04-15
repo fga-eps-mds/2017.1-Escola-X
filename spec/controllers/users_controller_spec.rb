@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
 
   let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",
-                           birth_date:"50/65",permission:" " } }
+                           birth_date:"50 abr", permission:" " } }
 
   let(:valid_session) {{}}
 
@@ -30,6 +30,7 @@ RSpec.describe UsersController, type: :controller do
       user = User.create(name:"jao",password:"13454366",permission:"Principal")
       cookies[:authorization_token] = user.authorization_token
     end
+
     describe "with valid params" do
       it "Creates a new User" do
         expect{
@@ -68,4 +69,24 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  # describe "Destroy user" do
+  #   before (:each) do
+  #     user = User.create( name:"Julius", password:"12345678",
+  #     permission: "Principal")
+  #     cookies[:authorization_token] = user.authorization_token
+  #   end
+  #
+  #   describe "with valid params" do
+  #     it "destroys a user" do
+  #       expect{
+  #         delete :destroy, params: {:user => valid_inputs}
+  #       }.to change(User, :count).by -1
+  #     end
+  #
+  #     it "redirects to users index" do
+  #       get :destroy, params: {:user => valid_inputs}
+  #       expect(response).to redirect_to users_path
+  #     end
+  #   end
+  # end
 end
