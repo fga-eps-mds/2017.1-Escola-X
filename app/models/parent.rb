@@ -1,3 +1,4 @@
 class Parent < ApplicationRecord
-  belongs_to :user, optional: true 
+  belongs_to :user, optional: true
+  validates :parent_cpf, :cpf => true
 end
