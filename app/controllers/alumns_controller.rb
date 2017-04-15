@@ -32,7 +32,7 @@
 
    def update
      @user = User.find(params[:id])
-     @parent = @user.alumns.find(params[:id])
+     @alumn = @user.alumns.find(params[:id])
 
      if @user.update
        redirect_to @user
@@ -55,4 +55,4 @@
                                    :shift)
    end
 
- end
+  end
