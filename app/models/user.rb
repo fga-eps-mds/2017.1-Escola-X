@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :alumn, autosave: true
+  has_one :alumn, autosave: true,dependent: :destroy
   accepts_nested_attributes_for :alumn
 
   validates :name, presence: { message: "não pode estar em branco" },
