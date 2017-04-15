@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new()
+    @user = User.new
+
   end
 
   def edit
@@ -20,45 +21,52 @@ class UsersController < ApplicationController
   end
 
   def create
-      @user = User.new(user_params)
-      if @user.save
-      # debugger
+    @user = User.new(user_params)
+    if @user.save
       redirect_to @user
     else
-      render action: 'new'
+      render 'new'
     end
   end
 
+  def destroy
+      @parent= Parent.find(params[:id])
+      @parent.destroy
+      redirect_to parents_path
+  end
+
   def update
-    @user = set_user
-    # debugger
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
     else
-      render action: 'edit'
+      render 'edit'
     end
   end
 
   def destroy
     set_user
     @user.destroy
-
     redirect_to users_path
   end
-
-  private
-
+  
+private
   def set_user
     @user = User.find(params[:id])
   end
 
+#  def user_params
+#    params.require(:user).permit(:name, :address, :phone, :gender, :birth_date,
+#     parent_attributes: [:parent_cpf])
+#  end
+
   # Strong params to be passed to users
-  def user_params
-    params.require(:user).permit(:name,
-                                 :address,
-                                 :phone,
-                                 :gender,
-                                 :birth_date,
-                                 alumn_attributes: [:registry, :shift])
-  end
+#  def user_params
+#    params.require(:user).permit(:name,
+#                                 :address,
+#                                 :phone,
+#                                 :gender,
+#                                 :birth_date,
+#                                 alumn_attributes: [:registry, :shift])
+#  end
 end

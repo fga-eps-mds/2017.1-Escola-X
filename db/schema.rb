@@ -10,6 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170414153608) do
+
+  create_table "parents", force: :cascade do |t|
+    t.string   "parent_cpf"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parents_on_user_id"
 ActiveRecord::Schema.define(version: 20170414051724) do
 
   create_table "alumns", force: :cascade do |t|
@@ -26,10 +34,10 @@ ActiveRecord::Schema.define(version: 20170414051724) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.date     "birth_date"
-    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "birth_date"
+    t.date     "birth_date"
   end
 
 end
