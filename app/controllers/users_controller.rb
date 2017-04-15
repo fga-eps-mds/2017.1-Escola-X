@@ -1,18 +1,22 @@
+# File name: users_controller.rb
+# Class name: UsersController
+# Description: Controller used to making sense of the request users
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
 
-def show
-  @user = User.find(params[:id])
-end
+  def show
+    @user = set_user
+  end
 
   def new
     @user = User.new
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = set_user
   end
 
   def create
@@ -32,29 +36,29 @@ end
   end
 
 
-def update
-
-  @user = User.find(params[:id])
-  if @user.update(user_params)
-    redirect_to users_path
-  else
-    render 'edit'
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to users_path
+    else
+      render 'edit'
+    end
   end
-end
 
-def destroy
-  @user = User.find(params[:id])
-  @user.destroy
-  redirect_to users_path
-end
+  def destroy
+    set_user
+    @user.destroy
+    redirect_to users_path
+  end
 
-
+  def set_user
+    @user = User.find(params(:id))
+  end
 
 private
   def user_params
     params.require(:user).permit(:name, :address, :phone, :gender,
      parent_attributes: [:parent_cpf])
-
   end
 
 end
