@@ -77,12 +77,12 @@
     </div> -->
     <p class="text-uppercase"><strong>Gênero</strong></p>
     <div class="checkbox">
-      <%= radio_button_tag(:gender, "Feminino") %>
-      <%= label_tag(:gender, "Feminino") %>
+      <%= f.radio_button(:gender,"Feminino") %>
+      <%= label :gender, "Feminino" %>
     </div>
     <div class="checkbox">
-      <%= radio_button_tag(:gender, "Masculino") %>
-      <%= label_tag(:gender, "Masculino") %>
+      <%= f.radio_button(:gender,"Masculino") %>
+      <%= label :gender, "Masculino" %>
     </div>
   </div>
 
