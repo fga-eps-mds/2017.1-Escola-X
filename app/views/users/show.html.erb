@@ -9,12 +9,13 @@
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h3 class=""><%= @user.name %></h3>
-        <h4 class=""><%= "#{@permission}" %> da escola CEM01</h4>
-        <h5>matrícula: <%= "#{@registry}" %></h5>
-        <p>Sexo: <%= "#{@gender}" %></p>
-        <p>Idade: <%= "#{@years_old}" %></p>
-        <p>ano e turma: <%= "#{@years_old}" %></p>
-        <p>data engresso: <%= "#{@admission_date}" %></p>
+        <h4 class=""><%= @user.name %> da escola CEM01</h4>
+        <h5>matrícula:  <%= @user.alumn.registry %></h5>
+        <p>Endereço:  <%= @user.address %></p>
+        <p>Gênero:  <%= @user.gender %></p>
+        <p>Telefone:  <%= @user.phone %></p>
+        <p>Data de Nascimento:  <%= @user.birth_date %></p>
+        <p>Turno:  <%= @user.alumn.shift %></p>
         <p>nome responsáveis:</p>
         <ul>
           <li>janaína xavier de jesus</li>
