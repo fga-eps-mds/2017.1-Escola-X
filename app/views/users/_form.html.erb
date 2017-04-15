@@ -64,12 +64,12 @@
     </div> -->
     <p class="text-uppercase"><strong>Gênero</strong></p>
     <div class="checkbox">
-      <%= radio_button_tag(:gender, "Mulher") %>
-      <%= label_tag(:gender_female, "Mulher") %>
+      <%= f.radio_button(:gender, "Mulher") %>
+      <%= label :gender, "Mulher" %>
     </div>
     <div class="checkbox">
-      <%= radio_button_tag(:gender, "Homem") %>
-      <%= label_tag(:gender_male, "Homem") %>
+      <%= f.radio_button(:gender, "Homem") %>
+      <%= label :gender, "Homem" %>
     </div>
   </div>
 
