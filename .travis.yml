@@ -1,9 +1,16 @@
-before_script: bundle exec rails db:create db:migrate
+before_script:
+  - bundle exec rails db:create db:migrate
+
 cache: bundler
+
 language: ruby
+
 rvm:
   - 2.3.1
-sript:
+
+script:
   - bundle exec rspec
+
 sudo: false
+
 dist: xenial

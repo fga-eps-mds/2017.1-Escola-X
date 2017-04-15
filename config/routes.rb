@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :alumns, controller:'users', type: 'Alumn'
   resources :principals, controller:'users', type: 'Principal'
 
-
   root 'sessions#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -26,3 +26,4 @@
 #   User.create( name: name, address: address, cpf: cpf, registry: registry,
 #               phone: phone, permission: permission, password: password )
 # end
+
