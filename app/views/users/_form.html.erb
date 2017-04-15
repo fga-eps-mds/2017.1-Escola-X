@@ -30,7 +30,7 @@
         <span class="glyphicon glyphicon-phone"></span>
          Telefone
       </span>
-      <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999" %>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999", :data => {:mask=>'(99) 99999-9999'} %>
     </div>
   </div>
 
@@ -50,7 +50,12 @@
       <%= pf.label :parent_cpf, class:"sr-only" %>
       <div class="input-group">
         <span class="input-group-addon">CPF</span>
-        <%= pf.text_field :parent_cpf, class:"form-control", placeholder:"Ex.: 000.000.000-00" %>
+        <%= pf.text_field :parent_cpf, class:"form-control cpf", placeholder:"Ex.: 000.000.000-00", :data => {:mask=>'999.999.999-99'} %>
+        <!-- <script type="text/javascript">
+          $(document).ready(function(){
+            $('.cpf').mask('000.000.000-00', {reverse: true});
+          });
+        </script> -->
       </div>
     </div>
   <% end %>
