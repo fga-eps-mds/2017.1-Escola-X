@@ -58,6 +58,7 @@ class UsersController < ApplicationController
                                  :address,
                                  :phone,
                                  :gender,
-                                 :birth_date)
+                                 :birth_date,
+                                 alumn_attributes: [:registry, :shift])
   end
 end
