@@ -30,12 +30,25 @@ class UsersController < ApplicationController
     @user = set_user
   end
 
+  def edit_alumn
+    @user = set_user
+  end
+
+  def edit_parent
+    @user = set_user
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      if @user.permission == "Alumn"
+        redirect_to alumn_path(@user)
+      end
+      if @user.permission == "Parent"
+        redirect_to parent_path(@user)
+      end
     else
-      render 'new'
+      redirect_to :back
     end
   end
 
@@ -66,7 +79,7 @@ private
   end
 
  def user_params
-   params.require(:user).permit(:name, :address, :phone, :gender, :birth_date,
+   params.require(:user).permit(:name, :address, :phone, :gender, :birth_date, :permission,
     parent_attributes: [:parent_cpf], alumn_attributes: [:registry, :shift])
  end
 

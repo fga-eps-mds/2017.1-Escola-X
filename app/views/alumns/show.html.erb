@@ -1,7 +1,7 @@
 <%= render "layouts/navbar" %>
 <section class="content-section" id="alunos-desc">
   <div class="container">
-    <%= link_to 'Editar', edit_user_path(@user), class:"btn btn-sm btn-info" %>
+    <%= link_to 'Editar', edit_alumn_path(@user), class:"btn btn-sm btn-info" %>
     <%= link_to 'Destroy', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
@@ -13,7 +13,6 @@
         <h4 class="">Sexo: <%= @user.gender %></h4>
         <h4 class="">Endereço: <%= @user.address %></h4>
         <h4 class="">Data de Nascimento: <%= @user.birth_date %></h4>
-        <h4 class="">CPF: <%= @user.parent.parent_cpf %></h4>
       </div>
     </div>
   </div>

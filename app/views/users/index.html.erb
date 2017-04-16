@@ -4,6 +4,7 @@
 <section class="content-section" id="alumns-list">
 
   <% @users.each do |user| %>
+  <% if user.permission == "Parent" %>
     <div class="container">
       <div class="row item">
         <div class="col-sm-12 col-md-4">
@@ -18,10 +19,37 @@
           <h4> <%= user.birth_date %> </h4>
           <h4> <%= user.gender %> </h4>
           <h4> <%= user.phone %> </h4>
-          <%= link_to 'show', user_path(user), class:'btn btn-default' %>
+          <h4> <%= user.parent.parent_cpf %> </h4>
+          <%= link_to 'show', parent_path(user), class:'btn btn-default' %>
+
         </div>
       </div>
       <hr>
     </div>
+    <% end %>
+
+    <% if user.permission == "Alumn" %>
+      <div class="container">
+        <div class="row item">
+          <div class="col-sm-12 col-md-4">
+            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+          </div>
+          <div class="col-sm-12 col-md-8 text-capitalize descript">
+            <h2><%= user.name %></h2>
+            <!-- h3 class=""><span class="glyphicon glyphicon-user"></span></h3 -->
+            <!-- <h4 class="text-success">status: ok</h4> -->
+            <!-- <h4 class="text-success">status: ok</h4> -->
+            <h4> <%= user.address %> </h4>
+            <h4> <%= user.birth_date %> </h4>
+            <h4> <%= user.gender %> </h4>
+            <h4> <%= user.phone %> </h4>
+
+            <%= link_to 'show', alumn_path(user), class:'btn btn-default' %>
+
+          </div>
+        </div>
+        <hr>
+      </div>
+      <% end %>
   <% end %>
 </section>
