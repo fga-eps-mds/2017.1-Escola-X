@@ -16,6 +16,16 @@ class UsersController < ApplicationController
 
   end
 
+  def new_alumn
+    @user = User.new
+
+  end
+
+  def new_parent
+    @user = User.new
+
+  end
+
   def edit
     @user = set_user
   end
@@ -49,16 +59,16 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
   end
-  
+
 private
   def set_user
     @user = User.find(params[:id])
   end
 
-#  def user_params
-#    params.require(:user).permit(:name, :address, :phone, :gender, :birth_date,
-#     parent_attributes: [:parent_cpf])
-#  end
+ def user_params
+   params.require(:user).permit(:name, :address, :phone, :gender, :birth_date,
+    parent_attributes: [:parent_cpf], alumn_attributes: [:registry, :shift])
+ end
 
   # Strong params to be passed to users
 #  def user_params

@@ -1,9 +1,5 @@
 <%= render "layouts/navbar" %>
-~~~~~~ dev_crud_parent
-<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Responsáveis</h1>
-~~~~~~
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Usuários</h1>
-~~~~~~ dev_crud_alumn
 <hr>
 <section class="content-section" id="alumns-list">
 
@@ -11,22 +7,17 @@
     <div class="container">
       <div class="row item">
         <div class="col-sm-12 col-md-4">
-~~~~~~ dev_crud_parent
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-~~~~~~
-          <img src="img/foto%20250x300.jpg" alt="" class="img-responsive">
-~~~~~~ dev_crud_alumn
         </div>
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2><%= user.name %></h2>
           <!-- h3 class=""><span class="glyphicon glyphicon-user"></span></h3 -->
-~~~~~~ dev_crud_parent
           <!-- <h4 class="text-success">status: ok</h4> -->
-~~~~~~
-          <h4 class=""><%= user.name %> da escola CEM01</h4>
           <!-- <h4 class="text-success">status: ok</h4> -->
           <h4> <%= user.address %> </h4>
-~~~~~~ dev_crud_alumn
+          <h4> <%= user.birth_date %> </h4>
+          <h4> <%= user.gender %> </h4>
+          <h4> <%= user.phone %> </h4>
           <%= link_to 'show', user_path(user), class:'btn btn-default' %>
         </div>
       </div>

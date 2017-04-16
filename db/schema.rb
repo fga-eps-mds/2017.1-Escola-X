@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170414153608) do
 
-  create_table "parents", force: :cascade do |t|
-    t.string   "parent_cpf"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_parents_on_user_id"
-ActiveRecord::Schema.define(version: 20170414051724) do
-
   create_table "alumns", force: :cascade do |t|
     t.integer  "registry"
     t.string   "shift"
@@ -27,6 +19,14 @@ ActiveRecord::Schema.define(version: 20170414051724) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_alumns_on_user_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string   "parent_cpf"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170414051724) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "birth_date"
-    t.date     "birth_date"
   end
 
 end

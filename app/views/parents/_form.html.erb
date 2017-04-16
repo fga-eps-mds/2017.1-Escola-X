@@ -1,0 +1,93 @@
+<%= render "layouts/navbar" %>
+<%= form_for (@user) do |f| %>
+<% if @user.errors.any? %>
+  <div class="container">
+    <div class="text-danger">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@user.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+  <div class="form-group">
+    <%= f.label :name, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-user"></span>
+         Nome
+      </span>
+      <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
+    </div>
+  </div>
+
+  <%= f.fields_for :parent, Parent.new do |pf|%>
+    <div class="form-group">
+      <%= pf.label :parent_cpf, class:"sr-only" %>
+      <div class="input-group">
+        <span class="input-group-addon">CPF</span>
+        <%= pf.text_field :parent_cpf, class:"form-control cpf active", placeholder:"Ex.: 000.000.000-00"%>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :address, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-home"></span>
+         Endereço
+      </span>
+      <%= f.text_field :address, class:"form-control", placeholder:"Ex.: Rua do limoeiro, casa 53" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-phone"></span>
+         Telefone
+      </span>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :birth_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-gift"></span>
+         Data de nascimento
+      </span>
+      <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gender, class:"sr-only" %>
+    <!-- <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-"></span>
+      <%= f.text_field :gender, class:"form-control" %>
+    </div> -->
+    <p class="text-uppercase"><strong>Gênero</strong></p>
+    <div class="checkbox">
+      <%= f.radio_button(:gender,"Feminino") %>
+      <%= label :gender, "Feminino" %>
+    </div>
+    <div class="checkbox">
+      <%= f.radio_button(:gender,"Masculino") %>
+      <%= label :gender, "Masculino" %>
+    </div>
+  </div>
+
+  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
+  <%= link_to "Voltar", users_path, class:'btn btn-lg btn-warning' %>
+
+<% end %>
