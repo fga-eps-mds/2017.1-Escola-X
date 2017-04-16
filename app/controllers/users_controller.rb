@@ -16,25 +16,9 @@ class UsersController < ApplicationController
 
   end
 
-  def new_alumn
-    @user = User.new
 
-  end
-
-  def new_parent
-    @user = User.new
-
-  end
 
   def edit
-    @user = set_user
-  end
-
-  def edit_alumn
-    @user = set_user
-  end
-
-  def edit_parent
     @user = set_user
   end
 
@@ -42,10 +26,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       if @user.permission == "Alumn"
-        redirect_to alumn_path(@user)
+        redirect_to alumn_path(@user.alumn)
       end
       if @user.permission == "Parent"
-        redirect_to parent_path(@user)
+        redirect_to parent_path(@user.parent)
       end
     else
       redirect_to :back
@@ -61,22 +45,19 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user
+      if @user.permission == "Alumn"
+        redirect_to alumn_path(@user.alumn  )
+      end
+      if @user.permission == "Parent"
+        redirect_to parent_path(@user.parent)
+      end
     else
-      render 'edit'
+      debugger
+      redirect_to :back
     end
   end
 
-  def destroy
-    set_user
-    @user.destroy
-    redirect_to users_path
-  end
-
 private
-  def set_user
-    @user = User.find(params[:id])
-  end
 
  def user_params
    params.require(:user).permit(:name, :address, :phone, :gender, :birth_date, :permission,

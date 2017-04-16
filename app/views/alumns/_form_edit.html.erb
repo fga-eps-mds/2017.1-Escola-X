@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <%= f.fields_for :alumn, Alumn.new do |a| %>
+  <%= f.fields_for :alumn, @alumn do |a| %>
     <div class="form-group">
       <%= a.label :registry, class:"sr-only" %>
       <div class="input-group">
