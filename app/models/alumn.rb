@@ -1,3 +1,6 @@
+#File name: alumn.rb
+#Class name: Alumn
+#Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :user , optional: true
   

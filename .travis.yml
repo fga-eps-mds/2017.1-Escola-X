@@ -1,4 +1,6 @@
-before_script: bundle exec rails db:create db:migrate
+before_script:
+  - bundle exec rails db:create db:migrate
+
 cache: bundler
 language: ruby
 rvm:

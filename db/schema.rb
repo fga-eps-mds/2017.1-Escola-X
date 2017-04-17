@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20170416205501) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "password_digest"
     t.string   "birth_date"
+    t.string   "authorization_token"
     t.string   "permission"
   end
 
