@@ -1,7 +1,5 @@
 <%= render "layouts/navbar" %>
 <section class="content-section" id="alunos-desc">
-
-
   <% if @user.permission == "Parent" %>
     <div class="container">
       <%= link_to 'Editar', edit_parent_path(@user), class:"btn btn-sm btn-info" %>
@@ -20,7 +18,6 @@
       </div>
     </div>
     <% end %>
-
     <% if @user.permission == "Alumn" %>
       <div class="container">
         <%= link_to 'Editar', edit_alumn_path(@user), class:"btn btn-sm btn-info" %>
@@ -40,4 +37,3 @@
       </div>
       <% end %>
 </section>
-
