@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417191317) do
+ActiveRecord::Schema.define(version: 20170417215921) do
 
   create_table "alumns", force: :cascade do |t|
     t.integer  "registry"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170417191317) do
 
   create_table "employees", force: :cascade do |t|
     t.integer  "registry"
-    t.string   "cpf"
+    t.string   "employee_cpf"
     t.string   "admission_date"
     t.string   "shift"
     t.integer  "user_id"

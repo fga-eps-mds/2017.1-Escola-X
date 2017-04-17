@@ -18,7 +18,7 @@ class ParentsController < UsersController
 
   def new
     if ( is_principal? )
-       @user = User.new
+      @user = User.new
     end
   end
 
@@ -29,14 +29,14 @@ class ParentsController < UsersController
     end
   end
 
-   def destroy
-     if ( is_principal? )
-       @parent = Parent.find(params[:id])
-       @user = User.find (@parent.user_id)
-       @user.destroy
-       redirect_to users_path
-     end
-   end
+  def destroy
+    if ( is_principal? )
+      @parent = Parent.find(params[:id])
+      @user = User.find (@parent.user_id)
+      @user.destroy
+      redirect_to users_path
+    end
+  end
 
 private
   def parent_params

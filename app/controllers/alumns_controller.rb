@@ -34,6 +34,7 @@
       @alumn = Alumn.find(params[:id])
       @user = User.find (@alumn.user_id)
       @user.destroy
+
       redirect_to users_path
     end
   end

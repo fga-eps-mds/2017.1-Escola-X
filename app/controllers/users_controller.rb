@@ -26,7 +26,11 @@ class UsersController < ApplicationController
           redirect_to parent_path(@user.parent)
         end
       else
-        redirect_to :back
+        if ( @user.permission == "Alumn" )
+          render 'alumns/new'
+        elsif ( @user.permission == "Parent" )
+          render 'parents/new'
+        end
       end
     end
   end
@@ -42,8 +46,11 @@ class UsersController < ApplicationController
           redirect_to parent_path(@user.parent)
         end
       else
-        debugger
-        redirect_to :back
+        if ( @user.permission == "Alumn" )
+          render 'alumns/edit'
+        elsif ( @user.permission == "Parent" )
+          render 'parents/edit'
+        end
       end
     end
   end
