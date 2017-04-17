@@ -5,6 +5,7 @@
 class User < ApplicationRecord
   has_one :parent, autosave: true, dependent: :destroy
   has_one :alumn, autosave: true, dependent: :destroy
+  has_one :employee, autosave: true, dependent: :destroy
   has_secure_password
 
   accepts_nested_attributes_for :parent
@@ -29,8 +30,8 @@ class User < ApplicationRecord
                               :too_long => "deve possuir no máximo 11 dígitos" }
 
 
-  validates :password, presence:true,
-                        length: { minimum: 8}
+  # validates :password, presence:true,
+  #                       length: { minimum: 8}
 
   before_create{
     generate_token(:authorization_token)

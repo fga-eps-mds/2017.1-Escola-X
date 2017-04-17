@@ -36,6 +36,18 @@
         </span>
         <%= a.number_field :registry, class:"form-control", placeholder:"Ex.: 15345678" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :password, class:"sr-only" %>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-home"></span>
+             Senha
+          </span>
+          <%= f.password_field :password, class:"form-control"%>
+        </div>
+      </div>
+      
       <div class="form-group">
     </div>
     <%= a.label :shift, class:"sr-only" %>

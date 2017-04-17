@@ -2,7 +2,6 @@
 # Class name: ParentsController
 # Description: Controller used to communicate with the view highways/show
 class ParentsController < UsersController
-include SessionsHelper
 
   def index
     if (logged_in?)

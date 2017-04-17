@@ -1,6 +1,5 @@
 # File name: users_controller.rb
 # Class name: UsersController
-~~~~~~ dev_crud_alumn
 # Description: Controller used to making sense of the request users
 class UsersController < ApplicationController
   include SessionsHelper
@@ -13,7 +12,7 @@ class UsersController < ApplicationController
 
   def show
     if (logged_in?)
-      @user = set_user
+      @user = User.find(params[:id])
     end
   end
 
@@ -33,14 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    if(is_principal?)
-      @parent= Parent.find(params[:id])
-      @parent.destroy
-      redirect_to parents_path
-    end
-  end
-
   def update
     if(is_principal?)
       @user = User.find(params[:id])
@@ -52,6 +43,7 @@ class UsersController < ApplicationController
           redirect_to parent_path(@user.parent)
         end
       else
+        debugger
         redirect_to :back
       end
     end
@@ -65,13 +57,15 @@ class UsersController < ApplicationController
 
 private
 
- def user_params
-   params.require(:user).permit(:name,
-                                :address,
-                                :phone,
-                                :gender,
-                                :birth_date,
-                                :permission,
-                                parent_attributes: [:parent_cpf],
-                                alumn_attributes: [:registry, :shift])
- end
+  def user_params
+    params.require(:user).permit(:name,
+                                 :address,
+                                 :phone,
+                                 :gender,
+                                 :birth_date,
+                                 :permission,
+                                 :password,
+                                 parent_attributes: [:parent_cpf],
+                                 alumn_attributes: [:registry, :shift])
+  end
+end
