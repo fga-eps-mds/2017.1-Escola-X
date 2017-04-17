@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         alumn =  Alumn.find_by_registry(params[:login])
         user = User.find(alumn.user_id)
       elsif ( !Parent.find_by_parent_cpf(params[:login]).nil? )
-        parent =  Parent.find_by_registry(params[:login])
+        parent =  Parent.find_by_parent_cpf(params[:login])
         user = User.find(parent.user_id)
       elsif ( !Employee.find_by_cpf(params[:login]).nil? )
         employee =  Employee.find_by_cpf(params[:login])

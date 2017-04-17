@@ -2,12 +2,7 @@
 # Class name: AlumnsController
 # Description: Controller used to communicate with the proprietary view of alumns
  class AlumnsController < UsersController
-<<<<<<< HEAD
-  
-=======
-  include SessionsHelper
 
->>>>>>> 163a4f9da42145f0498e3bfcc3056160a022dcf3
   def index
     if ( logged_in? )
       @alumns = Alumn.all

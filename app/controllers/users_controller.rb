@@ -22,8 +22,7 @@ class UsersController < ApplicationController
       if ( @user.save )
         if ( @user.permission == "Alumn" )
           redirect_to alumn_path(@user.alumn)
-        end
-        if ( @user.permission == "Parent" )
+        elsif ( @user.permission == "Parent" )
           redirect_to parent_path(@user.parent)
         end
       else
