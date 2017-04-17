@@ -5,6 +5,7 @@ class Alumn < ApplicationRecord
   belongs_to :user , optional: true
 
   validates :registry, presence: { message: "não pode estar em branco" },
+                      uniqueness: true,
              length: { minimum: 5,
                        maximum: 6,
                        :too_short => "deve possuir no mínimo 5 caracteres",

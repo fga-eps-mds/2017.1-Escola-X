@@ -11,8 +11,10 @@
 
         <li><%=link_to 'Sair', logout_path, class:'fa fa-sign-out' %></li>
 
-        <li><%= link_to "Criar Responsável", new_parent_path %></li>
-        <li><%= link_to "Criar Aluno", new_alumn_path %></li>
+        <li><%if @current_user.permission=="Principal" %>
+              <%= link_to "Criar Responsável", new_parent_path %></li>
+          <li><%= link_to "Criar Aluno", new_alumn_path %>
+            <% end %></li>
       </ul>
     </div>
   </div>

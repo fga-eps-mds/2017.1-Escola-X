@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :controller do
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr", permission:" " } }
 
-  let(:valid_session) {{}}
+
 
   describe "Creates a new user with a valid permission" do
     before(:each) do
@@ -19,8 +19,8 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "assigns a new user to @user" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:user)).to be_a_new(User)
+      get :new, {}
+      expect(assigns(:alumn)).to be_a_new(User)
     end
   end
 
