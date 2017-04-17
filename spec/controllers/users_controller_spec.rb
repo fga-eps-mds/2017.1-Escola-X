@@ -69,24 +69,27 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  # describe "Destroy user" do
-  #   before (:each) do
-  #     user = User.create( name:"Julius", password:"12345678",
-  #     permission: "Principal")
-  #     cookies[:authorization_token] = user.authorization_token
-  #   end
-  #
-  #   describe "with valid params" do
-  #     it "destroys a user" do
-  #       expect{
-  #         delete :destroy, params: {:user => valid_inputs}
-  #       }.to change(User, :count).by -1
-  #     end
-  #
-  #     it "redirects to users index" do
-  #       get :destroy, params: {:user => valid_inputs}
-  #       expect(response).to redirect_to users_path
-  #     end
-  #   end
-  # end
+  describe "Destroy user" do
+    before (:each) do
+      user = User.create( name:"Julius", password:"12345678",
+      permission: "Principal")
+      cookies[:authorization_token] = user.authorization_token
+    end
+
+    describe "with valid params" do
+      it "destroys a user" do
+        user = User.create! valid_inputs
+        expect{
+          delete :destroy, {:id => user.id}
+        }.to change(User, :count).by -1
+      end
+
+      it "redirects to users index" do
+        user = User.create! valid_inputs
+        delete :destroy, {:id => user.id}
+        expect(response).to redirect_to users_path
+      end
+    end
+  end
+  
 end
