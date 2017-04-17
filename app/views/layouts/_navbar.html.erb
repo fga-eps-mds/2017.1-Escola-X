@@ -2,13 +2,15 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coll-nav" aria-expanded="false">
-        <span class="glyphicon glyphicon-chevron-down"></span>
+        <span class="fa fa-angle-down"></span>
       </button>
       <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
+
         <li><%=link_to 'Sair', logout_path, class:'fa fa-sign-out' %></li>
+
         <li><%= link_to "Criar Responsável", new_parent_path %></li>
         <li><%= link_to "Criar Aluno", new_alumn_path %></li>
       </ul>

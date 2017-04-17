@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   include SessionsHelper
 
   def index
-    if (logged_in?)
+    if ( logged_in? )
       @users = User.all
     end
   end
@@ -17,13 +17,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    if (is_principal?)
+    if ( is_principal? )
       @user = User.new(user_params)
-      if (@user.save)
-        if (@user.permission == "Alumn")
+      if ( @user.save )
+        if ( @user.permission == "Alumn" )
           redirect_to alumn_path(@user.alumn)
         end
-        if (@user.permission == "Parent")
+        if ( @user.permission == "Parent" )
           redirect_to parent_path(@user.parent)
         end
       else
@@ -33,13 +33,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if(is_principal?)
+    if ( is_principal? )
       @user = User.find(params[:id])
-      if (@user.update(user_params))
-        if (@user.permission == "Alumn")
-          redirect_to alumn_path(@user.alumn  )
+      if ( @user.update(user_params) )
+        if ( @user.permission == "Alumn" )
+          redirect_to alumn_path(@user.alumn)
         end
-        if (@user.permission == "Parent")
+        if ( @user.permission == "Parent" )
           redirect_to parent_path(@user.parent)
         end
       else
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def edit_password
-    if (is_principal?)
+    if ( is_principal? )
       @user = User.find(params[:id])
     end
   end

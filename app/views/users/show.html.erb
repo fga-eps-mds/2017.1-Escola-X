@@ -1,11 +1,9 @@
 <%= render "layouts/navbar" %>
 <section class="content-section" id="alunos-desc">
-
-
   <% if @user.permission == "Parent" %>
     <div class="container">
       <%= link_to 'Editar', edit_parent_path(@user), class:"btn btn-sm btn-info" %>
-      <%= link_to 'Destroy', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+      <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
         <div class="row item">
           <div class="col-sm-12 col-md-4">
             <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
@@ -20,11 +18,10 @@
       </div>
     </div>
     <% end %>
-
     <% if @user.permission == "Alumn" %>
       <div class="container">
         <%= link_to 'Editar', edit_alumn_path(@user), class:"btn btn-sm btn-info" %>
-        <%= link_to 'Destroy', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
           <div class="row item">
             <div class="col-sm-12 col-md-4">
               <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
@@ -40,4 +37,3 @@
       </div>
       <% end %>
 </section>
-
