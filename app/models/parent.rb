@@ -1,0 +1,9 @@
+#File name: parent.rb
+#Class name: Parent
+#Description:Validates parent's attributes
+class Parent < ApplicationRecord
+  validates :cpf, presence: true, length:{maximum: 11},
+                  uniqueness:true
+
+  validates :cpf, :cpf => true
+end

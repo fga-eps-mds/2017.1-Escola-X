@@ -11,5 +11,20 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
  *= require_self
  */
+
+// Importing of bootswatch's flat theme for bootstrap
+@import "bootstrap-sprockets";
+
+@import "bootswatch/flatly/variables";
+
+@import "bootstrap";
+
+// Add space for fixed navbar to correctly be shown
+body {
+  padding-top: 3em;
+}
+
+@import "bootswatch/flatly/bootswatch";
