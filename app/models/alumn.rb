@@ -9,6 +9,7 @@ class Alumn < ApplicationRecord
                        maximum: 6,
                        :too_short => "deve possuir no mínimo 5 caracteres",
                        :too_long => "deve possuir no máximo 6 caracteres" }
+
   validates :shift, presence: { message: "não pode estar em branco" },
             length: { minimum: 7,
                       maximum: 11,

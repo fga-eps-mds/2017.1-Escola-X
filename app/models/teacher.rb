@@ -7,7 +7,9 @@ class Teacher < ApplicationRecord
   validates :registry, presence: true,
                       #length{to define}
                        uniqueness: true
+                       
   validates :admission_date, presence: true
+
   validates :cpf, presence: true, length:{maximum: 11},
                                   uniqueness:true
 

@@ -3,35 +3,35 @@
 # Description: Controller used to communicate with the proprietary view of alumns
  class AlumnsController < UsersController
   include SessionsHelper
-  
+
   def index
-    if(logged_in?)
+    if ( logged_in? )
       @alumns = Alumn.all
     end
   end
 
   def show
-    if(logged_in?)
+    if ( logged_in? )
       @alumn = Alumn.find(params[:id])
       @user = User.find_by_id(@alumn.user_id)
     end
   end
 
   def new
-    if(is_principal?)
+    if ( is_principal? )
       @user = User.new
     end
   end
 
   def edit
-    if(is_principal?)
+    if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       @user = User.find_by_id(@alumn.user_id)
     end
   end
 
   def destroy
-    if(is_principal?)
+    if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       @user = User.find (@alumn.user_id)
       @user.destroy

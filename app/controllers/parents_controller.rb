@@ -5,33 +5,33 @@ class ParentsController < UsersController
 include SessionsHelper
 
   def index
-    if (logged_in?)
+    if ( logged_in? )
       @parents = Parent.all
     end
   end
 
   def show
-    if (logged_in?)
+    if ( logged_in? )
       @parent = Parent.find(params[:id])
       @user = User.find_by_id(@parent.user_id)
     end
   end
 
   def new
-    if (is_principal?)
+    if ( is_principal? )
        @user = User.new
     end
   end
 
   def edit
-    if(is_principal?)
+    if ( is_principal? )
       @parent = Parent.find(params[:id])
       @user = User.find_by_id(@parent.user_id)
     end
   end
 
    def destroy
-     if(is_principal?)
+     if ( is_principal? )
        @parent = Parent.find(params[:id])
        @user = User.find (@parent.user_id)
        @user.destroy
