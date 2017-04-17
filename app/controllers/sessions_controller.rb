@@ -3,10 +3,10 @@
 #Description: Control the session login of the users
 class SessionsController < ApplicationController
   def create
-      if ( !User.find_by_registry(params[:login]).nil? )
-        user =  User.find_by_registry(params[:login])
-      elsif ( !User.find_by_cpf(params[:login]).nil? )
-        user =  User.find_by_cpf(params[:login])
+      if ( !User.alumn.find_by_registry(params[:login]).nil? )
+        user =  User.alumn.find_by_registry(params[:login])
+      elsif ( !User.parent.find_by_cpf(params[:login]).nil? )
+        user =  User.parent.find_by_cpf(params[:login])
       end
 
       if ( user and user.authenticate(params[:password]) )

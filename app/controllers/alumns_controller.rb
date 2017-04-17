@@ -2,30 +2,41 @@
 # Class name: AlumnsController
 # Description: Controller used to communicate with the proprietary view of alumns
  class AlumnsController < UsersController
+   include SessionsHelper
   def index
-    @alumns = Alumn.all
+    if(logged_in?)
+      @alumns = Alumn.all
+    end
   end
 
   def show
-    @alumn = Alumn.find(params[:id])
-    @user = User.find_by_id(@alumn.user_id)
+    if(logged_in?)
+      @alumn = Alumn.find(params[:id])
+      @user = User.find_by_id(@alumn.user_id)
+    end
   end
 
   def new
-    @user = User.new
+    if(is_principal?)
+      @user = User.new
+    end
   end
 
-   def edit
-     @alumn = Alumn.find(params[:id])
-     @user = User.find_by_id(@alumn.user_id)
-   end
+  def edit
+    if(is_principal?)
+      @alumn = Alumn.find(params[:id])
+      @user = User.find_by_id(@alumn.user_id)
+    end
+  end
 
-   def destroy
-     @alumn = Alumn.find(params[:id])
-     @user = User.find (@alumn.user_id)
-     @user.destroy
-     redirect_to users_path
-   end
+  def destroy
+    if(is_principal?)
+      @alumn = Alumn.find(params[:id])
+      @user = User.find (@alumn.user_id)
+      @user.destroy
+      redirect_to users_path
+    end
+  end
 
  private
    # Strong params to be passed to a alumn

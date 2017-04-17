@@ -2,30 +2,40 @@
 # Class name: ParentsController
 # Description: Controller used to communicate with the view highways/show
 class ParentsController < UsersController
-
+include SessionsHelper
   def index
-    @parents = Parent.all
+    if (logged_in?)
+      @parents = Parent.all
+    end
   end
 
   def show
-    @parent = Parent.find(params[:id])
-    @user = User.find_by_id(@parent.user_id)
+    if (logged_in?)
+      @parent = Parent.find(params[:id])
+      @user = User.find_by_id(@parent.user_id)
+    end
   end
 
-   def new
-     @user = User.new
-   end
+  def new
+    if (is_principal?)
+       @user = User.new
+    end
+  end
 
-   def edit
-     @parent = Parent.find(params[:id])
-     @user = User.find_by_id(@parent.user_id)
-   end
+  def edit
+    if(is_principal?)
+      @parent = Parent.find(params[:id])
+      @user = User.find_by_id(@parent.user_id)
+    end
+  end
 
    def destroy
-     @parent = Parent.find(params[:id])
-     @user = User.find (@parent.user_id)
-     @user.destroy
-     redirect_to users_path
+     if(is_principal?)
+       @parent = Parent.find(params[:id])
+       @user = User.find (@parent.user_id)
+       @user.destroy
+       redirect_to users_path
+     end
    end
 
 private
