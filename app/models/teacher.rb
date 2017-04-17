@@ -4,7 +4,8 @@
 class Teacher < ApplicationRecord
   belongs_to :user
 
-  validates :registry, presence: true,#length{to define}
+  validates :registry, presence: true,
+                      #length{to define}
                        uniqueness: true
   validates :admission_date, presence: true
   validates :cpf, presence: true, length:{maximum: 11},

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-
   let(:valid_inputs) { { name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
@@ -13,12 +12,12 @@ RSpec.describe UsersController, type: :controller do
 
   let(:valid_session) {{}}
 
-
   describe "Creates a new user with a valid permission" do
     before(:each) do
       user = User.create(name:"jao",password:"13454366",permission:"Principal")
       cookies[:authorization_token] = user.authorization_token
     end
+
     it "assigns a new user to @user" do
       get :new, params: {}, session: valid_session
       expect(assigns(:user)).to be_a_new(User)
@@ -91,5 +90,4 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
-  
 end

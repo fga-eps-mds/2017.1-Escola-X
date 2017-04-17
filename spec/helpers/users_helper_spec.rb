@@ -12,7 +12,6 @@ require 'rails_helper'
 # end
 
 RSpec.describe UsersHelper, type: :helper do
-
 let(:principal_inputs) { { name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
@@ -34,6 +33,7 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                        birth_date:"07/06/1988", permission:"Parent"} }
 
   pending "add some examples to (or delete) #{__FILE__}"
+
   describe SessionsHelper do
     before(:each) do
       user = User.create(name:"jao",password:"13454366",permission:"Principal")
@@ -73,7 +73,5 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
         expect(is_parent?).to be true
       end
     end
-
-
   end
 end

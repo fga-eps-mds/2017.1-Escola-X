@@ -2,7 +2,8 @@
 # Class name: AlumnsController
 # Description: Controller used to communicate with the proprietary view of alumns
  class AlumnsController < UsersController
-   include SessionsHelper
+  include SessionsHelper
+  
   def index
     if(logged_in?)
       @alumns = Alumn.all
@@ -43,6 +44,11 @@
    def alumn_params
      params.require(:alumn).permit(:registry,
                                    :shift,
-                                   user_attributes:[:name, :address, :phone, :gender, :birth_date, :permission])
+                                   user_attributes:[:name,
+                                                    :address,
+                                                    :phone,
+                                                    :gender,
+                                                    :birth_date,
+                                                    :permission])
    end
   end
