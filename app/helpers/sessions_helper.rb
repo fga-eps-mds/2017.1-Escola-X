@@ -15,7 +15,8 @@ module SessionsHelper
     if ( (logged_in?) and (current_user.permission == 'Principal') )
       return true
     else
-      raise 'Not principal'
+      # raise 'Not principal'
+      return false
     end
   end
 
@@ -23,7 +24,8 @@ module SessionsHelper
     if ( (logged_in?) and (current_user.permission == 'Alumn') )
       return true
     else
-      raise 'Not alumn'
+      # raise 'Not alumn'
+      return false
     end
   end
 
@@ -31,7 +33,8 @@ module SessionsHelper
     if ( (logged_in?) and (current_user.permission == 'Parent') )
       return true
     else
-      raise 'Not parent'
+      # raise 'Not parent'
+      return false
     end
   end
 
@@ -39,7 +42,8 @@ module SessionsHelper
     if ( (logged_in?) and (current_user.permission == 'Teacher') )
       return true
     else
-      raise 'Not teacher'
+      # raise 'Not teacher'
+      return false
     end
   end
 end

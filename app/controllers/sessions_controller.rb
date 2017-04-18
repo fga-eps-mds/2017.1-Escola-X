@@ -2,6 +2,7 @@
 #Class name: SessionsController
 #Description: Control the session login of the users
 class SessionsController < ApplicationController
+  include SessionsHelper
   def create
     if ( !Alumn.find_by_registry(params[:login]).nil? )
       alumn =  Alumn.find_by_registry(params[:login])
@@ -16,7 +17,13 @@ class SessionsController < ApplicationController
 
     if ( user and user.authenticate(params[:password]) )
       cookies[:authorization_token] = user.authorization_token
-      redirect_to users_path
+      if (is_alumn?)
+        redirect_to alumn_path(@current_user.alumn)
+      elsif (is_principal?)
+        redirect_to users_path
+      elsif (is_parent?)
+        #
+      end
     else
       redirect_to root_url, notice: "Login or password not valid"
     end
