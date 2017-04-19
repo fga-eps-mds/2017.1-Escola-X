@@ -26,11 +26,7 @@ class UsersController < ApplicationController
     if ( is_principal? )
       @user = User.new(user_params)
       if ( @user.save )
-        if ( @user.permission == "Alumn" )
-          redirect_to alumn_path(@user.alumn)
-        elsif ( @user.permission == "Parent" )
-          redirect_to parent_path(@user.parent)
-        end
+        redirect_to user_path(@user)
       else
         if ( @user.permission == "Alumn" )
           render 'alumns/new'
