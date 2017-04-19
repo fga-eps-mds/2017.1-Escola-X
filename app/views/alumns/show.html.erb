@@ -1,0 +1,24 @@
+<%= render "layouts/navbar" %>
+<section class="content-section" id="alunos-desc">
+  <div class="container">
+    <div class="pull-right">
+      <%if @current_user.permission=="Principal" %>
+        <%= link_to 'Voltar', :back, class:'btn btn-sm btn-info' %>
+        <%= link_to 'Editar', edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
+        <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+      <%end%>
+    </div>
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+        </div>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h3>Nome: <%= @user.name %></h3>
+        <h4>Telefone: <%= @user.phone %></h4>
+        <h4>Sexo: <%= @user.gender %></h4>
+        <h4>Endereço: <%= @user.address %></h4>
+        <h4>Data de Nascimento: <%= @user.birth_date %></h4>
+      </div>
+    </div>
+  </div>
+</section>
