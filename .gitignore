@@ -25,3 +25,7 @@
 
 # Ignore vim swap files
 *.swp
+
+# Ignore metrics files
+metrics/*.txt
+
