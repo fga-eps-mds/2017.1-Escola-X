@@ -29,10 +29,10 @@
       <%= pf.label :parent_cpf, class:"sr-only" %>
       <div class="input-group">
         <span class="input-group-addon">CPF</span>
-        <%= pf.text_field :parent_cpf, class:"form-control cpf active", placeholder:"Ex.: 000.000.000-00"%>
+        <%= pf.text_field :parent_cpf, class:"form-control cpf active", placeholder:"Somente números."%>
       </div>
       <p>
-        <small class="text-muted text-lowercase">(somente numeros)</small>
+        <small class="text-muted text-lowercase sr-only">(somente numeros)</small>
       </p>
     </div>
   <% end %>
@@ -63,7 +63,7 @@
         <span class="fa fa-phone"></span>
          Telefone
       </span>
-      <%= f.text_field :phone, class:"form-control", placeholder:"Ex.: 99999-9999" %>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Somente numeros com DDD." %>
     </div>
   </div>
   <div class="form-group">
