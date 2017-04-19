@@ -52,7 +52,7 @@ RSpec.describe UsersController, type: :controller do
     describe "with invalid params" do
       it "does not create a new User" do
         expect{
-          post :create, {:user => invalid_inputs}
+          post :create, params: {:user => invalid_inputs}
         }.to change(User, :count).by 0
       end
 
@@ -79,13 +79,13 @@ RSpec.describe UsersController, type: :controller do
       it "destroys a user" do
         user = User.create! valid_inputs
         expect{
-          delete :destroy, {:id => user.id}
+          delete :destroy, params: {:id => user.id}
         }.to change(User, :count).by -1
       end
 
       it "redirects to users index" do
         user = User.create! valid_inputs
-        delete :destroy, {:id => user.id}
+        delete :destroy, params: {:id => user.id}
         expect(response).to redirect_to users_path
       end
     end
