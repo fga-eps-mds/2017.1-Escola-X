@@ -1,50 +1,68 @@
+#title-list{
+  margin-top: 3em;
+}
+
 .navbar-default{
   padding: 0.7em;
 }
+
 .navbar-header{
   padding: 0;
 }
+
 .navbar-header button{
   color: white;
   border: solid 3px white;
 }
+
 .navbar-brand{
   padding-top: 0.5em;
 }
+
 #formz{
   padding-top: 3em;
 }
+
 #aluno-s{
   margin-top: 7em;
 }
+
 footer{
   padding: 1.5em;
 }
+
 .img-responsive{
     margin: 0 auto;
 }
+
 .descript{
     padding-top: 1em;
     text-align: center;
 }
+
 .item{
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
 #alunos-desc{
     margin-top: 10em;
 }
+
 #create{
     padding: 6em;
 }
+
 @media (min-width: 780px) {
   #formz{
     padding-top: 10em;
   }
+
   .descript{
     padding-top: 2em;
   }
 }
+
 @media(min-width: 910px){
     .descript{
         text-align: justify;

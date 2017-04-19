@@ -1,13 +1,18 @@
 # File name: users_controller.rb
 # Class name: UsersController
-# Description: Controller used to communicate with the view users/show
+# Description: Controller used to making sense of the request users
 class UsersController < ApplicationController
   include SessionsHelper
-  # before_action :set_user, only:[:update] #If an error of @user=nill occur
 
   def index
-    if (logged_in?)
+    if ( logged_in? )
       @users = User.all
+    end
+  end
+
+  def new
+    if ( is_principal? )
+      @user = User.new
     end
   end
 
@@ -17,58 +22,58 @@ class UsersController < ApplicationController
     end
   end
 
-  def new
-    if (is_principal?)
-      @user = User.new
-    end
-  end
-
-  def edit
-    if (is_principal?)
-      @user = User.find(params[:id])
-    end
-  end
-
   def create
-    if (is_principal?)
+    if ( is_principal? )
       @user = User.new(user_params)
-
-      if @user.save
-        redirect_to @user #Maybe change
+      if ( @user.save )
+        redirect_to user_path(@user)
       else
-        render 'new'
+        if ( @user.permission == "Alumn" )
+          render 'alumns/new'
+        elsif ( @user.permission == "Parent" )
+          render 'parents/new'
+        end
       end
     end
   end
 
   def update
-    if (is_principal?)
+    if ( is_principal? )
       @user = User.find(params[:id])
       if ( @user.update(user_params) )
-        redirect_to @user, notice: "Usuário #{@user.name} foi atualizado!"
+        if ( @user.permission == "Alumn" )
+          redirect_to alumn_path(@user.alumn)
+        end
+        if ( @user.permission == "Parent" )
+          redirect_to parent_path(@user.parent)
+        end
       else
-        render 'edit'
+        if ( @user.permission == "Alumn" )
+          render 'alumns/edit'
+        elsif ( @user.permission == "Parent" )
+          render 'parents/edit'
+        end
       end
     end
   end
 
-  def destroy
-    if (is_principal?)
-      @user = User.find(params[:id])
-      @user.destroy
-
-      redirect_to users_path
-    end
-  end
-
   def edit_password
-    if (is_principal?)
+    if ( is_principal? )
       @user = User.find(params[:id])
     end
   end
 
-  private
+private
+
   def user_params
-    params.require(:user).permit(:name,:cpf,:address,:phone,:gender,:permission,:birth_date,:password)
+    params.require(:user).permit(:name,
+                                 :address,
+                                 :phone,
+                                 :gender,
+                                 :birth_date,
+                                 :permission,
+                                 :password,
+                                 parent_attributes: [:parent_cpf],
+                                 alumn_attributes: [:registry, :shift])
   end
 end
