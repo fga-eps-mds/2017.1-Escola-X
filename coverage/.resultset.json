@@ -611,6 +611,9 @@
         1,
         1,
         5,
+        null,
+        null,
+        null,
         5,
         null,
         null,
@@ -643,34 +646,6 @@
         1,
         1,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -848,6 +823,9 @@
         null
       ],
       "/vagrant/app/models/employee.rb": [
+        null,
+        null,
+        null,
         1,
         1,
         null,
@@ -933,6 +911,6 @@
         null
       ]
     },
-    "timestamp": 1492623930
+    "timestamp": 1492641633
   }
 }
