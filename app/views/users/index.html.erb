@@ -11,9 +11,6 @@
         </div>
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2><%= user.name %></h2>
-          <!-- h3 class=""><span class="glyphicon glyphicon-user"></span></h3 -->
-          <!-- <h4 class="text-success">status: ok</h4> -->
-          <!-- <h4 class="text-success">status: ok</h4> -->
           <h4> <%= user.address %> </h4>
           <h4> <%= user.birth_date %> </h4>
           <h4> <%= user.gender %> </h4>
@@ -27,7 +24,7 @@
       </div>
       <hr>
     </div>
-    <% end %>
+  <% end %>
     <% if user.permission == "Alumn" %>
       <div class="container">
         <div class="row item">
@@ -36,7 +33,6 @@
           </div>
           <div class="col-sm-12 col-md-8 text-capitalize descript">
             <h2><%= user.name %></h2>
-            <!-- <h4 class="text-success">status: ok</h4> -->
             <h4> <%= user.address %> </h4>
             <h4> <%= user.birth_date %> </h4>
             <h4> <%= user.gender %> </h4>
@@ -49,6 +45,6 @@
         </div>
         <hr>
       </div>
-      <% end %>
+    <% end %>
   <% end %>
 </section>
