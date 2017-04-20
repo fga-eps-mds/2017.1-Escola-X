@@ -3,7 +3,7 @@
   <div class="container">
     <div class="pull-right">
       <%if @current_user.permission=="Principal" %>
-        <%= link_to 'Voltar', :back, class:'btn btn-sm btn-info' %>
+        <%= link_to 'Voltar', users_path, class:'btn btn-sm btn-info' %>
         <%= link_to 'Editar', edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
       <%end%>
