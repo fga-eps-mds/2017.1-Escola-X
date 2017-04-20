@@ -37,6 +37,7 @@
             <h4> <%= user.birth_date %> </h4>
             <h4> <%= user.gender %> </h4>
             <h4> <%= user.phone %> </h4>
+            <h4><%= user.alumn.registry %></h4>
             <%= link_to 'Visualizar', alumn_path(user.alumn), class:'btn btn-default' %>
             <%if @current_user.permission =="Principal" %>
               <%= link_to 'Resetar senha', edit_password_path(user), class:'btn btn-default' %>
