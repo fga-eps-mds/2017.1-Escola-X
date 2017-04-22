@@ -60,10 +60,10 @@
       <div class="input-group">
         <span class="input-group-addon">CPF</span>
         <%= pf.text_field :parent_cpf, class:"form-control", placeholder:"Ex.: 000.000.000-00" %>
-        <p>
-          <small class="text-muted text-lowercase">(somente numeros)</small>
-        </p>
       </div>
+      <p>
+        <small class="text-muted text-lowercase">(somente numeros)</small>
+      </p>
     </div>
   <% end %>
   <div class="form-group">
@@ -78,6 +78,6 @@
       <%= label_tag(:gender_male, "Homem") %>
     </div>
   </div>
-  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
-  <%= link_to "Voltar", users_path, class:'btn btn-lg btn-warning' %>
+  <%= f.submit 'Salvar', class:'btn btn-lg btn-success' %>
+  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
 <% end %>
