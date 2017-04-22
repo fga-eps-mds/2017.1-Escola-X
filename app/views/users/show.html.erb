@@ -3,10 +3,10 @@
   <% if @user.permission == "Parent" %>
     <div class="container">
       <div class="pull-right">
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
         <%if @current_user.permission=="Principal" %>
-          <%= link_to 'Voltar', users_path, class:'btn btn-sm btn-info' %>
-          <%= link_to 'Editar', edit_parent_path(@user.parent), class:"btn btn-sm btn-default" %>
-          <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+          <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_parent_path(@user.parent), class:"btn btn-sm btn-default" %>
+          <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
         <% end %>
       </div>
         <div class="row item">
@@ -26,10 +26,10 @@
   <% if @user.permission == "Alumn" %>
     <div class="container">
       <div class="pull-right">
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
         <%if @current_user.permission=="Principal" %>
-          <%= link_to 'Voltar', users_path, class:'btn btn-sm btn-info' %>
-          <%= link_to 'Editar', edit_alumn_path(@user.alumn), class:"btn btn-sm btn-default" %>
-          <%= link_to 'Excluir', "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+          <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@user.alumn), class:"btn btn-sm btn-default" %>
+          <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
         <% end %>
       </div>
         <div class="row item">

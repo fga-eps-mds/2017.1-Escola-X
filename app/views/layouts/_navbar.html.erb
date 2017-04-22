@@ -8,10 +8,10 @@
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
-        <li><%=link_to 'Sair', logout_path, class:'fa fa-sign-out' %></li>
+        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair', logout_path %></li>
         <%if @current_user.permission=="Principal" %>
-          <li><%= link_to "Criar Responsável", new_parent_path %></li>
-          <li><%= link_to "Criar Aluno", new_alumn_path %></li>
+          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável'.html_safe, new_parent_path %></li>
+          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Aluno'.html_safe, new_alumn_path %></li>
         <% end %>
       </ul>
     </div>
