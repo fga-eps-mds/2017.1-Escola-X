@@ -46,6 +46,13 @@
       </div>
     </div>
     <div class="form-group">
+      <%= a.label :image, class:"sr-only" %>
+      <div class="input-group">
+        <span class="input-group-addon fa fa-photo"></span>
+        <%= a.file_field :image, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
       <%= a.label :shift, class:"sr-only" %>
       <div class="input-group">
         <span class="input-group-addon">
