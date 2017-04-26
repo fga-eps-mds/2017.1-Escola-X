@@ -48,8 +48,10 @@
     <div class="form-group">
       <%= a.label :image, class:"sr-only" %>
       <div class="input-group">
-        <span class="input-group-addon fa fa-photo"></span>
-        <%= a.file_field :image, class:"form-control" %>
+        <div class="input-group-addon">
+          <span class="fa fa-photo"> Imagem</span>
+          <%= a.file_field :image, class:"" %>
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -106,6 +108,6 @@
     </div>
   </div>
   <%= f.hidden_field :permission, :value => "Alumn" %>
-  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
+  <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
 <% end %>
