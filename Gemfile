@@ -38,6 +38,10 @@ gem 'bootswatch-rails'
 
 gem 'font-awesome-rails'
 
+# gems for upload
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -66,4 +70,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'validates_cpf_cnpj'
-
