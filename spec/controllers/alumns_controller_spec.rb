@@ -86,7 +86,11 @@ RSpec.describe AlumnsController, type: :controller do
       loggin_principal
     end
     it "does delete an Alumn" do
-      alumn = Alumn.create! valid_inputs
+      alumn = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                             address:"Rua Vida Casa 15,Taguatinga",
+                             password: "12345678", gender:"M",
+                             birth_date:"07/06/1988", registry:"123456",
+                             shift:"matutino",parent_id:parent.id)
       expect{
         delete :destroy, id: alumn
       }.to change(Alumn, :count).by(-1)

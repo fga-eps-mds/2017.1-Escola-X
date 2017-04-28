@@ -60,7 +60,15 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
       end
 
       it "current user is Alumn" do
-        user = Alumn.create! alumn_inputs
+        parent = Parent.create(name:"Jaozin Silva",phone:"61989998888",
+                               address:"Rua do pao casa 22, Asa sul",
+                               password:"12345678", gender:"Masculino",
+                               birth_date:"08/10/1989",parent_cpf:"06057577124")
+        user = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                               address:"Rua Vida Casa 15,Taguatinga",
+                               password: "12345678", gender:"M",
+                               birth_date:"07/06/1988", registry:"123456",
+                               shift:"matutino",parent_id:parent.id)
         cookies[:authorization_token] = user.authorization_token
         expect(is_alumn?).to be true
       end
