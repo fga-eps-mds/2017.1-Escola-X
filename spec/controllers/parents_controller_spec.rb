@@ -13,13 +13,16 @@ RSpec.describe ParentsController, type: :controller do
                            permission:" " } }
 
 
+  def loggin_principal
+    user = Principal.create(name: "Michael Cera", phone:"61988885555",
+                            address:"Rua Vida Casa 15,Taguatinga",
+                            password: "12345678", gender:"M",
+                            birth_date:"07/06/1988",registry:"123456")
+    cookies[:authorization_token] = user.authorization_token
+  end
   describe "GET new" do
     before(:each) do
-      user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                              address:"Rua Vida Casa 15,Taguatinga",
-                              password: "12345678", gender:"M",
-                              birth_date:"07/06/1988",registry:"123456")
-      cookies[:authorization_token] = user.authorization_token
+      loggin_principal
     end
 
     it "assigns a new parent as @parent" do
@@ -30,11 +33,7 @@ RSpec.describe ParentsController, type: :controller do
 
   describe "POST create" do
     before(:each) do
-      user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                          address:"Rua Vida Casa 15,Taguatinga",
-                          password: "12345678", gender:"M",
-                          birth_date:"07/06/1988",registry:"123456")
-      cookies[:authorization_token] = user.authorization_token
+      loggin_principal
     end
 
     describe "with valid params" do
@@ -67,6 +66,23 @@ RSpec.describe ParentsController, type: :controller do
         post :create, params: {parent: invalid_inputs}
         expect(assigns(:parent)).not_to be_persisted
       end
+
+      it "re-render the 'new' template" do
+        post :create, params: {parent: invalid_inputs}
+        expect(response).to render_template("new")
+      end
+    end
+  end
+
+  describe "DELETE delete" do
+    before(:each) do
+      loggin_principal
+    end
+    it "does delete an Parent" do
+      parent = Parent.create! valid_inputs
+      expect{
+        delete :destroy, id: parent
+      }.to change(Parent, :count).by(-1)
     end
   end
 end

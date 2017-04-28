@@ -15,18 +15,21 @@ RSpec.describe AlumnsController, type: :controller do
 
   def parent
     parent = Parent.create(name:"Jaozin Silva",phone:"61989998888",
-    address:"Rua do pao casa 22, Asa sul",
-    password:"12345678", gender:"Masculino",
-    birth_date:"08/10/1989",parent_cpf:"06057577124")
+                           address:"Rua do pao casa 22, Asa sul",
+                           password:"12345678", gender:"Masculino",
+                           birth_date:"08/10/1989",parent_cpf:"06057577124")
+  end
+
+  def loggin_principal
+    user = Principal.create(name: "Michael Cera", phone:"61988885555",
+                            address:"Rua Vida Casa 15,Taguatinga",
+                            password: "12345678", gender:"M",
+                            birth_date:"07/06/1988",registry:"123456")
+    cookies[:authorization_token] = user.authorization_token
   end
   describe "GET new" do
     before(:each) do
-      user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                              address:"Rua Vida Casa 15,Taguatinga",
-                              password: "12345678", gender:"M",
-                              birth_date:"07/06/1988",registry:"123456")
-      cookies[:authorization_token] = user.authorization_token
-
+      loggin_principal
     end
 
     it "assigns a new user as @user" do
@@ -37,11 +40,7 @@ RSpec.describe AlumnsController, type: :controller do
 
   describe "Post create" do
     before(:each) do
-      user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                          address:"Rua Vida Casa 15,Taguatinga",
-                          password: "12345678", gender:"M",
-                          birth_date:"07/06/1988",registry:"123456")
-      cookies[:authorization_token] = user.authorization_token
+      loggin_principal
     end
 
     describe "with valid params" do
@@ -58,7 +57,7 @@ RSpec.describe AlumnsController, type: :controller do
       end
 
       it "redirects to @alumn page" do
-        post :create, params: {:alumn => valid_inputs, parent_id: parent.id}
+        post :create, params: {alumn: valid_inputs, parent_id: parent.id}
         expect(response).to redirect_to alumn_path(assigns(:alumn))
       end
     end
@@ -66,14 +65,32 @@ RSpec.describe AlumnsController, type: :controller do
     describe "with invalid params" do
       it "does not create a new Alumn" do
         expect{
-          post :create, params: {:alumn => invalid_inputs}
+          post :create, params: {alumn: invalid_inputs, parent_id: parent.id}
         }.to change(Alumn, :count).by 0
       end
 
       it "assigns a new alumn but no save to @alumn" do
-        post :create, params: {:alumn => invalid_inputs}
+        post :create, params: {alumn: invalid_inputs, parent_id: parent.id}
         expect(assigns(:alumn)).not_to be_persisted
+      end
+
+      it "re-render the 'new' template" do
+        post :create, params: {alumn: invalid_inputs, parent_id: parent.id}
+        expect(response).to render_template("new")
       end
     end
   end
+
+  describe "DELETE delete" do
+    before(:each) do
+      loggin_principal
+    end
+    it "does delete an Alumn" do
+      alumn = Alumn.create! valid_inputs
+      expect{
+        delete :destroy, id: alumn
+      }.to change(Alumn, :count).by(-1)
+    end
+  end
+
 end
