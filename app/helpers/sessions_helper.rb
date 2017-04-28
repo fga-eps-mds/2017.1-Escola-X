@@ -1,6 +1,10 @@
 module SessionsHelper
   def current_user
-    @current_user ||= User.find_by_authorization_token!(cookies[:authorization_token]) if cookies[:authorization_token]
+    if (!User.find_by_authorization_token(cookies[:authorization_token]).nil?)
+      @current_user ||= User.find_by_authorization_token!(cookies[:authorization_token])
+    elsif(!Employee.find_by_authorization_token!(cookies[:authorization_token]).nil?)
+      @current_user ||= Employee.find_by_authorization_token(cookies[:authorization_token])
+    end
   end
 
   def logged_in?

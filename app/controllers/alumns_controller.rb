@@ -1,7 +1,8 @@
 # File name: alumns_controller.rb
 # Class name: AlumnsController
 # Description: Controller used to communicate with the proprietary view of alumns
- class AlumnsController < UsersController
+ class AlumnsController < ApplicationController
+  include SessionsHelper
 
   def index
     if ( logged_in? )
@@ -12,28 +13,39 @@
   def show
     if ( logged_in? )
       @alumn = Alumn.find(params[:id])
-      @user = User.find_by_id(@alumn.user_id)
     end
   end
 
   def new
     if ( is_principal? )
-      @user = User.new
+      @alumn = Alumn.new
+      @@parent = Parent.find(params[:parent_id])
     end
   end
 
   def edit
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
-      @user = User.find_by_id(@alumn.user_id)
+    end
+  end
+
+  def create
+    if ( is_principal? )
+      @alumn = Alumn.new(alumn_params)
+      @alumn.parent_id = @@parent.id
+
+      if (@alumn.save)
+        redirect_to @alumn
+      else
+        render 'new'
+      end
     end
   end
 
   def destroy
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
-      @user = User.find (@alumn.user_id)
-      @user.destroy
+      @alumn.destroy
 
       redirect_to users_path
     end
@@ -44,11 +56,13 @@
    def alumn_params
      params.require(:alumn).permit(:registry,
                                    :shift,
-                                   user_attributes:[:name,
-                                                    :address,
-                                                    :phone,
-                                                    :gender,
-                                                    :birth_date,
-                                                    :permission])
+                                   :name,
+                                   :address,
+                                   :phone,
+                                   :gender,
+                                   :birth_date,
+                                   :permission,
+                                   :password,
+                                   :parent_id)
    end
   end

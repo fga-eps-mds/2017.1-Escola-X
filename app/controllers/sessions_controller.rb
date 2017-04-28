@@ -5,14 +5,11 @@ class SessionsController < ApplicationController
   include SessionsHelper
   def create
     if ( !Alumn.find_by_registry(params[:login]).nil? )
-      alumn =  Alumn.find_by_registry(params[:login])
-      user = User.find(alumn.user_id)
+      user = Alumn.find_by_registry(params[:login])
     elsif ( !Parent.find_by_parent_cpf(params[:login]).nil? )
-      parent = Parent.find_by_parent_cpf(params[:login])
-      user = User.find(parent.user_id)
+      user = Parent.find_by_parent_cpf(params[:login])
     elsif ( !Employee.find_by_registry(params[:login]).nil? )
-      employee = Employee.find_by_registry(params[:login])
-      user = User.find(employee.user_id)
+      user = Employee.find_by_registry(params[:login])
     end
 
     if ( user and user.authenticate(params[:password]) )

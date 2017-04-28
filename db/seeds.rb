@@ -26,6 +26,7 @@
 #   User.create( name: name, address: address, cpf: cpf, registry: registry,
 #               phone: phone, permission: permission, password: password )
 # end
-User.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
-             permission: 'Principal', password: '12345678', birth_date: '10-10-1990')
- Employee.create(registry: '123456', user_id: User.last.id)
+ Employee.create(registry: '123456', name: 'Francois Dillinger',
+                 address: 'rua do ovo', phone: '6133213030',
+                 permission: 'Principal', password: '12345678',
+                 birth_date: '10-10-1990')

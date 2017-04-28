@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   resources :alumns
   resources :parents
 
+  resources :parents do
+    resources :alumns
+  end
 end
