@@ -5,7 +5,9 @@
   include SessionsHelper
 
   def index
-    if ( logged_in? )
+    if ( is_parent? )
+      @alumns = @current_user.alumns
+    elsif ( logged_in? )
       @alumns = Alumn.all
     end
   end

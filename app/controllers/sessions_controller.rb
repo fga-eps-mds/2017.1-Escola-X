@@ -15,11 +15,11 @@ class SessionsController < ApplicationController
     if ( user and user.authenticate(params[:password]) )
       cookies[:authorization_token] = user.authorization_token
       if (is_alumn?)
-        redirect_to alumn_path(@current_user.alumn)
+        redirect_to alumn_path(@current_user)
       elsif (is_principal?)
         redirect_to users_path
       elsif (is_parent?)
-        redirect_to users_path
+        redirect_to parent_alumns_path(@current_user)
       end
     else
       redirect_to root_url, notice: "Login or password not valid"
