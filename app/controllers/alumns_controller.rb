@@ -42,6 +42,17 @@
     end
   end
 
+  def update
+    if ( is_principal? )
+      @alumn = Alumn.find(params[:id])
+      if ( @alumn.update(parent_params) )
+        redirect_to @alumn
+      else
+        render 'edit'
+      end
+    end
+  end
+
   def destroy
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])

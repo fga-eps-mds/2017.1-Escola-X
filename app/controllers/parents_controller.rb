@@ -40,6 +40,17 @@ class ParentsController < ApplicationController
     end
   end
 
+  def update
+    if ( is_principal? )
+      @parent = Parent.find(params[:id])
+      if ( @parent.update(parent_params) )
+        redirect_to @parent
+      else
+        render 'edit'
+      end
+    end
+  end
+
   def destroy
     if ( is_principal? )
       @parent = Parent.find(params[:id])
