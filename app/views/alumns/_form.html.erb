@@ -1,5 +1,5 @@
 <%= render "layouts/navbar" %>
-<%= form_for (@user) do |f| %>
+<%= form_for (@user), :html => {:multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div class="container">
       <div class="text-danger text-justify">
@@ -51,6 +51,7 @@
         <div class="input-group-addon">
           <span class="fa fa-photo"> Imagem</span>
           <%= a.file_field :image %>
+          <%= a.hidden_field :image_cache %>
         </div>
       </div>
     </div>

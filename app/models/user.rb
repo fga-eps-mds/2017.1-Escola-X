@@ -37,6 +37,10 @@ class User < ApplicationRecord
     generate_token(:authorization_token)
   }
 
+  def get_age
+    DateTime.now.year - self.birth_date.year
+  end
+
   private
   def validates_password
     if self.password_digest.nil?
@@ -44,7 +48,7 @@ class User < ApplicationRecord
       length: { minimum: 8}
     end
   end
-  
+
   def generate_token(column)
     begin
       self[column]= SecureRandom.urlsafe_base64

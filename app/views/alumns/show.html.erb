@@ -11,7 +11,7 @@
       <div class="row item">
         <div class="col-sm-12 col-md-4">
         <% if @alumn.image.url != nil %>
-          <%= image_tag (@alumn.image.url), class: "img-responsive" %>
+          <!-- <%= image_tag (@alumn.image.url), class: "img-responsive" %>  esta dando nil na imagem por nao salvar -->
         <% else %>
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive") %>
         <% end %>

@@ -44,11 +44,12 @@
    def alumn_params
      params.require(:alumn).permit(:registry,
                                    :shift,
-                                   :image,
+                                  #  :image,
                                    user_attributes:[:name,
                                                     :address,
                                                     :phone,
                                                     :gender,
+                                                    :image,
                                                     :birth_date,
                                                     :permission])
    end

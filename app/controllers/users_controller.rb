@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     if ( is_principal? )
       @user = User.new(user_params)
       if ( @user.save )
-        debugger
         redirect_to user_path(@user)
       else
         if ( @user.permission == "Alumn" )
@@ -73,6 +72,7 @@ private
                                  :gender,
                                  :birth_date,
                                  :permission,
+                                 :image,
                                  :password,
                                  parent_attributes: [:parent_cpf],
                                  alumn_attributes: [:registry, :shift])
