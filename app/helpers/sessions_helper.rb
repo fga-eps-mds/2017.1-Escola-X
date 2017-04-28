@@ -48,12 +48,12 @@ end
     end
   end
 
-  def is_teacher?
-    if ( (logged_in?) and (current_user.permission == 'Teacher') )
-      return true
-    else
-      # raise 'Not teacher'
-      return false
-    end
-  end
+  # def is_teacher?
+  #   if ( (logged_in?) and (current_user.permission == 'Teacher') )
+  #     return true
+  #   else
+  #     # raise 'Not teacher'
+  #     return false
+  #   end
+  # end
 end

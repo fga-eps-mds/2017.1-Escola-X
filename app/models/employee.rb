@@ -3,6 +3,7 @@
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
   belongs_to :user, optional: true
+  self.inheritance_column = :permission
   # validates :employee_cpf, :cpf => true
   has_secure_password
   validates :registry, presence: true

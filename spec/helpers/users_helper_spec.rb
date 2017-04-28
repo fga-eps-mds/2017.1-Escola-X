@@ -15,28 +15,32 @@ RSpec.describe UsersHelper, type: :helper do
 let(:principal_inputs) { { name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
-                           birth_date:"07/06/1988", permission:"Principal"} }
+                           birth_date:"07/06/1988", registry:"123456"} }
 
 let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
                        address:"Rua Vida Casa 15,Taguatinga",
                        password: "12345678", gender:"M",
-                       birth_date:"07/06/1988", permission:"Alumn"} }
-
-let(:teacher_inputs) { { name: "Michael Cera", phone:"61988885555",
-                        address:"Rua Vida Casa 15,Taguatinga",
-                        password: "12345678", gender:"M",
-                        birth_date:"07/06/1988", permission:"Teacher"} }
+                       birth_date:"07/06/1988",registry:"123456",
+                       shift:"matutino",parent_id: 1} }
+#
+# let(:teacher_inputs) { { name: "Michael Cera", phone:"61988885555",
+#                         address:"Rua Vida Casa 15,Taguatinga",
+#                         password: "12345678", gender:"M",
+#                         birth_date:"07/06/1988", permission:"Teacher"} }
 
 let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                        address:"Rua Vida Casa 15,Taguatinga",
                        password: "12345678", gender:"M",
-                       birth_date:"07/06/1988", permission:"Parent"} }
+                       birth_date:"07/06/1988", parent_cpf:"06057577124"} }
 
   pending "add some examples to (or delete) #{__FILE__}"
 
   describe SessionsHelper do
     before(:each) do
-      user = User.create(name: "Michael Cera", phone:"61988885555",address:"Rua Vida Casa 15,Taguatinga",password: "12345678", gender:"M",birth_date:"07/06/1988", permission:"Principal")
+      user = Principal.create(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988",registry:"123456")
       cookies[:authorization_token] = user.authorization_token
     end
 
@@ -50,25 +54,25 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
       end
 
       it "current user is Principal" do
-        user = User.create! principal_inputs
+        user = Principal.create! principal_inputs
         cookies[:authorization_token] = user.authorization_token
         expect(is_principal?).to be true
       end
 
       it "current user is Alumn" do
-        user = User.create! alumn_inputs
+        user = Alumn.create! alumn_inputs
         cookies[:authorization_token] = user.authorization_token
         expect(is_alumn?).to be true
       end
 
-      it "current user is teacher" do
-        user = User.create! teacher_inputs
-        cookies[:authorization_token] = user.authorization_token
-        expect(is_teacher?).to be true
-      end
+      # it "current user is teacher" do
+      #   user = User.create! teacher_inputs
+      #   cookies[:authorization_token] = user.authorization_token
+      #   expect(is_teacher?).to be true
+      # end
 
       it "current user is parent" do
-        user = User.create! parent_inputs
+        user = Parent.create! parent_inputs
         cookies[:authorization_token] = user.authorization_token
         expect(is_parent?).to be true
       end
