@@ -4,6 +4,10 @@
 class Alumn < ApplicationRecord
   belongs_to :user , optional: true
 
+  mount_uploader :image, ImageUploader
+  validates_processing_of :image
+  validate :image_size_validation
+
   validates :registry, presence: { message: "não pode estar em branco" },
                       uniqueness: true,
              length: { minimum: 5,
@@ -16,4 +20,9 @@ class Alumn < ApplicationRecord
                       maximum: 11,
                       :too_short => "deve possuir no mínimo 7 caracteres",
                       :too_long => "deve possuir no máximo 11 caracteres" }
+
+  private
+  def image_size_validation
+    errors[:image] << "deve ser menor que 600KB" if image.size > 0.6.megabytes
+  end
 end

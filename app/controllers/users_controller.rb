@@ -72,6 +72,7 @@ private
                                  :gender,
                                  :birth_date,
                                  :permission,
+                                 :image,
                                  :password,
                                  parent_attributes: [:parent_cpf],
                                  alumn_attributes: [:registry, :shift])

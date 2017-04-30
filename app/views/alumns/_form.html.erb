@@ -1,5 +1,5 @@
 <%= render "layouts/navbar" %>
-<%= form_for (@user) do |f| %>
+<%= form_for (@user), :html => {:multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div class="container">
       <div class="text-danger text-justify">
@@ -43,6 +43,16 @@
            Senha
         </span>
         <%= f.password_field :password, class:"form-control", plaeholder:'Senha de mínimo 8 digitos.' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= a.label :image, class:"sr-only" %>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="fa fa-photo"> Imagem</span>
+          <%= a.file_field :image %>
+          <%= a.hidden_field :image_cache %>
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -99,6 +109,6 @@
     </div>
   </div>
   <%= f.hidden_field :permission, :value => "Alumn" %>
-  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
+  <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
 <% end %>
