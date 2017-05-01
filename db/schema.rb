@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417191317) do
+ActiveRecord::Schema.define(version: 20170426231749) do
+
   create_table "employees", force: :cascade do |t|
     t.integer  "registry"
     t.string   "employee_cpf"
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170417191317) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.string   "birth_date"
+    t.date     "birth_date"
     t.string   "permission"
     t.string   "parent_cpf"
     t.integer  "registry"
