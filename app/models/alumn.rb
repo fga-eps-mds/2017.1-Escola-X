@@ -1,13 +1,8 @@
 #File name: alumn.rb
 #Class name: Alumn
 #Description: Validates alumn's attributes
-class Alumn < ApplicationRecord
-  belongs_to :user , optional: true
-
-  mount_uploader :image, ImageUploader
-  validates_processing_of :image
-  validate :image_size_validation
-
+class Alumn < User
+  belongs_to :parent
   validates :registry, presence: { message: "não pode estar em branco" },
                       uniqueness: true,
              length: { minimum: 5,

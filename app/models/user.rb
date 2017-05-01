@@ -4,14 +4,8 @@
 #            data base
 class User < ApplicationRecord
   before_save :validates_password
-
-  has_one :parent, autosave: true, dependent: :destroy
-  has_one :alumn, autosave: true, dependent: :destroy
-  has_one :employee, autosave: true, dependent: :destroy
+  self.inheritance_column = :permission
   has_secure_password
-
-  accepts_nested_attributes_for :parent
-  accepts_nested_attributes_for :alumn
 
   validates :birth_date, presence: { message: "Não pode estar em branco." }
 
