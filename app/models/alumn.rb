@@ -3,6 +3,7 @@
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :user , optional: true
+  has_many :strike
 
   mount_uploader :image, ImageUploader
   validates_processing_of :image
