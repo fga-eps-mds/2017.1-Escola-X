@@ -21,9 +21,9 @@ class Notification < ApplicationRecord
     DateTime.now.time
   end
 
-  scope :strikes, -> { where(notification_type: 'Strike') }
+  scope :strikes, -> (receiver) { where(notification_type: 'Strike').where(notification_receiver: receiver) }
   scope :events, -> { where(notification_type: 'Event') }
-  scope :suspensions, -> { where(notification_type: 'Suspension') }
+  scope :suspensions, -> (receiver) { where(notification_type: 'Suspension').where(notification_receiver: receiver) }
 
   private
   def self.types
