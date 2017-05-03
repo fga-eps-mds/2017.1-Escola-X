@@ -32,6 +32,8 @@ class UsersController < ApplicationController
           render 'alumns/new'
         elsif ( @user.permission == "Parent" )
           render 'parents/new'
+        elsif ( @user.permission == "Teacher")
+          render 'teacher/new'
         end
       end
     end

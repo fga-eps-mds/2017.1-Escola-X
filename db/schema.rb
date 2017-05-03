@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 20170503013359) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string   "cpfTeacher"
-    t.date     "admissionDateTeacher"
-    t.integer  "registerTeacher"
-    t.string   "loginTeacher"
-    t.string   "passowordTeacher"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "cpf_teacher"
+    t.date     "admission_date_teacher"
+    t.integer  "register_teacher"
+    t.integer  "registry"
+    t.string   "passoword_teacher"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_teachers_on_user_id"
   end
