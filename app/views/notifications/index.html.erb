@@ -1,2 +1,9 @@
-<h1>Notifications#index</h1>
-<p>Find me in app/views/notifications/index.html.erb</p>
+<h1 class="text-uppercase text-center" id="title-list">
+  <span class="glyphicon glyphicon-list text-left"></span>
+   Notificações
+</h1>
+<hr>
+<%= @notifications.each do |note| %>
+  <p><%= note.title %></p>
+<% end %>
+<%= link_to "nova notificação", new_notification_path %>

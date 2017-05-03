@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'notifications/index'
-
-  get 'notifications/new'
-
-  get 'notifications/create'
-
-  get 'notifications/edit'
-
-  get 'notifications/destroy'
-
-  get 'notifications/show'
-
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
@@ -26,5 +13,6 @@ Rails.application.routes.draw do
   resources :users
   resources :alumns
   resources :parents
+  resources :notifications
 
 end
