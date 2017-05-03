@@ -1,0 +1,2 @@
+class Strike < Notification
+end

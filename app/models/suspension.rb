@@ -1,0 +1,2 @@
+class Suspension < Notification
+end
