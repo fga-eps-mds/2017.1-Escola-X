@@ -13,6 +13,9 @@
           <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável'.html_safe, new_parent_path %></li>
           <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Aluno'.html_safe, new_alumn_path %></li>
         <% end %>
+        <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
+          <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

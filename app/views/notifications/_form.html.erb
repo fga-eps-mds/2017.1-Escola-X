@@ -1,15 +1,31 @@
 <%= form_for (@notification) do |f| %>
-<% if @notification.errors.any? %>
-  <div class="container">
-    <div class="text-danger">
-      <div id="error_explanation">
-        <h2 class=""><%= pluralize(@notification.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
-        <ul>
-        <% @notification.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+  <% if @notification.errors.any? %>
+    <div class="container">
+      <div class="text-danger">
+        <div id="error_explanation">
+          <h2 class=""><%= pluralize(@notification.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <ul>
+          <% @notification.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       </div>
     </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :notification_type, "<h3>Selecione o tipo da notificação:</h3>".html_safe, class:"" %>
+    <br>
+    <%= f.select :notification_type, Notification.types.map {|r| [r.humanize, r.camelcase]}, {} %>
   </div>
+  <div class="form-group">
+    <%= f.label :title, "<h2>Título:</h2>".html_safe, class:"" %>
+    <%= f.text_field :title, class:"form-control", placeholder:"Título da notificação." %>
+  </div>
+  <div class="form-group">
+    <%= f.label :notification_text, "<h2>Conteúdo da notificação:</h2>".html_safe, class:"" %>
+    <%= f.text_area :notification_text, class:"form-control", placeholder:"Corpo da notificação.", rows:"20" %>
+  </div>
+  <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
+  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
 <% end %>
