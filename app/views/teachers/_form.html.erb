@@ -24,12 +24,12 @@
       <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
     </div>
   </div>
-  <%= f.fields_for :parent, Parent.new do |pf|%>
+  <%= f.fields_for :teacher, Teacher.new do |pf|%>
     <div class="form-group">
-      <%= pf.label :parent_cpf, class:"sr-only" %>
+      <%= pf.label :cpfTeacher, class:"sr-only" %>
       <div class="input-group">
         <span class="input-group-addon">CPF</span>
-        <%= pf.text_field :parent_cpf, class:"form-control cpf active", placeholder:"Somente números."%>
+        <%= pf.text_field :cpfTeacher, class:"form-control cpf active", placeholder:"Somente números."%>
       </div>
       <p>
         <small class="text-muted text-lowercase sr-only">(somente numeros)</small>
