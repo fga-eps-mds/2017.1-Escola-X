@@ -2,8 +2,8 @@
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Usuários</h1>
 <hr>
 <section class="content-section" id="alumns-list">
-<% @users.each do |user| %>
-  <% if user.permission == "Parent" %>
+  <% @users.each do |user| %>
+  <% if user.is_a?(Parent)%>
     <div class="container">
       <div class="row item">
         <div class="col-sm-12 col-md-4">
@@ -15,10 +15,8 @@
           <h4> <%= user.birth_date %> </h4>
           <h4> <%= user.gender %> </h4>
           <h4> <%= user.phone %> </h4>
-          <h4> <%= user.parent.parent_cpf %> </h4>
-          <h4>Idade: <%= user.get_age %> </h4>
-          <h4>Tipo: <%= user.permission %> </h4>
-          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(user.parent), class:'btn btn-info' %>
+          <h4> <%= user.parent_cpf %> </h4>
+          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(user), class:'btn btn-info' %>
           <%if @current_user.permission =="Principal" %>
             <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(user), class:'btn btn-default' %>
           <% end %>
@@ -27,7 +25,7 @@
       <hr>
     </div>
   <% end %>
-    <% if user.permission == "Alumn" %>
+    <% if user.is_a?(Alumn)%>
       <div class="container">
         <div class="row item">
           <div class="col-sm-12 col-md-4">
@@ -40,9 +38,8 @@
             <h4>Idade: <%= user.get_age %> </h4>
             <h4> <%= user.gender %> </h4>
             <h4> <%= user.phone %> </h4>
-            <h4><%= user.alumn.registry %></h4>
-            <h4 class="">Tipo: <%= user.permission %> </h4>
-            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(user.alumn), class:'btn btn-info' %>
+            <h4><%= user.registry %></h4>
+            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(user), class:'btn btn-info' %>
             <%if @current_user.permission =="Principal" %>
               <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(user), class:'btn btn-default' %>
             <% end %>
@@ -51,27 +48,27 @@
         <hr>
       </div>
     <% end %>
-    <% if user.permission == "Teacher" %>
+    <% if user.is_a?(Teacher)%>
       <div class="container">
-        <div class="pull-right">
-          <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
-          <%if @current_user.permission=="Principal" %>
-            <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-          <% end %>
-        </div>
-          <div class="row item">
-            <div class="col-sm-12 col-md-4">
-              <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-            </div>
+        <div class="row item">
+          <div class="col-sm-12 col-md-4">
+            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+          </div>
           <div class="col-sm-12 col-md-8 text-capitalize descript">
-            <h3 class="">Nome: <%= user.name %></h3>
-            <h4 class="">Telefone: <%= user.phone %></h4>
-            <h4 class="">Sexo: <%= user.gender %></h4>
-            <h4 class="">Endereço: <%= user.address %></h4>
-            <h4 class="">Data de Nascimento: <%= user.birth_date %></h4>
-            <h4 class="">Tipo: <%= user.permission %> </h4>
+            <h2><%= user.name %></h2>
+            <h4> <%= user.address %> </h4>
+            <h4> <%= user.birth_date %> </h4>
+            <h4>Idade: <%= user.get_age %> </h4>
+            <h4> <%= user.gender %> </h4>
+            <h4> <%= user.phone %> </h4>
+            <h4><%= user.registry %></h4>
+            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, teacher_path(user), class:'btn btn-info' %>
+            <%if @current_user.permission =="Principal" %>
+              <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(user), class:'btn btn-default' %>
+            <% end %>
           </div>
         </div>
+        <hr>
       </div>
     <% end %>
   <% end %>

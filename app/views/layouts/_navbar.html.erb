@@ -8,10 +8,8 @@
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
-        <%if @current_user.permission == "Principal" %>
-          <li><%= link_to "Criar Aluno", new_alumn_path %></li>
-          <li><%= link_to "Criar Responsável", new_parent_path %></li>
-          <li><%= link_to "Criar Professor", new_teacher_path %></li>
+        <%if @current_user.permission=="Principal" %>
+          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e Aluno'.html_safe, new_parent_path %></li>
         <% end %>
         <li><%=link_to 'Sair', logout_path, class:'fa fa-sign-out' %></li>
       </ul>

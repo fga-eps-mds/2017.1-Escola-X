@@ -2,18 +2,26 @@
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Alunos</h1>
 <hr>
 <section class="content-section" id="alumns-list">
-  <% @users.each do |user| %>
-    <div class="container">
-      <div class="row item">
-        <div class="col-sm-12 col-md-4">
-          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-        </div>
-        <div class="col-sm-12 col-md-8 text-capitalize descript">
-          <h2><%= user.name %></h2>
-          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar', user_path(user), class:'btn btn-default' %>
-        </div>
+  <% @alumns.each do |alumn| %>
+  <div class="container">
+    <div class="row item">
+      <div class="col-sm-12 col-md-4">
+        <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
       </div>
-      <hr>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h2><%= alumn.name %></h2>
+        <h4> <%= alumn.address %> </h4>
+        <h4> <%= alumn.birth_date %> </h4>
+        <h4> <%= alumn.gender %> </h4>
+        <h4> <%= alumn.phone %> </h4>
+        <h4><%= alumn.registry %></h4>
+        <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
+        <%if @current_user.permission =="Principal" %>
+          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
+    <hr>
+  </div>
   <% end %>
 </section>
