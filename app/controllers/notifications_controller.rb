@@ -4,10 +4,8 @@ class NotificationsController < ApplicationController
   def index
     if ( logged_in? )
       @notifications = Notification.events()
-      @notifications = @notifications.or.Notification.strikes(params[:notification_receiver])
-                                                    if params[:notification_receiver].present?
-      @notifications = @notifications.or.Notification.suspensions(params[:notification_receiver])
-                                                    if params[:notification_receiver].present?
+      @notifications = @notifications.or(Notification.strikes(@current_user.id))
+      @notifications = @notifications.or(Notification.suspensions(@current_user.id))
     end
   end
 
