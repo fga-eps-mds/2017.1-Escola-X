@@ -10,11 +10,7 @@
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
-        <% if @alumn.image.url != nil %>
-          <!-- <%= image_tag (@alumn.image.url), class: "img-responsive" %>  esta dando nil na imagem por nao salvar -->
-        <% else %>
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive") %>
-        <% end %>
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h3>Nome: <%= @alumn.name %></h3>
@@ -22,6 +18,7 @@
         <h4>Sexo: <%= @alumn.gender %></h4>
         <h4>Endereço: <%= @alumn.address %></h4>
         <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
+        <h4><%=link_to @alumn.parent.name, parent_path(@alumn.parent) %></h4>
       </div>
     </div>
   </div>

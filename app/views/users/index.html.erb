@@ -3,7 +3,7 @@
 <hr>
 <section class="content-section" id="alumns-list">
   <% @users.each do |user| %>
-  <% if user.permission == "Parent" %>
+  <% if user.is_a?(Parent)%>
     <div class="container">
       <div class="row item">
         <div class="col-sm-12 col-md-4">
@@ -25,7 +25,7 @@
       <hr>
     </div>
   <% end %>
-    <% if user.permission == "Alumn" %>
+    <% if user.is_a?(Alumn)%>
       <div class="container">
         <div class="row item">
           <div class="col-sm-12 col-md-4">

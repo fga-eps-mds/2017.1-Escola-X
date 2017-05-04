@@ -4,9 +4,9 @@
 class Parent < ApplicationRecord
   has_many :alumns
   validates :parent_cpf, :cpf => true
- has_secure_password
-before_save :validates_password
- 
+  has_secure_password
+  before_save :validates_password
+
 
   validates :birth_date, presence: { message: "Não pode estar em branco." }
 

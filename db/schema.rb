@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.string   "gender"
     t.string   "password_digest"
     t.string   "authorization_token"
-    t.string   "birth_date"
+    t.date     "birth_date"
     t.string   "parent_cpf"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
