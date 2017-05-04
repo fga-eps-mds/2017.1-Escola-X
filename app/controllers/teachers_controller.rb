@@ -20,21 +20,21 @@ class TeachersController < UsersController
 	def show
     if ( logged_in? )
       @teachers = Teacher.find(params[:id])
-      @user = User.find_by_id(@parent.user_id)
+      @user = User.find_by_id(@teacher.user_id)
     end
   end
 
   def edit
     if ( is_principal? )
       @teachers = Teacher.find(params[:id])
-      @user = User.find_by_id(@parent.user_id)
+      @user = User.find_by_id(@teacher.user_id)
     end
   end
 
   def destroy
     if ( is_principal? )
       @teachers = Teacher.find(params[:id])
-      @user = User.find (@parent.user_id)
+      @user = User.find (@teacher.user_id)
       @user.destroy
       redirect_to users_path
     end
