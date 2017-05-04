@@ -19,6 +19,7 @@
           <h4 class="">Sexo: <%= @user.gender %></h4>
           <h4 class="">Endereço: <%= @user.address %></h4>
           <h4 class="">Data de Nascimento: <%= @user.birth_date %></h4>
+          <h4 class="">Tipo: <%= user.permission %> </h4>
         </div>
       </div>
     </div>
@@ -42,6 +43,31 @@
           <h4 class="">Sexo: <%= @user.gender %></h4>
           <h4 class="">Endereço: <%= @user.address %></h4>
           <h4 class="">Data de Nascimento: <%= @user.birth_date %></h4>
+          <h4 class="">Tipo: <%= user.permission %> </h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @user.permission == "Teacher" %>
+    <div class="container">
+      <div class="pull-right">
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
+        <%if @current_user.permission=="Principal" %>
+          <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_teacher_path(@user.teacher), class:"btn btn-sm btn-default" %>
+          <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <% end %>
+      </div>
+        <div class="row item">
+          <div class="col-sm-12 col-md-4">
+            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+          </div>
+        <div class="col-sm-12 col-md-8 text-capitalize descript">
+          <h3 class="">Nome: <%= @user.name %></h3>
+          <h4 class="">Telefone: <%= @user.phone %></h4>
+          <h4 class="">Sexo: <%= @user.gender %></h4>
+          <h4 class="">Endereço: <%= @user.address %></h4>
+          <h4 class="">Data de Nascimento: <%= @user.birth_date %></h4>
+          <h4 class="">Tipo: <%= user.permission %> </h4>
         </div>
       </div>
     </div>

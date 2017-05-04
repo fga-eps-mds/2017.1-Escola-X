@@ -1,0 +1,114 @@
+<%= render "layouts/navbar" %>
+<%= form_for (@user) do |f| %>
+<% if @user.errors.any? %>
+  <div class="container">
+    <div class="text-danger">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@user.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+  <div class="form-group">
+    <%= f.label :name, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-user"></span>
+         Nome
+      </span>
+      <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
+    </div>
+  </div>
+  <%= f.fields_for :teacher, Teacher.new do |teachers|%>
+    <div class="form-group">
+      <%= teachers.label :cpf_teacher, class:"sr-only" %>
+      <div class="input-group">
+        <span class="input-group-addon">CPF</span>
+        <%= teachers.text_field :cpf_teacher, class:"form-control cpf active", placeholder:"Somente números."%>
+      </div>
+      <p>
+        <small class="text-muted text-lowercase sr-only">(somente numeros)</small>
+      </p>
+    </div>
+    <div class="form-group">
+      <%= teachers.label :admission_date_teacher, class:"sr-only" %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="fa fa-gift"></span>
+           Data de Admissão
+        </span>
+        <%= teachers.date_field :admission_date_teacher, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= teachers.label :registry, class:"sr-only" %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="fa fa-id-card"></span>
+            Matricula
+        </span>
+        <%= teachers.number_field :registry, class:"form-control", placeholder:"Ex.: 153456" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :password, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-unlock"></span>
+          Senha
+        </span>
+      <%= f.password_field :password, class:"form-control"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-home"></span>
+         Endereço
+      </span>
+      <%= f.text_field :address, class:"form-control", placeholder:"Ex.: Rua do limoeiro, casa 53" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-phone"></span>
+         Telefone
+      </span>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Somente numeros com DDD." %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :birth_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-gift"></span>
+         Data de nascimento
+      </span>
+      <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender, class:"sr-only" %>
+    <p class="text-uppercase"><strong>Sexo</strong></p>
+    <div class="checkbox">
+      <%= f.radio_button(:gender,"Feminino") %>
+      <%= label :gender, "Feminino" %>
+    </div>
+    <div class="checkbox">
+      <%= f.radio_button(:gender,"Masculino") %>
+      <%= label :gender, "Masculino" %>
+    </div>
+  </div>
+  <%= f.hidden_field :permission, :value => "Teacher"%>
+  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
+  <%= link_to "Voltar", users_path, class:'btn btn-lg btn-warning' %>
+<% end %>

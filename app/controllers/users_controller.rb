@@ -81,7 +81,8 @@ private
                                  :permission,
                                  :image,
                                  :password,
-                                 teacher_attibutes: [:registry],
+                                 teacher_attributes: [:registry,:cpf_teacher,
+                                                     :admission_date_teacher],
                                  parent_attributes: [:parent_cpf],
                                  alumn_attributes: [:registry, :shift])
   end
