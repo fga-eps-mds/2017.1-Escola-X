@@ -19,7 +19,7 @@ class StrikesController < ApplicationController
       if (@strike.save)
         redirect_to strike_path(@strike)
       else
-        render 'strike/new'
+        render 'strikes/new'
       end
     end
   end
