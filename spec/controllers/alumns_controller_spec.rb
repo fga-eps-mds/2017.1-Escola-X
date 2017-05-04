@@ -5,12 +5,12 @@ RSpec.describe AlumnsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"123456",
-                         parent_id: 1, shift:"matutino", permission:"Alumn"} }
+                         parent_id: 1, shift:"matutino"} }
 
   let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr",registry:"8",
-                           parent_id: -1, shift:"matutino", permission:" " } }
+                           parent_id: -1, shift:"matutino"} }
 
 
   def parent

@@ -4,13 +4,11 @@ RSpec.describe ParentsController, type: :controller do
   let(:valid_inputs) { { name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
-                         birth_date:"07/06/1988", parent_cpf:"06057577124",
-                         permission:"Parent"} }
+                         birth_date:"07/06/1988", parent_cpf:"06057577124"} }
 
   let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",
-                           birth_date:"50 abr",parent_cpf:"77777777",
-                           permission:" " } }
+                           birth_date:"50 abr",parent_cpf:"77777777"} }
 
 
   def loggin_principal
