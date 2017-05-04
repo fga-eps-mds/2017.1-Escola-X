@@ -8,6 +8,7 @@ class Alumn < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates_processing_of :image
   validate :image_size_validation
+  accepts_nested_attributes_for :strike
 
   validates :registry, presence: { message: "não pode estar em branco" },
                       uniqueness: true,
