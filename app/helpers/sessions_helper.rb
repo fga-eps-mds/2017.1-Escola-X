@@ -50,6 +50,14 @@ end
     end
   end
 
+  def is_employee?
+    if ( (logged_in?) and (current_user.is_a?(Employee)) )
+      return true
+    else
+      # raise 'Not employee'
+      return false
+    end
+  end
   # def is_teacher?
   #   if ( (logged_in?) and (current_user.permission == 'Teacher') )
   #     return true

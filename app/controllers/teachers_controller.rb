@@ -3,41 +3,67 @@
 # Description: Controller used to communicate with the view highways/show
 
 class TeachersController < UsersController
-  # include SessionsHelper
+	include SessionsHelper
 
-	def index
-		if ( logged_in? )
-      @teachers = User.all.where(:permission => "Teacher")
-
+  def index
+    if ( logged_in? )
+      @teachers = Teacher.all
     end
-	end
+  end
 
-	def new
-		if ( is_principal? )
-			@user = User.new
-		end
-	end
-
-	def show
+  def show
     if ( logged_in? )
       @teacher = Teacher.find(params[:id])
-      @user = User.find_by_id(@teacher.user_id)
+    end
+  end
+
+  def new
+    if ( is_principal? )
+      @teacher = Teacher.new
     end
   end
 
   def edit
     if ( is_principal? )
       @teacher = Teacher.find(params[:id])
-      @user = User.find_by_id(@teacher.user_id)
+    end
+  end
+
+  def create
+    if ( is_principal? )
+      @teacher = Teacher.new(teacher_params)
+
+      if (@teacher.save)
+        redirect_to users_path
+      end
+    end
+  end
+
+  def update
+    if ( is_principal? )
+      @teacher = Teacher.find(params[:id])
+      if ( @teacher.update(teacher_params) )
+        redirect_to @teacher
+      else
+        render 'edit'
+      end
     end
   end
 
   def destroy
     if ( is_principal? )
       @teacher = Teacher.find(params[:id])
-      @user = User.find (@teacher.user_id)
-      @user.destroy
+      @teacher.destroy
+
       redirect_to users_path
     end
+  end
+
+private
+  def teacher_params
+    params.require(:teacher).permit(:cpf_teacher,
+                                   :admission_date_teacher,
+                                   :registry,
+                                   :password_teacher)
   end
 end

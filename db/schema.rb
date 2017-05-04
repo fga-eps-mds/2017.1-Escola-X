@@ -57,16 +57,4 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
-
-  create_table "teachers", force: :cascade do |t|
-    t.string   "cpf_teacher"
-    t.string   "admission_date_teacher"
-    t.string   "registry"
-    t.string   "password_teacher"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_teachers_on_user_id"
-  end
-
 end
