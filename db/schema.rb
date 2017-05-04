@@ -58,22 +58,4 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.datetime "updated_at",          null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "gender"
-    t.date     "birth_date"
-    t.string   "permission"
-    t.string   "parent_cpf"
-    t.integer  "registry"
-    t.string   "shift"
-    t.integer  "parent_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "password_digest"
-    t.string   "authorization_token"
-    t.index ["parent_id"], name: "index_users_on_parent_id"
-  end
-
 end

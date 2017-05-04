@@ -3,9 +3,11 @@ module SessionsHelper
     if !@current_user.nil?
       @current_user = @current_user
     else
-      if ( !(@current_user = User.find_by_authorization_token(cookies[:authorization_token])).nil? )
+        if( !(@current_user = Employee.find_by_authorization_token(cookies[:authorization_token])).nil? )
         return @current_user
-      elsif ( !(@current_user = Employee.find_by_authorization_token(cookies[:authorization_token])).nil? )
+        elsif ( !(@current_user = Parent.find_by_authorization_token(cookies[:authorization_token])).nil? )
+      return @current_user
+        elsif ( !(@current_user = Alumn.find_by_authorization_token(cookies[:authorization_token])).nil? )
         return @current_user
       else
         @current_user = nil
