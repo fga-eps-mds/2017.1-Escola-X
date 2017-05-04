@@ -10,6 +10,8 @@ class NotificationsController < ApplicationController
       #                                               if params[:notification_receiver].present?
       # @notifications = @notifications.or.Notification.suspensions(params[:notification_receiver])
       #                                               if params[:notification_receiver].present?
+      # @notifications = @notifications.or.Notification.strikes(params[:notification_receiver])if params[:notification_receiver].present?
+      # @notifications = @notifications.or.Notification.suspensions(params[:notification_receiver])if params[:notification_receiver].present?
     end
   end
 
@@ -29,7 +31,8 @@ class NotificationsController < ApplicationController
     if ( is_employee? )
       @notification = Notification.new(notification_params)
       if (@notification.save)
-        redirect_to notification_path(@notification), notice: "A notificação foi criada com sucesso."
+        redirect_to notification_path(@notification),
+          notice: "A notificação foi criada com sucesso."
       else
         render new_notification_path
       end

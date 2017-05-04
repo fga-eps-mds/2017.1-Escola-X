@@ -1,9 +1,16 @@
-<h1 class="text-uppercase text-center" id="title-list">
-  <span class="glyphicon glyphicon-list text-left"></span>
-   Notificações
-</h1>
+<%= render "layouts/navbar" %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de notificações</h1>
 <hr>
-<%= @notifications.each do |note| %>
-  <p><%= note.title %></p>
-<% end %>
-<%= link_to "nova notificação", new_notification_path %>
+<section class="content-section">
+  <% @notifications.each do |note| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-capitalize descript">
+          <h2><span class="fa fa-file-o"></span> <%= note.title, class:"text-capitalize" %></h2>
+          <%= link_to '<span class="fa fa-search-plus"></span> Vizualizar'.html_safe, notification_path(note), class:'btn btn-default' %>
+        </div>
+      </div>
+      <hr>
+    </div>
+  <% end %>
+</section>
