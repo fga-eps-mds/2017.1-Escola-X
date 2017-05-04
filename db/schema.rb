@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.string   "birth_date"
+    t.date     "birth_date"
     t.string   "registry"
+    t.string   "password_digest"
+    t.string   "authorization_token"
     t.string   "shift"
     t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["parent_id"], name: "index_alumns_on_parent_id"
   end
 
@@ -48,10 +50,12 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
+    t.string   "password_digest"
+    t.string   "authorization_token"
     t.string   "birth_date"
     t.string   "parent_cpf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|

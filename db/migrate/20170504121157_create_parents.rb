@@ -4,8 +4,10 @@ class CreateParents < ActiveRecord::Migration[5.0]
     	t.string :name
     	t.string :address
     	t.string :phone
-    	t.string :gender
-    	t.string :birth_date
+    	t.string :gender 
+      t.string :password_digest
+      t.string :authorization_token
+    	t.date :birth_date
     	t.string :parent_cpf
 
     	t.timestamps

@@ -68,7 +68,6 @@ private
                                    :phone,
                                    :gender,
                                    :birth_date,
-                                   :permission,
                                    :password)
   end
 end
