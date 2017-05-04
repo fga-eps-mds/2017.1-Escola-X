@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426231749) do
+ActiveRecord::Schema.define(version: 20170504090926) do
+
+  create_table "alumns", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "gender"
+    t.string   "birth_date"
+    t.string   "registry"
+    t.string   "shift"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_alumns_on_parent_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.integer  "registry"

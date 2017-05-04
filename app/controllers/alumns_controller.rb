@@ -69,24 +69,12 @@
    def alumn_params
      params.require(:alumn).permit(:registry,
                                    :shift,
-<<<<<<< HEAD
-                                  #  :image,
-                                   user_attributes:[:name,
-                                                    :address,
-                                                    :phone,
-                                                    :gender,
-                                                    :image,
-                                                    :birth_date,
-                                                    :permission])
-=======
                                    :name,
                                    :address,
                                    :phone,
                                    :gender,
                                    :birth_date,
-                                   :permission,
                                    :password,
                                    :parent_id)
->>>>>>> devel_refactoring
    end
   end
