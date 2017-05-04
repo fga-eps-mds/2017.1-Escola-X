@@ -1,19 +1,5 @@
 <%= render "layouts/navbar" %>
 <%= form_for (@user) do |f| %>
-<% if @user.errors.any? %>
-  <div class="container">
-    <div class="text-danger">
-      <div id="error_explanation">
-        <h2 class=""><%= pluralize(@user.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-<% end %>
   <div class="form-group">
     <%= f.label :name, class:"sr-only" %>
     <div class="input-group">
@@ -55,13 +41,13 @@
       </div>
     </div>
     <div class="form-group">
-      <%= teachers.label :passoword_teacher, class:"sr-only" %>
+      <%= teachers.label :password_teacher, class:"sr-only" %>
       <div class="input-group">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-lock"></span>
            Senha
         </span>
-        <%= teachers.password_field :passoword_teacher, class:"form-control", plaeholder:'Senha de mínimo 8 digitos.' %>
+        <%= teachers.password_field :password_teacher, class:"form-control", plaeholder:'Senha de mínimo 8 digitos.' %>
       </div>
     </div>
   </div>

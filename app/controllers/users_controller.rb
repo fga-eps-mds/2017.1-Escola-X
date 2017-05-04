@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         elsif ( @user.permission == "Parent" )
           render 'parents/new'
         elsif ( @user.permission == "Teacher")
-          render 'teacher/new'
+          render 'teachers/new'
         end
       end
     end
@@ -49,11 +49,16 @@ class UsersController < ApplicationController
         if ( @user.permission == "Parent" )
           redirect_to parent_path(@user.parent)
         end
+        if ( @user.permission == "Teacher" )
+          redirect_to teacher_path(@user.teacher)
+        end
       else
         if ( @user.permission == "Alumn" )
           render 'alumns/edit'
         elsif ( @user.permission == "Parent" )
           render 'parents/edit'
+        elsif ( @user.permission == "Teacher")
+          render 'teachers/edit'
         end
       end
     end
@@ -76,6 +81,7 @@ private
                                  :permission,
                                  :image,
                                  :password,
+                                 teacher_attibutes: [:registry],
                                  parent_attributes: [:parent_cpf],
                                  alumn_attributes: [:registry, :shift])
   end
