@@ -10,6 +10,7 @@ class NotificationsController < ApplicationController
   def show
     if ( logged_in? )
       @notification = Notification.find(params[:id])
+      @assignee = User.exists?(@notification.notification_emitter_id) ? User.id(@notification.notification_emitter_id).name : "Desconhecido"
     end
   end
 
@@ -22,7 +23,7 @@ class NotificationsController < ApplicationController
   def create
     if ( is_employee? )
       @notification = Notification.new(notification_params)
-      @notification.notification_emitter = @current_user.id
+      @notification.notification_emitter_id = @current_user.id
       if (@notification.save)
         redirect_to notification_path(@notification),
           notice: "A notificação foi criada com sucesso."
