@@ -1,9 +1,6 @@
-# File name: teachers_controller.rb
-# Class name: TeachersController
-# Description: Controller used to communicate with the view highways/show
+class TeachersController < ApplicationController
 
-class TeachersController < UsersController
-	include SessionsHelper
+  include SessionsHelper
 
   def index
     if ( logged_in? )
@@ -61,9 +58,15 @@ class TeachersController < UsersController
 
 private
   def teacher_params
-    params.require(:teacher).permit(:cpf_teacher,
-                                   :admission_date_teacher,
-                                   :registry,
-                                   :password_teacher)
+    params.require(:teacher).permit(:registry,
+                                   :admission_date,
+                                   :employee_cpf,
+                                   :shift,
+																	 :password,
+                                   :name,
+                                   :address,
+                                   :phone,
+                                   :gender,
+                                   :birth_date)
   end
 end

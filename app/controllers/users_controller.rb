@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def index
     if ( logged_in? )
       @users = Alumn.all
+      @employees = Employee.all
     end
   end
 end
