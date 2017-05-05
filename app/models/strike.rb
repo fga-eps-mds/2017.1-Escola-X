@@ -1,2 +1,0 @@
-class Strike < Notification
-end

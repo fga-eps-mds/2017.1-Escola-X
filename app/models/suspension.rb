@@ -1,2 +1,0 @@
-class Suspension < Notification
-end

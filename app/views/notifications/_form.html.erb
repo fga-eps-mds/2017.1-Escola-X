@@ -13,11 +13,7 @@
       </div>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :notification_type, "<h3>Selecione o tipo da notificação:</h3>".html_safe, class:"" %>
-    <br>
-    <%= f.select :notification_type, Notification.types.map {|r| [r.humanize, r.camelcase]}, {} %>
-  </div>
+
   <div class="form-group">
     <%= f.label :title, "<h2>Título:</h2>".html_safe, class:"" %>
     <%= f.text_field :title, class:"form-control", placeholder:"Título da notificação." %>

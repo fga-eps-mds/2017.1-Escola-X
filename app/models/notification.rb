@@ -1,6 +1,5 @@
 class Notification < ApplicationRecord
-  belongs_to :notification_emitter
-  self.inheritance_column = :notification_type
+  # belongs_to :notification_emitter
 
   validates :title, presence: { message: "Não pode estar em branco!" },
   length: { minimum: 5,
@@ -21,12 +20,5 @@ class Notification < ApplicationRecord
     DateTime.now.time
   end
 
-  scope :strikes, -> (receiver) { where(notification_type: 'Strike').where(notification_receiver: receiver) }
-  scope :events, -> { where(notification_type: 'Event') }
-  scope :suspensions, -> (receiver) { where(notification_type: 'Suspension').where(notification_receiver: receiver) }
-
   private
-  def self.types
-    [ "Strike", "Event", "Suspension" ]
-  end
 end

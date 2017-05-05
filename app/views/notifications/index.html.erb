@@ -2,15 +2,15 @@
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de notificações</h1>
 <hr>
 <section class="content-section">
-  <% @notifications.each do |note| %>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 text-capitalize descript">
-          <h2><span class="fa fa-file-o"></span> <%= note.title, class:"text-capitalize" %></h2>
-          <%= link_to '<span class="fa fa-search-plus"></span> Vizualizar'.html_safe, notification_path(note), class:'btn btn-default' %>
-        </div>
+        <% @notifications.reverse.each do |note| %>
+            <div class="col-sm-6 col-md-4 col-lg-3 text-capitalize descript">
+              <!-- <h5><span class="fa fa-file-o"></span> <%= note.title %></h5> -->
+              <%= link_to "#{note.title}".html_safe, notification_path(note), class:'btn btn-lg btn-roxo btn-block' %>
+            </div>
+        <% end %>
       </div>
       <hr>
     </div>
-  <% end %>
 </section>

@@ -3,15 +3,7 @@ class NotificationsController < ApplicationController
 
   def index
     if ( logged_in? )
-      @notifications = Notification.events()
-      @notifications = @notifications.or(Notification.strikes(@current_user.id))
-      @notifications = @notifications.or(Notification.suspensions(@current_user.id))
-      # @notifications = @notifications.or.Notification.strikes(params[:notification_receiver])
-      #                                               if params[:notification_receiver].present?
-      # @notifications = @notifications.or.Notification.suspensions(params[:notification_receiver])
-      #                                               if params[:notification_receiver].present?
-      # @notifications = @notifications.or.Notification.strikes(params[:notification_receiver])if params[:notification_receiver].present?
-      # @notifications = @notifications.or.Notification.suspensions(params[:notification_receiver])if params[:notification_receiver].present?
+      @notifications = Notification.all
     end
   end
 
@@ -30,6 +22,7 @@ class NotificationsController < ApplicationController
   def create
     if ( is_employee? )
       @notification = Notification.new(notification_params)
+      @notification.notification_emitter = @current_user.id
       if (@notification.save)
         redirect_to notification_path(@notification),
           notice: "A notificação foi criada com sucesso."
