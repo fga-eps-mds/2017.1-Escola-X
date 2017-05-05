@@ -10,6 +10,13 @@ class Alumn < ApplicationRecord
   validate :image_size_validation
   accepts_nested_attributes_for :strike
 
+  before_create :initialize_strikes
+
+  def initialize_strikes
+    self.quantity_strike ||= 0
+  end
+
+
   validates :registry, presence: { message: "não pode estar em branco" },
                       uniqueness: true,
              length: { minimum: 5,

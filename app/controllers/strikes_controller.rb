@@ -9,6 +9,7 @@ class StrikesController < ApplicationController
   def show
     if ( is_principal? )
       @strike = Strike.find(params[:id])
+      @alumn = Alumn.find_by_id(@strike.alumn_id)
     end
   end
 
@@ -17,7 +18,13 @@ class StrikesController < ApplicationController
       @strike = @@alumn.strike.create(strike_params)
       @strike.employee_id = @current_user.employee.id
       if (@strike.save)
-        redirect_to strike_path(@strike)
+        @alumn = Alumn.find_by_id(@strike.alumn_id)
+        @alumn.quantity_strike += 1
+        if @alumn.save
+          redirect_to strike_path(@strike)
+        else
+          render 'strikes/new'
+        end
       else
         render 'strikes/new'
       end
