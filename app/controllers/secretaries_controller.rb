@@ -50,7 +50,8 @@ class SecretariesController < ApplicationController
   def update
     if ( is_principal? )
       @secretary = Secretary.find(params[:id])
-      if ( @secretary.update(secretary_params) )
+      if @secretary.update secretary_params
+        flash[:notice] = "Secretário(a) alterado(a) com sucesso"
         redirect_to @secretary
       else
         render 'edit'
