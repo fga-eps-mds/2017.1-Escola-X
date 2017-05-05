@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :alumns
   resources :parents
+  resources :secretaries
 
   resources :parents do
     resources :alumns

@@ -2,12 +2,12 @@
 # Class name: SecretaryController
 # Description: Controller used to communicate with the proprietary view of secretarys
 
-class SecretaryController < ApplicationController
+class SecretariesController < ApplicationController
 	include SessionsHelper
 
   def index
     if ( is_principal? )
-      @secretary = Employee.all
+      @secretaries = Employee.all
     end
   end
 
