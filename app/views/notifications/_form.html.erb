@@ -19,6 +19,10 @@
     <%= f.text_field :title, class:"form-control", placeholder:"Título da notificação." %>
   </div>
   <div class="form-group">
+    <%= f.label :motive, "<h2>Motivo:</h2>".html_safe, class:"" %>
+    <%= f.text_field :motive, class:"form-control", placeholder:"Motivo da notificação." %>
+  </div>
+  <div class="form-group">
     <%= f.label :notification_text, "<h2>Conteúdo da notificação:</h2>".html_safe, class:"" %>
     <%= f.text_area :notification_text, class:"form-control", placeholder:"Corpo da notificação.", rows:"20" %>
   </div>
