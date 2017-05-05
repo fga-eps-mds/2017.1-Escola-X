@@ -69,7 +69,7 @@ class SecretariesController < ApplicationController
   private
 
   def secretary_params
-  	params.require(:employee).permit( :employee_cpf,
+  	params.require(:secretary).permit( :employee_cpf,
 								       :admission_date,
 								       :shift,
 								       :name,
@@ -78,7 +78,7 @@ class SecretariesController < ApplicationController
 								       :gender,
 								       :birth_date,
 								       :permission,
-								       :password_digest)
+								       :password)
   end
 
 end
