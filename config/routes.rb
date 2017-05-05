@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users
-  resources :alumns
-  resources :parents
+  resources :alumns do
+    resources :strikes
+  end
   resources :strikes
+  resources :parents
 
 end
