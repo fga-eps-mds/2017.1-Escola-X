@@ -25,7 +25,6 @@ class SecretariesController < ApplicationController
     end
   end
 
-
   def edit
     if ( is_principal? )
       @secretary = Secretary.find(params[:id])

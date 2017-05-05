@@ -8,11 +8,12 @@
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
-        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
-        <%if @current_user.permission=="Principal" %>
+       <%if @current_user.permission=="Principal" %>
           <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e aluno'.html_safe, new_parent_path %></li>
           <li><%= link_to '<span class="fa fa-user-circle-o"></span> Criar Secretário'.html_safe, new_secretary_path %></li>
-        <% end %>
+      <% end %>
+        <li><%= link_to '<span class="fa fa-search"></span> Visualizar Secretários'.html_safe, secretaries_path %></li>
+         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
       </ul>
     </div>
   </div>
