@@ -7,35 +7,35 @@ class SecretariesController < ApplicationController
 
   def index
     if ( is_principal? )
-      @secretaries = Employee.all
+      @secretaries = Secretary.all
     end
   end
 
 
   def show
     if ( logged_in? )
-      @secretary = Employee.find(params[:id])
+      @secretary = Secretary.find(params[:id])
     end
   end
 
 
   def new
     if ( is_principal? )
-      @secretary = Employee.new
+      @secretary = Secretary.new
     end
   end
 
 
   def edit
     if ( is_principal? )
-      @secretary = Employee.find(params[:id])
+      @secretary = Secretary.find(params[:id])
     end
   end
 
 
   def create
     if ( is_principal? )
-      @secretary = Employee.new(secretary_params)
+      @secretary = Secretary.new(secretary_params)
 
       if (@secretary.save)
         redirect_to @secretary
@@ -48,7 +48,7 @@ class SecretariesController < ApplicationController
 
   def update
     if ( is_principal? )
-      @secretary = Employee.find(params[:id])
+      @secretary = Secretary.find(params[:id])
       if ( @secretary.update(secretary_params) )
         redirect_to @secretary
       else
@@ -59,7 +59,7 @@ class SecretariesController < ApplicationController
 
   def destroy
     if ( is_principal? )
-      @secretary = Employee.find(params[:id])
+      @secretary = Secretary.find(params[:id])
       @secretary.destroy
 
       redirect_to users_path

@@ -1,12 +1,13 @@
 <%= render "layouts/navbar" %>
-<%= form_for (@secretaries)  do |f| %>
-  <% if @secretaries.errors.any? %>
+
+<%= form_for (@secretary)  do |f| %>
+  <% if @secretary.errors.any? %>
     <div class="container">
       <div class="text-danger text-justify">
         <div id="error_explanation">
-          <h2 class=""><%= pluralize(@secretaries.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <h2 class=""><%= pluralize(@secretary.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
           <ul>
-          <% @secretaries.errors.full_messages.each do |msg| %>
+          <% @secretary.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
           </ul>
