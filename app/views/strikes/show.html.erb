@@ -9,9 +9,12 @@
       <%end%>
     </div>
     <div class="row item">
-      <div class="col-sm-12 col-md-8 text-capitalize descript">
-        <h3 class="">Descrição: <%= @strike.description_strike %></h3>
-        <h3 class="">Quantidade: <%= @alumn.quantity_strike %></h3>
+      <div class="col-sm-12 col-md-8 descript">
+        <h3 class="">Descrição da advertência: <%= @strike.description_strike %></h3>
+        <h3 class="">Quantidade de advertências do aluno: <%= @alumn.quantity_strike %></h3>
+        <h3 class="">Nome do aluno: <%= @user.name %></h3>
+        <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
+        <h3 class="">Matricula do professor/diretor: <%= @strike.employee_id %></h3>
       </div>
     </div>
   </div>

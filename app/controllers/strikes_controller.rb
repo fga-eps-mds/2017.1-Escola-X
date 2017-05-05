@@ -10,6 +10,7 @@ class StrikesController < ApplicationController
     if ( is_principal? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
+      @user = User.find_by_id(@alumn.user_id)
     end
   end
 
@@ -29,6 +30,39 @@ class StrikesController < ApplicationController
         render 'strikes/new'
       end
     end
+  end
+
+  def destroy
+    if ( is_principal? )
+      @strike = Strike.find(params[:id])
+      @alumn = Alumn.find_by_id(@strike.alumn_id)
+      if @strike.destroy
+        @alumn.quantity_strike -= 1
+        if @alumn.save
+          redirect_to users_path
+        end
+      end
+    end
+  end
+
+  def edit
+    if ( is_principal? )
+      @strike = Strike.find(params[:id])
+      @alumn = Alumn.find_by_id(@strike.alumn_id)
+      @user = User.find_by_id(@alumn.user_id)
+    end
+  end
+
+  def update
+    if ( is_principal? )
+      @strike = Strike.find(params[:id])
+      if @strike.update(strike_params)
+        redirect_to strike_path(@strike)
+      else
+        render "strikes/edit"
+      end
+    end
+
   end
 
 private
