@@ -2,9 +2,9 @@
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Alunos</h1>
 <hr>
 <section class="content-section" id="alumns-list">
-  <% @users.each do |user| %>
     <div class="container">
       <div class="row item">
+        <% @users.each do |user| %>
         <div class="col-sm-12 col-md-4">
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
         </div>
@@ -12,8 +12,8 @@
           <h2><%= user.name %></h2>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar', user_path(user), class:'btn btn-default' %>
         </div>
+        <hr>
+        <% end %>
       </div>
-      <hr>
     </div>
-  <% end %>
 </section>

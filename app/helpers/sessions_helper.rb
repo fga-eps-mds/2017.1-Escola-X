@@ -46,4 +46,17 @@ module SessionsHelper
       return false
     end
   end
+
+  def is_secretary?
+    if ( (logged_in?) and (current_user.permission == 'Secretary') )
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_employee?
+    #  mattioli's power
+    return ( is_principal? or is_secretary? or is_teacher? )
+  end
 end

@@ -4,14 +4,22 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coll-nav" aria-expanded="false">
         <span class="fa fa-angle-down"></span>
       </button>
-      <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
+      <% if @current_user.permission == "Alumn" %>
+        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumn_path(@current_user.alumn) %>
+      <% else %>
+        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <%if @current_user.permission=="Principal" %>
           <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável'.html_safe, new_parent_path %></li>
           <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Aluno'.html_safe, new_alumn_path %></li>
+        <% end %>
+        <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
+          <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
         <% end %>
       </ul>
     </div>
