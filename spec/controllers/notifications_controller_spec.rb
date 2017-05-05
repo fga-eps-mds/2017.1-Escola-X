@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe NotificationsController, type: :controller do
   let(:valid_inputs) { { title: "Ausencia de prosso",
                          notification_text: "vai ter aula nao mlkada",
-                         notification_date: "01/03/1995"} }
+                         notification_date: "01/03/1995",
+                         notification_emitter_id: 1,
+                         motive: "bebeu demais na noite passada"} }
 
   let(:invalid_inputs) { { title: "prosso vai",
                            notification_text: "rodaro",

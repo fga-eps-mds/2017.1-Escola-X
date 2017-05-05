@@ -16,7 +16,7 @@ class Notification < ApplicationRecord
             presence: { message: "Usuário não válido para criar notificação!" }
 
   validates :motive, presence: { message: "Deve conter um motivo para notificação." },
-                    :length: {minimum: 8,
+                    length: {minimum: 8,
                     :too_short => "deve possuir mais de 8 caracteres."}
 
   def get_date
