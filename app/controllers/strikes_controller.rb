@@ -2,7 +2,7 @@ class StrikesController < ApplicationController
   include SessionsHelper
   def new
     if ( is_principal? )
-      @alumn = Alumn.find(params[:id])
+      @strike = Strike.new
     end
   end
   def show
@@ -12,8 +12,7 @@ class StrikesController < ApplicationController
   end
 
   def create
-    @strike = Alumn.find(params[:id])
-    @strike.strike.build(strike_params)
+    @strike = Strike.new(strike_params)
     if (@strike.save)
       redirect_to strike_path(@strike)
     else
@@ -28,5 +27,4 @@ private
                                  employee_attributes: [:employee_id],
                                  alumn_attributes: [:alumn_id])
   end
-
 end
