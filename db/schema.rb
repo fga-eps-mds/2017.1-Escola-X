@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.string   "permission"
     t.string   "password_digest"
     t.string   "authorization_token"
+    t.string   "password_employees"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -57,4 +58,5 @@ ActiveRecord::Schema.define(version: 20170504121157) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
 end
