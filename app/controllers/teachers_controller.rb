@@ -31,7 +31,10 @@ class TeachersController < ApplicationController
       @teacher = Teacher.new(teacher_params)
 
       if (@teacher.save)
+        flash[:notice] = "Professor(a) criado(a) com sucesso"
         redirect_to users_path
+      else
+        render 'new'
       end
     end
   end
@@ -40,6 +43,7 @@ class TeachersController < ApplicationController
     if ( is_principal? )
       @teacher = Teacher.find(params[:id])
       if ( @teacher.update(teacher_params) )
+        flash[:notice] = "Professor(a) alterado(a) com sucesso"
         redirect_to @teacher
       else
         render 'edit'
