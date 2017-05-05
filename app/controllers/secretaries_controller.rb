@@ -38,6 +38,7 @@ class SecretariesController < ApplicationController
       @secretary = Secretary.new(secretary_params)
 
       if (@secretary.save)
+        flash[:notice] = "Secretário(a) criado(a) com sucesso"
         redirect_to @secretary
       else
         render 'new'
@@ -60,9 +61,11 @@ class SecretariesController < ApplicationController
   def destroy
     if ( is_principal? )
       @secretary = Secretary.find(params[:id])
-      @secretary.destroy
-
-      redirect_to users_path
+      if (@secretary.destroy)
+        flash[:notice] = "Secretário(a) excluído(a) com sucesso"
+      end
+      
+      redirect_to secretaries_path
     end
   end
 
