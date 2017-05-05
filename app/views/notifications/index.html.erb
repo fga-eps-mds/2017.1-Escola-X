@@ -1,13 +1,15 @@
 <%= render "layouts/navbar" %>
-<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de notificações</h1>
+<h1 class="text-uppercase text-center" id="title-list"><span class="fa fa-sticky-note text-left"></span> quadro de avisos</h1>
 <hr>
 <section class="content-section">
     <div class="container">
+      <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
+      <%= link_to '<span class="fa fa-plus-circle"></span> Nova notificação'.html_safe, new_notification_path, class:"text-center btn btn-info" %>
+      <% end %>
       <div class="row">
         <% @notifications.reverse.each do |note| %>
             <div class="col-sm-6 col-md-4 col-lg-3 text-capitalize descript">
-              <!-- <h5><span class="fa fa-file-o"></span> <%= note.title %></h5> -->
-              <%= link_to "#{note.title}".html_safe, notification_path(note), class:'btn btn-lg btn-roxo btn-block' %>
+              <%= link_to "<strong>#{note.title}</strong><br><h6>#{note.notification_date.day}/#{note.notification_date.month}/#{note.notification_date.year}</h6>".html_safe, notification_path(note), class:'btn btn-lg btn-roxo btn-block' %>
             </div>
         <% end %>
       </div>

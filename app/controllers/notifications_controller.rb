@@ -10,7 +10,7 @@ class NotificationsController < ApplicationController
   def show
     if ( logged_in? )
       @notification = Notification.find(params[:id])
-      @assignee = User.exists?(@notification.notification_emitter_id) ? User.id(@notification.notification_emitter_id).name : "Desconhecido"
+      @assignee = User.exists?(@notification.notification_emitter_id) ? User.find_by_id(@notification.notification_emitter_id).name : "Desconhecido"
     end
   end
 
@@ -24,6 +24,8 @@ class NotificationsController < ApplicationController
     if ( is_employee? )
       @notification = Notification.new(notification_params)
       @notification.notification_emitter_id = @current_user.id
+      @notification.notification_date = @notification.get_date
+      # @notification.notification_hour = @notification.get_hour
       if (@notification.save)
         redirect_to notification_path(@notification),
           notice: "A notificação foi criada com sucesso."
@@ -55,8 +57,6 @@ class NotificationsController < ApplicationController
   private
   def notification_params
     params.require(:notification).permit( :title,
-                                          :notification_type,
-                                          :notification_receiver,
                                           :notification_text,
                                           :notification_emitter_id,
                                           :notification_date,

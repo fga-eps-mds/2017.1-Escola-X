@@ -16,9 +16,7 @@ class Notification < ApplicationRecord
     DateTime.now
   end
 
-  def get_hour
-    DateTime.now.time
-  end
-
-  private
+  # def get_hour
+  #   DateTime.now.time
+  # end
 end
