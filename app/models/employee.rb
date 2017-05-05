@@ -4,9 +4,9 @@
 class Employee < ApplicationRecord
   belongs_to :user, optional: true
   self.inheritance_column = :permission
-  # validates :employee_cpf, :cpf => true
+  validates :employee_cpf, :cpf => true
   has_secure_password
-  validates :registry, presence: true
+  # validates :registry , presence: true
 
   before_create{
     generate_token(:authorization_token)
