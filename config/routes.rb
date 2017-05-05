@@ -13,8 +13,5 @@ Rails.application.routes.draw do
   resources :alumns
   resources :parents
   resources :notifications
-  resources :strikes, controller: 'notifications', notification_type: 'Strike'
-  resources :events, controller: 'notifications', notification_type: 'Event'
-  resources :suspensions, controller: 'notifications', notification_type: 'Suspension'
 
 end

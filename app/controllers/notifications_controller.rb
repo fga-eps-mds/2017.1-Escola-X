@@ -35,11 +35,18 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def edit
+    if ( is_employee? )
+      @notification = Notification.find(params[:id])
+    end
+  end
+
   def update
     if ( is_employee? )
       @notification = Notification.find(params[:id])
       if ( @notification.update(notification_params) )
-        redirect_to notification_path(@notification)
+        redirect_to notification_path(@notification),
+          notice: "A notificação foi criada com sucesso."
       else
         render edit_notification_path
       end

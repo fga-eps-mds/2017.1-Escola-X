@@ -12,6 +12,9 @@ class Notification < ApplicationRecord
             length: { minimum: 10,
                       :too_short => "deve possuir mais de 10 caracteres." }
 
+  validates :notification_emitter_id,
+            presence: { message: "Usuário não válido para criar notificação!" }
+
   def get_date
     DateTime.now
   end
