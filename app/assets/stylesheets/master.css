@@ -53,6 +53,18 @@ footer{
     padding: 6em;
 }
 
+#notification{
+  margin-top: 5em;
+}
+
+#notification .row{
+  padding-top: 5em;
+}
+
+#notification p{
+  font-size: 1.1em;
+}
+
 @media (min-width: 780px) {
   #formz{
     padding-top: 10em;

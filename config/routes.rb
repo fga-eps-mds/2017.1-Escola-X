@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
   get 'users/:id/edit_password', to:'users#edit_password', as:'edit_password'
-
 
   root 'sessions#new'
 
@@ -14,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :alumns
   resources :parents
+  resources :notifications
 
   resources :parents do
     resources :alumns
