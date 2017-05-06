@@ -88,4 +88,5 @@ end
 		
 Then (/^I register the teacher and I go to page users$/) do
 	driver.get('http://localhost:3000/users')
+	driver.quit
 end

@@ -6,8 +6,9 @@ before_install:
  - sh -e /etc/init.d/xvfb start
  - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ - wget http://chromedriver.googlecode.com/files/chromedriver_linux32_23.0.1240.0.zip && unzip chromedriver_linux32_23.0.1240.0.zip && sudo mv chromedriver /usr/bin
  - sudo dpkg -f google-chrome*.deb
+ - gem install selenium-webdriver
 
 before_script:
   - bundle exec rails db:create db:migrate
@@ -26,11 +27,4 @@ script:
   - bundle exec rspec
   - bundle exec cucumber
 dist: xenial
-
-customLaunchers: {  
-  Chrome_travis_ci: {
-    base: 'Chrome',
-    flags: ['--no-sandbox']
-  }
-}
 
