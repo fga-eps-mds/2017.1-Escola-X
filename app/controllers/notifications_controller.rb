@@ -10,7 +10,7 @@ class NotificationsController < ApplicationController
   def show
     if ( logged_in? )
       @notification = Notification.find(params[:id])
-      @assignee = User.exists?(@notification.notification_emitter_id) ? User.find_by_id(@notification.notification_emitter_id).name : "Desconhecido"
+      @assignee = Employee.exists?(@notification.notification_emitter_id) ? Employee.find_by_id(@notification.notification_emitter_id).name : "Desconhecido"
     end
   end
 

@@ -1,12 +1,12 @@
 <%= render "layouts/navbar" %>
-<%= form_for (@user) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for (@alumn) do |f| %>
+  <% if @alumn.errors.any? %>
     <div class="container">
       <div class="text-danger text-justify">
         <div id="error_explanation">
-          <h2 class=""><%= pluralize(@user.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <h2 class=""><%= pluralize(@alumn.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
           <ul>
-          <% @user.errors.full_messages.each do |msg| %>
+          <% @alumn.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
           </ul>
@@ -24,28 +24,26 @@
       <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
     </div>
   </div>
-  <%= f.fields_for :alumn, @alumn do |a| %>
-    <div class="form-group">
-      <%= a.label :registry, class:"sr-only" %>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <span class="fa fa-id-card"></span>
-           Matricula
-        </span>
-        <%= a.number_field :registry, class:"form-control", placeholder:"Ex.: 153456" %>
-      </div>
-      <div class="form-group">
+  <div class="form-group">
+    <%= f.label :registry, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-id-card"></span>
+        Matricula
+      </span>
+      <%= f.number_field :registry, class:"form-control", placeholder:"Ex.: 153456" %>
     </div>
-    <%= a.label :shift, class:"sr-only" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :shift, class:"sr-only" %>
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-clock-o"></span>
         Turno
       </span>
-      <%= a.text_field :shift, class:"form-control", placeholder:"Ex.: matutino" %>
+      <%= f.text_field :shift, class:"form-control", placeholder:"Ex.: matutino" %>
     </div>
   </div>
-  <% end %>
   <div class="form-group">
     <%= f.label :address, class:"sr-only" %>
     <div class="input-group">
@@ -63,7 +61,7 @@
         <span class="fa fa-phone"></span>
          Telefone
       </span>
-      <%= f.text_field :phone, class:"form-control", placeholder:"Somente números e com DDD." %>
+      <%= f.text_field :phone, class:"form-control", placeholder:'Somente números com DDD.' %>
     </div>
   </div>
   <div class="form-group">
@@ -88,7 +86,11 @@
       <%= label :gender, "Masculino" %>
     </div>
   </div>
+<<<<<<< HEAD
   <%= f.hidden_field :permission, :value => "Alumn"%>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
+=======
+  <%= f.submit "Salvar", class:'btn btn-lg btn-success' %>
+>>>>>>> devel_refactoring
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
 <% end %>
