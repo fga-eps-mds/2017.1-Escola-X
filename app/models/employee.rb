@@ -2,7 +2,7 @@
 #Class name: Parent
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
-  belongs_to :user, optional: true
+  before_save :validates_password
   self.inheritance_column = :permission
   validates :employee_cpf, :cpf => true
   has_secure_password
@@ -12,6 +12,14 @@ class Employee < ApplicationRecord
     generate_token(:authorization_token)
   }
   private
+
+  def validates_password
+    if self.password_digest.nil?
+      validates :password, presence:true,
+      length: { minimum: 8}
+    end
+  end
+  
   def generate_token(column)
     begin
       self[column]= SecureRandom.urlsafe_base64
