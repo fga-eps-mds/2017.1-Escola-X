@@ -1,16 +1,26 @@
 class StrikesController < ApplicationController
   include SessionsHelper
+
+  def index
+    if ( logged_in? )
+      @@alumn = Alumn.find(params[:alumn_id])
+      @strikes = @@alumn.strike
+    end
+  end
+
   def new
     if ( is_principal? )
       @@alumn = Alumn.find(params[:alumn_id])
       @strike = Strike.new
     end
   end
+
   def show
     if ( is_principal? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
       @user = User.find_by_id(@alumn.user_id)
+      @employee = Employee.find(@strike.employee_id)
     end
   end
 
@@ -62,7 +72,6 @@ class StrikesController < ApplicationController
         render "strikes/edit"
       end
     end
-
   end
 
 private

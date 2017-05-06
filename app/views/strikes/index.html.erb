@@ -1,0 +1,18 @@
+<%= render "layouts/navbar" %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Advertências</h1>
+<hr>
+<section class="content-section" id="alumns-list">
+
+  <% @strikes.each do |strike| %>
+      <div class="container">
+        <div class="row item">
+          <div class="col-sm-12 col-md-8 text-capitalize descript">
+            <h2>Data: <%= strike.date_strike %></h2>
+            <h4>Descrição: <%= strike.description_strike %> </h4>
+            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, strike_path(strike), class:'btn btn-info' %>
+          </div>
+        </div>
+        <hr>
+      </div>
+  <% end %>
+</section>
