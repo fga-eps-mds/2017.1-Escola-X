@@ -1,19 +1,19 @@
 <%= render "layouts/navbar" %>
-<%= form_for (@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="container">
-      <div class="text-danger text-justify">
-        <div id="error_explanation">
-          <h2 class=""><%= pluralize(@user.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
-          <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+<%= form_for (@parent) do |f| %>
+<% if @parent.errors.any? %>
+  <div class="container">
+    <div class="text-danger">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@parent.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+        <ul>
+        <% @parent.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
   <div class="form-group">
     <%= f.label :name, class:"sr-only" %>
     <div class="input-group">
@@ -21,8 +21,18 @@
         <span class="fa fa-user"></span>
          Nome
       </span>
-      <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário", class:'form-control' %>
+      <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
     </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :parent_cpf, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">CPF</span>
+      <%= f.text_field :parent_cpf, class:"form-control cpf active", placeholder:"Somente números."%>
+    </div>
+    <p>
+      <small class="text-muted text-lowercase sr-only">(somente numeros)</small>
+    </p>
   </div>
   <div class="form-group">
     <%= f.label :address, class:"sr-only" %>
@@ -41,7 +51,7 @@
         <span class="fa fa-phone"></span>
          Telefone
       </span>
-      <%= f.text_field :phone, class:"form-control", placeholder:"Somente números e com DDD." %>
+      <%= f.text_field :phone, class:"form-control", placeholder:"Somente numeros com DDD." %>
     </div>
   </div>
   <div class="form-group">
@@ -54,28 +64,16 @@
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>
   </div>
-  <%= f.fields_for :parent, Parent.new do |pf|%>
-    <div class="form-group">
-      <%= pf.label :parent_cpf, class:"sr-only" %>
-      <div class="input-group">
-        <span class="input-group-addon">CPF</span>
-        <%= pf.text_field :parent_cpf, class:"form-control", placeholder:"Ex.: 000.000.000-00" %>
-      </div>
-      <p>
-        <small class="text-muted text-lowercase">(somente numeros)</small>
-      </p>
-    </div>
-  <% end %>
   <div class="form-group">
     <%= f.label :gender, class:"sr-only" %>
     <p class="text-uppercase"><strong>Sexo</strong></p>
     <div class="checkbox">
-      <%= radio_button_tag(:gender, "Mulher") %>
-      <%= label_tag(:gender_female, "Mulher") %>
+      <%= f.radio_button(:gender,"Feminino") %>
+      <%= label :gender, "Feminino" %>
     </div>
     <div class="checkbox">
-      <%= radio_button_tag(:gender, "Homem") %>
-      <%= label_tag(:gender_male, "Homem") %>
+      <%= f.radio_button(:gender,"Masculino") %>
+      <%= label :gender, "Masculino" %>
     </div>
   </div>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>

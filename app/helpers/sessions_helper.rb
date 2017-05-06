@@ -1,6 +1,18 @@
 module SessionsHelper
   def current_user
-    @current_user ||= User.find_by_authorization_token!(cookies[:authorization_token]) if cookies[:authorization_token]
+    if !@current_user.nil?
+      @current_user = @current_user
+    else
+      if ( !(@current_user = Employee.find_by_authorization_token(cookies[:authorization_token])).nil? )
+        return @current_user
+      elsif ( !(@current_user = Parent.find_by_authorization_token(cookies[:authorization_token])).nil? )
+          return @current_user
+      elsif ( !(@current_user = Alumn.find_by_authorization_token(cookies[:authorization_token])).nil? )
+        return @current_user
+      else
+        @current_user = nil
+    end
+end
   end
 
   def logged_in?
@@ -12,7 +24,7 @@ module SessionsHelper
   end
 
   def is_principal?
-    if ( (logged_in?) and (current_user.permission == 'Principal') )
+    if ( (logged_in?) and (current_user.is_a?(Principal)) )
       return true
     else
       # raise 'Not principal'
@@ -21,7 +33,7 @@ module SessionsHelper
   end
 
   def is_alumn?
-    if ( (logged_in?) and (current_user.permission == 'Alumn') )
+    if ( (logged_in?) and (current_user.is_a?(Alumn)) )
       return true
     else
       # raise 'Not alumn'
@@ -30,7 +42,7 @@ module SessionsHelper
   end
 
   def is_parent?
-    if ( (logged_in?) and (current_user.permission == 'Parent') )
+    if ( (logged_in?) and (current_user.is_a?(Parent)) )
       return true
     else
       # raise 'Not parent'
@@ -56,7 +68,6 @@ module SessionsHelper
   end
 
   def is_employee?
-    #  mattioli's power
     return ( is_principal? or is_secretary? or is_teacher? )
   end
 end
