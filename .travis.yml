@@ -1,14 +1,10 @@
 sudo: required 
 
 before_install:  
- - export CHROME_BIN=/usr/bin/google-chrome
- - export DISPLAY=:99.0 
- - sh -e /etc/init.d/xvfb start
+ - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+ - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
  - sudo apt-get update
- - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget http://chromedriver.googlecode.com/files/chromedriver_linux32_23.0.1240.0.zip && unzip chromedriver_linux32_23.0.1240.0.zip && sudo mv chromedriver /usr/bin
- - sudo dpkg -f google-chrome*.deb
- - gem install selenium-webdriver
+ - sudo apt-get install google-chrome-stable
 
 before_script:
   - bundle exec rails db:create db:migrate
@@ -25,6 +21,6 @@ rvm:
   - 2.3.1
 script:
   - bundle exec rspec
-  - bundle exec cucumber
+  - bundle exec cucumber --profile default
 dist: xenial
 
