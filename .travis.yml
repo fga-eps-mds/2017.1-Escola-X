@@ -7,7 +7,7 @@ before_install:
  - sudo apt-get install unzip
  - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget http://chromedriver.googlecode.com/files/chromedriver_linux32_23.0.1240.0.zip 
+ - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
  - unzip chromedriver_linux32_23.0.1240.0.zip 
  - sudo mv chromedriver /usr/bin
  - sudo dpkg -f google-chrome*.deb
