@@ -4,9 +4,9 @@ before_script:
 addons:
   apt:
     sources:
-	  - google-chrome
-	packages:
-	  - google-chrome-stable
+    - google-chrome
+  packages:
+    - google-chrome-stable
 cache: bundler
 language: ruby
 rvm:
