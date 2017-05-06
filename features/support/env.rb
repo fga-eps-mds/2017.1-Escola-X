@@ -36,6 +36,16 @@ rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
 
+Capybara.register_driver :chrome do |app|
+  # optional
+  client = Selenium::WebDriver::Remote::Http::Default.new
+  # optional
+  client.timeout = 120
+  Capybara::Selenium::Driver.new(app, :browser => :chrome, :http_client => client)
+end
+
+Capybara.javascript_driver = :chrome
+
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:
 #
