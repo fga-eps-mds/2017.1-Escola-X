@@ -17,11 +17,11 @@ RSpec.describe NotificationsController, type: :controller do
                                          notification_text: "vai ter aula nao mlkada",
                                          notification_date: "01/03/1995")
 
-      user = User.create(name: "Michael Cera", phone:"61988885555",
-                         address:"Rua Vida Casa 15,Taguatinga",
-                         password: "12345678", gender:"M",
-                         birth_date:"07/06/1988", permission:"Principal")
-
+      user = Principal.create(name: "Michael Cera", phone:"61988885555",
+                            address:"Rua Vida Casa 15,Taguatinga",
+                            password: "12345678", gender:"M",
+                            birth_date:"07/06/1988",registry:"123456")
+      
       cookies[:authorization_token] = user.authorization_token
     end
 
