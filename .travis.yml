@@ -8,13 +8,10 @@ before_install:
  - sudo apt-get install unzip
  - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
- - unzip chromedriver_linux64.zip 
- - sudo mv chromedriver /usr/bin
+ - wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip 
+ - sudo mv chromedriver_57.0.2987.98-1-deb8u1_i386 /usr/bin
  - cd /usr/bin
- - chmod +x chromedriver
- - ./chromedriver
- - sudo dpkg -f chromedriver
+ - sudo dpkg -f chromedriver_57.0.2987.98-1-deb8u1_i386
  - gem install selenium-webdriver
 
 before_script:
