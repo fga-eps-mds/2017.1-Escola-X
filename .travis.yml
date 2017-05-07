@@ -1,6 +1,20 @@
 sudo: required 
 
-
+before_install:  
+ - export CHROME_BIN=/usr/bin/google-chrome
+ - export DISPLAY=:99.0 
+ - sh -e /etc/init.d/xvfb start
+ - sudo apt-get install libstdc++6
+ - sudo apt-get install unzip
+ - sudo apt-get update
+ - sudo apt-get install -y libappindicator1 fonts-liberation
+ - wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
+ - unzip chromedriver_linux64.zip 
+ - sudo mv chromedriver /usr/bin
+ - cd /usr/bin
+ - cd ..
+ - cd ..
+ - gem install selenium-webdriver
 
 before_script:
   - bundle exec rails db:create db:migrate
@@ -17,7 +31,6 @@ rvm:
   - 2.3.1
 script:
   - bundle exec rspec
-  - cucumber --init
   - bundle exec cucumber
 dist: xenial
 
