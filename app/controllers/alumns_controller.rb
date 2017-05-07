@@ -47,7 +47,7 @@
   def update
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
-      if ( @alumn.update(parent_params) )
+      if @alumn.update alumn_params
         redirect_to @alumn
       else
         render 'edit'

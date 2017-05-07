@@ -1,0 +1,32 @@
+<%= render "layouts/navbar" %>
+
+<br>
+<br>
+
+ <% if flash[:notice]%>
+  <div class="alert alert-success" role = "alert"><%= flash[:notice]%></div>
+ <% end %>
+
+<section class="content-section" id="alunos-desc">
+  <div class="container">
+    <div class="pull-right">
+      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, secretaries_path, class:'btn btn-sm btn-info' %>
+      <%if @current_user.permission=="Principal" %>
+        <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_secretary_path(@secretary), class:"btn btn-sm btn-default" %>
+        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza que deseja excluir esse cadastro?' } %>
+      <%end%>
+    </div>
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive") %>
+        </div>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h3>Nome: <%= @secretary.name %></h3>
+        <h4>Telefone: <%= @secretary.phone %></h4>
+        <h4>Sexo: <%= @secretary.gender %></h4>
+        <h4>Endereço: <%= @secretary.address %></h4>
+        <h4>Data de Nascimento: <%= @secretary.birth_date %></h4>
+      </div>
+    </div>
+  </div>
+</section>

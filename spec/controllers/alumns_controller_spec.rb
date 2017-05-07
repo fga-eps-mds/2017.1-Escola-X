@@ -21,10 +21,11 @@ RSpec.describe AlumnsController, type: :controller do
   end
 
   def loggin_principal
-    user = Principal.create(name: "Michael Cera", phone:"61988885555",
+    user = Principal.create!(name: "Michael Cera", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"M",
-                            birth_date:"07/06/1988",registry:"123456")
+                            birth_date:"07/06/1988",registry:"123456",
+                            employee_cpf:"06057577124")
     cookies[:authorization_token] = user.authorization_token
   end
   describe "GET new" do
@@ -32,7 +33,7 @@ RSpec.describe AlumnsController, type: :controller do
       loggin_principal
     end
 
-    it "assigns a new user as @user" do
+    it "assigns a new alumn as @alumn" do
       get :new, params:{parent_id:parent.id}
       expect(assigns(:alumn)).to be_a_new(Alumn)
     end
