@@ -30,6 +30,7 @@ rvm:
   - 2.3.1
 script:
   - bundle exec rspec
+  - cucumber --init
   - bundle exec cucumber
 dist: xenial
 
