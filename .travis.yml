@@ -10,6 +10,7 @@ before_install:
  - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
  - unzip chromedriver_linux64.zip 
  - sudo mv chromedriver /usr/bin
+ - cd /usr/bin
  - sudo dpkg -f chromedriver
  - gem install selenium-webdriver
 
