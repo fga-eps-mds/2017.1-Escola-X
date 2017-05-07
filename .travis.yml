@@ -11,7 +11,7 @@ before_install:
 
 before_script:
   - bundle exec rails db:create db:migrate
-  - rails -s
+  - rails server
 addons:
   apt:
     sources:
