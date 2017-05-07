@@ -8,7 +8,7 @@ before_install:
  - sudo apt-get install unzip
  - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+ - wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
  - unzip chromedriver_linux64.zip 
  - sudo mv chromedriver /usr/bin
  - cd /usr/bin
