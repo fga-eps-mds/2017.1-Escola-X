@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :alumns
   resources :parents
   resources :notifications
+  resources :secretaries
 
   resources :parents do
     resources :alumns

@@ -15,7 +15,8 @@ RSpec.describe UsersHelper, type: :helper do
 let(:principal_inputs) { { name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
-                           birth_date:"07/06/1988", registry:"123456"} }
+                           birth_date:"07/06/1988", registry:"123456",
+                           employee_cpf:"06057577124"} }
 
 let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
                        address:"Rua Vida Casa 15,Taguatinga",
@@ -40,7 +41,8 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
       user = Principal.create(name: "Michael Cera", phone:"61988885555",
                               address:"Rua Vida Casa 15,Taguatinga",
                               password: "12345678", gender:"M",
-                              birth_date:"07/06/1988",registry:"123456")
+                              birth_date:"07/06/1988",registry:"123456",
+                              employee_cpf:"06057577124")
       cookies[:authorization_token] = user.authorization_token
     end
 
