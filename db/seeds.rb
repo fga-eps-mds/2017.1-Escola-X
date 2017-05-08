@@ -28,4 +28,5 @@
 # end
  Principal.create(registry: '123456', name: 'Francois Dillinger',
                  address: 'rua do ovo', phone: '6133213030',
-                 password: '12345678',birth_date: '10-10-1990')
+                 password: '12345678',birth_date: '10-10-1990',
+                 employee_cpf:'02951294174')

@@ -12,7 +12,6 @@
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
-        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <li><%= link_to '<span class="fa fa-search"></span> Visualizar Secretários'.html_safe, secretaries_path %></li>
         <%if @current_user.permission=="Principal" %>
@@ -22,6 +21,7 @@
         <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
           <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
         <% end %>
+        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
       </ul>
     </div>
   </div>
