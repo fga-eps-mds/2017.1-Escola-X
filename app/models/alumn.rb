@@ -3,6 +3,7 @@
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :parent
+  has_many :school_misses
   has_secure_password
   before_save :validates_password
 

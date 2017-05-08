@@ -10,4 +10,10 @@ class UsersController < ApplicationController
       @employees = Employee.all
     end
   end
+
+  def edit_password
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+    end
+  end
 end

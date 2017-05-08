@@ -3,7 +3,7 @@
   <div class="container">
     <div class="pull-right">
       <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
-      <%if @current_user.permission=="Principal" %>
+      <%if @current_user.is_a?(Principal) %>
         <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_parent_path(@parent), class:"btn btn-sm btn-default" %>
         <%= link_to 'Adicionar aluno', new_parent_alumn_path(@parent), class:"btn btn-sm btn-roxo"%>
         <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
