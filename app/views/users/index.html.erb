@@ -2,55 +2,53 @@
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Usuários</h1>
 <hr>
 <section class="content-section" id="alumns-list">
-  <% @users.each do |user| %>
-  <% if user.is_a?(Parent)%>
+  <% @parents.each do |parent| %>
     <div class="container">
       <div class="row item">
         <div class="col-sm-12 col-md-4">
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
         </div>
         <div class="col-sm-12 col-md-8 text-capitalize descript">
-          <h2> <%= user.name %> </h2>
-          <h4> <%= user.address %> </h4>
-          <h4> <%= user.birth_date %> </h4>
-          <h4> <%= user.gender %> </h4>
-          <h4> <%= user.phone %> </h4>
-          <h4> <%= user.parent_cpf %> </h4>
-          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(user), class:'btn btn-info' %>
+          <h2> <%= parent.name %> </h2>
+          <h4> <%= parent.address %> </h4>
+          <h4> <%= parent.birth_date %> </h4>
+          <h4> <%= parent.gender %> </h4>
+          <h4> <%= parent.phone %> </h4>
+          <h4> <%= parent.parent_cpf %> </h4>
+          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(parent), class:'btn btn-info' %>
           <%if @current_user.permission =="Principal" %>
-            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(user), class:'btn btn-default' %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(parent), class:'btn btn-default' %>
           <% end %>
         </div>
       </div>
       <hr>
     </div>
   <% end %>
-    <% if user.is_a?(Alumn)%>
-      <div class="container">
-        <div class="row item">
-          <div class="col-sm-12 col-md-4">
-            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-          </div>
-          <div class="col-sm-12 col-md-8 text-capitalize descript">
-            <h2>Nome:<%= user.name %></h2>
-            <h4>Endereço: <%= user.address %> </h4>
-            <h4>Data de Aniversário: <%= user.birth_date %> </h4>
-            <h4>Idade: <%= user.get_age %> </h4>
-            <h4>Gênero: <%= user.gender %> </h4>
-            <h4>Telefone: <%= user.phone %> </h4>
-            <h4>Matrícula: <%= user.registry %></h4>
-            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(user), class:'btn btn-info' %>
-            <%if @current_user.permission =="Principal" %>
-              <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(user), class:'btn btn-default' %>
-            <% end %>
-            <%if @current_user.permission =="Principal" %>
-              <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(user.alumn), class:'btn btn-warning' %>
-            <% end %>
-          </div>
+  <% @alumns.each do |alumn| %>
+    <div class="container">
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
         </div>
-        <hr>
+        <div class="col-sm-12 col-md-8 text-capitalize descript">
+          <h2>Nome:<%= alumn.name %></h2>
+          <h4>Endereço: <%= alumn.address %> </h4>
+          <h4>Data de Aniversário: <%= alumn.birth_date %> </h4>
+          <h4>Idade: <%= alumn.get_age %> </h4>
+          <h4>Gênero: <%= alumn.gender %> </h4>
+          <h4>Telefone: <%= alumn.phone %> </h4>
+          <h4>Matrícula: <%= alumn.registry %></h4>
+          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
+          <%if @current_user.permission =="Principal" %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+          <% end %>
+          <%if @current_user.permission =="Principal" %>
+            <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+      <hr>
+    </div>
   <% end %>
   <% @employees.each do |employee|%>
     <div class="container">

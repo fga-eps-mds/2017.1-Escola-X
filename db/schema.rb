@@ -59,17 +59,6 @@ ActiveRecord::Schema.define(version: 20170505205938) do
     t.index ["notification_emitter_id"], name: "index_notifications_on_notification_emitter_id"
   end
 
-  create_table "strikes", force: :cascade do |t|
-    t.string   "description_strike"
-    t.date     "date_strike"
-    t.integer  "alumn_id"
-    t.integer  "employee_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["alumn_id"], name: "index_strikes_on_alumn_id"
-    t.index ["employee_id"], name: "index_strikes_on_employee_id"
-  end
-
   create_table "parents", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -81,6 +70,17 @@ ActiveRecord::Schema.define(version: 20170505205938) do
     t.string   "parent_cpf"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "strikes", force: :cascade do |t|
+    t.string   "description_strike"
+    t.date     "date_strike"
+    t.integer  "alumn_id"
+    t.integer  "employee_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["alumn_id"], name: "index_strikes_on_alumn_id"
+    t.index ["employee_id"], name: "index_strikes_on_employee_id"
   end
 
 end

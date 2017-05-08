@@ -19,7 +19,6 @@ class StrikesController < ApplicationController
     if ( is_principal? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
-      @user = User.find_by_id(@alumn.user_id)
       @employee = Employee.find(@strike.employee_id)
     end
   end
@@ -27,7 +26,7 @@ class StrikesController < ApplicationController
   def create
     if ( is_principal? )
       @strike = @@alumn.strike.create(strike_params)
-      @strike.employee_id = @current_user.employee.id
+      @strike.employee_id = @current_user.id
       if (@strike.save)
         @alumn = Alumn.find_by_id(@strike.alumn_id)
         @alumn.quantity_strike += 1
@@ -59,7 +58,6 @@ class StrikesController < ApplicationController
     if ( is_principal? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
-      @user = User.find_by_id(@alumn.user_id)
     end
   end
 

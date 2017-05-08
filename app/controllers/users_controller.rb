@@ -6,8 +6,9 @@ class UsersController < ApplicationController
 
   def index
     if ( logged_in? )
-      @users = Alumn.all
+      @alumns = Alumn.all
       @employees = Employee.all
+      @parents = Parent.all
     end
   end
 end
