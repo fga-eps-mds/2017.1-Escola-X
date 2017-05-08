@@ -6,6 +6,7 @@ class Employee < ApplicationRecord
   self.inheritance_column = :permission
   validates :employee_cpf, :cpf => true
   has_secure_password
+  has_many :suspension
   # validates :registry , presence: true
 
   before_create{
@@ -19,7 +20,7 @@ class Employee < ApplicationRecord
       length: { minimum: 8}
     end
   end
-  
+
   def generate_token(column)
     begin
       self[column]= SecureRandom.urlsafe_base64

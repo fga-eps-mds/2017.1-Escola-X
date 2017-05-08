@@ -5,6 +5,10 @@ class Alumn < ApplicationRecord
   belongs_to :parent
   has_secure_password
   before_save :validates_password
+  has_many :suspension
+
+
+
 
   validates :registry, presence: { message: "não pode estar em branco" },
                       uniqueness: true,

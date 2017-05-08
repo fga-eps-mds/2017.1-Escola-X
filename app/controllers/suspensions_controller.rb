@@ -47,7 +47,7 @@ class SuspensionsController < ApplicationController
 		if(is_principal?)
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
-			if(@suspension.destroy)	
+			if(@suspension.destroy)
 				if(@alumn.save)
 					rendirect_to users_path
 				end
@@ -79,7 +79,7 @@ class SuspensionsController < ApplicationController
 			params.require(:suspension).permit(:title,
 																				 :description,
 																				 :quantity_days,
-																				 :employee_attributes: [:employee_id],
-																				 :alumn_attributes: [:alumn_id])
+								 											 	 employee_attributes: [:employee_id],
+																				 alumn_attributes: [:alumn_id])
 		end
 end

@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20170508111235) do
     t.string   "shift"
     t.integer  "quantity_suspensions_days"
     t.integer  "parent_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["parent_id"], name: "index_alumns_on_parent_id"
   end
 
