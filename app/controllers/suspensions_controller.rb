@@ -2,11 +2,11 @@ class SuspensionsController < ApplicationController
 	include SessionsHelper
 
 	def index
-		if (logged_in?)
-			@@alumn = Alumn.find(params[:alumn_id])
-			@suspensions = @@alumn.suspension
-		end
-	end
+    if (logged_in?)
+      @@alumn = Alumn.find(params[:alumn_id])
+      @suspensions = @@alumn.suspension
+    end
+  end
 
 	def new
 		if (is_principal?)
@@ -76,10 +76,10 @@ class SuspensionsController < ApplicationController
 
 	private
 		def suspension_params
-			params.require(:suspension).permit(:title,
-																				 :description,
-																				 :quantity_days,
-								 											 	 employee_attributes: [:employee_id],
-																				 alumn_attributes: [:alumn_id])
+			params.require(:suspension).permit(:title_suspension,
+                                 :description,
+                                 :quantity_days,
+                                 employee_attributes: [:employee_id],
+                                 alumn_attributes: [:alumn_id])
 		end
 end
