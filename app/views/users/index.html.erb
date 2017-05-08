@@ -42,6 +42,7 @@
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(user), class:'btn btn-info' %>
             <%if @current_user.permission =="Principal" %>
               <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(user), class:'btn btn-default' %>
+              <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_suspension_path(user), class:'btn btn-warning' %>
             <% end %>
           </div>
         </div>

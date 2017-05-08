@@ -1,0 +1,23 @@
+<%= form_for (@suspension) do |f| %>
+<% if @suspension.errors.any? %>
+  <div class="container">
+    <div class="text-danger text-justify">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@suspension.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+        <ul>
+        <% @suspension.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+  
+
+
+
+
+  <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
+  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
+<% end %>
