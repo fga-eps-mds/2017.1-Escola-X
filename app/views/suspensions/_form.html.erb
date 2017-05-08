@@ -13,10 +13,38 @@
     </div>
   </div>
 <% end %>
-  
+  <div class="form-group">
+    <%= f.label :title, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-user"></span>
+         Motivo da Suspensão
+      </span>
+      <%= f.text_field :title, class:"form-control", placeholder:"Motivo da Suspensão" %>
+    </div>
+  </div>
 
+  <div class="form-group">
+    <%= f.label :quantity_days, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-id-card"></span>
+        Quantidade de Dias
+      </span>
+      <%= f.number_field :quantity_days, class:"form-control", placeholder:"Ex.: 153456" %>
+    </div>
+  </div>
 
-
+  <div class="form-group">
+    <%= f.label :description, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-sticky-note"></span>
+         Descrição da Suspensão
+      </span>
+      <%= f.text_area :description, class:"form-control", placeholder:"Descrição da Suspensão" %>
+    </div>
+  </div>
 
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
