@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'school_misses/index'
+
+  get 'school_misses/show'
+
+  get 'school_misses/new'
+
+  get 'school_misses/create'
+
+  get 'school_misses/edit'
+
+  get 'school_misses/update'
+
+  get 'school_misses/destroy'
+
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
