@@ -1,4 +1,10 @@
 require 'rails_helper'
+require 'helper_module_spec'
+
+RSpec.configure do |c|
+  c.include Helpers
+end
+
 
 RSpec.describe ParentsController, type: :controller do
   let(:valid_inputs) { { name: "Michael Cera", phone:"61988885555",
@@ -11,14 +17,7 @@ RSpec.describe ParentsController, type: :controller do
                            birth_date:"50 abr",parent_cpf:"77777777"} }
 
 
-  def loggin_principal
-    user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                            address:"Rua Vida Casa 15,Taguatinga",
-                            password: "12345678", gender:"M",
-                            birth_date:"07/06/1988",registry:"123456",
-                            employee_cpf:"06057577124")
-    cookies[:authorization_token] = user.authorization_token
-  end
+
   describe "GET new" do
     before(:each) do
       loggin_principal
