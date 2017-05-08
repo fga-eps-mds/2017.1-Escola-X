@@ -71,11 +71,17 @@ ActiveRecord::Schema.define(version: 20170508213326) do
   end
 
   create_table "school_misses", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer  "alumn_id"
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alumn_id"], name: "index_school_misses_on_alumn_id"
+=======
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> 57e62e8... Makes a lot of changes. Log: modificado: app/controllers/school_misses_controller.rb
   end
 
 end
