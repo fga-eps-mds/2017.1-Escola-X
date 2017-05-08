@@ -1,6 +1,6 @@
 <%= render "layouts/navbar" %>
 <section class="content-section" id="alunos-desc">
-  <% if @user.permission == "Parent" %>
+  <% if @user.is_a?(Parent) %>
     <div class="container">
       <div class="pull-right">
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
@@ -24,7 +24,7 @@
       </div>
     </div>
   <% end %>
-  <% if @user.permission == "Alumn" %>
+  <% if @user.is_a?(Alumn) %>
     <div class="container">
       <div class="pull-right">
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>

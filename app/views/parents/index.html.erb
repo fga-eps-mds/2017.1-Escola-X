@@ -4,13 +4,13 @@
 <section class="content-section" id="alumns-list">
   <div class="container">
       <div class="row item">
-        <% @users.each do |user| %>
+        <% @parents.each do |user| %>
         <div class="col-sm-12 col-md-4">
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
         </div>
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2><%= user.name %></h2>
-          <%= link_to '<span class="fa fa-search-plus"></span> Vizualizar'.html_safe, user_path(user), class:'btn btn-default' %>
+          <%= link_to '<span class="fa fa-search-plus"></span> Vizualizar'.html_safe, parent_path(user), class:'btn btn-default' %>
         </div>
         <hr>
         <% end %>

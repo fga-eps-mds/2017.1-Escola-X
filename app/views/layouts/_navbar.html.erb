@@ -4,7 +4,7 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coll-nav" aria-expanded="false">
         <span class="fa fa-angle-down"></span>
       </button>
-      <% if @current_user.permission == "Alumn" %>
+      <% if @current_user.is_a?(Alumn) %>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumn_path(@current_user.alumn) %>
       <% else %>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
@@ -14,13 +14,12 @@
       <ul class="nav navbar-nav pull-right">
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <li><%= link_to '<span class="fa fa-search"></span> Visualizar Secretários'.html_safe, secretaries_path %></li>
-        <%if @current_user.permission=="Principal" %>
+        <%if @current_user.is_a?(Principal) %>
           <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e Aluno'.html_safe, new_parent_path %></li>
           <li><%= link_to '<span class="fa fa-user-circle-o"></span> Criar Secretário'.html_safe, new_secretary_path %></li>
-          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Professor'.html_safe, new_teacher_path %>
-          </li>
+          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Professor'.html_safe, new_teacher_path %></li>
         <% end %>
-        <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
+        <% if @current_user.is_a?(Employee) %>
           <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
         <% end %>
         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
