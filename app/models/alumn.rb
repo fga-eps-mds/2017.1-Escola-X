@@ -2,23 +2,18 @@
 #Class name: Alumn
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
-  belongs_to :user , optional: true
+  belongs_to :parent
   has_many :strike
 
-  mount_uploader :image, ImageUploader
-  validates_processing_of :image
-  validate :image_size_validation
-  accepts_nested_attributes_for :strike
+  has_secure_password
 
   before_create :initialize_strikes
+  before_save :validates_password
 
   def initialize_strikes
     self.quantity_strike ||= 0
   end
 
-  belongs_to :parent
-  has_secure_password
-  before_save :validates_password
 
   before_create{
     generate_token(:authorization_token)

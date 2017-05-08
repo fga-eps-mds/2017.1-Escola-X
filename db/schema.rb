@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20170505205938) do
     t.string   "phone"
     t.string   "gender"
     t.date     "birth_date"
+    t.string   "bar_code"
     t.string   "registry"
     t.string   "password_digest"
     t.string   "authorization_token"
     t.string   "shift"
-    t.string   "image"
     t.integer  "quantity_strike"
     t.integer  "parent_id"
     t.datetime "created_at",          null: false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170505205938) do
   create_table "strikes", force: :cascade do |t|
     t.string   "description_strike"
     t.date     "date_strike"
+    t.integer  "quantity_strike"
     t.integer  "alumn_id"
     t.integer  "employee_id"
     t.datetime "created_at",         null: false
