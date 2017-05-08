@@ -20,6 +20,8 @@ class SessionsController < ApplicationController
         redirect_to users_path
       elsif (is_parent?)
         redirect_to parent_alumns_path(@current_user)
+      elsif (is_employee?)
+        redirect_to users_path
       end
     else
       redirect_to root_url, notice: "Login or password not valid"

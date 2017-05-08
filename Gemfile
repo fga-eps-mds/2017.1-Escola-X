@@ -54,6 +54,10 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.5.0'
   gem 'byebug', platform: :mri
   gem 'coveralls', '~> 0.8.19', require: false
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'selenium-webdriver', '~> 2.53'
+  gem 'chromedriver-helper'
 end
 
 group :development do

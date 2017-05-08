@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   resources :parents
   resources :notifications
   resources :secretaries
+  resources :employees
+  resources :teachers
 
   resources :parents do
-    resources :alumns
+  resources :alumns
   end
 end
