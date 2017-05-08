@@ -26,5 +26,13 @@
 body {
   padding-top: 3em;
 }
+.btn-roxo{
+ background-color: #7B52AB;
+ color: white;
+}
+
+.btn-roxo:hover{
+ background-color: #9768D1;
+}
 
 @import "bootswatch/flatly/bootswatch";

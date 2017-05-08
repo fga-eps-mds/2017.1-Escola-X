@@ -1,0 +1,24 @@
+<%= render "layouts/navbar" %>
+<section class="content-section" id="alunos-desc">
+  <div class="container">
+    <div class="pull-right">
+      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
+      <%if @current_user.is_a? (Principal) %>
+        <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_teacher_path(@teacher), class:"btn btn-sm btn-default" %>
+        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+      <%end%>
+    </div>
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive") %>
+        </div>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h3>Nome: <%= @teacher.name %></h3>
+        <h4>Telefone: <%= @teacher.phone %></h4>
+        <h4>Sexo: <%= @teacher.gender %></h4>
+        <h4>Endereço: <%= @teacher.address %></h4>
+        <h4>Data de Nascimento: <%= @teacher.birth_date %></h4>
+      </div>
+    </div>
+  </div>
+</section>

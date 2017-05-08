@@ -2,7 +2,11 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
+      <% if @current_user.permission == "Alumn" %>
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
+      <% else %>
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
+      <% end %>
       <%if @current_user.permission=="Principal" %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
@@ -11,18 +15,15 @@
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
-        <% if @alumn.image.url != nil %>
-          <!-- <%= image_tag (@alumn.image.url), class: "img-responsive" %>  esta dando nil na imagem por nao salvar -->
-        <% else %>
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive") %>
-        <% end %>
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
-        <h3>Nome: <%= @user.name %></h3>
-        <h4>Telefone: <%= @user.phone %></h4>
-        <h4>Sexo: <%= @user.gender %></h4>
-        <h4>Endereço: <%= @user.address %></h4>
-        <h4>Data de Nascimento: <%= @user.birth_date.day %>/<%= @user.birth_date.month %>/<%= @user.birth_date.year %></h4>
+        <h3>Nome: <%= @alumn.name %></h3>
+        <h4>Telefone: <%= @alumn.phone %></h4>
+        <h4>Sexo: <%= @alumn.gender %></h4>
+        <h4>Endereço: <%= @alumn.address %></h4>
+        <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
+        <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
       </div>
     </div>
   </div>

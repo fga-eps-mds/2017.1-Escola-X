@@ -45,6 +45,8 @@ gem 'mini_magick', '~> 4.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -52,6 +54,10 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.5.0'
   gem 'byebug', platform: :mri
   gem 'coveralls', '~> 0.8.19', require: false
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'selenium-webdriver', '~> 2.53'
+  gem 'chromedriver-helper'
 end
 
 group :development do
