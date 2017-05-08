@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170508111235) do
     t.integer  "quantity_days"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index [nil], name: "index_suspensions_on_alumn_id"
+    t.index [nil], name: "index_suspensions_on_employee_id"
   end
 
 end

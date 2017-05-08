@@ -1,5 +1,5 @@
-#File name: parent.rb
-#Class name: Parent
+#File name: employee.rb
+#Class name: Employee
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
   before_save :validates_password

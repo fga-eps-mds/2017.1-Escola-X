@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   resources :suspensions
 
   resources :parents do
-  resources :alumns
+    resources :alumns
+  end
+
+  resources :alumns do
+    resources :suspensions
   end
 end
