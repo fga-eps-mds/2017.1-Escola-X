@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505205938) do
+ActiveRecord::Schema.define(version: 20170508111235) do
 
   create_table "alumns", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170505205938) do
     t.string   "password_digest"
     t.string   "authorization_token"
     t.string   "shift"
+    t.integer  "quantity_suspensions_days"
     t.integer  "parent_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -68,6 +69,14 @@ ActiveRecord::Schema.define(version: 20170505205938) do
     t.string   "parent_cpf"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "suspensions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "quantity_days"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
