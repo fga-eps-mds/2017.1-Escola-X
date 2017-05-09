@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20170508111235) do
     t.string   "phone"
     t.string   "gender"
     t.date     "birth_date"
+    t.string   "bar_code"
     t.string   "registry"
     t.string   "password_digest"
     t.string   "authorization_token"
     t.string   "shift"
-    t.integer  "quantity_suspensions_days"
     t.integer  "parent_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["parent_id"], name: "index_alumns_on_parent_id"
   end
 
@@ -72,13 +72,15 @@ ActiveRecord::Schema.define(version: 20170508111235) do
   end
 
   create_table "suspensions", force: :cascade do |t|
-    t.string   "title_suspension"
+    t.string   "title"
     t.text     "description"
     t.integer  "quantity_days"
+    t.integer  "alumn_id"
+    t.integer  "employee_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["alumn_id"], name: "index_suspensions_on_alumn_id"
-    t.index ["alumn_id"], name: "index_suspensions_on_employee_id"
+    t.index ["employee_id"], name: "index_suspensions_on_employee_id"
   end
 
 end
