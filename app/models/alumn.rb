@@ -3,8 +3,10 @@
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :parent
-  has_many :strike
-
+  has_many :strike 
+  has_many :grades
+  has_many :subjects, through: :grades
+  
   has_secure_password
 
   before_create :initialize_strikes
