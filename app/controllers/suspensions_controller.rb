@@ -40,14 +40,13 @@ class SuspensionsController < ApplicationController
 		end
 	end
 
-	##PENSAR EM COMO RESOLVER O PROBLEMA DO DESTROY
 	def destroy
 		if(is_principal?)
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
 			if(@suspension.destroy)
 				if(@alumn.save)
-					rendirect_to users_path
+					redirect_to users_path
 				end
 			end
 		end
