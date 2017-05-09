@@ -11,7 +11,9 @@
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
       <%end%>
-      <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
+      <%if @alumn.suspension.any?%>
+        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
+      <%end%>
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
