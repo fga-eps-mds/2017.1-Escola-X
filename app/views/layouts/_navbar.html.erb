@@ -4,7 +4,7 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coll-nav" aria-expanded="false">
         <span class="fa fa-angle-down"></span>
       </button>
-      <% if @current_user.permission == "Alumn" %>
+      <% if @current_user.is_a?(Alumn)%>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumn_path(@current_user.alumn) %>
       <% else %>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>

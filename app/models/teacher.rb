@@ -1,5 +1,6 @@
 class Teacher < Employee
   belongs_to :employee
+  has_many :subjects
     has_secure_password
       before_save :validates_password
       validates :employee_cpf, :cpf => true

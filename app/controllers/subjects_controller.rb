@@ -8,6 +8,16 @@ class SubjectsController < ApplicationController
   		@subject = Subject.new
   	end
   end
+  def edit
+  	
+  end
+
+  def show
+  	if(is_principal?)
+  		@subject = Subject.find(params[:id])
+  	end
+  end
+
   def create
   	if (is_principal?)
   		@subject = Subject.new(subject_params)
@@ -22,9 +32,6 @@ class SubjectsController < ApplicationController
   	end
   end
   def destroy
-  	
-  end
-  def edit
   	
   end
   def update
