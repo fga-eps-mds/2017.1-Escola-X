@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'grades/index'
-
-  get 'subjects/index'
-
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
@@ -23,6 +19,7 @@ Rails.application.routes.draw do
   resources :secretaries
   resources :employees
   resources :teachers
+  resources :subjects
 
   resources :parents do 
   resources :alumns
