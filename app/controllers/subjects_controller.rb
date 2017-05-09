@@ -1,15 +1,21 @@
 class SubjectsController < ApplicationController
 	include SessionsHelper
   def index
-  	@subjects = Subject.all
+  	if (logged_in?)
+  		@subjects = Subject.all
+  	end
   end
+
   def new
   	if ( is_principal? )
   		@subject = Subject.new
   	end
   end
+
   def edit
-  	
+  	if ( is_principal? )
+    	@subject = Subject.find(params[:id])
+    end
   end
 
   def show
@@ -31,12 +37,28 @@ class SubjectsController < ApplicationController
   		end
   	end
   end
+
   def destroy
-  	
+  	if ( is_principal? )
+  		@subject = Subject.find(params[:id])
+  		@subject.destroy
+
+  		redirect_to subjects_path
+  	end
   end
+
   def update
+  	if ( is_principal? )
+      @subject = Subject.find(params[:id])
+      if @subject.update (subject_params)
+        redirect_to @subject
+      else
+        render 'edit'
+      end
+    end
   	
   end
+
   private
   def subject_params
   	params.require(:subject).permit(:name_subject,:class_level,:teacher_id)
