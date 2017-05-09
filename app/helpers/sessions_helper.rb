@@ -51,7 +51,7 @@ end
   end
 
   def is_teacher?
-    if ( (logged_in?) and (current_user.permission == 'Teacher') )
+    if ( (logged_in?) and (current_user.is_a?(Teacher) ))
       return true
     else
       # raise 'Not teacher'
@@ -60,7 +60,7 @@ end
   end
 
   def is_secretary?
-    if ( (logged_in?) and (current_user.permission == 'Secretary') )
+    if ( (logged_in?) and (current_user.is_a?(Secretary)) )
       return true
     else
       return false

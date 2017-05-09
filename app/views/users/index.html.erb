@@ -16,7 +16,7 @@
           <h4> <%= parent.phone %> </h4>
           <h4> <%= parent.parent_cpf %> </h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(parent), class:'btn btn-info' %>
-          <%if @current_user.permission =="Principal" %>
+          <%if is_principal? %>
             <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(parent), class:'btn btn-default' %>
           <% end %>
         </div>
@@ -39,10 +39,10 @@
           <h4>Telefone: <%= alumn.phone %> </h4>
           <h4>Matrícula: <%= alumn.registry %></h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
-          <%if @current_user.permission =="Principal" %>
+          <%if is_principal? %>
             <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
           <% end %>
-          <%if @current_user.permission =="Principal" %>
+          <%if is_principal? %>
             <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
           <% end %>
         </div>
@@ -63,9 +63,9 @@
           <h4> <%= employee.gender %> </h4>
           <h4> <%= employee.phone %> </h4>
           <h4><%= employee.registry %></h4>
-          <% if employee.is_a?(Teacher) %>
+          <% if is_teacher? %>
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, teacher_path(employee), class:'btn btn-info' %>
-            <%if @current_user.permission =="Principal" %>
+            <%if is_principal? %>
               <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(employee), class:'btn btn-default' %>
             <% end %>
           <%end%>
