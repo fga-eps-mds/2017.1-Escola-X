@@ -4,15 +4,15 @@
     <div class="pull-right">
       <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
       <%if @current_user.permission=="Principal" %>
-        <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_alumn_suspension(@suspension), class:"btn btn-sm btn-default" %>
+        <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_alumn_suspension_path(@suspension), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
       <%end%>
     </div>
     <div class="row item">
       <div class="col-sm-12 col-md-8 descript">
-        <h3 class="">Título da Suspensão: <%= @suspension.title_suspension %></h3>
-        <h3 class="">Quantidade de Dias da Suspensão: <%= @alumn.quantity_days %></h3>
-        <h3 class="">Nome do aluno: <%= @user.name %></h3>
+        <h3 class="">Título da Suspensão: <%= @suspension.title %></h3>
+        <h3 class="">Quantidade de Dias da Suspensão: <%= @suspension.quantity_days %></h3>
+        <h3 class="">Nome do aluno: <%= @alumn.name %></h3>
         <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
         <h3 class="">Matricula do Diretor: <%= @employee.registry %></h3>
       </div>

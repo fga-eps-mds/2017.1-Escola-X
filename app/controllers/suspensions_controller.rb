@@ -19,7 +19,6 @@ class SuspensionsController < ApplicationController
 		if (is_principal?)
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
-			@user = User.find_by_id(@alumn.user_id)
 			@employee = Employee.find(@suspension.employee_id)
 		end
 	end
@@ -27,10 +26,9 @@ class SuspensionsController < ApplicationController
 	def create
 		if(is_principal?)
 			@suspension = @@alumn.suspension.create(suspension_params)
-			@suspension.employee_id = @current_user.employee_id
+			@suspension.employee_id = @current_user.id
 			if(@suspension.save)
 				@alumn = Alumn.find_by_id(@suspension.alumn_id)
-				@alumn.quantity_suspensions_days = @suspension.quantity_days
 				if(@alumn.save)
 					redirect_to suspension_path(@suspension)
 				else
@@ -76,10 +74,10 @@ class SuspensionsController < ApplicationController
 
 	private
 		def suspension_params
-			params.require(:suspension).permit(:title_suspension,
+			params.require(:suspension).permit(:title,
                                  :description,
                                  :quantity_days,
-                                 employee_attributes: [:employee_id],
-                                 alumn_attributes: [:alumn_id])
+                                 :employee_id,
+                                 :alumn_id)
 		end
 end

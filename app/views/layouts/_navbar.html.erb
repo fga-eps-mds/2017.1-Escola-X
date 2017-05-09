@@ -12,17 +12,27 @@
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
+            <span class="fa fa-plus"></span> Criar
+          </a>
+          <ul class="dropdown-menu">
+            <%if @current_user.permission=="Principal" %>
+            <li><%= link_to '<span class="fa fa-user-plus"></span> Responsável e Aluno'.html_safe, new_parent_path %></li>
+            <li><%= link_to '<span class="fa fa-user-circle-o"></span> Secretário'.html_safe, new_secretary_path %></li>
+            <li><%= link_to '<span class="fa fa-user-plus"></span> Professor'.html_safe, new_teacher_path %>
+            </li>
+            <% end %>
+            <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
+            <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Notificação'.html_safe, new_notification_path %></li>
+            <% end %>
+            <% if !@current_user.is_a?(Employee) %>
+            <li class="text-muted">Sem permissão</li>
+            <% end %>
+          </ul>
+        </li>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <li><%= link_to '<span class="fa fa-search"></span> Visualizar Secretários'.html_safe, secretaries_path %></li>
-        <%if @current_user.permission=="Principal" %>
-          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e Aluno'.html_safe, new_parent_path %></li>
-          <li><%= link_to '<span class="fa fa-user-circle-o"></span> Criar Secretário'.html_safe, new_secretary_path %></li>
-          <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Professor'.html_safe, new_teacher_path %>
-          </li>
-        <% end %>
-        <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
-          <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
-        <% end %>
         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
       </ul>
     </div>
