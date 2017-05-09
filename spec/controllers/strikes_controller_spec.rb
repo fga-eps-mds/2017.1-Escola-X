@@ -67,4 +67,31 @@ RSpec.describe StrikesController, type: :controller do
      end
    end
   end
+
+  describe "DELETE delete" do
+    before(:each) do
+      loggin_principal
+    end
+    it "does delete an Strike" do
+      strike = Strike.create!(valid_inputs)
+      expect{
+        delete :destroy, id: strike
+      }.to change(Strike, :count).by(-1)
+    end
+  end
+
+  describe "GET show" do
+    before(:each) do
+      loggin_principal
+    end
+    it "show strike on view" do
+      strike = Strike.create!(valid_inputs)
+      expect{
+        get :show, id:strike
+      }.to redirect_to strike_path(assigns(:strike))
+    end
+  end
+
+
+
 end
