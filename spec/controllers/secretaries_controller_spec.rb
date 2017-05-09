@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe SecretariesController, type: :controller do 
-    
-	let(:valid_inputs) { { employee_cpf: "53991850168", admission_date: "03/01/1996",
+RSpec.describe SecretariesController, type: :controller do
+
+	let(:valid_inputs) { { employee_cpf: "06057577124", admission_date: "03/01/1996",
 						   shift: "Matutino", name: "Jose Apolinario da Silva",
 						   address: "Rua Laranjeiras 456", phone: "60991907175",
 						   gender: "Masculino", birth_date: "02/02/2012",
-						   password: "12345678", permission:"Secretary"} }
+						   password: "12345678", permission:"Secretary", registry:"555444"} }
 
-	let(:invalid_inputs) { { employee_cpf: "53991850168", admission_date: "03/01/1996",
+	let(:invalid_inputs) { { employee_cpf: "8", admission_date: "03/01/1996",
 						   shift: "Matutino", name: "Jose Apolinario da Silva",
 						   address: "Rua Laranjeiras 456", phone: "60991907175",
-						   gender: "Masculino", birth_date: "02/02/2012",permission:" "} }
-  
+						   gender: "Masculino", birth_date: "02/02/2012",permission:" ", registry:"1"} }
+
   def loggin_principal
     user = Principal.create(name: "Michael Cera", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
@@ -29,7 +29,7 @@ RSpec.describe SecretariesController, type: :controller do
 	  it "assigns a new secreatry as @secretary" do
       	get :new, {}
       	expect(assigns(:secretary)).to be_a_new(Secretary)
-    end 
+    end
 end
 
   describe "DELETE delete" do
@@ -37,11 +37,7 @@ end
       loggin_principal
     end
     it "does delete an Secretary" do
-      secretary = Secretary.create!(name:"Jaozin Silva",phone:"61989998888",
-                           address:"Rua do pao casa 22, Asa sul",
-                           password:"12345678", gender:"Masculino",
-                           birth_date:"08/10/1989",employee_cpf:"06057577124",
-                           shift: "Matutino",admission_date: "03/01/1996")
+      secretary = Secretary.create!(valid_inputs)
       expect{
         delete :destroy, id: secretary
       }.to change(Secretary, :count).by(-1)

@@ -3,8 +3,21 @@
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :parent
+  has_many :strike
+
   has_secure_password
+
+  before_create :initialize_strikes
   before_save :validates_password
+
+  def initialize_strikes
+    self.quantity_strike ||= 0
+  end
+
+
+  before_create{
+    generate_token(:authorization_token)
+  }
 
   validates :registry, presence: { message: "não pode estar em branco" },
                       uniqueness: true,
@@ -38,9 +51,6 @@ class Alumn < ApplicationRecord
                               :too_short => "deve possuir no mínimo 10 dígitos",
                               :too_long => "deve possuir no máximo 11 dígitos" }
 
-  before_create{
-    generate_token(:authorization_token)
-  }
 
   def get_age
     DateTime.now.year - self.birth_date.year
