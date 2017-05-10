@@ -25,5 +25,27 @@
         <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
       </div>
     </div>
+    <ul class="nav nav-tabs">
+      <li class="active" role="presentation"><a href="#faltas" aria-controls="faltas" role="tab" data-toggle="tab">Faltas</a></li>
+      <li role="presentation"><a href="#boletim"aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
+      <li role="presentation"><a href="#notificacoes" aria-controls="notificacoes" role="tab" data-toggle="tab">Notificações</a></li>
+    </ul>
+    <div>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="faltas">
+                <ul>
+                  <% @alumn.school_misses.all.reverse.each do |miss| %>
+                    <li>miss.date.year</li>
+                  <% end %>
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="boletim">
+                <img src="img/boletim.png" class="img-responsive">
+            </div>
+            <div role="tabpanel" class="tab-pane" id="notificacoes">
+                <p class="text-center text-capitalize text-danger">nenhuma notificação no histórico.</p>
+            </div>
+        </div>
+    </div>
   </div>
 </section>

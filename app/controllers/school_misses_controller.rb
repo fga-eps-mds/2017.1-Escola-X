@@ -3,7 +3,7 @@ class SchoolMissesController < ApplicationController
 
   def index
     if ( logged_in? )
-      @misses = SchoolMiss.all
+      @misses = @alumn.misses.all
     end
   end
 
