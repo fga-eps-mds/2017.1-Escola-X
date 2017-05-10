@@ -2,11 +2,13 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
-      <%if @current_user.permission=="Principal" %>
-        <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_strike_path(@strike), class:"btn btn-sm btn-default" %>
-        <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-      <%end%>
+      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
+      <%if @current_user.is_a?(Employee) %>
+        <%if @current_user.permission=="Principal" %>
+          <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_strike_path(@strike), class:"btn btn-sm btn-default" %>
+          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <% end %>
+      <% end %>
     </div>
     <div class="row item">
       <div class="col-sm-12 col-md-8 descript">

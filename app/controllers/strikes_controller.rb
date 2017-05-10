@@ -16,7 +16,7 @@ class StrikesController < ApplicationController
   end
 
   def show
-    if ( is_principal? )
+    if ( logged_in? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
       @employee = Employee.find(@strike.employee_id)
