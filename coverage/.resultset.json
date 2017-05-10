@@ -352,6 +352,10 @@
         1,
         null
       ],
+      "/vagrant/app/helpers/classrooms_helper.rb": [
+        1,
+        null
+      ],
       "/vagrant/app/helpers/notifications_helper.rb": [
         1,
         null
@@ -600,6 +604,17 @@
         null,
         null,
         1,
+        1,
+        null
+      ],
+      "/vagrant/spec/controllers/classrooms_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/vagrant/app/controllers/classrooms_controller.rb": [
         1,
         null
       ],
@@ -1213,21 +1228,6 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/vagrant/app/controllers/strikes_controller.rb": [
@@ -1261,7 +1261,7 @@
         6,
         6,
         6,
-        3,
+        null,
         3,
         3,
         3,
@@ -1516,6 +1516,23 @@
         null
       ],
       "/vagrant/spec/helpers/alumns_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/spec/helpers/classrooms_helper_spec.rb": [
         1,
         null,
         null,
@@ -1815,6 +1832,17 @@
       ],
       "/vagrant/app/models/application_record.rb": [
         1,
+        1,
+        null
+      ],
+      "/vagrant/spec/models/classroom_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/app/models/classroom.rb": [
         1,
         null
       ],
@@ -2142,6 +2170,6 @@
         null
       ]
     },
-    "timestamp": 1494282920
+    "timestamp": 1494448951
   }
 }
