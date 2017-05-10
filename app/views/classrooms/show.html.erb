@@ -1,0 +1,20 @@
+<%= render "layouts/navbar" %>
+<section class="content-section" id="alunos-desc">
+  <div class="container">
+    <div class="pull-right">
+      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
+      <%if @current_user.is_a?(Employee) %>
+        <%if @current_user.permission=="Principal" %>
+          <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_classroom_path(@classroom), class:"btn btn-sm btn-default" %>
+          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row item">
+      <div class="col-sm-12 col-md-8 descript">
+        <h3 class="">Nome da turma: <%= @classroom.name_classroom %></h3>
+        <h3 class="">Turno: <%= @classroom.shift_classroom %></h3>
+      </div>
+    </div>
+  </div>
+</section>
