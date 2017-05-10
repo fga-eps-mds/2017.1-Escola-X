@@ -56,7 +56,6 @@ class SuspensionsController < ApplicationController
 		if(is_principal?)
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
-			@user = User.find_by_id(@alumn.user_id)
 		end
 	end
 
