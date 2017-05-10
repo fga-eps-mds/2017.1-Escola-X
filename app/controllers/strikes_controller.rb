@@ -3,8 +3,8 @@ class StrikesController < ApplicationController
 
   def index
     if ( logged_in? )
-      @@alumn = Alumn.find(params[:alumn_id])
-      @strikes = @@alumn.strike
+      @alumn = Alumn.find(params[:alumn_id])
+      @strikes = @alumn.strike
     end
   end
 
@@ -28,10 +28,10 @@ class StrikesController < ApplicationController
       @strike = @@alumn.strike.create(strike_params)
       @strike.employee_id = @current_user.id
       if (@strike.save)
-        @alumn = Alumn.find_by_id(@strike.alumn_id)
-        @alumn.quantity_strike += 1
-        if @alumn.save
-          redirect_to strike_path(@strike)
+        # @alumn = Alumn.find_by_id(@strike.alumn_id)
+        @@alumn.quantity_strike += 1
+        if @@alumn.save
+          redirect_to alumn_strike_path(@@alumn,@strike)
         else
           render 'strikes/new'
         end
