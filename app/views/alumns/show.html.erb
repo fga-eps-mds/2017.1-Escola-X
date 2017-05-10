@@ -2,8 +2,8 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <% if is_alumn? or is_parent?%>
-        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
+      <% if is_parent?%>
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
       <% else %>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
       <% end %>
