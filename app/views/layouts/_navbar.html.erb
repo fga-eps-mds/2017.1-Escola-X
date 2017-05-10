@@ -4,8 +4,10 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coll-nav" aria-expanded="false">
         <span class="fa fa-angle-down"></span>
       </button>
-      <% if @current_user.permission == "Alumn" %>
-        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumn_path(@current_user.alumn) %>
+      <% if is_alumn? %>
+        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumn_path(@current_user) %>
+      <% elsif is_parent? %>
+        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumns_path %>
       <% else %>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
       <% end %>
@@ -17,17 +19,17 @@
             <span class="fa fa-plus"></span> Criar
           </a>
           <ul class="dropdown-menu">
-            <%if @current_user.permission=="Principal" %>
-            <li><%= link_to '<span class="fa fa-user-plus"></span> Responsável e Aluno'.html_safe, new_parent_path %></li>
-            <li><%= link_to '<span class="fa fa-user-circle-o"></span> Secretário'.html_safe, new_secretary_path %></li>
-            <li><%= link_to '<span class="fa fa-user-plus"></span> Professor'.html_safe, new_teacher_path %>
-            </li>
+            <%if is_principal? %>
+              <li><%= link_to '<span class="fa fa-user-plus"></span> Responsável e Aluno'.html_safe, new_parent_path %></li>
+              <li><%= link_to '<span class="fa fa-user-circle-o"></span> Secretário'.html_safe, new_secretary_path %></li>
+              <li><%= link_to '<span class="fa fa-user-plus"></span> Professor'.html_safe, new_teacher_path %>
+              </li>
             <% end %>
-            <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
-            <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Notificação'.html_safe, new_notification_path %></li>
+            <% if is_principal? or is_secretary? or is_teacher? %>
+              <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Notificação'.html_safe, new_notification_path %></li>
             <% end %>
             <% if !@current_user.is_a?(Employee) %>
-            <li class="text-muted">Sem permissão</li>
+              <li class="text-muted">Sem permissão</li>
             <% end %>
           </ul>
         </li>

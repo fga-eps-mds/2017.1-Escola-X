@@ -1,0 +1,2 @@
+module StrikesHelper
+end

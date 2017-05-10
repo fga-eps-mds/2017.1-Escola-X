@@ -3,8 +3,10 @@
 <hr>
 <section class="content-section">
     <div class="container">
-      <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
-      <%= link_to '<span class="fa fa-plus-circle"></span> Nova notificação'.html_safe, new_notification_path, class:"text-center btn btn-info" %>
+      <%if @current_user.is_a?(Employee) %>
+        <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" or @current_user.permission == "Teacher" %>
+          <%= link_to '<span class="fa fa-plus-circle"></span> Nova notificação'.html_safe, new_notification_path, class:"text-center btn btn-info" %>
+        <% end %>
       <% end %>
       <div class="row">
         <% @notifications.reverse.each do |note| %>

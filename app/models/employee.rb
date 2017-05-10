@@ -2,6 +2,11 @@
 #Class name: Employee
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
+
+  has_many :strike
+
+  validates :registry, presence: true
+
   before_save :validates_password
   self.inheritance_column = :permission
   validates :employee_cpf, :cpf => true
@@ -26,4 +31,5 @@ class Employee < ApplicationRecord
       self[column]= SecureRandom.urlsafe_base64
     end while Employee.exists?(column => self[column])
   end
+
 end

@@ -2,21 +2,20 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <% if @current_user.permission == "Alumn" %>
+      <% if is_alumn? or is_parent?%>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
       <% else %>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
       <% end %>
-      <%if @current_user.permission=="Principal" %>
+      <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-      <%end%>
-      <%if @current_user.permission =="Principal" %>
         <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-warning' %>
-      <% end %>
-      <%if @alumn.suspension.any?%>
-        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
+        <%if @alumn.suspension.any?%>
+          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
+        <%end%>
       <%end%>
+      <%= link_to '<span class="fa fa-address-card"></span> Advertências'.html_safe, alumn_strikes_path(@alumn), class:'btn btn-sm btn-warning' %>
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">

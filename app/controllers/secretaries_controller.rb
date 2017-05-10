@@ -64,7 +64,7 @@ class SecretariesController < ApplicationController
       if (@secretary.destroy)
         flash[:notice] = "Secretário(a) excluído(a) com sucesso"
       end
-      
+
       redirect_to secretaries_path
     end
   end
@@ -81,7 +81,8 @@ class SecretariesController < ApplicationController
 								       :gender,
 								       :birth_date,
 								       :permission,
-								       :password)
+								       :password,
+											 :registry)
   end
 
 end
