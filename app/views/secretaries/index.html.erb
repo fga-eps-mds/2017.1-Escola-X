@@ -7,8 +7,20 @@
   <div class="alert alert-info" role = "alert"><%= flash[:notice]%></div>
  <% end %>
 
+ <%= form_tag(secretaries_path, :method => "get", id: "search-form") do %>
+    <div class="form-inline">
+        <%= text_field_tag :search, params[:search], placeholder: "Digite o nome do secretário(a)", class: "form-control", :size=>"50"%>
+      <%= button_to "Buscar", nil, class: "btn btn-default" %>
+    </div>
+ <% end %>
+
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Secretários</h1>
 <hr>
+
+ <% if flash[:feedback]%>
+  <div class="alert alert-danger" role = "alert"><%= flash[:feedback]%></div>
+ <% end %>
+
 <section class="content-section" id="alumns-list">
   <% @secretaries.each do |secretary| %>
   <div class="container">

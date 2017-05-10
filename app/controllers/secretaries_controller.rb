@@ -8,6 +8,16 @@ class SecretariesController < ApplicationController
   def index
     if ( is_principal? )
       @secretaries = Secretary.all
+      if params[:search]
+        @secretaries = Secretary.search(params[:search]).order("created_at DESC")
+
+      elsif ( @secretaries.size == 0 )
+        flash[:feedback] = "Nenhum secretário(a) encontrado!"
+      
+      else
+        @secretaries = Secretary.all.order('created_at DESC')
+
+      end
     end
   end
 
