@@ -16,8 +16,10 @@
         <h4> <%= alumn.phone %> </h4>
         <h4><%= alumn.registry %></h4>
         <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
-        <%if @current_user.permission =="Principal" %>
-          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+        <% if @current_user.is_a?(Employee) %>
+          <%if @current_user.permission =="Principal" %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+          <% end %>
         <% end %>
       </div>
     </div>
