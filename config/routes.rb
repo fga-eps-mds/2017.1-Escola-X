@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :secretaries
   resources :employees
   resources :teachers
+  resources :classroom
 
   resources :parents do
   resources :alumns
