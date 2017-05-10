@@ -94,5 +94,4 @@ RSpec.describe TeachersController, type: :controller do
       }.to change(Teacher, :count).by(-1)
     end
   end
-
 end
