@@ -11,13 +11,19 @@ class SecretariesController < ApplicationController
       if params[:search]
         @secretaries = Secretary.search(params[:search]).order("created_at DESC")
 
-      elsif ( @secretaries.size == 0 )
-        flash[:feedback] = "Nenhum secretário(a) encontrado!"
-      
+            if (@secretaries.empty?)
+              flash.now[:feedback] = "Nenhum secretário(a) encontrado!"
+            end
+
+            if params[:search].blank?
+              @secretaries = Secretary.all.order('created_at DESC')
+              flash.now[:feedback_warning] = "Digite algo para pesquisar!"
+            end
+
       else
         @secretaries = Secretary.all.order('created_at DESC')
-
       end
+
     end
   end
 
