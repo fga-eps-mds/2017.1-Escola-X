@@ -100,5 +100,18 @@ let(:invalid_inputs_suspension) {{ title: "", description: "",
     end
   end
 
+	describe "POST delete" do
+    before(:each) do
+      loggin_principal
+    end
 
+    it "does delete an Suspension" do
+      post :create, params: {suspension: valid_inputs_suspension,alumn_id:alumn.id}
+      expect(Suspension.count).to eq(1)
+      suspension = Suspension.find_by(title: "Trolando ao vivo")
+      expect{
+        delete :destroy, id: suspension.id
+      }.to change(Suspension, :count).by(-1)
+    end
+  end
 end
