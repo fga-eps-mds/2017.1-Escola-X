@@ -31,7 +31,7 @@ class SubjectsController < ApplicationController
   		@subject.teacher_id = @teacher.id
 
   		if (@subject.save)
-  			redirect_to @subject 
+  			redirect_to @subject
   		else
   			render 'new'
   		end
@@ -56,7 +56,7 @@ class SubjectsController < ApplicationController
         render 'edit'
       end
     end
-  	
+
   end
 
   private

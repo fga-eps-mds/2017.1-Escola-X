@@ -13,7 +13,7 @@ RSpec.describe SecretariesController, type: :controller do
 						   address: "Rua Laranjeiras 456", phone: "60991907175",
 						   gender: "Masculino", birth_date: "02/02/2012",permission:" ", registry:"1"} }
 
-  def loggin_principal
+  def login_principal
     user = Principal.create(name: "Michael Cera", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"M",
@@ -23,7 +23,7 @@ RSpec.describe SecretariesController, type: :controller do
   end
  describe "GET new" do
 	   before(:each) do
-	     loggin_principal
+	     login_principal
 	    end
 
 	  it "assigns a new secreatry as @secretary" do
@@ -34,7 +34,7 @@ end
 
   describe "DELETE delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "does delete an Secretary" do
       secretary = Secretary.create!(valid_inputs)
@@ -46,7 +46,7 @@ end
 
     describe "Post create" do
       before(:each) do
-        loggin_principal
+        login_principal
       end
 
       describe "with valid params" do
