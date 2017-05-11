@@ -18,7 +18,7 @@ class Subject < ApplicationRecord
             numericality: { only_integer: true }
 
   validates :teacher,
-            presence: { message: "Usuário não válido para criar notificação!" },
+            presence: { message: "não válido para criar matéria!" },
             uniqueness: true
 
 end

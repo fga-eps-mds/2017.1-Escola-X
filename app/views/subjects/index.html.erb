@@ -4,7 +4,7 @@
 <section class="content-section" >
   <div class="container">
  
-  <% if @current_user.permission == "Principal" or @current_user.permission == "Secretary" %>
+  <% if is_principal? %>
       <%= link_to '<span class="fa fa-plus-circle"></span> Nova Matéria'.html_safe, new_subject_path, class:"text-center btn btn-info" %>
       <% end %>
       
