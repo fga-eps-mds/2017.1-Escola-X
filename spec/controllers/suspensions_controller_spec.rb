@@ -14,10 +14,10 @@ let(:invalid_inputs_alumn) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
 			                           parent_id: -1, shift:"matutino"} }
 
 let(:valid_inputs_suspension) { { title: "Trolando ao vivo", description: "Ao vivo",
-																	quantity_days: 4}}
+																	quantity_days: 4,date_suspension:"15/04/1912"}}
 
 let(:invalid_inputs_suspension) {{ title: "", description: "",
-																	 quantity_days:""}}
+																	 quantity_days:"",date_suspension:""}}
 
 	def loggin_principal
 	  user = Principal.create!(name: "Michael Cera", phone:"61988885555",
@@ -45,7 +45,7 @@ let(:invalid_inputs_suspension) {{ title: "", description: "",
 
   def suspension
   	suspension = Suspension.create(title: "Trolando ao vivo", description: "Ao vivo",
-																	quantity_days: 4)
+																	quantity_days: 4,date_suspension:"15/04/1912")
   end
 
   describe "GET new" do

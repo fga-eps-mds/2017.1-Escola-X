@@ -16,7 +16,7 @@ class SuspensionsController < ApplicationController
 	end
 
 	def show
-		if (is_principal?)
+		if (logged_in?)
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
 			@employee = Employee.find(@suspension.employee_id)

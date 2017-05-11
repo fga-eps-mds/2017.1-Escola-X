@@ -6,14 +6,14 @@ RSpec.describe TeachersController, type: :controller do
                          registry:"654321",employee_cpf:"02951294174",
                          admission_date:"15/04/2012",shift:"Matutino",
                          gender:"M",birth_date:"09/07/1995",
-                         password:"12345678"} }
+                         password:"12345678",admission_date:"14/04/2012"} }
 
   let(:invalid_inputs) { { name:"Nai",phone:"1234",
                            address:"QR 05",
                            registry:"12443",employee_cpf:"77777777",
                            admission_date:"15/04/1912",shift:"Diurno",
                            gender:"F",birth_date:"23 de maio de 1994",
-                           password:"12348"} }
+                           password:"12348",admission_date:""} }
 
 
   def teacher
@@ -22,7 +22,7 @@ RSpec.describe TeachersController, type: :controller do
                            	 registry:"654321",employee_cpf:"02951294174",
                            	 admission_date:"15/04/2012",shift:"Matutino",
                            	 gender:"M",birth_date:"09/07/1995",
-                             password:"12345678")
+                             password:"12345678",admission_date:"14/04/2012")
   end
 
   def loggin_principal
