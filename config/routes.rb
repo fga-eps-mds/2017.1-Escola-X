@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
   get 'users/:id/edit_password', to:'users#edit_password', as:'edit_password'
+  get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
+  post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
 
   root 'sessions#new'
 

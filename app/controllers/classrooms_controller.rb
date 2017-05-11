@@ -55,6 +55,29 @@ def update
   end
 end
 
+def add_alumns
+  if ( is_principal? )
+    @classroom = Classroom.find(params[:id])
+    @alumns = @classroom.alumn
+  end
+
+end
+
+def add_alumn
+  if ( is_principal? )
+    @classroom = Classroom.find(params[:id])
+    @alumns = @classroom.alumn
+    @alumn = Alumn.find_by_registry(params[:registry])
+    @alumn.classroom_id = @classroom.id
+    if @alumn.save
+      render "classrooms/add_alumns"
+    else
+      render "classrooms/add_alumns"
+    end
+  end
+
+end
+
 private
   def classroom_params
     params.require(:classroom).permit(:name_classroom,
