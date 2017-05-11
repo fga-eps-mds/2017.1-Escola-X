@@ -94,10 +94,11 @@ ActiveRecord::Schema.define(version: 20170509212638) do
     t.string   "title"
     t.text     "description"
     t.integer  "quantity_days"
+    t.date     "date_suspension"
     t.integer  "alumn_id"
     t.integer  "employee_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["alumn_id"], name: "index_suspensions_on_alumn_id"
     t.index ["employee_id"], name: "index_suspensions_on_employee_id"
   end

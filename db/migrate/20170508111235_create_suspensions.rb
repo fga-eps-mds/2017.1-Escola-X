@@ -6,7 +6,7 @@ class CreateSuspensions < ActiveRecord::Migration[5.0]
       t.integer :quantity_days
       t.references :alumn
       t.references :employee
-      
+      t.date        :date_suspension
       t.timestamps
     end
   end

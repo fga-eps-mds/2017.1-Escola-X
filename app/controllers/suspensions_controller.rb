@@ -76,6 +76,7 @@ class SuspensionsController < ApplicationController
                                  :description,
                                  :quantity_days,
                                  :employee_id,
-                                 :alumn_id)
+                                 :alumn_id,
+																 :date_suspension)
 		end
 end

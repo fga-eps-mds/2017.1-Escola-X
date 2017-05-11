@@ -34,7 +34,7 @@
       <%= f.number_field :registry, class:"form-control", placeholder:"Ex.: 153456" %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :employee_cpf, class:"sr-only" %>
     <div class="input-group">
@@ -94,6 +94,16 @@
          Data de nascimento
       </span>
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :admission_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-gift"></span>
+         Data de admissão
+      </span>
+      <%= f.date_field :admission_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>
   </div>
   <div class="form-group">
