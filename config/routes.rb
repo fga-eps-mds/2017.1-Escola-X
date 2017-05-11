@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :teachers
   resources :school_misses
 
+  resources :alumns do
+    resources :school_misses
+  end
+
   resources :parents do
     resources :alumns
   end

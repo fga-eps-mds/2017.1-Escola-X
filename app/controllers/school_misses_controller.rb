@@ -1,10 +1,9 @@
 class SchoolMissesController < ApplicationController
   include SessionsHelper
-  include AlumnsController
 
   def index
     if ( logged_in? )
-      @misses = @alumn.misses.all
+      @misses = @alumn.school_misses.all
     end
   end
 
@@ -17,7 +16,6 @@ class SchoolMissesController < ApplicationController
   def new
     if ( is_employee? )
       @miss = SchoolMiss.new
-      @miss.alumn_id = @alumn.id
     end
   end
 
@@ -25,9 +23,9 @@ class SchoolMissesController < ApplicationController
   def create
     if ( is_employee? )
       @miss = SchoolMiss.new(miss_params)
-      @miss.alumn_id = @alumn.id
+      @miss.alumn_id = Alumn.current.id
       if ( @miss.save )
-        redirect_to @miss
+        redirect_to alumn_path(@miss.alumn_id)
       else
         render new_school_miss_path
       end

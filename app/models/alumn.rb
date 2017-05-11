@@ -47,6 +47,14 @@ class Alumn < ApplicationRecord
     DateTime.now.year - self.birth_date.year
   end
 
+  def self.current=(a)
+    @current_alumn = a
+  end
+
+  def self.current
+    @current_alumn
+  end
+
   private
   def validates_password
     if self.password_digest.nil?
