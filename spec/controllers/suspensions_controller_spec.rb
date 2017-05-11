@@ -100,6 +100,24 @@ let(:invalid_inputs_suspension) {{ title: "", description: "",
     end
   end
 
+  describe "PATCH #update" do
+    before(:each) do
+      loggin_principal
+    end
+
+    describe "update suspension" do
+      it "updates the suspension and redirects" do
+        post :create, params: {suspension: valid_inputs_suspension,alumn_id:alumn.id}
+        expect(Suspension.count).to eq(1)
+        suspension = Suspension.find_by(title: "Trolando ao vivo")
+        expect{
+          edit :update, id: suspension.id, suspension: {name: "Jiraya"}
+        }
+        expect(response).to redirect_to suspension_path(assigns(:suspension))
+      end
+    end
+  end
+
 	describe "POST delete" do
     before(:each) do
       loggin_principal
