@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 RSpec.describe SubjectsController, type: :controller do
-  let(:valid_inputs) { { name_subject:"Filosofia", class_level:"2" } }
+  let(:valid_inputs) { { name_subject:"Filosofia", class_level:"2", teacher_id: teacher.id } }
 
   let(:invalid_inputs) { { name_subject:"A", class_level:"", teacher_id:-1 } }
 
@@ -71,6 +71,33 @@ RSpec.describe SubjectsController, type: :controller do
         expect(response).to render_template("new")
       end
     end
+  end
+
+  describe "GET edit" do
+    before(:each) do
+      login_principal
+    end
+    it "assing a subject to @subject" do
+      subject = Subject.create!(valid_inputs)
+      get :edit, params:{id:subject.id}
+      expect(assigns(:subject)).to be_a Subject
+    end
+  end
+
+  describe "POST update" do
+    before(:each) do
+      login_principal
+    end
+    describe "updates with valid params" do
+      before(:each) do
+        subject = Subject.create!(valid_inputs)
+      end
+      it "updates and saves subject params" do
+        post :update, params {subject: valid_inputs, 
+                              teacher_registry:teacher.registry}
+      end
+    end
+
   end
 
 
