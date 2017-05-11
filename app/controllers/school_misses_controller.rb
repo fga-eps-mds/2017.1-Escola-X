@@ -1,5 +1,6 @@
 class SchoolMissesController < ApplicationController
   include SessionsHelper
+  include AlumnsController
 
   def index
     if ( logged_in? )
@@ -14,9 +15,9 @@ class SchoolMissesController < ApplicationController
   end
 
   def new
-    if ( logged_in? )
+    if ( is_employee? )
       @miss = SchoolMiss.new
-      @alumn = Alumn.find(params[:id])
+      @miss.alumn_id = @alumn.id
     end
   end
 
