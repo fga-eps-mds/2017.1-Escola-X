@@ -41,8 +41,9 @@ class SchoolMissesController < ApplicationController
   def update
     if ( is_employee? )
       @miss = SchoolMiss.find(params[:id])
-      if ( @miss.update(parent_params) )
-        redirect_to @miss
+      @miss.alumn_id = Alumn.current.id
+      if ( @miss.update(miss_params) )
+        redirect_to alumn_path(@miss.alumn_id)
       else
         render edit_school_miss_path
       end

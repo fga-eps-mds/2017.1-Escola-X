@@ -7,7 +7,7 @@ end
 
 RSpec.describe SchoolMissesController, type: :controller do
   let(:valid_inputs) { { date: DateTime.now,
-                  alumn_id: 2} }
+                  alumn_id: 1} }
   let(:invalid_inputs) { { date: "Mattimito",
                     alumn_id: "665 - neighbor of da beast."} }
 
@@ -28,8 +28,17 @@ RSpec.describe SchoolMissesController, type: :controller do
       describe "With valid params" do
         it "Creates a new miss" do
           expect {
-            post :create, params: {school_miss: valid_inputs, alumn_id: alumn.current.id}
+            post :create, params: {miss: valid_inputs, alumn_id: alumn.id}
           }.to change(SchoolMiss, :count).by 1
+        end
+        it "Assigns a new miss to @miss" do
+            post :create, params: {miss: valid_inputs, alumn_id: alumn.current.id}
+            expect(assigns(:school_miss)).to be_a SchoolMiss
+            expect(assigns(:school_miss)).to be_persisted
+        end
+        it "redirects to @alumn.current page" do
+          post :create, params: {miss: valid_inputs, alumn_id: alumn.current.id}
+          expect(response).to redirect_to alumn_path(assigns(:alumn))
         end
       end
     end

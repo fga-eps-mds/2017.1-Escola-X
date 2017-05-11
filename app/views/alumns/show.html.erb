@@ -38,15 +38,18 @@
               <% end %>
                 <ul>
                   <% @alumn.school_misses.all.reverse.each do |miss| %>
-                    <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %></li>
+                    <% if (@current_user.is_a?(Principal)) %>
+                      <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %>
+                        <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_school_miss_path(miss), class:"btn btn-sm btn-default" %>
+                      </li>
+                    <% else %>
+                      <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %></li>
+                    <% end %>
                   <% end %>
                 </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="boletim">
-                <img src="img/boletim.png" class="img-responsive">
-            </div>
-            <div role="tabpanel" class="tab-pane" id="notificacoes">
-                <p class="text-center text-capitalize text-danger">nenhuma notificação no histórico.</p>
+                <!-- <%# TODO:  %> -->
             </div>
         </div>
     </div>
