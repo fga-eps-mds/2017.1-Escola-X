@@ -1,0 +1,22 @@
+<%= form_for (@miss), class:"form-inline", do |f| %>
+  <% if @miss.errors.any? %>
+    <div class="container">
+      <div class="text-danger">
+        <div id="error_explanation">
+          <h2 class=""><%= pluralize(@miss.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <ul>
+          <% @miss.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :date, "<h2>Data:</h2>".html_safe, class:"" %>
+    <%= f.date_field :date, class:"form-control", placeholder:"Data da falta." %>
+    <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn input-group-btn btn-success' %>
+  </div>
+<% end %>

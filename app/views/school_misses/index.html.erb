@@ -1,2 +1,5 @@
-<h1>SchoolMisses#index</h1>
-<p>Find me in app/views/school_misses/index.html.erb</p>
+<ul>
+  <% @alumn.school_misses.reverse.each do |miss| %>
+    <li><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %></li>
+  <% end %>
+</ul>
