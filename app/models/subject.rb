@@ -5,7 +5,6 @@ class Subject < ApplicationRecord
 	has_many :alumns, through: :grades
 	validates_associated :alumns
 
-/\A[+-]?\d+\z/
 
   validates :name_subject, 
   			presence: { message: "Não pode estar em branco!" },
@@ -21,9 +20,6 @@ class Subject < ApplicationRecord
   validates :teacher,
             presence: { message: "Usuário não válido para criar notificação!" },
             uniqueness: true
-            #uni {case_sensitive: false}
-
-
 
 end
 

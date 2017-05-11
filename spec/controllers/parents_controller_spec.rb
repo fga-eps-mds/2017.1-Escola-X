@@ -20,7 +20,7 @@ RSpec.describe ParentsController, type: :controller do
 
   describe "GET new" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns a new parent as @parent" do
@@ -31,7 +31,7 @@ RSpec.describe ParentsController, type: :controller do
 
   describe "POST create" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -74,7 +74,7 @@ RSpec.describe ParentsController, type: :controller do
 
   describe "DELETE delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "does delete an Parent" do
       parent = Parent.create! valid_inputs

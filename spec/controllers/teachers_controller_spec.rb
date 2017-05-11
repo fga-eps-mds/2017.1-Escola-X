@@ -25,7 +25,7 @@ RSpec.describe TeachersController, type: :controller do
                              password:"12345678")
   end
 
-  def loggin_principal
+  def login_principal
     user = Principal.create!(name: "Michael Cera", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"M",
@@ -36,7 +36,7 @@ RSpec.describe TeachersController, type: :controller do
 
   describe "GET new" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns a new teacher as @teacher" do
@@ -47,7 +47,7 @@ RSpec.describe TeachersController, type: :controller do
 
   describe "POST create" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -85,7 +85,7 @@ RSpec.describe TeachersController, type: :controller do
 
   describe "DELETE delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "does delete an Teacher" do
       teacher = Teacher.create! valid_inputs

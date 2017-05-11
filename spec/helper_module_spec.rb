@@ -1,5 +1,5 @@
 module Helpers
-  def loggin_principal
+  def login_principal
     user = Principal.create!(name: "Michael Cera", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"M",
@@ -27,5 +27,21 @@ module Helpers
                             password: "12345678", gender:"M",
                             birth_date:"07/06/1988",registry:"123456",
                             employee_cpf:"06057577124")
+  end
+
+  def secretary
+    secretary = Secretary.create!(name: "Secretario insano", phone:"61988885555",
+                            address:"Rua Vida Casa 15,Taguatinga",
+                            password: "12345678", gender:"M",
+                            birth_date:"07/06/1988",registry:"852963",
+                            employee_cpf:"06057577124")
+  end
+
+  def teacher
+    teacher = Teacher.create!(name: "Teacher insano", phone:"61988885555",
+                            address:"Rua Vida Casa 15,Taguatinga",
+                            password: "12345678", gender:"M",
+                            birth_date:"07/06/1988",registry:"789456",
+                            employee_cpf:"06057577124",shift:"matutino")
   end
 end
