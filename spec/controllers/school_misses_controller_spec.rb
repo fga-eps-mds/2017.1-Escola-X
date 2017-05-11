@@ -1,54 +1,36 @@
 require 'rails_helper'
+require 'helper_module_spec'
+
+RSpec.configure do |c|
+  c.include Helpers
+end
 
 RSpec.describe SchoolMissesController, type: :controller do
+  let(:valid_inputs) { { date: DateTime.now,
+                  alumn_id: 2} }
+  let(:invalid_inputs) { { date: "Mattimito",
+                    alumn_id: "665 - neighbor of da beast."} }
 
-  describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
+
+    describe "GET new" do
+      before(:each) do
+        loggin_principal
+      end
+      it "assigns a new SchoolMiss to @miss" do
+        get :new, {}
+        expect( assigns(:miss) ).to be_a_new SchoolMiss
+      end
     end
-  end
-
-  describe "GET #show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+    describe "POST create" do
+      before(:each) do
+        loggin_principal
+      end
+      describe "With valid params" do
+        it "Creates a new miss" do
+          expect {
+            post :create, params: {school_miss: valid_inputs, alumn_id: alumn.current.id}
+          }.to change(SchoolMiss, :count).by 1
+        end
+      end
     end
-  end
-
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #edit" do
-    it "returns http success" do
-      get :edit
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
