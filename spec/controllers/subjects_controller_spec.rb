@@ -127,6 +127,18 @@ RSpec.describe SubjectsController, type: :controller do
       login_principal
     end
   end
+  describe "DELETE destroy" do
+    before(:each) do
+      login_principal
+    end
+    it "deletes subject" do 
+      subject = Subject.create!(valid_inputs) 
+      expect{
+        delete :destroy, {id:subject.to_param}
+      }.to change(Subject, :count).by -1 
+    end
+  end
+
 
  
 
