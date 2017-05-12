@@ -3,7 +3,7 @@ class ClassroomsController < ApplicationController
 
   def index
     if ( is_principal? )
-      @classrooms = Classroom.all
+      @classrooms = Classroom.all.order('name_classroom')
     end
   end
 

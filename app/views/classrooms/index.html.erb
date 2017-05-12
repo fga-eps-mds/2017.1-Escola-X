@@ -2,7 +2,7 @@
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Turmas</h1>
 <hr>
 <section class="content-section" id="alunos-desc">
-  <%= @classrooms.each do |classroom| %>
+  <% @classrooms.each do |classroom| %>
     <div class="container">
       <div class="pull-right">
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
@@ -10,7 +10,7 @@
           <%if @current_user.permission=="Principal" %>
             <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
             <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-            <%= link_to '<span class="fa fa-user-plus"></span> Adicionar alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-info" %>
+            <%= link_to '<span class="fa fa-user-plus"></span> Adicionar alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-success" %>
           <% end %>
         <% end %>
       </div>
@@ -21,5 +21,6 @@
         </div>
       </div>
     </div>
+    <hr>
   <% end %>
 </section>

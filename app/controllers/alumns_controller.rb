@@ -22,6 +22,7 @@
     if ( is_principal? )
       @alumn = Alumn.new
       @@parent = Parent.find(params[:parent_id])
+      @classrooms = Classroom.all.order('name_classroom')
     end
   end
 
@@ -75,6 +76,7 @@
                                    :gender,
                                    :birth_date,
                                    :password,
-                                   :parent_id)
+                                   :parent_id,
+                                   :classroom_id)
    end
   end
