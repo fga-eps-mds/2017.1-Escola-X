@@ -7,8 +7,28 @@
   def index
     if ( is_parent? )
       @alumns = @current_user.alumns
-    elsif ( logged_in? )
+    elsif ( is_employee? )
       @alumns = Alumn.all
+
+      if params[:search]
+        @alumns = Alumn.search(params[:search]).order("created_at DESC")
+
+        if (@alumns.empty?)
+           flash.now[:feedback] = "Nenhum secretário(a) encontrado!"
+        end
+
+         if params[:search].blank?
+           @alumns = Alumn.all.order('created_at DESC')
+          flash.now[:feedback_warning] = "Digite algo para pesquisar!"
+        end
+
+        else
+          @alumns = Alumn.all.order('created_at DESC')
+      end
+
+      elsif ( logged_in? )
+        @alumns = Alumn.all
+
     end
   end
 
