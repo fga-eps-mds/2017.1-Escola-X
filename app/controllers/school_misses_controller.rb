@@ -8,9 +8,9 @@ class SchoolMissesController < ApplicationController
   end
 
   def show
-    if ( logged_in? )
-      @school_miss = SchoolMiss.find(params[:id])
-    end
+    #if ( logged_in? )
+    #  @school_miss = SchoolMiss.find(params[:id])
+    #end
   end
 
   def new
@@ -25,18 +25,17 @@ class SchoolMissesController < ApplicationController
       @school_miss = SchoolMiss.new(school_miss_params)
       @school_miss.alumn_id = Alumn.current.id
       if ( @school_miss.save )
-        puts "ALUMN ID: " + @school_miss.alumn_id.to_s
         redirect_to alumn_path(@school_miss.alumn_id)
       else
-        render new_school_school_miss_path
+        render new_school_miss_path
       end
     end
   end
 
   def edit
-    if ( is_employee? )
-      @school_miss = SchoolMiss.find(params[:id])
-    end
+    #if ( is_employee? )
+    #  @school_miss = SchoolMiss.find(params[:id])
+    #end
   end
 
   def update
@@ -46,7 +45,7 @@ class SchoolMissesController < ApplicationController
       if ( @school_miss.update(school_miss_params) )
         redirect_to alumn_path(@school_miss.alumn_id)
       else
-        render edit_school_school_miss_path
+        #render edit_school_miss_path
       end
     end
   end
@@ -54,9 +53,9 @@ class SchoolMissesController < ApplicationController
   def destroy
     if ( is_principal? )
       @school_miss = SchoolMiss.find(params[:id])
-      @school_miss = destroy
+      @school_miss.destroy
 
-      redirect_to alumn_path(@alumn)
+      redirect_to alumn_path(@school_miss.alumn_id)
     end
   end
 
