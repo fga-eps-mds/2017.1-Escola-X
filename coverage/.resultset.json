@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/alumns_controller_spec.rb": [
+      "/vagrant/spec/controllers/alumns_controller_spec.rb": [
         1,
         1,
         null,
@@ -94,7 +94,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/rails_helper.rb": [
+      "/vagrant/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -153,14 +153,14 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/environment.rb": [
+      "/vagrant/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/application.rb": [
+      "/vagrant/config/application.rb": [
         1,
         null,
         1,
@@ -178,12 +178,12 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/boot.rb": [
+      "/vagrant/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/environments/test.rb": [
+      "/vagrant/config/environments/test.rb": [
         1,
         null,
         null,
@@ -227,7 +227,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/application_controller_renderer.rb": [
+      "/vagrant/config/initializers/application_controller_renderer.rb": [
         null,
         null,
         null,
@@ -235,7 +235,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/assets.rb": [
+      "/vagrant/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -248,7 +248,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/backtrace_silencers.rb": [
+      "/vagrant/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -257,23 +257,23 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/carrier_wave.rb": [
+      "/vagrant/config/initializers/carrier_wave.rb": [
         1
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/cookies_serializer.rb": [
+      "/vagrant/config/initializers/cookies_serializer.rb": [
         null,
-        null,
-        null,
-        null,
-        1
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/inflections.rb": [
+      "/vagrant/config/initializers/filter_parameter_logging.rb": [
+        null,
+        null,
+        null,
+        1
+      ],
+      "/vagrant/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -291,13 +291,13 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/mime_types.rb": [
+      "/vagrant/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/new_framework_defaults.rb": [
+      "/vagrant/config/initializers/new_framework_defaults.rb": [
         null,
         null,
         null,
@@ -323,12 +323,12 @@
         null,
         1
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/session_store.rb": [
+      "/vagrant/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/initializers/wrap_parameters.rb": [
+      "/vagrant/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -344,31 +344,31 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/alumns_helper.rb": [
+      "/vagrant/app/helpers/alumns_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/application_helper.rb": [
+      "/vagrant/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/grades_helper.rb": [
+      "/vagrant/app/helpers/grades_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/notifications_helper.rb": [
+      "/vagrant/app/helpers/notifications_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/parents_helper.rb": [
+      "/vagrant/app/helpers/parents_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/secretary_helper.rb": [
+      "/vagrant/app/helpers/secretary_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/sessions_helper.rb": [
+      "/vagrant/app/helpers/sessions_helper.rb": [
         1,
         1,
         192,
@@ -443,23 +443,23 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/strikes_helper.rb": [
+      "/vagrant/app/helpers/strikes_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/subjects_helper.rb": [
+      "/vagrant/app/helpers/subjects_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/teachers_helper.rb": [
+      "/vagrant/app/helpers/teachers_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/helpers/users_helper.rb": [
+      "/vagrant/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/config/routes.rb": [
+      "/vagrant/config/routes.rb": [
         1,
         null,
         1,
@@ -488,15 +488,15 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helper_module_spec.rb": [
+      "/vagrant/spec/helper_module_spec.rb": [
         1,
         1,
-        40,
+        65,
         null,
         null,
         null,
         null,
-        40,
+        65,
         null,
         1,
         13,
@@ -529,7 +529,7 @@
         null,
         null,
         1,
-        21,
+        19,
         null,
         null,
         null,
@@ -537,7 +537,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/alumns_controller.rb": [
+      "/vagrant/app/controllers/alumns_controller.rb": [
         null,
         null,
         null,
@@ -619,7 +619,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/application_controller.rb": [
+      "/vagrant/app/controllers/application_controller.rb": [
         null,
         null,
         null,
@@ -628,20 +628,20 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/grades_controller_spec.rb": [
+      "/vagrant/spec/controllers/grades_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/grades_controller.rb": [
+      "/vagrant/app/controllers/grades_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/notifications_controller_spec.rb": [
+      "/vagrant/spec/controllers/notifications_controller_spec.rb": [
         1,
         null,
         1,
@@ -660,13 +660,6 @@
         5,
         null,
         null,
-        null,
-        5,
-        null,
-        null,
-        null,
-        null,
-        null,
         5,
         null,
         null,
@@ -704,7 +697,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/notifications_controller.rb": [
+      "/vagrant/app/controllers/notifications_controller.rb": [
         1,
         1,
         null,
@@ -779,7 +772,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/parents_controller_spec.rb": [
+      "/vagrant/spec/controllers/parents_controller_spec.rb": [
         1,
         1,
         null,
@@ -867,7 +860,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/parents_controller.rb": [
+      "/vagrant/app/controllers/parents_controller.rb": [
         null,
         null,
         null,
@@ -942,7 +935,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/secretaries_controller_spec.rb": [
+      "/vagrant/spec/controllers/secretaries_controller_spec.rb": [
         1,
         null,
         1,
@@ -958,13 +951,13 @@
         null,
         3,
         null,
-        1,
-        8,
         null,
         null,
         null,
         null,
-        8,
+        null,
+        null,
+        null,
         null,
         1,
         1,
@@ -1035,7 +1028,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/secretaries_controller.rb": [
+      "/vagrant/app/controllers/secretaries_controller.rb": [
         null,
         null,
         null,
@@ -1125,14 +1118,14 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/sessions_controller_spec.rb": [
+      "/vagrant/spec/controllers/sessions_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/sessions_controller.rb": [
+      "/vagrant/app/controllers/sessions_controller.rb": [
         null,
         null,
         null,
@@ -1169,7 +1162,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/strikes_controller_spec.rb": [
+      "/vagrant/spec/controllers/strikes_controller_spec.rb": [
         1,
         1,
         null,
@@ -1253,7 +1246,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/strikes_controller.rb": [
+      "/vagrant/app/controllers/strikes_controller.rb": [
         1,
         1,
         null,
@@ -1337,7 +1330,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/subjects_controller_spec.rb": [
+      "/vagrant/spec/controllers/subjects_controller_spec.rb": [
         1,
         null,
         null,
@@ -1464,11 +1457,6 @@
         null,
         1,
         1,
-        0,
-        null,
-        null,
-        1,
-        1,
         1,
         null,
         1,
@@ -1484,7 +1472,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/subjects_controller.rb": [
+      "/vagrant/app/controllers/subjects_controller.rb": [
         1,
         1,
         1,
@@ -1515,6 +1503,10 @@
         9,
         9,
         9,
+        9,
+        3,
+        3,
+        null,
         6,
         6,
         3,
@@ -1522,28 +1514,26 @@
         3,
         null,
         null,
-        3,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        4,
+        4,
+        4,
+        4,
+        0,
         0,
         null,
-        3,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        4,
-        4,
-        4,
         4,
         4,
         2,
@@ -1551,22 +1541,16 @@
         2,
         null,
         null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
         null,
         null,
         null,
         1,
         1,
-        9,
+        13,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/teachers_controller_spec.rb": [
+      "/vagrant/spec/controllers/teachers_controller_spec.rb": [
         1,
         null,
         1,
@@ -1585,8 +1569,6 @@
         3,
         null,
         null,
-        1,
-        0,
         null,
         null,
         null,
@@ -1594,13 +1576,15 @@
         null,
         null,
         null,
-        1,
-        7,
         null,
         null,
         null,
         null,
-        7,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         1,
@@ -1666,7 +1650,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/teachers_controller.rb": [
+      "/vagrant/app/controllers/teachers_controller.rb": [
         1,
         null,
         1,
@@ -1744,14 +1728,14 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/controllers/users_controller_spec.rb": [
+      "/vagrant/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/controllers/users_controller.rb": [
+      "/vagrant/app/controllers/users_controller.rb": [
         null,
         null,
         null,
@@ -1767,7 +1751,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/alumns_helper_spec.rb": [
+      "/vagrant/spec/helpers/alumns_helper_spec.rb": [
         1,
         null,
         null,
@@ -1784,7 +1768,7 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/grades_helper_spec.rb": [
+      "/vagrant/spec/helpers/grades_helper_spec.rb": [
         1,
         null,
         null,
@@ -1801,7 +1785,7 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/notifications_helper_spec.rb": [
+      "/vagrant/spec/helpers/notifications_helper_spec.rb": [
         1,
         null,
         null,
@@ -1818,7 +1802,7 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/parents_helper_spec.rb": [
+      "/vagrant/spec/helpers/parents_helper_spec.rb": [
         1,
         null,
         null,
@@ -1835,7 +1819,7 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/secretary_helper_spec.rb": [
+      "/vagrant/spec/helpers/secretary_helper_spec.rb": [
         1,
         null,
         null,
@@ -1852,42 +1836,7 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/sessions_helper_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/strikes_helper_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/subjects_helper_spec.rb": [
+      "/vagrant/spec/helpers/sessions_helper_spec.rb": [
         1,
         null,
         null,
@@ -1905,7 +1854,7 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/teachers_helper_spec.rb": [
+      "/vagrant/spec/helpers/strikes_helper_spec.rb": [
         1,
         null,
         null,
@@ -1922,7 +1871,42 @@
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/helpers/users_helper_spec.rb": [
+      "/vagrant/spec/helpers/subjects_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/vagrant/spec/helpers/teachers_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/spec/helpers/users_helper_spec.rb": [
         1,
         null,
         null,
@@ -1963,11 +1947,6 @@
         null,
         1,
         1,
-        5,
-        null,
-        null,
-        null,
-        null,
         5,
         null,
         null,
@@ -2015,14 +1994,14 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/alumn_spec.rb": [
+      "/vagrant/spec/models/alumn_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/alumn.rb": [
+      "/vagrant/app/models/alumn.rb": [
         null,
         null,
         null,
@@ -2078,6 +2057,7 @@
         null,
         null,
         null,
+        1,
         null,
         1,
         0,
@@ -2102,19 +2082,42 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/application_record.rb": [
+      "/vagrant/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/employee_spec.rb": [
+      "/vagrant/spec/models/employee_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/employee.rb": [
+      "/vagrant/app/models/employee.rb": [
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
         null,
         null,
         null,
@@ -2122,21 +2125,27 @@
         null,
         1,
         null,
-        1,
         null,
-        1,
-        1,
-        1,
-        1,
+        null,
         null,
         null,
         1,
-        98,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        89,
         null,
         1,
         null,
         1,
-        74,
+        89,
         0,
         null,
         null,
@@ -2144,33 +2153,33 @@
         null,
         1,
         null,
-        74,
-        74,
+        89,
+        89,
         null,
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/grade_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/grade.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/notification_spec.rb": [
+      "/vagrant/spec/models/grade_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/notification.rb": [
+      "/vagrant/app/models/grade.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/spec/models/notification_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/app/models/notification.rb": [
         1,
         null,
         null,
@@ -2201,14 +2210,14 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/parent_spec.rb": [
+      "/vagrant/spec/models/parent_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/parent.rb": [
+      "/vagrant/app/models/parent.rb": [
         null,
         null,
         null,
@@ -2237,7 +2246,7 @@
         null,
         null,
         null,
-        null,
+        1,
         null,
         1,
         19,
@@ -2263,91 +2272,27 @@
         null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/principal_spec.rb": [
+      "/vagrant/spec/models/principal_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/principal.rb": [
+      "/vagrant/app/models/principal.rb": [
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/strike_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/strike.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/subject_spec.rb": [
+      "/vagrant/spec/models/strike_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/subject.rb": [
+      "/vagrant/app/models/strike.rb": [
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1
-      ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/teacher.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
         1,
         null,
         1,
@@ -2357,143 +2302,116 @@
         null,
         null,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        24,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        24,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        48,
-        48,
-        null,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/models/teacher_spec.rb": [
+      "/vagrant/spec/models/subject_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/grades/index.html.erb_spec.rb": [
+      "/vagrant/app/models/subject.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/vagrant/spec/models/teacher_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/notifications/create.html.erb_spec.rb": [
+      "/vagrant/app/models/teacher.rb": [
+        1,
+        1,
+        null
+      ],
+      "/vagrant/spec/views/grades/index.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/notifications/destroy.html.erb_spec.rb": [
+      "/vagrant/spec/views/notifications/create.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/notifications/edit.html.erb_spec.rb": [
+      "/vagrant/spec/views/notifications/destroy.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/notifications/index.html.erb_spec.rb": [
+      "/vagrant/spec/views/notifications/edit.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/notifications/new.html.erb_spec.rb": [
+      "/vagrant/spec/views/notifications/index.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/notifications/show.html.erb_spec.rb": [
+      "/vagrant/spec/views/notifications/new.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/spec/views/subjects/index.html.erb_spec.rb": [
+      "/vagrant/spec/views/notifications/show.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/naiara/Área de Trabalho/Projeto escola/2017.1-Escola-X/app/models/secretary.rb": [
+      "/vagrant/spec/views/subjects/index.html.erb_spec.rb": [
+        1,
         null,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/app/models/secretary.rb": [
         null,
         null,
         null,
         1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
         null
       ]
     },
-    "timestamp": 1494619657
+    "timestamp": 1494628202
   }
 }

@@ -26,22 +26,20 @@ class SubjectsController < ApplicationController
 
   def create
   	if (is_principal?)
-  		@subject = Subject.new(subject_params)
-  		if (@teacher = Teacher.find_by_registry(params[:teacher_registry]))
-    		@subject.teacher_id = @teacher.id
-    		if (@subject.save)
-    			redirect_to @subject
-    		else
-    			render 'new'
-    		end
-    	else
-        if (@subject.save)
-          redirect_to @subject
-        else
-          render 'new'
-        end
-      end
-    end
+			@subject = Subject.new(subject_params)
+			@teacher = Teacher.find_by_registry(params[:teacher_registry])
+			if (@teacher.nil?)
+				@subject.save
+				render 'new'
+			else
+				@subject.teacher_id = @teacher.id
+	  		if (@subject.save)
+	    		redirect_to @subject
+	    	else
+	    		render 'new'
+	    	end
+	    end
+		end
   end
 
   def destroy
@@ -55,22 +53,20 @@ class SubjectsController < ApplicationController
 
   def update
   	if ( is_principal? )
-      @subject = Subject.find(params[:id])
-      if (@teacher = Teacher.find_by_registry(params[:teacher_registry]))
-        @subject.teacher_id = @teacher.id
-        if (@subject.save)
-          redirect_to @subject
-        else
-          render 'edit'
-        end
-      else
-        if (@subject.save)
-          redirect_to @subject
-        else
-          render 'edit'
-        end
-      end
-    end
+			@subject = Subject.find(params[:id])
+			@teacher = Teacher.find_by_registry(params[:teacher_registry])
+			if (@teacher.nil?)
+				@subject.update(subject_params)
+				render 'edit'
+			else
+				@subject.teacher_id = @teacher.id
+	  		if (@subject.update(subject_params))
+	    		redirect_to @subject
+	    	else
+	    		render 'edit'
+	    	end
+	    end
+		end
   end
 
   private

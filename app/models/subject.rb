@@ -1,12 +1,11 @@
 class Subject < ApplicationRecord
 	belongs_to :teacher
 	has_many :grades
-	validates_associated :grades
 	has_many :alumns, through: :grades
+	validates_associated :grades
 	validates_associated :alumns
 
-
-  validates :name_subject, 
+  validates :name_subject,
   			presence: { message: "Não pode estar em branco!" },
   			length: { minimum: 5,
 		            maximum: 20,
@@ -14,7 +13,7 @@ class Subject < ApplicationRecord
 		            :too_long => "deve possuir no máximo 20 caracteres."}
 
   validates :class_level,
-            presence: {message: "A série não pode estar em branco!"},
+            presence: {message: "série não pode estar em branco!"},
             numericality: { only_integer: true }
 
   validates :teacher,
@@ -22,5 +21,3 @@ class Subject < ApplicationRecord
             uniqueness: true
 
 end
-
-Subject.create(name_subject: "portugues").valid?

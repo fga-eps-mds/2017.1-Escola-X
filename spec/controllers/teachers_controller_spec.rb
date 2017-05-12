@@ -5,7 +5,7 @@ RSpec.describe TeachersController, type: :controller do
                          address:"QR 602 Conjunto 06 Casa 05",
                          registry:"654321",employee_cpf:"02951294174",
                          admission_date:"15/04/2012",shift:"Matutino",
-                         gender:"M",birth_date:"09/07/1995",
+                         gender:"Masculino",birth_date:"09/07/1995",
                          password:"12345678"} }
 
   let(:invalid_inputs) { { name:"Nai",phone:"1234",
@@ -16,23 +16,23 @@ RSpec.describe TeachersController, type: :controller do
                            password:"12348"} }
 
 
-  def teacher
-    teacher = Teacher.create(name:"Victor Hugo",phone:"61983104981",
-                           	 address:"QR 602 Conjunto 06 Casa 05",
-                           	 registry:"654321",employee_cpf:"02951294174",
-                           	 admission_date:"15/04/2012",shift:"Matutino",
-                           	 gender:"M",birth_date:"09/07/1995",
-                             password:"12345678")
-  end
+  # def teacher
+  #   teacher = Teacher.create(name:"Victor Hugo",phone:"61983104981",
+  #                          	 address:"QR 602 Conjunto 06 Casa 05",
+  #                          	 registry:"654321",employee_cpf:"02951294174",
+  #                          	 admission_date:"15/04/2012",shift:"Matutino",
+  #                          	 gender:"M",birth_date:"09/07/1995",
+  #                            password:"12345678")
+  # end
 
-  def login_principal
-    user = Principal.create!(name: "Michael Cera", phone:"61988885555",
-                            address:"Rua Vida Casa 15,Taguatinga",
-                            password: "12345678", gender:"M",
-                            birth_date:"07/06/1988",registry:"123456",
-                            employee_cpf:"06057577124")
-    cookies[:authorization_token] = user.authorization_token
-  end
+  # def login_principal
+  #   user = Principal.create!(name: "Michael Cera", phone:"61988885555",
+  #                           address:"Rua Vida Casa 15,Taguatinga",
+  #                           password: "12345678", gender:"M",
+  #                           birth_date:"07/06/1988",registry:"123456",
+  #                           employee_cpf:"06057577124")
+  #   cookies[:authorization_token] = user.authorization_token
+  # end
 
   describe "GET new" do
     before(:each) do

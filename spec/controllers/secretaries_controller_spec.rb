@@ -13,14 +13,14 @@ RSpec.describe SecretariesController, type: :controller do
 						   address: "Rua Laranjeiras 456", phone: "60991907175",
 						   gender: "Masculino", birth_date: "02/02/2012",permission:" ", registry:"1"} }
 
-  def login_principal
-    user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                            address:"Rua Vida Casa 15,Taguatinga",
-                            password: "12345678", gender:"M",
-                            birth_date:"07/06/1988",registry:"123456",
-                            employee_cpf:"06057577124")
-    cookies[:authorization_token] = user.authorization_token
-  end
+  # def login_principal
+  #   user = Principal.create(name: "Michael Cera", phone:"61988885555",
+  #                           address:"Rua Vida Casa 15,Taguatinga",
+  #                           password: "12345678", gender:"M",
+  #                           birth_date:"07/06/1988",registry:"123456",
+  #                           employee_cpf:"06057577124")
+  #   cookies[:authorization_token] = user.authorization_token
+  # end
  describe "GET new" do
 	   before(:each) do
 	     login_principal

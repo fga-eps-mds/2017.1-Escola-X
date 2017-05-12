@@ -16,14 +16,7 @@ RSpec.describe NotificationsController, type: :controller do
       notification = Notification.create(title: "Ausencia de prosso",
                                          notification_text: "vai ter aula nao mlkada",
                                          notification_date: "01/03/1995")
-
-      user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                            address:"Rua Vida Casa 15,Taguatinga",
-                            password: "12345678", gender:"M",
-                            birth_date:"07/06/1988",registry:"123456",
-                            employee_cpf:"06057577124")
-      
-      cookies[:authorization_token] = user.authorization_token
+      login_principal
     end
 
     describe "with valid params" do
