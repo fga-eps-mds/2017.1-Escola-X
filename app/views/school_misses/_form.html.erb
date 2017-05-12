@@ -1,11 +1,11 @@
-<%= form_for (@miss) do |f| %>
-  <% if @miss.errors.any? %>
+<%= form_for (@school_miss) do |f| %>
+  <% if @school_miss.errors.any? %>
     <div class="container">
       <div class="text-danger">
         <div id="error_explanation">
-          <h2 class=""><%= pluralize(@miss.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <h2 class=""><%= pluralize(@school_miss.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
           <ul>
-          <% @miss.errors.full_messages.each do |msg| %>
+          <% @school_miss.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
           </ul>

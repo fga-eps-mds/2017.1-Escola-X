@@ -9,58 +9,59 @@ class SchoolMissesController < ApplicationController
 
   def show
     if ( logged_in? )
-      @miss = SchoolMiss.find(params[:id])
+      @school_miss = SchoolMiss.find(params[:id])
     end
   end
 
   def new
     if ( is_employee? )
-      @miss = SchoolMiss.new
+      @school_miss = SchoolMiss.new
     end
   end
 
   # will not be necessary when "beep" is implemented
   def create
     if ( is_employee? )
-      @miss = SchoolMiss.new(miss_params)
-      @miss.alumn_id = Alumn.current.id
-      if ( @miss.save )
-        redirect_to alumn_path(@miss.alumn_id)
+      @school_miss = SchoolMiss.new(school_miss_params)
+      @school_miss.alumn_id = Alumn.current.id
+      if ( @school_miss.save )
+        puts "ALUMN ID: " + @school_miss.alumn_id.to_s
+        redirect_to alumn_path(@school_miss.alumn_id)
       else
-        render new_school_miss_path
+        render new_school_school_miss_path
       end
     end
   end
 
   def edit
     if ( is_employee? )
-      @miss = SchoolMiss.find(params[:id])
+      @school_miss = SchoolMiss.find(params[:id])
     end
   end
 
   def update
     if ( is_employee? )
-      @miss = SchoolMiss.find(params[:id])
-      @miss.alumn_id = Alumn.current.id
-      if ( @miss.update(miss_params) )
-        redirect_to alumn_path(@miss.alumn_id)
+      @school_miss = SchoolMiss.find(params[:id])
+      @school_miss.alumn_id = Alumn.current.id
+      if ( @school_miss.update(school_miss_params) )
+        redirect_to alumn_path(@school_miss.alumn_id)
       else
-        render edit_school_miss_path
+        render edit_school_school_miss_path
       end
     end
   end
 
   def destroy
     if ( is_principal? )
-      @miss = SchoolMiss.find(params[:id])
-      @miss = destroy
+      @school_miss = SchoolMiss.find(params[:id])
+      @school_miss = destroy
 
       redirect_to alumn_path(@alumn)
     end
   end
 
   private
-  def miss_params
+  def school_miss_params
     params.require(:school_miss).permit(:date,:alumn_id)
   end
 end

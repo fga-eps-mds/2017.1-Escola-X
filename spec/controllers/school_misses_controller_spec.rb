@@ -16,29 +16,36 @@ RSpec.describe SchoolMissesController, type: :controller do
       before(:each) do
         loggin_principal
       end
-      it "assigns a new SchoolMiss to @miss" do
+      it "assigns a new SchoolMiss to @school_miss" do
         get :new, {}
-        expect( assigns(:miss) ).to be_a_new SchoolMiss
+        expect( assigns(:school_miss) ).to be_a_new SchoolMiss
       end
     end
     describe "POST create" do
       before(:each) do
         loggin_principal
+        alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
+                         address:"Rua Vida Casa 15,Taguatinga",
+                         password: "12345678", gender:"M",
+                         birth_date:"07/06/1988", registry:"123456",
+                         parent_id: 1, shift:"matutino")
+			  Alumn.current = alumn
       end
       describe "With valid params" do
-        it "Creates a new miss" do
+        it "Creates a new school_miss" do
           expect {
-            post :create, params: {miss: valid_inputs, alumn_id: alumn.id}
+            post :create, params: {school_miss: valid_inputs, alumn_id: Alumn.current.id}
           }.to change(SchoolMiss, :count).by 1
         end
-        it "Assigns a new miss to @miss" do
-            post :create, params: {miss: valid_inputs, alumn_id: alumn.current.id}
-            expect(assigns(:school_miss)).to be_a SchoolMiss
-            expect(assigns(:school_miss)).to be_persisted
+        it "Assigns a new miss to @school_miss" do
+            post :create, params: {school_miss: valid_inputs, alumn_id: Alumn.current.id}
+            sm = assigns(:school_miss)
+            expect(sm).to be_a SchoolMiss
+            expect(sm).to be_persisted
         end
         it "redirects to @alumn.current page" do
-          post :create, params: {miss: valid_inputs, alumn_id: alumn.current.id}
-          expect(response).to redirect_to alumn_path(assigns(:alumn))
+          post :create, params: {school_miss: valid_inputs, alumn_id: Alumn.current.id}
+          expect(response).to redirect_to alumn_path(Alumn.current)
         end
       end
     end
