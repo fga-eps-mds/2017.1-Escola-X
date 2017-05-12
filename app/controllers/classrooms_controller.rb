@@ -68,11 +68,15 @@ def add_alumn
     @classroom = Classroom.find(params[:id])
     @alumns = @classroom.alumn
     @alumn = Alumn.find_by_registry(params[:registry])
-    @alumn.classroom_id = @classroom.id
-    if @alumn.save
-      render "classrooms/add_alumns"
+    if (@alumn).nil?
+      redirect_to add_alumns_path(@classroom)
     else
-      render "classrooms/add_alumns"
+      @alumn.classroom_id = @classroom.id
+      if @alumn.save
+        render "classrooms/add_alumns"
+      else
+        render "classrooms/add_alumns"
+      end
     end
   end
 

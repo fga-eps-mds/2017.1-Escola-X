@@ -29,6 +29,7 @@
   def edit
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
+      @classrooms = Classroom.all.order('name_classroom')
     end
   end
 
@@ -36,7 +37,6 @@
     if ( is_principal? )
       @alumn = Alumn.new(alumn_params)
       @alumn.parent_id = @@parent.id
-
       if (@alumn.save)
         redirect_to @alumn
       else
