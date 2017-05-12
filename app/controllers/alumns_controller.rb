@@ -14,7 +14,7 @@
         @alumns = Alumn.search(params[:search]).order("created_at DESC")
 
         if (@alumns.empty?)
-           flash.now[:feedback] = "Nenhum secretário(a) encontrado!"
+           flash.now[:feedback] = "Nenhum(a) aluno(a) encontrado!"
         end
 
          if params[:search].blank?

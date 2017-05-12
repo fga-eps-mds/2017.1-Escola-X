@@ -22,15 +22,7 @@
    <br>
 </div>
 
-
-
- <% if flash[:feedback]%>
-  <div class="alert alert-danger" role = "alert"><%= flash[:feedback]%></div>
- <% end %>
-
-<% if flash[:feedback_warning]%>
-  <div class="alert alert-warning" role = "alert"><%= flash[:feedback_warning]%></div>
- <% end %>
+<%= render "layouts/feedback_messages" %>
 
 <section class="content-section" id="alumns-list">
   <% @secretaries.each do |secretary| %>
