@@ -6,7 +6,7 @@
      <%= form_tag(alumns_path, :method => "get", id: "search-form") do %>
       <div class="form-inline">
         <div class="input-group">
-           <%= text_field_tag :search, params[:search], placeholder: "Digite nome ou matrícula do aluno", class: "form-control", :size=>"50"%>
+           <%= text_field_tag :search, params[:search], placeholder: "Digite o nome do aluno", class: "form-control", :size=>"50"%>
            <span class="input-group-btn">
              <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %> 
            </span>
