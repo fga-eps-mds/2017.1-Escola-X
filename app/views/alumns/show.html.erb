@@ -37,12 +37,14 @@
                 <%= link_to '<span class="fa fa-user-times"></span> Adicionar uma nova falta'.html_safe, new_alumn_school_miss_path(@alumn), class:"btn btn-success btn-sm" %>
               <% end %>
                 <ul>
-                  <% @alumn.school_misses.all.reverse.each do |miss| %>
+                  <% @alumn.school_misses.all.each do |miss| %>
                     <% if (@current_user.is_a?(Principal)) %>
+                      <br>
                       <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %>
                         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_school_miss_path(miss), class:"btn btn-sm btn-default" %>
                       </li>
                     <% else %>
+                      <br>
                       <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %></li>
                     <% end %>
                   <% end %>
