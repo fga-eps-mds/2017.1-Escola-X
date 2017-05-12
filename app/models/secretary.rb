@@ -17,6 +17,7 @@ class Secretary < Employee
   validates :admission_date, presence: { message: "não pode estar em branco." }
 
   validates :registry, presence: {message: "não pode estar em branco."},
+                        uniqueness: true,
                        length: { in: 5..6,
                                       :too_short => "deve possuir no mínimo 5 dígitos.",
                                       :too_long => "deve possuir no máximo 6 dígitos."}
