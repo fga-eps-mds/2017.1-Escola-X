@@ -17,6 +17,10 @@ RSpec.describe SubjectsController, type: :controller do
       get :new, {}
       expect(assigns(:subject)).to be_a_new(Subject)
     end
+    it "render new template" do
+      get :new,{}
+      expect(response).to render_template("new")
+    end
   end
 
   describe "POST create" do
@@ -84,6 +88,11 @@ RSpec.describe SubjectsController, type: :controller do
       get :edit, params:{id:subject.id}
       expect(assigns(:subject)).to be_a Subject
     end
+    it "render edit template" do
+      subject = Subject.create!(valid_inputs)
+      get :edit, params:{id:subject.id}
+      expect(response).to render_template("edit")
+    end
   end
 
   describe "POST update" do
@@ -131,6 +140,42 @@ RSpec.describe SubjectsController, type: :controller do
       expect{
         delete :destroy, {id:subject.to_param}
       }.to change(Subject, :count).by -1
+    end
+    it "redirects to subjects" do
+      subject = Subject.create!(valid_inputs)
+        delete :destroy, {id:subject.to_param}
+        expect(response).to redirect_to subjects_path
+    end
+  end
+
+  describe "GET index" do
+    before(:each) do
+      login_principal
+    end
+    it "assigns all subjects to @subjects" do
+      subject = Subject.create!(valid_inputs)
+      get :index, {}
+      expect(assigns(:subjects)).to eq([subject])
+    end
+    it "render index template" do
+      get :index, {}
+      expect(response).to render_template("index")
+    end
+  end
+
+  describe "GET show" do
+    before(:each) do
+      login_principal
+    end
+    it "assigns a subject to @subject" do
+      subject = Subject.create!(valid_inputs)
+      get :show, {id: subject.to_param}
+      expect(assigns(:subject)).to eq(subject)
+    end
+    it "render show template" do
+      subject = Subject.create!(valid_inputs)
+      get :show, {id: subject.to_param}
+      expect(response).to render_template("show")
     end
   end
 

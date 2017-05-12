@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
 	include SessionsHelper
   def index
-  	if (logged_in?)
+  	if (is_principal?)
   		@subjects = Subject.all
   	end
   end
