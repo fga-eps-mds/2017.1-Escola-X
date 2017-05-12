@@ -56,13 +56,21 @@ class SubjectsController < ApplicationController
   def update
   	if ( is_principal? )
       @subject = Subject.find(params[:id])
-      if @subject.update (subject_params)
-        redirect_to @subject
+      if (@teacher = Teacher.find_by_registry(params[:teacher_registry]))
+        @subject.teacher_id = @teacher.id
+        if (@subject.save)
+          redirect_to @subject
+        else
+          render 'edit'
+        end
       else
-        render 'edit'
+        if (@subject.save)
+          redirect_to @subject
+        else
+          render 'edit'
+        end
       end
     end
-
   end
 
   private
