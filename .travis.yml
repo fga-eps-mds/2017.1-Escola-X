@@ -15,6 +15,5 @@ rvm:
   - 2.3.1
 script:
   - bundle exec rspec
-  - bundle exec cucumber
 dist: xenial
 
