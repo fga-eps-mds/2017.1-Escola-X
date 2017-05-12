@@ -19,6 +19,9 @@ let(:valid_inputs_suspension) { { title: "Trolando ao vivo", description: "Ao vi
 let(:invalid_inputs_suspension) {{ title: "", description: "",
 																	 quantity_days:"",date_suspension:""}}
 
+let(:updated_inputs) { { title: "Não vai da não", description: "Sério não vai da mesmo",
+                                   quantity_days:"3",date_suspension:"12/05/2017"}}
+
 	def loggin_principal
 	  user = Principal.create!(name: "Michael Cera", phone:"61988885555",
 	                          address:"Rua Vida Casa 15,Taguatinga",
@@ -105,15 +108,34 @@ let(:invalid_inputs_suspension) {{ title: "", description: "",
       loggin_principal
     end
 
-    describe "update suspension" do
-      it "updates the suspension and redirects" do
-        post :create, params: {suspension: valid_inputs_suspension,alumn_id:alumn.id}
-        expect(Suspension.count).to eq(1)
-        suspension = Suspension.find_by(title: "Trolando ao vivo")
-        expect{
-          edit :update, id: suspension.id, suspension: {name: "Jiraya"}
-        }
-        expect(response).to redirect_to suspension_path(assigns(:suspension))
+    describe "with valid params" do
+      it "put update" do
+        suspension = Suspension.create!(valid_inputs_suspension)
+        put :update, {id: suspension.to_param, suspension: updated_inputs}
+        suspension.reload
+      end
+      
+      it "redirects to @suspension" do
+        suspension = Suspension.create!(valid_inputs_suspension)
+        put :update, {id: suspension.to_param, suspension: updated_inputs}
+        expect(response).to redirect_to suspension_path(suspension)
+      end
+    end
+
+    describe "with invalid params" do
+      it "does not update" do
+        suspension = Suspension.create!(valid_inputs_suspension)
+        allow_any_instance_of(Suspension).to receive(:save).and_return(false)
+        put :update, {id: suspension.to_param, suspension: invalid_inputs_suspension}
+        expect(assigns(:suspension)).to eq(suspension)
+      end
+
+      it "re-render edit template" do
+        suspension = Suspension.create!(valid_inputs_suspension)
+        allow_any_instance_of(Suspension).to receive(:save).and_return(false)
+        put :update, {id: suspension.to_param, suspension: invalid_inputs_suspension}
+        expect(assigns(:suspension)).to eq(suspension)
+        expect(response).to render_template('edit')
       end
     end
   end
