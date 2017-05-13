@@ -5,10 +5,22 @@ class UsersController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
+    if ( is_employee? )
       @alumns = Alumn.all
       @employees = Employee.all
       @parents = Parent.all
+    end
+  end
+
+  def edit_password
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+    end
+  end
+
+  def edit_password
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
     end
   end
 end

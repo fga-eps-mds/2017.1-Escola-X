@@ -3,6 +3,7 @@
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :parent
+  has_many :school_misses
   has_many :strike
   has_many :grades
   has_many :subjects, through: :grades
@@ -59,6 +60,14 @@ class Alumn < ApplicationRecord
     DateTime.now.year - self.birth_date.year
   end
 
+  def self.current=(a)
+    @current_alumn = a
+  end
+
+  def self.current
+    @current_alumn
+  end
+
   private
   def validates_password
     if self.password_digest.nil?
@@ -76,4 +85,9 @@ class Alumn < ApplicationRecord
   def image_size_validation
     errors[:image] << "deve ser menor que 600KB" if image.size > 0.6.megabytes
   end
+
+def self.search(search)
+  where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+end
+
 end

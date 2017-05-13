@@ -10,7 +10,17 @@ Principal.create!(name: 'Francois Dillinger', address: 'rua do ovo', phone: '613
             password: '12345678', birth_date: '10-10-1990',registry: '123456',
             employee_cpf: '73117438262',gender:"Masculino",shift:"Diurno")
 
-Parent.create!(name: 'Nicholas OLeary', address: 'rua do mantega',
+Employee.create(name: "Matheus Pimenta", address: "Rua do bicho", phone: "61991907175",
+            permission: 'Secretary', password: "12345678", birth_date: "03-03-1996",
+            registry: "123456", employee_cpf: "05423623170", shift: "matutino",
+            gender: "Masculino", admission_date: "04-04-2004")
+
+Employee.create(name: "Igor Araujo", address: "Rua do bicho", phone: "61991907175",
+            permission: 'Secretary', password: "12345678", birth_date: "03-03-1996",
+            registry: "123456", employee_cpf: "05423623170", shift: "matutino",
+            gender: "Masculino", admission_date: "04-04-2004")
+
+Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
             parent_cpf: '00968977162',gender:"Masculino")
 

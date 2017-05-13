@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
       user = Parent.find_by_parent_cpf(params[:login])
     elsif ( !Employee.find_by_registry(params[:login]).nil? )
       user = Employee.find_by_registry(params[:login])
+    elsif ( !Employee.find_by_employee_cpf(params[:login]).nil?)
+      user = Employee.find_by_employee_cpf(params[:login])
     end
 
     if ( user and user.authenticate(params[:password]) )
@@ -24,7 +26,7 @@ class SessionsController < ApplicationController
         redirect_to users_path
       end
     else
-      redirect_to root_url, notice: "Login or password not valid"
+      redirect_to root_url, notice: "Login e/ou senha incorreta(s)!"
     end
   end
 

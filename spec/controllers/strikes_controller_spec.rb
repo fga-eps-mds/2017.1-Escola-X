@@ -45,7 +45,7 @@ RSpec.describe StrikesController, type: :controller do
 
      it "redirects to @strike page" do
        post :create, params: {strike: valid_inputs}
-       expect(response).to redirect_to strike_path(assigns(:strike))
+       expect(response).to redirect_to alumn_strike_path(@alumn,assigns(:strike))
      end
    end
 
