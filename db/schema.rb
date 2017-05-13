@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 20170509212638) do
     t.string   "phone"
     t.string   "gender"
     t.date     "birth_date"
+    t.string   "bar_code"
     t.string   "registry"
     t.string   "password_digest"
     t.string   "authorization_token"
     t.string   "shift"
+    t.integer  "quantity_strike"
     t.integer  "parent_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

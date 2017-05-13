@@ -5,9 +5,10 @@ class UsersController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
-      @users = Alumn.all
+    if ( is_employee? )
+      @alumns = Alumn.all
       @employees = Employee.all
+      @parents = Parent.all
     end
   end
 

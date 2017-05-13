@@ -2,15 +2,16 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <% if @current_user.is_a?(Alumn) %>
-        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
+      <% if is_parent?%>
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
       <% else %>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
       <% end %>
-      <%if @current_user.is_a?(Principal) %>
+      <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
       <%end%>
+      <%= link_to '<span class="fa fa-address-card"></span> Advertências'.html_safe, alumn_strikes_path(@alumn), class:'btn btn-sm btn-warning' %>
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">

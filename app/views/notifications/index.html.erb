@@ -3,8 +3,8 @@
 <hr>
 <section class="content-section">
     <div class="container">
-      <% if @current_user.is_a?(Employee) %>
-      <%= link_to '<span class="fa fa-plus-circle"></span> Nova notificação'.html_safe, new_notification_path, class:"text-center btn btn-info" %>
+      <% if is_principal? or is_secretary? or is_teacher? %>
+        <%= link_to '<span class="fa fa-plus-circle"></span> Nova notificação'.html_safe, new_notification_path, class:"text-center btn btn-info" %>
       <% end %>
       <div class="row">
         <% @notifications.reverse.each do |note| %>
