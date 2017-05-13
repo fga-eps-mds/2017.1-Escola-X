@@ -155,5 +155,4 @@ end
 
 When (/^I press field "Salvar" button$/) do
 	driver.get('http://localhost:3000/suspensions/1')
-	driver.quit
 end
