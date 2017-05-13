@@ -31,7 +31,7 @@ RSpec.describe AlumnsController, type: :controller do
 
   describe "GET edit" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns the requested alumn as @alumn" do
@@ -43,9 +43,9 @@ RSpec.describe AlumnsController, type: :controller do
 
   describe 'GET show' do
     before(:each) do
-      loggin_principal
+      login_principal
     end
-    
+
   it 'should show alumn' do
     @alumn = Alumn.create! valid_inputs
     get :show, { :id => alumn.to_param, template: 'alumns/:id' }
@@ -55,7 +55,7 @@ end
 
   describe "PUT update" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -102,13 +102,13 @@ end
 
   describe "GET index" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns all alumns as @alumns" do
       get :index
       response.should be_success
-    end    
+    end
   end
 
   describe "Post create" do

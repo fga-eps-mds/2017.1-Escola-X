@@ -34,7 +34,7 @@ end
 
 describe "PUT update" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -80,13 +80,13 @@ describe "PUT update" do
 
   describe "GET index" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns all secretaries as @secretaries" do
       get :index
       response.should be_success
-    end   
+    end
 
     it "should search secretary" do
       secretary = Secretary.create!(valid_inputs)
@@ -98,7 +98,7 @@ describe "PUT update" do
 
   describe "GET edit" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns the requested secretary as @secretary" do
@@ -110,9 +110,9 @@ describe "PUT update" do
 
   describe 'GET show' do
     before(:each) do
-      loggin_principal
+      login_principal
     end
-    
+
   it 'should show secretary' do
     secretary = Secretary.create! valid_inputs
     get :show, { :id => secretary.to_param, template: 'secretaries/:id' }

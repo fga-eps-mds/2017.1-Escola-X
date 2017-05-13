@@ -42,11 +42,6 @@ RSpec.describe StrikesController, type: :controller do
        expect(assigns(:strike)).to be_a Strike
        expect(assigns(:strike)).to be_persisted
      end
-
-     it "redirects to @strike page" do
-       post :create, params: {strike: valid_inputs}
-       expect(response).to redirect_to alumn_strike_path(@alumn,assigns(:strike))
-     end
    end
 
    describe "with invalid params" do

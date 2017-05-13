@@ -14,7 +14,7 @@ RSpec.describe SchoolMissesController, type: :controller do
 
     describe "GET new" do
       before(:each) do
-        loggin_principal
+        login_principal
       end
       it "assigns a new SchoolMiss to @school_miss" do
         get :new, {}
@@ -24,7 +24,7 @@ RSpec.describe SchoolMissesController, type: :controller do
 
     describe "POST create" do
       before(:each) do
-        loggin_principal
+        login_principal
         alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
@@ -61,7 +61,7 @@ RSpec.describe SchoolMissesController, type: :controller do
 
     describe "PUT update" do
       before(:each) do
-        loggin_principal
+        login_principal
         alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
@@ -93,7 +93,7 @@ RSpec.describe SchoolMissesController, type: :controller do
 
     describe "POST destroy" do
       before(:each) do
-        loggin_principal
+        login_principal
         alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
