@@ -1,4 +1,19 @@
 <%= form_for (@classroom) do |f| %>
+  <% if @classroom.errors.any? %>
+    <div class="container">
+      <div class="text-danger">
+        <div id="error_explanation">
+          <h2 class=""><%= pluralize(@classroom.errors.count, "erro proibiu", "erros proibiram") %> este formulario de ser salvo:</h2>
+          <ul>
+          <% @classroom.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :name_classroom, class:"sr-only" %>
     <div class="input-group">

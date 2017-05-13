@@ -4,7 +4,7 @@ class StrikesController < ApplicationController
   def index
     if ( logged_in? )
       @@alumn = Alumn.find(params[:alumn_id])
-      @strikes = @@alumn.strike
+      @strikes = @@alumn.strikes
     end
   end
 
@@ -25,7 +25,7 @@ class StrikesController < ApplicationController
 
   def create
     if ( is_principal? )
-      @strike = @@alumn.strike.create(strike_params)
+      @strike = @@alumn.strikes.create(strike_params)
       @strike.employee_id = @current_user.id
       if (@strike.save)
         @alumn = Alumn.find_by_id(@strike.alumn_id)

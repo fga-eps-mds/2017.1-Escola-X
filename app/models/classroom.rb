@@ -1,7 +1,7 @@
 class Classroom < ApplicationRecord
-  has_many :alumn
+  has_many :alumns
 
-  accepts_nested_attributes_for :alumn
+  accepts_nested_attributes_for :alumns
 
   validates :name_classroom, presence: { message: "não pode estar em branco" },
            length: { minimum: 2,

@@ -4,7 +4,7 @@
 class Alumn < ApplicationRecord
   belongs_to :parent
   belongs_to :classroom
-  has_many :strike
+  has_many :strikes
 
   has_secure_password
 

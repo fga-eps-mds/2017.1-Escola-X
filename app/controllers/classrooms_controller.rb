@@ -58,7 +58,7 @@ end
 def add_alumns
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
-    @alumns = @classroom.alumn
+    @alumns = @classroom.alumns
   end
 
 end
@@ -66,7 +66,7 @@ end
 def add_alumn
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
-    @alumns = @classroom.alumn
+    @alumns = @classroom.alumns
     @alumn = Alumn.find_by_registry(params[:registry])
     if (@alumn).nil?
       redirect_to add_alumns_path(@classroom)

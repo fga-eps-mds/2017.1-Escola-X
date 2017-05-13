@@ -180,7 +180,7 @@ RSpec.describe ClassroomsController, type: :controller do
       expect(assigns(:classroom)).to be_a Classroom
     end
 
-    it "find alumn by @classroom.alumn" do
+    it "find alumn by @classroom.alumns" do
       classroom = Classroom.create!(valid_inputs)
       alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
@@ -194,7 +194,7 @@ RSpec.describe ClassroomsController, type: :controller do
                             birth_date:"07/06/1988", registry:"555123",
                             shift:"matutino",parent_id:parent.id,
                             classroom_id:classroom.id)
-      classroom.alumn = alumn1, alumn2
+      classroom.alumns = alumn1, alumn2
       get :add_alumns, {:id => classroom.to_param }
       expect(assigns(:alumns)).to match_array([alumn1, alumn2])
     end
@@ -221,7 +221,7 @@ RSpec.describe ClassroomsController, type: :controller do
                               birth_date:"07/06/1988", registry:"555123",
                               shift:"matutino",parent_id:parent.id,
                               classroom_id:classroom.id)
-        classroom.alumn = alumn1, alumn2
+        classroom.alumns = alumn1, alumn2
         post :add_alumn, {:id => classroom.to_param, :registry => alumn.registry }
         expect(assigns(:alumn).classroom_id).to be(classroom.id)
       end
@@ -240,7 +240,7 @@ RSpec.describe ClassroomsController, type: :controller do
                               birth_date:"07/06/1988", registry:"555123",
                               shift:"matutino",parent_id:parent.id,
                               classroom_id:classroom.id)
-        classroom.alumn = alumn1, alumn2
+        classroom.alumns = alumn1, alumn2
         post :add_alumn, {:id => classroom.to_param, :registry => alumn.registry }
         expect(response).to render_template("add_alumns")
       end
@@ -262,7 +262,7 @@ RSpec.describe ClassroomsController, type: :controller do
                               birth_date:"07/06/1988", registry:"555123",
                               shift:"matutino",parent_id:parent.id,
                               classroom_id:classroom.id)
-        classroom.alumn = alumn1, alumn2
+        classroom.alumns = alumn1, alumn2
         post :add_alumn, {:id => classroom.to_param, :registry => nil }
         expect(response).to redirect_to(add_alumns_path(assigns(:classroom)))
       end
@@ -281,7 +281,7 @@ RSpec.describe ClassroomsController, type: :controller do
                               birth_date:"07/06/1988", registry:"555123",
                               shift:"matutino",parent_id:parent.id,
                               classroom_id:classroom.id)
-        classroom.alumn = alumn1, alumn2
+        classroom.alumns = alumn1, alumn2
         post :add_alumn, {:id => classroom.to_param, :registry => nil }
         expect(response).to redirect_to(add_alumns_path(assigns(:classroom)))
       end
