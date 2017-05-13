@@ -5,6 +5,9 @@ class Alumn < ApplicationRecord
   belongs_to :parent
   belongs_to :classroom
   has_many :strikes
+  has_many :school_misses
+  has_many :grades
+  has_many :subjects, through: :grades
 
   has_secure_password
 
@@ -52,9 +55,18 @@ class Alumn < ApplicationRecord
                               :too_short => "deve possuir no mínimo 10 dígitos",
                               :too_long => "deve possuir no máximo 11 dígitos" }
 
+  validates :gender, presence: { message: "Não pode estar em branco." }
 
   def get_age
     DateTime.now.year - self.birth_date.year
+  end
+
+  def self.current=(a)
+    @current_alumn = a
+  end
+
+  def self.current
+    @current_alumn
   end
 
   private
@@ -74,4 +86,9 @@ class Alumn < ApplicationRecord
   def image_size_validation
     errors[:image] << "deve ser menor que 600KB" if image.size > 0.6.megabytes
   end
+
+def self.search(search)
+  where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+end
+
 end

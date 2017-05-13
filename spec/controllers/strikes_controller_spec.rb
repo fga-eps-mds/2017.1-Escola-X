@@ -16,7 +16,7 @@ RSpec.describe StrikesController, type: :controller do
 
  describe "GET new" do
    before(:each) do
-     loggin_principal
+     login_principal
    end
 
    it "assigns a new strike as @strike" do
@@ -53,7 +53,7 @@ RSpec.describe StrikesController, type: :controller do
 
   describe "Post create" do
    before(:each) do
-     loggin_principal
+     login_principal
    end
 
    describe "with valid params" do
@@ -67,11 +67,6 @@ RSpec.describe StrikesController, type: :controller do
        post :create, params: {strike: valid_inputs}
        expect(assigns(:strike)).to be_a Strike
        expect(assigns(:strike)).to be_persisted
-     end
-
-     it "redirects to @strike page" do
-       post :create, params: {strike: valid_inputs}
-       expect(response).to redirect_to strike_path(assigns(:strike))
      end
    end
 
@@ -96,7 +91,7 @@ RSpec.describe StrikesController, type: :controller do
 
   describe "DELETE delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "does delete an Strike" do
       strike = Strike.create!(valid_inputs)

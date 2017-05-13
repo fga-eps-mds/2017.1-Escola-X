@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 20170510230809) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "grades", force: :cascade do |t|
+    t.float    "grade_01"
+    t.float    "grade_02"
+    t.float    "grade03"
+    t.float    "grade04"
+    t.float    "grade_final"
+    t.integer  "alumn_id"
+    t.integer  "subject_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["alumn_id"], name: "index_grades_on_alumn_id"
+    t.index ["subject_id"], name: "index_grades_on_subject_id"
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.string   "title"
     t.text     "notification_text"
@@ -81,6 +95,14 @@ ActiveRecord::Schema.define(version: 20170510230809) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "school_misses", force: :cascade do |t|
+    t.integer  "alumn_id"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alumn_id"], name: "index_school_misses_on_alumn_id"
+  end
+
   create_table "strikes", force: :cascade do |t|
     t.string   "description_strike"
     t.date     "date_strike"
@@ -90,6 +112,15 @@ ActiveRecord::Schema.define(version: 20170510230809) do
     t.datetime "updated_at",         null: false
     t.index ["alumn_id"], name: "index_strikes_on_alumn_id"
     t.index ["employee_id"], name: "index_strikes_on_employee_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name_subject"
+    t.string   "class_level"
+    t.integer  "teacher_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
 end

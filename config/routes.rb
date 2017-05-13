@@ -23,7 +23,12 @@ Rails.application.routes.draw do
   resources :teachers
   resources :classrooms
 
+  resources :subjects
+  resources :school_misses
+  resources :alumns do
+    resources :school_misses
+  end
   resources :parents do
-  resources :alumns
+    resources :alumns
   end
 end
