@@ -17,8 +17,9 @@ module Helpers
     alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"Masculino",
-                           birth_date:"07/06/1988", registry:"039465",
-                           shift:"matutino",parent_id:parent.id)
+                           birth_date:"07/06/1988", registry:"985679",
+                           shift:"matutino",parent_id:parent.id,
+                           classroom_id:classroom.id)
   end
 
   def employee
@@ -43,5 +44,10 @@ module Helpers
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"892146",
                             employee_cpf:"06057577124",shift:"matutino")
+  end
+
+  def classroom
+    classroom = Classroom.create!(name_classroom: "3G",
+                                 shift_classroom: "matutino")
   end
 end

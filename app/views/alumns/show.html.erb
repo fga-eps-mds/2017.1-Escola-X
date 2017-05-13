@@ -23,6 +23,7 @@
         <h4>Sexo: <%= @alumn.gender %></h4>
         <h4>Endereço: <%= @alumn.address %></h4>
         <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
+        <h4>Turma: <%= @alumn.classroom.name_classroom %></h4>
         <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
       </div>
     </div>
