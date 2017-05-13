@@ -22,15 +22,6 @@ let(:invalid_inputs_suspension) {{ title: "", description: "",
 let(:updated_inputs) { { title: "Não vai da não", description: "Sério não vai da mesmo",
                                    quantity_days:"3",date_suspension:"12/05/2017"}}
 
-	def loggin_principal
-	  user = Principal.create!(name: "Michael Cera", phone:"61988885555",
-	                          address:"Rua Vida Casa 15,Taguatinga",
-	                          password: "12345678", gender:"M",
-	                          birth_date:"07/06/1988",registry:"123456",
-	                          employee_cpf:"06057577124")
-	  cookies[:authorization_token] = user.authorization_token
-  end
-
   def parent
     parent = Parent.create(name:"Jaozin Silva",phone:"61989998888",
                            address:"Rua do pao casa 22, Asa sul",
@@ -53,7 +44,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
   describe "GET new" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns a new suspension as @suspension" do
@@ -69,7 +60,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
   describe "POST create" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -115,7 +106,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
   describe "PATCH #update" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -124,7 +115,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
         put :update, {id: suspension.to_param, suspension: updated_inputs}
         suspension.reload
       end
-      
+
       it "redirects to @suspension" do
         suspension = Suspension.create!(valid_inputs_suspension)
         put :update, {id: suspension.to_param, suspension: updated_inputs}
@@ -152,7 +143,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
   describe "GET edit" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "assing a suspension to @suspension" do
       suspension = Suspension.create!(valid_inputs_suspension)
@@ -168,7 +159,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
   describe "GET index" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "assigns all suspensions to @suspensions" do
       alumn = Alumn.create!(valid_inputs_alumn)
@@ -187,7 +178,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
 	describe "POST delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "does delete an Suspension" do
@@ -202,7 +193,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
   describe "GET show" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "assigns a suspension to @suspension" do
       alumn = Alumn.create!(valid_inputs_alumn)

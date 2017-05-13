@@ -86,7 +86,7 @@ RSpec.describe TeachersController, type: :controller do
 
   describe "PATCH #update" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
