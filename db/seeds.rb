@@ -8,9 +8,9 @@
 
 Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
 
-Employee.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
-            permission: 'Principal', password: '12345678', birth_date: '10-10-1990',
-            registry: '123456', employee_cpf: '73117438262')
+Principal.create!(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
+                password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
+                registry: '123456', employee_cpf: '73117438262',shift:"Diurno")
 
 Teacher.create(name: 'MC Love', address: 'rua do ovo', phone: '6133213030',
             permission: 'Teacher', password: '12345678', birth_date: '10-10-1990',
