@@ -3,6 +3,7 @@
 #Description: Validates alumn's attributes
 class Alumn < ApplicationRecord
   belongs_to :parent
+  has_many :school_misses
   has_many :strike
 
   has_secure_password
@@ -54,6 +55,14 @@ class Alumn < ApplicationRecord
 
   def get_age
     DateTime.now.year - self.birth_date.year
+  end
+
+  def self.current=(a)
+    @current_alumn = a
+  end
+
+  def self.current
+    @current_alumn
   end
 
   private

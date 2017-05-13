@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 20170509212638) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "school_misses", force: :cascade do |t|
+    t.integer  "alumn_id"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alumn_id"], name: "index_school_misses_on_alumn_id"
+  end
+
   create_table "strikes", force: :cascade do |t|
     t.string   "description_strike"
     t.date     "date_strike"

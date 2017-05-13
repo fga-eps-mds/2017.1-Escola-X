@@ -11,4 +11,16 @@ class UsersController < ApplicationController
       @parents = Parent.all
     end
   end
+
+  def edit_password
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+    end
+  end
+
+  def edit_password
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+    end
+  end
 end

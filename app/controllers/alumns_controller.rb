@@ -35,6 +35,7 @@
   def show
     if ( logged_in? )
       @alumn = Alumn.find(params[:id])
+      Alumn.current = @alumn
     end
   end
 

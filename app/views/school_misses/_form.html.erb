@@ -1,0 +1,23 @@
+<%= form_for (@school_miss) do |f| %>
+  <% if @school_miss.errors.any? %>
+    <div class="container">
+      <div class="text-danger">
+        <div id="error_explanation">
+          <h2 class=""><%= pluralize(@school_miss.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <ul>
+          <% @school_miss.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :date, "<h2>Data:</h2>".html_safe, class:"" %>
+    <%= f.date_field :date, class:"form-control", placeholder:"Data da falta." %>
+    <br>
+    <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
+    <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-lg btn-warning' %>
+  </div>
+<% end %>
