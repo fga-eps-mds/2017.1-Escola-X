@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170510230809) do
     t.index ["employee_id"], name: "index_strikes_on_employee_id"
   end
 
+
   create_table "subjects", force: :cascade do |t|
     t.string   "name_subject"
     t.string   "class_level"
@@ -121,6 +122,18 @@ ActiveRecord::Schema.define(version: 20170510230809) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
+
+  create_table "suspensions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "quantity_days"
+    t.date     "date_suspension"
+    t.integer  "alumn_id"
+    t.integer  "employee_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["alumn_id"], name: "index_suspensions_on_alumn_id"
+    t.index ["employee_id"], name: "index_suspensions_on_employee_id"
   end
 
 end

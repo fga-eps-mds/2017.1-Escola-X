@@ -1,0 +1,18 @@
+<%= render "layouts/navbar" %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Suspensões</h1>
+<hr>
+<section class="content-section" id="alumns-list">
+
+  <% @suspensions.each do |suspension| %>
+      <div class="container">
+        <div class="row item">
+          <div class="col-sm-12 col-md-8 text-capitalize descript">
+            <h2>Motivo: <%= suspension.title %></h2>
+            <h2>Quantidade de Dias: <%= suspension.quantity_days %></h2>
+            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, suspension_path(suspension), class:'btn btn-info' %>
+          </div>
+        </div>
+        <hr>
+      </div>
+  <% end %>
+</section>

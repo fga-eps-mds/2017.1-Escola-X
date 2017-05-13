@@ -71,6 +71,7 @@ private
                                    :address,
                                    :phone,
                                    :gender,
-                                   :birth_date)
+                                   :birth_date,
+                                   :admission_date)
   end
 end

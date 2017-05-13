@@ -1,3 +1,4 @@
+
 Feature: Teacher
 
 	To better manage the college, 

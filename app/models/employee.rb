@@ -1,9 +1,10 @@
-#File name: parent.rb
-#Class name: Parent
+#File name: employee.rb
+#Class name: Employee
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
   before_save :validates_password
   has_many :strike
+  has_many :suspension
 
   self.inheritance_column = :permission
   has_secure_password
@@ -41,6 +42,7 @@ class Employee < ApplicationRecord
   validates :phone, length: { in: 10..11,
                               :too_short => "deve possuir no mínimo 10 dígitos",
                               :too_long => "deve possuir no máximo 11 dígitos" }
+
 
   before_create{
     generate_token(:authorization_token)

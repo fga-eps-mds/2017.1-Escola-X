@@ -25,7 +25,6 @@ class NotificationsController < ApplicationController
       @notification = Notification.new(notification_params)
       @notification.notification_emitter_id = @current_user.id
       @notification.notification_date = @notification.get_date
-      # @notification.notification_hour = @notification.get_hour
       if (@notification.save)
         redirect_to notification_path(@notification),
           notice: "A notificação foi criada com sucesso."

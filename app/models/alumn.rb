@@ -13,6 +13,10 @@ class Alumn < ApplicationRecord
 
   before_create :initialize_strikes
   before_save :validates_password
+  has_many :suspensions
+
+
+
 
   def initialize_strikes
     self.quantity_strike ||= 0
