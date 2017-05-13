@@ -11,6 +11,24 @@ RSpec.describe ClassroomsController, type: :controller do
 
   let(:invalid_inputs) { { name_classroom: "", shift_classroom: "" } }
 
+  def alumn
+    alumn = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                           address:"Rua Vida Casa 15,Taguatinga",
+                           password: "12345678", gender:"M",
+                           birth_date:"07/06/1988", registry:"123456",
+                           shift:"matutino",parent_id:parent.id,
+                           classroom_id: "1", bar_code:nil)
+  end
+
+  def alumn2
+    alumn = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                           address:"Rua Vida Casa 15,Taguatinga",
+                           password: "12345678", gender:"M",
+                           birth_date:"07/06/1988", registry:"654321",
+                           shift:"matutino",parent_id:parent.id,
+                           classroom_id: "1", bar_code:nil)
+  end
+
   describe "GET new" do
     before(:each) do
       loggin_principal
@@ -46,12 +64,12 @@ RSpec.describe ClassroomsController, type: :controller do
     end
     it "find @classroom with params" do
       classroom = Classroom.create!(valid_inputs)
-      get :show, {:id => classroom.to_param, template: 'classrooms/:id'}
+      get :show, {id: classroom.to_param, template: 'classrooms/:id'}
       expect(assigns(:classroom)).to be_a Classroom
     end
     it "render show" do
       classroom = Classroom.create!(valid_inputs)
-      get :show, {:id => classroom.to_param, template: 'classrooms/:id'}
+      get :show, {id: classroom.to_param, template: 'classrooms/:id'}
       expect(response).to render_template("show")
     end
 
@@ -63,7 +81,7 @@ RSpec.describe ClassroomsController, type: :controller do
     end
     it "assings the requested classroom as Classroom" do
       classroom = Classroom.create!(valid_inputs)
-      get :edit, {:id => classroom.to_param}
+      get :edit, {id: classroom.to_param}
       expect(assigns(:classroom)).to be_a Classroom
     end
   end
@@ -134,18 +152,18 @@ RSpec.describe ClassroomsController, type: :controller do
         # Assuming there are no other classrooms in the database, this
         # specifies that the classroom created on the previous line
         # receives the :update_attributes message with whatever params are
-        put :update, {:id => classroom.to_param, :classroom =>  valid_inputs }
+        put :update, {id: classroom.to_param, classroom:  valid_inputs }
       end
 
       it "assigns the requested classroom as @classroom" do
         classroom = Classroom.create! valid_inputs
-        put :update, {:id => classroom.to_param, :classroom => valid_inputs}
+        put :update, {id: classroom.to_param, classroom: valid_inputs}
         expect(assigns(:classroom)).to eq(classroom)
       end
 
       it "redirects to the classroom" do
         classroom = Classroom.create! valid_inputs
-        put :update, {:id => classroom.to_param, :classroom => valid_inputs}
+        put :update, {id: classroom.to_param, classroom: valid_inputs}
         expect(response).to redirect_to classroom_path
       end
     end
@@ -155,7 +173,7 @@ RSpec.describe ClassroomsController, type: :controller do
         classroom = Classroom.create! valid_inputs
         # Trigger the behavior that occurs when invalid params are submitted
         #allow_any_instance_of(classroom).to receive(:save).and_return(false)
-        put :update, {:id => classroom.to_param, :classroom => invalid_inputs }
+        put :update, {id: classroom.to_param, classroom: invalid_inputs }
         expect(assigns(:classroom)).to eq(classroom)
       end
 
@@ -163,7 +181,7 @@ RSpec.describe ClassroomsController, type: :controller do
         classroom = Classroom.create! valid_inputs
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Classroom).to receive(:save).and_return(false)
-        put :update, {:id => classroom.to_param, :classroom => invalid_inputs }
+        put :update, {id: classroom.to_param, classroom: invalid_inputs }
         expect(response).to render_template("edit")
       end
     end
@@ -176,7 +194,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
     it "find classroom by params" do
       classroom = Classroom.create!(valid_inputs)
-      get :add_alumns, {:id => classroom.to_param }
+      get :add_alumns, {id: classroom.to_param }
       expect(assigns(:classroom)).to be_a Classroom
     end
 
