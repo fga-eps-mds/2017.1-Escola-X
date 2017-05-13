@@ -31,7 +31,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "GET new" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns a new classroom as @classroom" do
@@ -42,7 +42,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "GET index" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "loads all of the classrooms into @classrooms" do
@@ -60,7 +60,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "GET show" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "find @classroom with params" do
       classroom = Classroom.create!(valid_inputs)
@@ -77,7 +77,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "GET edit" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "assings the requested classroom as Classroom" do
       classroom = Classroom.create!(valid_inputs)
@@ -88,7 +88,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "POST create" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -131,7 +131,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "DELETE delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "does delete an Classroom" do
       classroom = Classroom.create!(valid_inputs)
@@ -143,7 +143,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "PUT update" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -189,7 +189,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "GET add_alumns" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "find classroom by params" do
@@ -221,7 +221,7 @@ RSpec.describe ClassroomsController, type: :controller do
 
   describe "POST add_alumn" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     describe "with valid inputs" do
 

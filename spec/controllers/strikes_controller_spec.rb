@@ -27,7 +27,7 @@ RSpec.describe StrikesController, type: :controller do
 
  # describe "GET index" do
  #   before(:each) do
- #     loggin_principal
+ #     login_principal
  #   end
  #
  #   it "finds alumns by params and sets strikes" do
@@ -41,7 +41,7 @@ RSpec.describe StrikesController, type: :controller do
 
  describe 'GET show' do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it 'should show strikes' do
@@ -103,7 +103,7 @@ RSpec.describe StrikesController, type: :controller do
 
   describe "GET edit" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "assings the requested classroom as Classroom" do
       strike = Strike.create!(valid_inputs)
@@ -114,7 +114,7 @@ RSpec.describe StrikesController, type: :controller do
 
   describe "POST update" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     describe "with valid params" do
       it "updates an strike" do
