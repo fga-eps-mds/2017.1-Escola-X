@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'helper_module_spec'
 
 RSpec.configure do |c|
   c.include Helpers
@@ -207,4 +208,97 @@ RSpec.describe ClassroomsController, type: :controller do
     end
 
   end
+
+  describe "POST add_alumn" do
+    before(:each) do
+      loggin_principal
+    end
+    describe "with valid inputs" do
+
+      it "add alumn to a classroom" do
+        classroom = Classroom.create!(valid_inputs)
+        alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"654321",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"555123",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        classroom.alumn = alumn1, alumn2
+        post :add_alumn, {:id => classroom.to_param, :registry => alumn.registry }
+        expect(assigns(:alumn).classroom_id).to be(classroom.id)
+      end
+
+      it "redirect to add_alumns_path" do
+        classroom = Classroom.create!(valid_inputs)
+        alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"654321",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"555123",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        classroom.alumn = alumn1, alumn2
+        post :add_alumn, {:id => classroom.to_param, :registry => alumn.registry }
+        expect(response).to render_template("add_alumns")
+      end
+
+    end
+    describe "with invalid inputs" do
+
+      it "add alumn to a classroom" do
+        classroom = Classroom.create!(valid_inputs)
+        alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"654321",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"555123",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        classroom.alumn = alumn1, alumn2
+        post :add_alumn, {:id => classroom.to_param, :registry => nil }
+        expect(response).to redirect_to(add_alumns_path(assigns(:classroom)))
+      end
+
+      it "redirect to add_alumns_path" do
+        classroom = Classroom.create!(valid_inputs)
+        alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"654321",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+                              address:"Rua Vida Casa 15,Taguatinga",
+                              password: "12345678", gender:"M",
+                              birth_date:"07/06/1988", registry:"555123",
+                              shift:"matutino",parent_id:parent.id,
+                              classroom_id:classroom.id)
+        classroom.alumn = alumn1, alumn2
+        post :add_alumn, {:id => classroom.to_param, :registry => nil }
+        expect(response).to redirect_to(add_alumns_path(assigns(:classroom)))
+      end
+
+    end
+
+
+  end
+
+
+
 end

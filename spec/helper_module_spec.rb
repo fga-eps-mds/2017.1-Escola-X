@@ -18,7 +18,8 @@ module Helpers
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
                            birth_date:"07/06/1988", registry:"123456",
-                           shift:"matutino",parent_id:parent.id)
+                           shift:"matutino",parent_id:parent.id,
+                           classroom_id:classroom.id)
   end
 
   def employee
@@ -27,5 +28,10 @@ module Helpers
                             password: "12345678", gender:"M",
                             birth_date:"07/06/1988",registry:"123456",
                             employee_cpf:"06057577124")
+  end
+
+  def classroom
+    classroom = Classroom.create!(name_classroom: "3G",
+                                 shift_classroom: "matutino")
   end
 end
