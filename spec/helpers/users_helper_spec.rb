@@ -16,7 +16,7 @@ let(:principal_inputs) { { name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
                            birth_date:"07/06/1988", registry:"123456",
-                           employee_cpf:"06057577124"} }
+                           employee_cpf:"06057577124",shift:"diurno"} }
 
 let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
                        address:"Rua Vida Casa 15,Taguatinga",
@@ -38,12 +38,7 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
 
   describe SessionsHelper do
     before(:each) do
-      user = Principal.create(name: "Michael Cera", phone:"61988885555",
-                              address:"Rua Vida Casa 15,Taguatinga",
-                              password: "12345678", gender:"M",
-                              birth_date:"07/06/1988",registry:"123456",
-                              employee_cpf:"06057577124")
-      cookies[:authorization_token] = user.authorization_token
+      login_principal
     end
 
     describe "current user not nil" do

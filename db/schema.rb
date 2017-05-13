@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509212638) do
+
+ActiveRecord::Schema.define(version: 20170509124752) do
 
   create_table "alumns", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +53,20 @@ ActiveRecord::Schema.define(version: 20170509212638) do
     t.string   "authorization_token"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.float    "grade_01"
+    t.float    "grade_02"
+    t.float    "grade03"
+    t.float    "grade04"
+    t.float    "grade_final"
+    t.integer  "alumn_id"
+    t.integer  "subject_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["alumn_id"], name: "index_grades_on_alumn_id"
+    t.index ["subject_id"], name: "index_grades_on_subject_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -96,6 +111,15 @@ ActiveRecord::Schema.define(version: 20170509212638) do
     t.datetime "updated_at",         null: false
     t.index ["alumn_id"], name: "index_strikes_on_alumn_id"
     t.index ["employee_id"], name: "index_strikes_on_employee_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name_subject"
+    t.string   "class_level"
+    t.integer  "teacher_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
 end

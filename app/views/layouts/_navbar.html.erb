@@ -14,6 +14,7 @@
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav pull-right">
+        <li><%=link_to '<span class="fa fa-book"></span> Matéria'.html_safe, subjects_path %></li>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
           <%if is_principal? %>
             <li><%= link_to '<span class="fa fa-search"></span> Visualizar Secretários'.html_safe, secretaries_path %></li>

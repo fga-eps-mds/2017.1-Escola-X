@@ -39,8 +39,9 @@
           <h4>Telefone: <%= alumn.phone %> </h4>
           <h4>Matrícula: <%= alumn.registry %></h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
-          <% if is_principal? %>
-            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+
+          <%if is_principal? %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>       
             <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
           <% end %>
         </div>
@@ -65,9 +66,9 @@
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, teacher_path(employee), class:'btn btn-info' %>
           <% elsif employee.is_a?(Secretary) %>
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, secretary_path(employee), class:'btn btn-info' %>
-          <%if is_principal? %>
-              <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(employee), class:'btn btn-default' %>
-            <% end %>
+          <%end%>
+          <% if is_principal? %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(employee), class:'btn btn-default' %>
           <%end%>
         </div>
       </div>

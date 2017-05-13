@@ -20,7 +20,7 @@ RSpec.describe AlumnsController, type: :controller do
 
   describe "GET new" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     it "assigns a new alumn as @alumn" do
@@ -113,7 +113,7 @@ end
 
   describe "Post create" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
 
     describe "with valid params" do
@@ -157,7 +157,7 @@ end
 
   describe "DELETE delete" do
     before(:each) do
-      loggin_principal
+      login_principal
     end
     it "does delete an Alumn" do
       alumn = Alumn.create!(name: "Michael Cera", phone:"61988885555",

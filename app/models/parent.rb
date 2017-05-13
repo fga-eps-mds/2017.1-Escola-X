@@ -26,7 +26,7 @@ class Parent < ApplicationRecord
                               :too_short => "deve possuir no mínimo 10 dígitos",
                               :too_long => "deve possuir no máximo 11 dígitos" }
 
-
+  validates :gender, presence: { message: "Não pode estar em branco." }
 
   before_create{
     generate_token(:authorization_token)

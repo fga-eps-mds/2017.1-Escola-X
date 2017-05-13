@@ -5,6 +5,8 @@ class Alumn < ApplicationRecord
   belongs_to :parent
   has_many :school_misses
   has_many :strike
+  has_many :grades
+  has_many :subjects, through: :grades
 
   has_secure_password
 
@@ -52,6 +54,7 @@ class Alumn < ApplicationRecord
                               :too_short => "deve possuir no mínimo 10 dígitos",
                               :too_long => "deve possuir no máximo 11 dígitos" }
 
+  validates :gender, presence: { message: "Não pode estar em branco." }
 
   def get_age
     DateTime.now.year - self.birth_date.year
