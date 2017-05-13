@@ -73,4 +73,9 @@ class Alumn < ApplicationRecord
   def image_size_validation
     errors[:image] << "deve ser menor que 600KB" if image.size > 0.6.megabytes
   end
+
+def self.search(search)
+  where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+end
+
 end
