@@ -4,7 +4,7 @@ class SuspensionsController < ApplicationController
 	def index
     if (logged_in?)
       @@alumn = Alumn.find(params[:alumn_id])
-      @suspensions = @@alumn.suspension
+      @suspensions = @@alumn.suspensions
     end
   end
 
@@ -25,7 +25,7 @@ class SuspensionsController < ApplicationController
 
 	def create
 		if(is_principal?)
-			@suspension = @@alumn.suspension.create(suspension_params)
+			@suspension = @@alumn.suspensions.create(suspension_params)
 			@suspension.employee_id = @current_user.id
 			if(@suspension.save)
 				@alumn = Alumn.find_by_id(@suspension.alumn_id)

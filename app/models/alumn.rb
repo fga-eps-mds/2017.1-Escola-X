@@ -9,7 +9,7 @@ class Alumn < ApplicationRecord
 
   before_create :initialize_strikes
   before_save :validates_password
-  has_many :suspension
+  has_many :suspensions
 
 
 

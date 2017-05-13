@@ -14,7 +14,7 @@ let(:invalid_inputs_alumn) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
 			                           parent_id: -1, shift:"matutino"} }
 
 let(:valid_inputs_suspension) { { title: "Trolando ao vivo", description: "Ao vivo",
-																	quantity_days: 4,date_suspension:"15/04/1912"}}
+																	quantity_days: 4,date_suspension:"15/04/1912",alumn_id:alumn.id,employee_id:employee.id}}
 
 let(:invalid_inputs_suspension) {{ title: "", description: "",
 																	 quantity_days:"",date_suspension:""}}
@@ -60,6 +60,11 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
       get :new, params:{alumn_id:alumn.id}
       expect(assigns(:suspension)).to be_a_new(Suspension)
     end
+
+    it "render new template" do
+      get :new, params:{alumn_id:alumn.id}
+      expect(response).to render_template("new")
+    end
   end
 
   describe "POST create" do
@@ -99,6 +104,11 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
         post :create, params: {suspension: invalid_inputs_suspension,alumn_id:alumn.id}
         expect(assigns(:suspension)).to be_a Suspension
         expect(assigns(:suspension)).not_to be_persisted
+      end
+
+      it "re-render the 'new' template" do
+          post :create, params: {suspension: invalid_inputs_suspension}
+          expect(response).to render_template("new")
       end
     end
   end
@@ -140,6 +150,41 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
     end
   end
 
+  describe "GET edit" do
+    before(:each) do
+      loggin_principal
+    end
+    it "assing a suspension to @suspension" do
+      suspension = Suspension.create!(valid_inputs_suspension)
+      get :edit, params:{id:suspension.id,alumn:alumn.id}
+      expect(assigns(:suspension)).to be_a Suspension
+    end
+    it "render edit template" do
+      suspension = Suspension.create!(valid_inputs_suspension)
+      get :edit, params:{id:suspension.id,alumn:alumn.id}
+      expect(response).to render_template("edit")
+    end
+  end
+
+  describe "GET index" do
+    before(:each) do
+      loggin_principal
+    end
+    it "assigns all suspensions to @suspensions" do
+      alumn = Alumn.create!(valid_inputs_alumn)
+      suspension = Suspension.create!(valid_inputs_suspension)
+      suspension2 = Suspension.create!(valid_inputs_suspension)
+      alumn.suspensions = suspension, suspension2
+      get :index, params:{alumn_id:alumn.id}
+      expect(assigns(:suspensions)).to match_array([suspension,suspension2])
+    end
+    it "render index template" do
+      alumn = Alumn.create!(valid_inputs_alumn)
+      get :index, {alumn_id:alumn.id}
+      expect(response).to render_template("index")
+    end
+  end
+
 	describe "POST delete" do
     before(:each) do
       loggin_principal
@@ -152,6 +197,23 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
       expect{
         delete :destroy, id: suspension.id
       }.to change(Suspension, :count).by(-1)
+    end
+  end
+
+  describe "GET show" do
+    before(:each) do
+      loggin_principal
+    end
+    it "assigns a suspension to @suspension" do
+      alumn = Alumn.create!(valid_inputs_alumn)
+      suspension = Suspension.create!(valid_inputs_suspension)
+      get :show, {id:suspension.id}
+      expect(assigns(:suspension)).to eq(suspension)
+    end
+    it "render show template" do
+      suspension = Suspension.create!(valid_inputs_suspension)
+      get :show, {id:suspension.id}
+      expect(response).to render_template("show")
     end
   end
 end

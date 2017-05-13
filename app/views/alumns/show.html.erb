@@ -3,7 +3,7 @@
   <div class="container">
     <div class="pull-right">
       <% if is_alumn? or is_parent?%>
-      <%if @alumn.suspension.any?%>
+      <%if @alumn.suspensions.any?%>
         <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
       <%end%>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
@@ -14,7 +14,7 @@
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
         <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-warning' %>
-        <%if @alumn.suspension.any?%>
+        <%if @alumn.suspensions.any?%>
           <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
         <%end%>
       <%end%>
