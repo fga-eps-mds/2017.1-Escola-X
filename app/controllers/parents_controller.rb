@@ -5,13 +5,13 @@ class ParentsController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
+    if ( is_employee? )
       @parents = Parent.all
     end
   end
 
   def show
-    if ( logged_in? )
+    if ( is_employee? )
       @parent = Parent.find(params[:id])
     end
   end
