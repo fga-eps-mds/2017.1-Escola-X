@@ -35,6 +35,7 @@ class SchoolMissesController < ApplicationController
   def edit
     if ( is_employee? )
      @school_miss = SchoolMiss.find(params[:id])
+    # @alumn = Alumn.find_by_id(@school_miss.alumn_id)
     end
   end
 
@@ -42,8 +43,9 @@ class SchoolMissesController < ApplicationController
     if ( is_employee? )
       # alumns/idalumn/school_misses/idmiss
       # @school_miss.alumn_id = Alumn.current.id
-      alumn = Alumn.find(params[:id])
-      @school_miss = alumn.school_misses.find(params[:id])
+      #alumn = Alumn.find(params[:id])
+      #@school_miss = alumn.school_misses.find(params[:id])
+      @school_miss = SchoolMiss.find(params[:id])
       if ( @school_miss.update(school_miss_params) )
         redirect_to alumn_path(@school_miss.alumn_id)
       else
