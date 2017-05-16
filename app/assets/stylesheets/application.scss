@@ -35,4 +35,14 @@ body {
  background-color: #9768D1;
 }
 
+.btn-shades{
+ background-color: #aaa;
+ color: white;
+}
+
+.btn-shades:hover{
+ background-color: #555;
+ color: white;
+}
+
 @import "bootswatch/flatly/bootswatch";
