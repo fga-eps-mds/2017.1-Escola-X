@@ -85,7 +85,7 @@ describe "PUT update" do
 
     it "assigns all secretaries as @secretaries" do
       get :index
-      response.should be_success
+      expect(assigns(:secretaries)).to match_array(Secretary.all)
     end
 
     it "should search secretary" do
