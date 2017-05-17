@@ -24,12 +24,12 @@ RSpec.describe ParentsController, type: :controller do
     end
 
     it "assigns a new parent as @parent" do
-      get :new, {}
+      get :new
       expect(assigns(:parent)).to be_a_new(Parent)
     end
 
     it "renders the 'new' template" do
-      get :new, {}
+      get :new
       expect(response).to render_template('new')
     end
   end
@@ -41,13 +41,13 @@ RSpec.describe ParentsController, type: :controller do
 
     it "assigns the requested parent as @parent" do
       parent = Parent.create!(valid_inputs)
-      get :edit, {id:parent.to_param}
+      get :edit, params:{id:parent.to_param}
       expect(assigns(:parent)).to eq(parent)
     end
 
     it "renders the 'edit' template" do
       parent = Parent.create!(valid_inputs)
-      get :edit, {id:parent.to_param}
+      get :edit, params:{id:parent.to_param}
       expect(response).to render_template('edit')
     end
   end
@@ -59,13 +59,13 @@ RSpec.describe ParentsController, type: :controller do
 
     it "assigns the requested parent as @parent" do
       parent = Parent.create!(valid_inputs)
-      get :show, {id:parent.to_param}
+      get :show, params:{id:parent.to_param}
       expect(assigns(:parent)).to eq(parent)
     end
 
     it "renders the 'show' template" do
       parent = Parent.create!(valid_inputs)
-      get :show, {id:parent.to_param}
+      get :show, params:{id:parent.to_param}
       expect(response).to render_template('show')
     end
   end
@@ -76,12 +76,12 @@ RSpec.describe ParentsController, type: :controller do
     end
 
     it "assigns all parents to @parents" do
-      get :index, {}
+      get :index
       expect(assigns(:parents)).to match_array(Parent.all)
     end
 
     it "renders the 'index' template" do
-      get :index, {}
+      get :index
       expect(response).to render_template('index')
     end
   end
@@ -137,19 +137,19 @@ RSpec.describe ParentsController, type: :controller do
     describe "with valid params" do
       it "assigns the requested parent as @parent" do
         parent = Parent.create! valid_inputs
-        put :update, {id: parent.to_param, parent: valid_inputs}
+        put :update,params:{id: parent.to_param, parent: valid_inputs}
         expect(assigns(:parent)).to eq(parent)
       end
 
       it "updates the requested parent" do
         parent = Parent.create! valid_inputs
-        put :update, {id: parent.to_param, parent: valid_inputs }
+        put :update, params:{id: parent.to_param, parent: valid_inputs }
         parent.reload
       end
 
       it "redirects to the parent" do
         paretn = Parent.create! valid_inputs
-        put :update, {id: parent.to_param, parent: valid_inputs}
+        put :update, params:{id: parent.to_param, parent: valid_inputs}
         expect(response).to redirect_to parent_path(assigns(:parent))
       end
     end
@@ -157,19 +157,19 @@ RSpec.describe ParentsController, type: :controller do
     describe "with invalid params" do
       it "assigns the parent as @parent" do
         parent = Parent.create! valid_inputs
-        put :update, {id: parent.to_param, parent: invalid_inputs }
+        put :update, params:{id: parent.to_param, parent: invalid_inputs }
         expect(assigns(:parent)).to eq(parent)
       end
 
       it "does not update" do
         parent = Parent.create! valid_inputs
-        put :update, {id: parent.to_param, parent: invalid_inputs}
+        put :update, params:{id: parent.to_param, parent: invalid_inputs}
         expect(assigns(:parent)).to eq(parent)
       end
 
       it "re-renders the 'edit' template" do
         parent = Parent.create! valid_inputs
-        put :update, {id: parent.to_param, parent: invalid_inputs }
+        put :update, params:{id: parent.to_param, parent: invalid_inputs }
         expect(response).to render_template("edit")
       end
     end
@@ -182,7 +182,7 @@ RSpec.describe ParentsController, type: :controller do
     it "does delete an Parent" do
       parent = Parent.create! valid_inputs
       expect{
-        delete :destroy, id: parent
+        delete :destroy, params:{id: parent}
       }.to change(Parent, :count).by(-1)
     end
   end

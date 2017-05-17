@@ -3325,12 +3325,6 @@
         0,
         null,
         null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
         null
       ],
       "/vagrant/spec/helpers/alumns_helper_spec.rb": [
@@ -4203,6 +4197,6 @@
         null
       ]
     },
-    "timestamp": 1495048313
+    "timestamp": 1495050008
   }
 }

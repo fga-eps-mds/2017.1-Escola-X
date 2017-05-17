@@ -41,7 +41,7 @@ RSpec.describe AlumnsController, type: :controller do
 
     it "assigns the requested alumn as @alumn" do
       alumn = Alumn.create! valid_inputs
-      get :edit, {id: alumn.to_param}
+      get :edit, params:{id: alumn.to_param}
       expect(assigns(:alumn)).to eq(alumn)
     end
 
@@ -59,13 +59,13 @@ RSpec.describe AlumnsController, type: :controller do
 
   it 'assigns the requested alumn to @alumn' do
     alumn = Alumn.create! valid_inputs
-    get :show, { id: alumn.to_param}
+    get :show, params:{ id: alumn.to_param}
     expect(assigns(:alumn)).to eq(alumn)
   end
 
   it "render the show template" do
     alumn = Alumn.create! valid_inputs
-    get :show, { id: alumn.to_param}
+    get :show, params:{ id: alumn.to_param}
     expect(response).to render_template('show')
   end
 end
@@ -79,19 +79,19 @@ end
 
       it "assigns the requested alumn as @alumn" do
         alumn = Alumn.create! valid_inputs
-        put :update, {id: alumn.to_param, alumn: valid_inputs}
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs}
         expect(assigns(:alumn)).to eq(alumn)
       end
 
       it "updates the requested alumn" do
         alumn = Alumn.create! valid_inputs
-        put :update, {id: alumn.to_param, alumn: valid_inputs }
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs }
         alumn.reload
       end
 
       it "redirects to the alumn" do
         alumn = Alumn.create! valid_inputs
-        put :update, {id: alumn.to_param, alumn: valid_inputs}
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs}
         expect(response).to redirect_to alumn_path(assigns(:alumn))
       end
     end
@@ -99,20 +99,20 @@ end
     describe "with invalid params" do
       it "assigns the alumn as @alumn" do
         alumn = Alumn.create! valid_inputs
-        put :update, {id: alumn.to_param, alumn: invalid_inputs }
+        put :update, params:{id: alumn.to_param, alumn: invalid_inputs }
         expect(assigns(:alumn)).to eq(alumn)
       end
 
       it "does not update" do
         alumn = Alumn.create! valid_inputs
-        put :update, {id: alumn.to_param, alumn: invalid_inputs}
+        put :update, params:{id: alumn.to_param, alumn: invalid_inputs}
         expect(assigns(:alumn)).to eq(alumn)
       end
 
       it "re-renders the 'edit' template" do
         alumn = Alumn.create! valid_inputs
         # allow_any_instance_of(Alumn).to receive(:save).and_return(false)
-        put :update, {id: alumn.to_param, alumn: invalid_inputs }
+        put :update, params:{id: alumn.to_param, alumn: invalid_inputs }
         expect(response).to render_template("edit")
       end
     end
@@ -149,27 +149,27 @@ end
         describe "with valid params" do
           it "assings to @alumn the searched alumn by name" do
             alumn = Alumn.create!(valid_inputs)
-            get :index,{search: alumn.name}
+            get :index, params:{search: alumn.name}
             expect(assigns(:alumns)).to match_array(alumn)
           end
 
           it "assings to @alumn the searched alumn by registry" do
             alumn = Alumn.create!(valid_inputs)
-            get :index,{search: alumn.registry}
+            get :index, params:{search: alumn.registry}
             expect(assigns(:alumns)).to match_array(alumn)
           end
         end
-        
+
         describe "with invalid params" do
           it "shows all alumns with blank search params" do
             alumn = Alumn.create!(valid_inputs)
-            get :index,{search: ""}
+            get :index, params:{search: ""}
             expect(assigns(:alumns)).to match_array(Alumn.all)
             expect(flash[:feedback_warning]).to be_present
           end
           it "does not find alumns with no matching params" do
             alumn = Alumn.create!(valid_inputs)
-            get :index,{search: "!*"}
+            get :index, params:{search: "!*"}
             expect(assigns(:alumns)).to match_array(nil)
             expect(flash[:feedback]).to be_present
           end
@@ -229,7 +229,7 @@ end
     it "does delete an Alumn" do
       alumn = Alumn.create!(valid_inputs)
       expect{
-        delete :destroy, id: alumn
+        delete :destroy, params:{id: alumn}
       }.to change(Alumn, :count).by(-1)
     end
   end

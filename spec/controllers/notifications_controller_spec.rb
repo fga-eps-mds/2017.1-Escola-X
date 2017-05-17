@@ -22,18 +22,18 @@ RSpec.describe NotificationsController, type: :controller do
     describe "with valid params" do
       it "Creates a new Notification" do
         expect {
-          post :create, params: {:notification => valid_inputs}
+          post :create, params: {notification: valid_inputs}
         }.to change(Notification, :count).by 1
       end
 
       it "assigns a new notification to @notification" do
-        post :create, params: {:notification => valid_inputs}
+        post :create, params: {notification: valid_inputs}
         expect(assigns(:notification)).to be_a Notification
         expect(assigns(:notification)).to be_persisted
       end
 
       it "redirects to @notification page" do
-        post :create, params: {:notification => valid_inputs}
+        post :create, params: {notification: valid_inputs}
         expect(response).to redirect_to notification_path(assigns(:notification))
       end
     end
@@ -41,12 +41,12 @@ RSpec.describe NotificationsController, type: :controller do
     describe "with invalid params" do
       it "does not create a new Notification" do
         expect {
-          post :create, params: {:notification => invalid_inputs}
+          post :create, params: {notification: invalid_inputs}
         }.to change(Notification, :count).by 0
       end
 
       it "assigns a new notification but no save to @notification" do
-        post :create, params: {:notification => invalid_inputs}
+        post :create, params: {notification: invalid_inputs}
         expect(assigns(:notification)).not_to be_persisted
       end
     end
