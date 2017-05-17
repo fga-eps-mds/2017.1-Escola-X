@@ -71,8 +71,8 @@ class SubjectsController < ApplicationController
 
   def subject_classroom
     @subject = Subject.find(params[:id])
-    @@classroom = Classroom.find(params[:id])
-    
+    @classroom = Classroom.find(params[:id])
+
   end
 
   private
