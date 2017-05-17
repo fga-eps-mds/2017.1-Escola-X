@@ -37,4 +37,8 @@ Rails.application.routes.draw do
   resources :alumns do
     resources :suspensions
   end
+
+  resources :classrooms do
+    resources :subjects
+  end
 end

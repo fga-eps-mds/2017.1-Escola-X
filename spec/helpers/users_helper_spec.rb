@@ -34,8 +34,6 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                        password: "12345678", gender:"M",
                        birth_date:"07/06/1988", parent_cpf:"06057577124"} }
 
-  pending "add some examples to (or delete) #{__FILE__}"
-
   describe SessionsHelper do
     before(:each) do
       login_principal

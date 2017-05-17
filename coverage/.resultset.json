@@ -594,6 +594,10 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/helper_module_spec.rb": [
@@ -3074,7 +3078,7 @@
         null,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/helpers/grades_helper_spec.rb": [
@@ -3091,7 +3095,7 @@
         null,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/helpers/notifications_helper_spec.rb": [
@@ -3142,7 +3146,7 @@
         null,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/helpers/secretary_helper_spec.rb": [
@@ -3193,7 +3197,7 @@
         null,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/helpers/subjects_helper_spec.rb": [
@@ -3209,7 +3213,6 @@
         null,
         null,
         null,
-        1,
         1,
         null,
         null
@@ -3286,8 +3289,6 @@
         1,
         null,
         1,
-        null,
-        1,
         1,
         5,
         null,
@@ -3340,7 +3341,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/alumn.rb": [
@@ -3452,7 +3453,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/classroom.rb": [
@@ -3481,7 +3482,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/employee.rb": [
@@ -3555,7 +3556,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/grade.rb": [
@@ -3568,7 +3569,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/notification.rb": [
@@ -3606,7 +3607,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/parent.rb": [
@@ -3668,7 +3669,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/principal.rb": [
@@ -3679,7 +3680,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/school_miss.rb": [
@@ -3694,7 +3695,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/strike.rb": [
@@ -3715,7 +3716,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/subject.rb": [
@@ -3747,7 +3748,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/suspension.rb": [
@@ -3776,7 +3777,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/teacher.rb": [
@@ -3788,105 +3789,105 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/notifications/create.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/notifications/destroy.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/notifications/edit.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/notifications/index.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/notifications/new.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/notifications/show.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/create.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/destroy.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/edit.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/index.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/new.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/show.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/school_misses/update.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/spec/views/subjects/index.html.erb_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/victor/Documentos/ProjetoEscola-X/2017.1-Escola-X/app/models/secretary.rb": [
@@ -3897,6 +3898,6 @@
         null
       ]
     },
-    "timestamp": 1494973295
+    "timestamp": 1495035675
   }
 }

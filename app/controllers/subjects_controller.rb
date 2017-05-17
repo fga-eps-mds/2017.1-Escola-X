@@ -69,8 +69,14 @@ class SubjectsController < ApplicationController
 		end
   end
 
+  def subject_classroom
+    @subject = Subject.find(params[:id])
+    @@classroom = Classroom.find(params[:id])
+    
+  end
+
   private
   def subject_params
-  	params.require(:subject).permit(:name_subject,:class_level,:teacher_id)
+  	params.require(:subject).permit(:name_subject,:class_level,:teacher_id,:classroom_id)
   end
 end
