@@ -22,6 +22,29 @@ RSpec.describe SchoolMissesController, type: :controller do
       end
     end
 
+    # describe "GET index" do
+    #   before(:each) do
+    #     login_principal
+    #     alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
+    #                          address:"Rua Vida Casa 15,Taguatinga",
+    #                          password: "12345678", gender:"M",
+    #                          birth_date:"07/06/1988", registry:"123456",
+    #                          parent_id: 1, shift:"matutino")
+    #    Alumn.current = alumn
+    #   end
+    #   it "assigns table content to @school_misses" do
+    #     miss1 = SchoolMiss.new(valid_inputs)
+    #     miss2 = SchoolMiss.new(valid_inputs)
+    #     Alumn.current.school_misses = miss1, miss2
+    #     get :index, params:{alumn_id: alumn.id}
+    #     expect(assigns(:misses)).to match_array([miss1])
+    #   end
+    #   it "renders index template" do
+    #     get :index, params:{alumn_id: Alumn.current.id}
+    #     expect(response).to render_template("alumns/show")
+    #   end
+    # end
+
     describe "POST create" do
       before(:each) do
         login_principal

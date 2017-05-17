@@ -58,7 +58,6 @@ class SchoolMissesController < ApplicationController
     if ( is_principal? )
       @school_miss = SchoolMiss.find(params[:id])
       @school_miss.destroy
-
       redirect_to alumn_path(@school_miss.alumn_id)
     end
   end
