@@ -101,6 +101,11 @@ RSpec.describe SchoolMissesController, type: :controller do
           @school_miss.reload
           expect(@school_miss.date).to eq(valid_inputs[:date])
         end
+        it "assing a school_miss to @school_miss" do
+          school_miss = SchoolMiss.create!(valid_inputs)
+          get :edit, params:{id:school_miss.id,alumn:alumn.id}
+          expect(assigns(:school_miss)).to be_a SchoolMiss
+        end
       end
 
       describe "with invalid params" do

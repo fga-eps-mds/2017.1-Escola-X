@@ -7,11 +7,11 @@ class SchoolMissesController < ApplicationController
     end
   end
 
-  def show
-    #if ( logged_in? )
-    #  @school_miss = SchoolMiss.find(params[:id])
-    #end
-  end
+  # def show
+  #   #if ( logged_in? )
+  #   #  @school_miss = SchoolMiss.find(params[:id])
+  #   #end
+  # end
 
   def new
     if ( is_employee? )
