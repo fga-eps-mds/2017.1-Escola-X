@@ -69,10 +69,22 @@ class SubjectsController < ApplicationController
 		end
   end
 
-  def subject_classroom
-    @subject = Subject.find(params[:id])
-    @classroom = Classroom.find(params[:id])
-
+  def add_classroom
+    if ( is_principal? )
+      @classroom = Classroom.find(params[:id])
+      @subjects = @classroom.subject
+      @subject = Subject.find_by_name_subject(params[:name_subject])
+      if (@subject).nil?
+        redirect_to subject_classrooms_path(@classroom)
+      else
+        @subject.classroom_id = @classroom.id
+        if @subject.save
+          render "classrooms/subject_classrooms"
+        else
+          render "classrooms/subject_classrooms"
+        end
+      end
+    end
   end
 
   private
