@@ -17,7 +17,7 @@
           <h4>CPF: <%= parent.parent_cpf %> </h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(parent), class:'btn btn-info' %>
           <%if is_principal? %>
-            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(parent), class:'btn btn-default' %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_parent_path(parent), class:'btn btn-default' %>
           <% end %>
         </div>
       </div>
@@ -40,7 +40,7 @@
             <h4>Matrícula: <%= alumn.registry %></h4>
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
             <% if is_principal? %>
-              <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+              <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_alumn_path(alumn), class:'btn btn-default' %>
               <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
               <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-warning' %>
             <% end %>
@@ -68,7 +68,7 @@
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, secretary_path(employee), class:'btn btn-info' %>
           <%end%>
           <% if is_principal? %>
-            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(employee), class:'btn btn-default' %>
+            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(employee), class:'btn btn-default' %>
           <%end%>
         </div>
       </div>

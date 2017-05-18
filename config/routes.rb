@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
-  get 'users/:id/edit_password', to:'users#edit_password', as:'edit_password'
+  get 'alumns/:id/edit_password', to:'users#edit_password_alumn', as:'edit_password_alumn'
+  get 'parents/:id/edit_password', to:'users#edit_password_parent', as:'edit_password_parent'
+  get 'employees/:id/edit_password', to:'users#edit_password_employee', as:'edit_password_employee'
+
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
 
