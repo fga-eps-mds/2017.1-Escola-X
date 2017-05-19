@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
   get 'subjects/:id/add_classrooms', to:'subjects#add_classrooms', as:'add_classrooms'
   post 'subjects/:id/add_classrooms', to:'subjects#add_classroom', as:'add_classroom'
+  get 'subjects/:id/show_subjects', to:'subjects#show_subjects', as:'show_subjects'
 
   root 'sessions#new'
 
