@@ -60,7 +60,6 @@ def add_alumns
     @classroom = Classroom.find(params[:id])
     @alumns = @classroom.alumns
   end
-
 end
 
 def add_alumn

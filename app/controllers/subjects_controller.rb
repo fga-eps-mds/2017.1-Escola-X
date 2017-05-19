@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
 	include SessionsHelper
+
   def index
   	if (is_principal?)
   		@subjects = Subject.all
@@ -69,21 +70,19 @@ class SubjectsController < ApplicationController
 		end
   end
 
+  def add_classrooms
+    if ( is_principal? )
+      @classroom = Classroom.find(params[:id])
+      @subjects = Subject.all
+    end
+  end
+
   def add_classroom
     if ( is_principal? )
       @classroom = Classroom.find(params[:id])
-      @subjects = @classroom.subject
-      @subject = Subject.find_by_name_subject(params[:name_subject])
-      if (@subject).nil?
-        redirect_to subject_classrooms_path(@classroom)
-      else
-        @subject.classroom_id = @classroom.id
-        if @subject.save
-          render "classrooms/subject_classrooms"
-        else
-          render "classrooms/subject_classrooms"
-        end
-      end
+      @subject = Subject.find(params[:id])
+      @subject.classroom_id = @classroom.id
+      @subject.save
     end
   end
 

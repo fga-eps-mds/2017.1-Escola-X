@@ -18,6 +18,11 @@
           <li><%=link_to '<span class="fa fa-book"></span> Matéria'.html_safe, subjects_path %></li>
           <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <%end%>
+
+          <%if is_secretary? %>
+              <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Notas'.html_safe, notifications_path %></li>
+          <%end%>
+
           <%if is_principal? %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">

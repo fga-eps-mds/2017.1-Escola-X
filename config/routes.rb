@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
   get 'subjects/:id/add_classrooms', to:'subjects#add_classrooms', as:'add_classrooms'
-  post 'subjects/:id/add_classrooms', to:'add_classroom#add_classroom', as:'add_classroom'
+  post 'subjects/:id/add_classrooms', to:'subjects#add_classroom', as:'add_classroom'
 
   root 'sessions#new'
 
