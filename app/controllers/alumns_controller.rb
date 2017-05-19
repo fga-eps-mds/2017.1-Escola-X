@@ -77,6 +77,24 @@
     end
   end
 
+  def edit_password_alumn
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+      render action: "../users/edit_password"
+    end
+  end
+
+  def update_password_alumn
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+      if (@user.update!(alumn_password))
+        redirect_to @user
+      else
+        render action: "../users/edit_password"
+      end
+    end
+  end
+
  private
    # Strong params to be passed to a alumn
    def alumn_params
@@ -90,5 +108,9 @@
                                    :password,
                                    :parent_id,
                                    :classroom_id)
+   end
+
+   def alumn_password
+     params.require(:alumn).permit(:password)
    end
   end

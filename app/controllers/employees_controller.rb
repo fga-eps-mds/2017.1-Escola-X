@@ -59,6 +59,24 @@ class EmployeesController < UsersController
     end
   end
 
+	def edit_password_employee
+		if ( is_principal? )
+			@user = Employee.find(params[:id])
+			render action: "../users/edit_password"
+		end
+	end
+
+	def update_password_employee
+		if ( is_principal? )
+			@user = Employee.find(params[:id])
+			if (@user.update!(employee_password))
+				redirect_to @user
+			else
+				render action: "../users/edit_password"
+			end
+		end
+	end
+
 private
   def employee_params
     params.require(:employee).permit(:registry,
@@ -72,4 +90,8 @@ private
                                    :gender,
                                    :birth_date)
   end
+
+	def employee_password
+		params.require(:employee).permit(:password)
+	end
 end

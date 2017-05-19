@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
 	include SessionsHelper
   def index
-  	if (is_principal?)
+  	if (is_principal? or is_teacher?)
   		@subjects = Subject.all
   	end
   end

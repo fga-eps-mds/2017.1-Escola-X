@@ -28,7 +28,7 @@ RSpec.describe SessionsHelper, type: :helper do
                          registry:"654321",employee_cpf:"02951294174",
                          admission_date:"15/04/2012",shift:"Matutino",
                          gender:"Masculino",birth_date:"09/07/1995",
-                         password:"12345678",admission_date:"14/04/2012"} }
+                         password:"12345678"} }
 
   let(:parent_inputs) { { name:"Jaozin Silva",phone:"61989998888",
                          address:"Rua do pao casa 22, Asa sul",

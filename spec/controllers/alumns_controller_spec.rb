@@ -233,5 +233,19 @@ end
       }.to change(Alumn, :count).by(-1)
     end
   end
-
+  describe "edit password" do
+    before(:each) do
+      login_principal
+    end
+    it "assings alumn to @alumn" do
+      alumn = Alumn.create!(valid_inputs)
+      get :edit_password_alumn, params:{id: alumn}
+      expect(assigns(:user)).to eq(alumn)
+    end
+    it "render edit_password template" do
+      alumn = Alumn.create!(valid_inputs)
+      get :edit_password_alumn, params:{id: alumn}
+      expect(response).to render_template("../users/edit_password")
+    end
+  end
 end

@@ -59,6 +59,23 @@ class ParentsController < ApplicationController
       redirect_to users_path
     end
   end
+  def edit_password_parent
+    if ( is_principal? )
+      @user = Parent.find(params[:id])
+      render action: "../users/edit_password"
+    end
+  end
+  
+  def update_password_parent
+    if ( is_principal? )
+      @user = Parent.find(params[:id])
+      if (@user.update!(parent_password))
+        redirect_to @user
+      else
+        render action: "../users/edit_password"
+      end
+    end
+  end
 
 private
   def parent_params
@@ -69,5 +86,9 @@ private
                                    :gender,
                                    :birth_date,
                                    :password)
+  end
+
+  def parent_password
+    params.require(:parent).permit(:password)
   end
 end

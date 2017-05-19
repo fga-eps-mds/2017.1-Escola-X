@@ -186,4 +186,20 @@ RSpec.describe ParentsController, type: :controller do
       }.to change(Parent, :count).by(-1)
     end
   end
+
+  describe "edit password" do
+    before(:each) do
+      login_principal
+    end
+    it "assings parent to @parent" do
+      parent = Parent.create!(valid_inputs)
+      get :edit_password_parent, params:{id: parent}
+      expect(assigns(:user)).to eq(parent)
+    end
+    it "render edit_password template" do
+      parent = Parent.create!(valid_inputs)
+      get :edit_password_parent, params:{id: parent}
+      expect(response).to render_template("../users/edit_password")
+    end
+  end
 end
