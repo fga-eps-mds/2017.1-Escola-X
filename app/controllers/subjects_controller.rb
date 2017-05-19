@@ -81,8 +81,16 @@ class SubjectsController < ApplicationController
     if ( is_principal? )
       @classroom = Classroom.find(params[:id])
       @subject = Subject.find(params[:id])
-      @subject.classroom_id = @classroom.id
-      @subject.save
+			if !ClassroomSubject.where(classroom_id: @classroom.id).where(subject_id: @subject.id).exists?
+				@classroom_subject = ClassroomSubject.new
+				@classroom_subject.subject_id = @subject.id
+				@classroom_subject.classroom_id = @classroom.id
+				if @classroom_subject.save
+					redirect_to add_classrooms_path(@classroom)
+				end
+			else
+				redirect_to add_classrooms_path(@classroom)
+			end
     end
   end
 

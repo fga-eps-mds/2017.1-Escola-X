@@ -1,7 +1,7 @@
 class Subject < ApplicationRecord
 	belongs_to :teacher
-  belongs_to :classroom
 	has_many :grades
+	has_many :classroom_subjects
 	has_many :alumns, through: :grades
 	validates_associated :grades
 	validates_associated :alumns
