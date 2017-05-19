@@ -87,7 +87,7 @@
   def update_password_alumn
     if ( is_principal? )
       @user = Alumn.find(params[:id])
-      if (@user.update!(alumn_password))
+      if (@user.update!(alumn_params))
         redirect_to @user
       else
         render action: "../users/edit_password"
@@ -108,9 +108,5 @@
                                    :password,
                                    :parent_id,
                                    :classroom_id)
-   end
-
-   def alumn_password
-     params.require(:alumn).permit(:password)
    end
   end

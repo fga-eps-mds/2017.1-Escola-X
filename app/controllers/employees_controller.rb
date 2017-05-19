@@ -69,7 +69,7 @@ class EmployeesController < UsersController
 	def update_password_employee
 		if ( is_principal? )
 			@user = Employee.find(params[:id])
-			if (@user.update!(employee_password))
+			if (@user.update!(employee_params))
 				redirect_to @user
 			else
 				render action: "../users/edit_password"
@@ -79,19 +79,16 @@ class EmployeesController < UsersController
 
 private
   def employee_params
-    params.require(:employee).permit(:registry,
-                                   :admission_date,
-                                   :employee_cpf,
-                                   :shift,
-																	 :password,
-                                   :name,
-                                   :address,
-                                   :phone,
-                                   :gender,
-                                   :birth_date)
-  end
+    params.require(:employee).permit(	:registry,
+																			:admission_date,
+																			:employee_cpf,
+																			:shift,
+																			:password,
+																			:name,
+																			:address,
+																			:phone,
+																			:gender,
+																			:birth_date)
 
-	def employee_password
-		params.require(:employee).permit(:password)
-	end
+  end
 end
