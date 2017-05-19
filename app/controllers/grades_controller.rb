@@ -3,7 +3,7 @@ class GradesController < ApplicationController
 
   def index
     if (is_secretary?)
-      @classrooms = Classroom.all
+    	@classrooms = Classroom.all
     end
   end
 
