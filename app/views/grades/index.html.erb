@@ -1,2 +1,27 @@
-<h1>Grades#index</h1>
-<p>Find me in app/views/grades/index.html.erb</p>
+<%= render "layouts/navbar" %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Turmas</h1>
+<hr>
+<section class="content-section" id="alunos-desc">
+  <% @classrooms.each do |classroom| %>
+    <div class="container">
+      <div class="pull-right">
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
+        <%if @current_user.is_a?(Employee) %>
+          <%if @current_user.permission=="Principal" %>
+            <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
+            <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+            <%= link_to '<span class="fa fa-user-plus"></span> Adicionar Alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-success" %>
+            <%= link_to '<span class="fa fa-address-card"></span> Adicionar Matéria'.html_safe,add_classrooms_path(classroom), class:'btn btn-sm btn-warning' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row item">
+        <div class="col-sm-12 col-md-8 descript">
+          <h3 class="">Nome da Turma: <%= classroom.name_classroom %></h3>
+          <h3 class="">Turno: <%= classroom.shift_classroom %></h3>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+</section>

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :teachers
   resources :classrooms
   resources :suspensions
-
+  resources :grades
   resources :subjects
   resources :school_misses
   resources :alumns do
@@ -42,5 +42,9 @@ Rails.application.routes.draw do
 
   resources :classrooms do
     resources :subjects
+  end
+
+  resources :classrooms do
+    resources :grades
   end
 end
