@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/vagrant/spec/controllers/alumns_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/alumns_controller_spec.rb": [
         1,
         1,
         null,
@@ -177,7 +177,7 @@
         null,
         null
       ],
-      "/vagrant/spec/rails_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -236,14 +236,14 @@
         null,
         null
       ],
-      "/vagrant/config/environment.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/vagrant/config/application.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/application.rb": [
         1,
         null,
         1,
@@ -261,12 +261,12 @@
         null,
         null
       ],
-      "/vagrant/config/boot.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/vagrant/config/environments/test.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/environments/test.rb": [
         1,
         null,
         null,
@@ -310,7 +310,7 @@
         null,
         null
       ],
-      "/vagrant/config/initializers/application_controller_renderer.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/application_controller_renderer.rb": [
         null,
         null,
         null,
@@ -318,7 +318,7 @@
         null,
         null
       ],
-      "/vagrant/config/initializers/assets.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -331,7 +331,7 @@
         null,
         null
       ],
-      "/vagrant/config/initializers/backtrace_silencers.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -340,23 +340,23 @@
         null,
         null
       ],
-      "/vagrant/config/initializers/carrier_wave.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/carrier_wave.rb": [
         1
       ],
-      "/vagrant/config/initializers/cookies_serializer.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/cookies_serializer.rb": [
         null,
-        null,
-        null,
-        null,
-        1
-      ],
-      "/vagrant/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/vagrant/config/initializers/inflections.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/filter_parameter_logging.rb": [
+        null,
+        null,
+        null,
+        1
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -374,13 +374,13 @@
         null,
         null
       ],
-      "/vagrant/config/initializers/mime_types.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/vagrant/config/initializers/new_framework_defaults.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/new_framework_defaults.rb": [
         null,
         null,
         null,
@@ -406,12 +406,12 @@
         null,
         1
       ],
-      "/vagrant/config/initializers/session_store.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/vagrant/config/initializers/wrap_parameters.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -427,67 +427,67 @@
         null,
         null
       ],
-      "/vagrant/app/helpers/alumns_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/alumns_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/application_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/classrooms_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/classrooms_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/grades_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/grades_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/notifications_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/notifications_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/parents_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/parents_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/school_misses_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/school_misses_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/secretary_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/secretary_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/sessions_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/sessions_helper.rb": [
         1,
         1,
-        443,
-        294,
-        null,
-        149,
-        147,
-        2,
-        1,
-        1,
-        1,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        150,
-        0,
+        446,
+        296,
         null,
         150,
+        148,
+        2,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
         null,
         null,
         null,
         1,
-        139,
-        139,
+        151,
+        0,
+        null,
+        151,
+        null,
+        null,
+        null,
+        1,
+        140,
+        140,
         null,
         null,
         0,
@@ -530,31 +530,31 @@
         null,
         null,
         1,
-        13,
+        14,
         null,
         null
       ],
-      "/vagrant/app/helpers/strikes_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/strikes_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/subjects_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/subjects_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/suspensions_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/suspensions_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/teachers_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/teachers_helper.rb": [
         1,
         null
       ],
-      "/vagrant/app/helpers/users_helper.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/vagrant/config/routes.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/config/routes.rb": [
         1,
         null,
         1,
@@ -596,24 +596,24 @@
         null,
         null
       ],
-      "/vagrant/spec/helper_module_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helper_module_spec.rb": [
         1,
         1,
-        149,
+        150,
         null,
         null,
         null,
         null,
-        149,
-        null,
-        1,
-        31,
-        null,
-        null,
-        null,
+        150,
         null,
         1,
-        11,
+        32,
+        null,
+        null,
+        null,
+        null,
+        1,
+        12,
         null,
         null,
         null,
@@ -646,12 +646,12 @@
         null,
         null,
         1,
-        11,
+        12,
         null,
         null,
         null
       ],
-      "/vagrant/app/controllers/alumns_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/alumns_controller.rb": [
         null,
         null,
         null,
@@ -756,7 +756,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/application_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/application_controller.rb": [
         null,
         null,
         null,
@@ -765,7 +765,7 @@
         1,
         null
       ],
-      "/vagrant/spec/controllers/classrooms_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/classrooms_controller_spec.rb": [
         1,
         1,
         null,
@@ -1081,7 +1081,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/classrooms_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/classrooms_controller.rb": [
         1,
         1,
         null,
@@ -1173,20 +1173,20 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/grades_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/grades_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/vagrant/app/controllers/grades_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/grades_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/vagrant/spec/controllers/notifications_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/notifications_controller_spec.rb": [
         1,
         null,
         1,
@@ -1242,7 +1242,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/notifications_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/notifications_controller.rb": [
         1,
         1,
         null,
@@ -1316,7 +1316,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/parents_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/parents_controller_spec.rb": [
         1,
         1,
         null,
@@ -1404,7 +1404,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/parents_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/parents_controller.rb": [
         null,
         null,
         null,
@@ -1479,7 +1479,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/school_misses_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/school_misses_controller_spec.rb": [
         1,
         1,
         null,
@@ -1489,7 +1489,7 @@
         null,
         1,
         1,
-        4,
+        5,
         1,
         2,
         null,
@@ -1504,6 +1504,29 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         1,
         4,
@@ -1543,18 +1566,23 @@
         null,
         1,
         1,
-        2,
-        2,
+        3,
+        3,
         null,
         null,
         null,
         null,
-        2,
+        3,
         null,
         null,
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        null,
         1,
         1,
         1,
@@ -1595,7 +1623,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/school_misses_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/school_misses_controller.rb": [
         1,
         1,
         null,
@@ -1605,7 +1633,7 @@
         null,
         null,
         null,
-        1,
+        null,
         null,
         null,
         null,
@@ -1631,16 +1659,20 @@
         null,
         null,
         1,
-        null,
+        1,
+        1,
         null,
         null,
         null,
         null,
         1,
         2,
+        null,
+        null,
+        null,
+        null,
         2,
         2,
-        2,
         1,
         null,
         null,
@@ -1652,7 +1684,6 @@
         1,
         1,
         1,
-        null,
         1,
         null,
         null,
@@ -1663,7 +1694,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/secretaries_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/secretaries_controller_spec.rb": [
         1,
         null,
         1,
@@ -1844,7 +1875,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/secretaries_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/secretaries_controller.rb": [
         null,
         null,
         null,
@@ -1950,14 +1981,14 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/sessions_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/sessions_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/vagrant/app/controllers/sessions_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/sessions_controller.rb": [
         null,
         null,
         null,
@@ -1996,7 +2027,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/strikes_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/strikes_controller_spec.rb": [
         1,
         1,
         null,
@@ -2146,7 +2177,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/strikes_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/strikes_controller.rb": [
         1,
         1,
         null,
@@ -2230,7 +2261,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/subjects_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/subjects_controller_spec.rb": [
         1,
         null,
         null,
@@ -2417,7 +2448,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/subjects_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/subjects_controller.rb": [
         1,
         1,
         1,
@@ -2495,7 +2526,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/suspensions_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/suspensions_controller_spec.rb": [
         1,
         null,
         1,
@@ -2707,7 +2738,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/suspensions_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/suspensions_controller.rb": [
         1,
         1,
         null,
@@ -2791,7 +2822,7 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/teachers_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/teachers_controller_spec.rb": [
         1,
         1,
         null,
@@ -2929,7 +2960,7 @@
         null,
         null
       ],
-      "/vagrant/app/controllers/teachers_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/teachers_controller.rb": [
         1,
         null,
         1,
@@ -3008,14 +3039,14 @@
         null,
         null
       ],
-      "/vagrant/spec/controllers/users_controller_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/vagrant/app/controllers/users_controller.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/controllers/users_controller.rb": [
         null,
         null,
         null,
@@ -3043,7 +3074,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/alumns_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/alumns_helper_spec.rb": [
         1,
         null,
         null,
@@ -3060,7 +3091,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/classrooms_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/classrooms_helper_spec.rb": [
         1,
         null,
         null,
@@ -3077,7 +3108,7 @@
         1,
         null
       ],
-      "/vagrant/spec/helpers/grades_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/grades_helper_spec.rb": [
         1,
         null,
         null,
@@ -3094,7 +3125,7 @@
         1,
         null
       ],
-      "/vagrant/spec/helpers/notifications_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/notifications_helper_spec.rb": [
         1,
         null,
         null,
@@ -3111,7 +3142,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/parents_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/parents_helper_spec.rb": [
         1,
         null,
         null,
@@ -3128,7 +3159,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/school_misses_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/school_misses_helper_spec.rb": [
         1,
         null,
         null,
@@ -3145,7 +3176,7 @@
         1,
         null
       ],
-      "/vagrant/spec/helpers/secretary_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/secretary_helper_spec.rb": [
         1,
         null,
         null,
@@ -3162,7 +3193,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/sessions_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/sessions_helper_spec.rb": [
         1,
         null,
         null,
@@ -3179,7 +3210,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/strikes_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/strikes_helper_spec.rb": [
         1,
         null,
         null,
@@ -3196,7 +3227,7 @@
         1,
         null
       ],
-      "/vagrant/spec/helpers/subjects_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/subjects_helper_spec.rb": [
         1,
         null,
         null,
@@ -3214,7 +3245,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/suspensions_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/suspensions_helper_spec.rb": [
         1,
         null,
         null,
@@ -3231,7 +3262,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/teachers_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/teachers_helper_spec.rb": [
         1,
         null,
         null,
@@ -3248,7 +3279,7 @@
         null,
         null
       ],
-      "/vagrant/spec/helpers/users_helper_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/helpers/users_helper_spec.rb": [
         1,
         null,
         null,
@@ -3336,14 +3367,14 @@
         null,
         null
       ],
-      "/vagrant/spec/models/alumn_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/alumn_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/alumn.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/alumn.rb": [
         null,
         null,
         null,
@@ -3365,12 +3396,12 @@
         null,
         null,
         1,
-        60,
+        62,
         null,
         null,
         null,
         1,
-        60,
+        62,
         null,
         null,
         1,
@@ -3412,16 +3443,16 @@
         null,
         null,
         1,
-        8,
+        9,
         null,
         null,
         1,
-        15,
+        13,
         null,
         null,
         1,
         1,
-        73,
+        75,
         0,
         null,
         null,
@@ -3429,8 +3460,8 @@
         null,
         1,
         null,
-        60,
-        60,
+        62,
+        62,
         null,
         null,
         1,
@@ -3443,48 +3474,48 @@
         null,
         null
       ],
-      "/vagrant/app/models/application_record.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/vagrant/spec/models/classroom_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/app/models/classroom.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/vagrant/spec/models/employee_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/classroom_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/employee.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/classroom.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/employee_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/employee.rb": [
         null,
         null,
         null,
@@ -3532,12 +3563,12 @@
         null,
         null,
         1,
-        208,
+        209,
         null,
         1,
         null,
         1,
-        211,
+        212,
         0,
         null,
         null,
@@ -3545,33 +3576,33 @@
         null,
         1,
         null,
-        208,
-        208,
+        209,
+        209,
         null,
         null,
         null
       ],
-      "/vagrant/spec/models/grade_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/app/models/grade.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/spec/models/notification_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/grade_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/notification.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/grade.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/notification_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/notification.rb": [
         1,
         null,
         null,
@@ -3602,14 +3633,14 @@
         null,
         null
       ],
-      "/vagrant/spec/models/parent_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/parent_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/parent.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/parent.rb": [
         null,
         null,
         null,
@@ -3641,7 +3672,7 @@
         1,
         null,
         1,
-        37,
+        38,
         null,
         null,
         1,
@@ -3650,7 +3681,7 @@
         null,
         1,
         1,
-        37,
+        38,
         0,
         null,
         null,
@@ -3658,31 +3689,31 @@
         null,
         1,
         null,
-        37,
-        37,
+        38,
+        38,
         null,
         null,
         null
       ],
-      "/vagrant/spec/models/principal_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/app/models/principal.rb": [
-        1,
-        null
-      ],
-      "/vagrant/spec/models/school_miss_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/principal_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/school_miss.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/principal.rb": [
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/school_miss_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/school_miss.rb": [
         1,
         1,
         null,
@@ -3690,77 +3721,16 @@
         null,
         null
       ],
-      "/vagrant/spec/models/strike_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/strike_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/strike.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/strike.rb": [
         1,
         1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/vagrant/spec/models/subject_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/app/models/subject.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/vagrant/spec/models/suspension_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/app/models/suspension.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
         1,
         null,
         1,
@@ -3772,124 +3742,185 @@
         1,
         null
       ],
-      "/vagrant/spec/models/teacher_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/subject_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/teacher.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/subject.rb": [
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
         null
       ],
-      "/vagrant/spec/views/grades/index.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/suspension_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/notifications/create.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/suspension.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/models/teacher_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/notifications/destroy.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/teacher.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/grades/index.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/notifications/edit.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/notifications/create.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/notifications/index.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/notifications/destroy.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/notifications/new.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/notifications/edit.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/notifications/show.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/notifications/index.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/create.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/notifications/new.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/destroy.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/notifications/show.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/edit.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/create.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/index.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/destroy.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/new.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/edit.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/show.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/index.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/school_misses/update.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/new.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/spec/views/subjects/index.html.erb_spec.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/show.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/vagrant/app/models/secretary.rb": [
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/school_misses/update.html.erb_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/spec/views/subjects/index.html.erb_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/andre/Área de Trabalho/MDS/repositorio/2017.1-Escola-X/app/models/secretary.rb": [
         null,
         null,
         null,
@@ -3897,6 +3928,6 @@
         null
       ]
     },
-    "timestamp": 1494697671
+    "timestamp": 1495114893
   }
 }
