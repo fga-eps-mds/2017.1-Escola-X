@@ -20,12 +20,12 @@ class GradesController < ApplicationController
   end
 
   def create
-    if (is_secretary?)
-      @grade = grade.create(grade_params)
-      if (@grade.save)
-        #redirect_to grade_path(@grade)
-      else
-        #render 'grades/new'
+    if (is_secretary? or is_principal?)
+      @classroom = Classroom.find(params[:classroom_id])
+      @alumn = Alumn.find(params[:id])
+      @classroom.classroom_subjects.each do |subject|
+        Grade.create!(alumn_id: @alumn.id, subject_id: subject.subject_id
+                      classroom_id: @classroom.id)
       end
     end
   end

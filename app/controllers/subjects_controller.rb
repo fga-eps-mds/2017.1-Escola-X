@@ -80,8 +80,8 @@ class SubjectsController < ApplicationController
   def add_classroom
     if ( is_principal? )
       @classroom = Classroom.find(params[:id])
-      @subject = Subject.find(params[:id])
-			if !ClassroomSubject.where(classroom_id: @classroom.id).where(subject_id: @subject.id).exists?
+      @subject = Subject.find(params[:subject_id])
+			if !((ClassroomSubject.where(classroom_id: @classroom.id).where(subject_id: @subject.id)).exists?)
 				@classroom_subject = ClassroomSubject.new
 				@classroom_subject.subject_id = @subject.id
 				@classroom_subject.classroom_id = @classroom.id

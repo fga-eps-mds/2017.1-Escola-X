@@ -10,7 +10,7 @@
           <h4>Série: <%= subject.class_level %></h4>
           <h4>Professor Responsável: <%=subject.teacher.name %></h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Mostrar'.html_safe, subject_path(subject), class:"btn btn-default" %>
-          <%= link_to '<span class="fa fa-check"></span> Adicionar Matéria'.html_safe, add_classroom_path ,method: :post, id: subject.id, class:'btn btn-default btn-success' %>
+          <%= link_to '<span class="fa fa-check"></span> Adicionar Matéria'.html_safe, add_classroom_path(subject_id: subject.id) ,method: :post, class:'btn btn-default btn-success' %>
         </div>
       </div>
     <%end%>
