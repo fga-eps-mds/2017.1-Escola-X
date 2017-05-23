@@ -59,6 +59,7 @@
       @alumn = Alumn.new(alumn_params)
       @alumn.parent_id = @@parent.id
       if (@alumn.save)
+        GradesController.create(@alumn)
         redirect_to @alumn
       else
         render 'new'
@@ -70,6 +71,7 @@
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       if @alumn.update alumn_params
+        GradesController.update_alumn(@alumn)
         redirect_to @alumn
       else
         render 'edit'

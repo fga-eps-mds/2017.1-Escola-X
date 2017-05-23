@@ -19,15 +19,13 @@ class GradesController < ApplicationController
     end
   end
 
-  def create
-    if (is_secretary? or is_principal?)
-      @classroom = Classroom.find(params[:classroom_id])
-      @alumn = Alumn.find(params[:id])
-      @classroom.classroom_subjects.each do |subject|
-        Grade.create!(alumn_id: @alumn.id, subject_id: subject.subject_id
-                      classroom_id: @classroom.id)
+  def self.create (alumn)
+      alumn.classroom.classroom_subjects.each do |subject|
+        if !(Grade.where(alumn_id: alumn.id).where(subject_id: subject.subject_id).exists?)
+          Grade.create!(alumn_id: alumn.id, subject_id: subject.subject_id,
+                        classroom_id: alumn.classroom_id)
+        end
       end
-    end
   end
 
   def destroy
@@ -44,14 +42,10 @@ def edit
   end
 end
 
-def update
-  if ( is_secretary? )
-    @grade = grade.find(params[:id])
-    if @grade.update(grade_params)
-      redirect_to grade_path(@grade)
-    else
-      render "grades/edit"
-    end
+def self.update_alumn (alumn)
+  alumn.grades.each do |grade|
+      grade.classroom_id = alumn.classroom_id
+      grade.save
   end
 end
 
