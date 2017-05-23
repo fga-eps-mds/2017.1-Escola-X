@@ -1,3 +1,6 @@
+# File name: notifications_controller.rb
+# Class name: NotificationsController
+# Description: Controller used to communicate with the proprietary view of notifications
 class NotificationsController < ApplicationController
   include SessionsHelper
 

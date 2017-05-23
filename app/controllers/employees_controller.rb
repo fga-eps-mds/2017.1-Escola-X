@@ -1,7 +1,6 @@
 # File name: employees_controller.rb
 # Class name: EmployeesController
-# Description: Controller used to communicate with the view highways/show
-
+# Description: Controller used to communicate with the views of emplyoees
 class EmployeesController < UsersController
 	include SessionsHelper
 
@@ -32,7 +31,6 @@ class EmployeesController < UsersController
   def create
     if ( is_principal? )
       @employee = Employee.new(employee_params)
-
       if (@employee.save)
         redirect_to users_path
       end
@@ -54,7 +52,6 @@ class EmployeesController < UsersController
     if ( is_principal? )
       @employee = Employee.find(params[:id])
       @employee.destroy
-
       redirect_to users_path
     end
   end
@@ -69,7 +66,7 @@ class EmployeesController < UsersController
 	def update_password_employee
 		if ( is_principal? )
 			@user = Employee.find(params[:id])
-			if (@user.update!(employee_params))
+			if ( @user.update!(employee_params) )
 				redirect_to @user
 			else
 				render action: "../users/edit_password"

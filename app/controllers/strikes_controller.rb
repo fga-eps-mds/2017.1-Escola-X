@@ -1,3 +1,6 @@
+# File name: strikes_controller.rb
+# Class name: StrikesController
+# Description: Controller used to communicate with the proprietary view of strikes
 class StrikesController < ApplicationController
   include SessionsHelper
 
@@ -72,7 +75,7 @@ class StrikesController < ApplicationController
     end
   end
 
-private
+  private
   def strike_params
     params.require(:strike).permit(:description_strike,
                                  :date_strike,
