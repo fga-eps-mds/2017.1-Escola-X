@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
 
 Principal.create!(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
@@ -23,6 +22,12 @@ Teacher.create!(name: 'Sydney Ward', address: 'rua do ovo', phone: '6133213030',
 Teacher.create!(name: 'Alex Lemon', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
                 registry: '369874', employee_cpf: '76992438468',shift:"Diurno")
+
+Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
+
+Subject.create(name_subject:"Filosofia", class_level:"2",teacher_id:Teacher.last.id)
+
+ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)
 
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',

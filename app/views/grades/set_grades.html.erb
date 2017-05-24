@@ -5,7 +5,7 @@
   <% @grades.each do |grade| %>
     <div class="container">
       <h3 class="">Nome do Aluno: <%= grade.alumn.name %></h3>
-      <%= form_for grade do |g| %>
+      <%= form_for (grade), url: post_grades_path, method: :put do |g| %>
         <div class="form-group">
           <%= g.label :grade_01, class:"sr-only" %>
           <div class="input-group">
@@ -47,8 +47,7 @@
           </div>
         </div>
         <%= hidden_field_tag(:alumn_id, grade.alumn.id)%>
-        <%= hidden_field_tag(:classroom_id, grade.classroom.id)%>
-        <%= g.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", name: "subject_id", value: grade.subject.id, class:'btn btn-lg btn-success' %>
+        <%= g.submit "Salvar", subject_id: grade.subject.id, class:'btn btn-lg btn-success' %>
       <% end %>
     </div>
     <hr>

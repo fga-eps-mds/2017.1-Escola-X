@@ -13,7 +13,7 @@
           <h4>Série: <%= subject.class_level %></h4>
           <h4>Professor Responsável: <%=subject.teacher.name %></h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Mostrar'.html_safe, subject_path(subject), class:"btn btn-default" %>
-          <%= link_to '<span class="fa fa-search-plus"></span> Dar notas'.html_safe, set_grades_path(subject_id: subject, classroom_id: @classroom.id), class:"btn btn-success" %>
+          <%= link_to '<span class="fa fa-search-plus"></span> Dar notas'.html_safe, set_grades_path(subject_id: subject), class:"btn btn-success" %>
         </div>
       </div>
     <%end%>

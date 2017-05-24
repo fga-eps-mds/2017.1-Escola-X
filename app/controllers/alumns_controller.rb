@@ -58,6 +58,7 @@
     if ( is_principal? )
       @alumn = Alumn.new(alumn_params)
       @alumn.parent_id = @@parent.id
+      @classrooms = Classroom.all.order('name_classroom')
       if (@alumn.save)
         GradesController.create(@alumn)
         redirect_to @alumn
