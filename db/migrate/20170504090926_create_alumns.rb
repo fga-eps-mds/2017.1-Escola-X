@@ -11,6 +11,7 @@ class CreateAlumns < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.string :authorization_token
       t.string :shift
+      t.string :image
       t.integer :quantity_strike
       t.references :parent, index: true
 

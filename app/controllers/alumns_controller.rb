@@ -95,6 +95,7 @@
                                    :address,
                                    :phone,
                                    :gender,
+                                   :image,
                                    :birth_date,
                                    :password,
                                    :parent_id,
