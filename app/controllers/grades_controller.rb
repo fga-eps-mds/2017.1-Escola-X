@@ -42,6 +42,12 @@ def edit
   end
 end
 
+def set_grades
+  @classroom = Classroom.find(params[:id])
+  @subject = Subject.find(params[:subject_id])
+  @grades = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id)
+end
+
 def self.update_alumn (alumn)
   alumn.grades.each do |grade|
       grade.classroom_id = alumn.classroom_id
@@ -49,12 +55,36 @@ def self.update_alumn (alumn)
   end
 end
 
+def post_grades
+  @classroom = Classroom.find(params[:classroom_id])
+  @subject = Subject.find(params[:subject_id])
+  @alumn = Alumn.find(params[:alumn_id])
+  @grade = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id).where(alumn_id: @alumn.id)
+  if @grade.update(grade_params)
+    render "grades/set_grades"
+  else
+    render "grades/index"
+  end
+end
+
+def update
+  @classroom = Classroom.find(params[:classroom_id])
+  @subject = Subject.find(params[:subject_id])
+  @alumn = Alumn.find(params[:alumn_id])
+  @grade = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id).where(alumn_id: @alumn.id)
+  if @grade.update(grade_params)
+    redirect_to set_grades_path(@classroom, @subject)
+  else
+    redirect_to set_grades_path(@classroom, @subject)
+  end
+end
+
 private
   def grade_params
     params.require(:grade).permit(:grade_01,
                                   :grade_02,
-                                  :grade03,
-                                  :grade04,
+                                  :grade_03,
+                                  :grade_04,
                                   :grade_final,
                                   :alumn_id,
                                   :subject_id)

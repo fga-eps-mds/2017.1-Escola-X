@@ -7,6 +7,11 @@ class SubjectsController < ApplicationController
   	end
   end
 
+	def classroom_subjects
+		@classroom = Classroom.find(params[:id])
+		@subjects = @classroom.subjects
+	end
+
   def new
   	if ( is_principal? )
   		@subject = Subject.new

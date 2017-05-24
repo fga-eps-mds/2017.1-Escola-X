@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519133315) do
+ActiveRecord::Schema.define(version: 20170519132855) do
 
   create_table "alumns", force: :cascade do |t|
     t.string   "name"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20170519133315) do
   create_table "grades", force: :cascade do |t|
     t.float    "grade_01"
     t.float    "grade_02"
-    t.float    "grade03"
-    t.float    "grade04"
+    t.float    "grade_03"
+    t.float    "grade_04"
     t.float    "grade_final"
     t.integer  "alumn_id"
     t.integer  "subject_id"

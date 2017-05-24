@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'subjects/:id/add_classrooms', to:'subjects#add_classrooms', as:'add_classrooms'
   post 'subjects/:id/add_classrooms', to:'subjects#add_classroom', as:'add_classroom'
   get 'subjects/:id/show_subjects', to:'subjects#show_subjects', as:'show_subjects'
+  get 'classroom/:id/classroom_subjects', to:'subjects#classroom_subjects', as:'classroom_subjects'
+  get 'classroom/:id/subject/:subject_id/grades', to:'grades#set_grades', as:'set_grades'
+  post 'classroom/:id/subject/:subject_id/grades', to:'grades#post_grades', as:'post_grades'
 
   root 'sessions#new'
 

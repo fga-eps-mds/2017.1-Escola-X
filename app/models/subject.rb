@@ -3,6 +3,7 @@ class Subject < ApplicationRecord
 	has_many :grades
 	has_many :classroom_subjects
 	has_many :alumns, through: :grades
+	has_many :classrooms, through: :classroom_subjects
 	validates_associated :grades
 	validates_associated :alumns
 
