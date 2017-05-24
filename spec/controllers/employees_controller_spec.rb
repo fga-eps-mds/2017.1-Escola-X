@@ -13,6 +13,11 @@ RSpec.describe EmployeesController, type: :controller do
                          admission_date:"15/04/2012",shift:"Matutino",
                          gender:"Masculino",birth_date:"09/07/1995",
                          password:"12345678"} }
+  let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
+                         address:"Rua Vida Casa 15,Taguatinga",
+                         password: "12345678", gender:"M",
+                         birth_date:"07/06/1988", registry:"12345",
+                         parent_id: parent.id, shift:"matutino"} }
 
   describe "edit password" do
     before(:each) do
@@ -27,6 +32,33 @@ RSpec.describe EmployeesController, type: :controller do
       employee = Employee.create!(valid_inputs)
       get :edit_password_employee, params:{id: employee}
       expect(response).to render_template("../users/edit_password")
+    end
+  end
+
+  # describe "PUT update_password_employee" do
+  #   before(:each) do
+  #     login_principal
+  #   end
+  #   it "assigns the requested employee as @employee" do
+  #     employee = Employee.create! valid_inputs
+  #     put :update_password_employee, params:{id: employee_params: valid_inputs}
+  #     expect(assigns(:alumn)).to eq(alumn)
+  #   end
+  #
+  #   it "updates the requested alumn" do
+  #     alumn = Alumn.create! alumn_inputs
+  #     put :update_password_employee, params:{id: alumn.to_param, alumn: valid_inputs }
+  #     alumn.reload
+  #   end
+  # end
+
+  describe "GET index" do
+    before(:each) do
+      login_principal
+    end
+    it "assigns all employees to @employees" do
+      get :index
+      expect(assigns(:employees)).to match_array(Employee.all)
     end
   end
 end
