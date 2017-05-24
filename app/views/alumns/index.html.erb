@@ -32,6 +32,7 @@
         <h4> <%= alumn.gender %> </h4>
         <h4> <%= alumn.phone %> </h4>
         <h4><%= alumn.registry %></h4>
+        <td><%= image_tag(alumn.image.url(:thumb)) %></td>
         <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
         <%if is_principal? %>
           <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>

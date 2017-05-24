@@ -35,6 +35,8 @@ gem 'mini_magick', '~> 4.3'
 
 gem 'rails-i18n', '~> 5.0.0' 
 
+gem "paperclip", "~> 3.0"
+
 group :development, :test do
   
   gem 'sqlite3'

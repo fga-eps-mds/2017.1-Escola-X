@@ -14,6 +14,7 @@ class Alumn < ApplicationRecord
   before_create :initialize_strikes
   before_save :validates_password
   has_many :suspensions
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "120x90#" }
 
 
 

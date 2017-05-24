@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170519015110) do
     t.string   "password_digest"
     t.string   "authorization_token"
     t.string   "shift"
-    t.string   "image"
+    t.string   "image_file_name"
     t.integer  "quantity_strike"
     t.integer  "parent_id"
     t.datetime "created_at",          null: false
