@@ -1,6 +1,9 @@
+# File name: sessions_helpers.rb
+# Module name: SessionsHelper
+# Description: Helper used to help in some authentication functions
 module SessionsHelper
   def current_user
-    if !@current_user.nil?
+    if ( !@current_user.nil? )
       @current_user = @current_user
     else
       if ( !(@current_user = Employee.find_by_authorization_token(cookies[:authorization_token])).nil? )
@@ -11,15 +14,15 @@ module SessionsHelper
         return @current_user
       else
         @current_user = nil
+      end
     end
-end
   end
 
   def logged_in?
     if ( current_user.nil? )
       raise 'Not logged in'
     else
-      !current_user.nil?
+      !(current_user.nil?)
     end
   end
 

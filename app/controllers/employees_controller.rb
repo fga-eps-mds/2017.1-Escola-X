@@ -1,6 +1,6 @@
 # File name: employees_controller.rb
 # Class name: EmployeesController
-# Description: Controller used to communicate with the view highways/show
+# Description: Controller used to communicate with the views of emplyoees
 
 class EmployeesController < UsersController
 	include SessionsHelper
@@ -14,7 +14,7 @@ class EmployeesController < UsersController
 	def edit_password_employee
 		if ( is_principal? )
 			@user = Employee.find(params[:id])
-			render action: "../users/edit_password"
+			render action: 	"../users/edit_password"
 		end
 	end
 

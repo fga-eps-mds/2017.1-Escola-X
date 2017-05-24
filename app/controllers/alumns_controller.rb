@@ -72,7 +72,6 @@
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       @alumn.destroy
-
       redirect_to users_path
     end
   end
@@ -97,16 +96,16 @@
 
  private
    # Strong params to be passed to a alumn
-   def alumn_params
-     params.require(:alumn).permit(:registry,
-                                   :shift,
-                                   :name,
-                                   :address,
-                                   :phone,
-                                   :gender,
-                                   :birth_date,
-                                   :password,
-                                   :parent_id,
-                                   :classroom_id)
-   end
-  end
+ def alumn_params
+  params.require(:alumn).permit(:registry,
+                                 :shift,
+                                 :name,
+                                 :address,
+                                 :phone,
+                                 :gender,
+                                 :birth_date,
+                                 :password,
+                                 :parent_id,
+                                 :classroom_id)
+ end
+end

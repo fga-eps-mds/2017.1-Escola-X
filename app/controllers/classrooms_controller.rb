@@ -1,3 +1,6 @@
+# File name: classrooms_controller.rb
+# Class name: ClassroomsController
+# Description: Controller used to communicate with the proprietary view of classrooms
 class ClassroomsController < ApplicationController
   include SessionsHelper
 
@@ -8,7 +11,7 @@ class ClassroomsController < ApplicationController
   end
 
   def new
-    if (is_principal?)
+    if ( is_principal? )
       @classroom = Classroom.new
     end
   end
@@ -20,9 +23,9 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-    if (is_principal?)
+    if ( is_principal? )
       @classroom = Classroom.create(classroom_params)
-      if (@classroom.save)
+      if ( @classroom.save )
         redirect_to classroom_path(@classroom)
       else
         render 'classrooms/new'
@@ -60,7 +63,6 @@ def add_alumns
     @classroom = Classroom.find(params[:id])
     @alumns = @classroom.alumns
   end
-
 end
 
 def add_alumn
@@ -68,7 +70,7 @@ def add_alumn
     @classroom = Classroom.find(params[:id])
     @alumns = @classroom.alumns
     @alumn = Alumn.find_by_registry(params[:registry])
-    if (@alumn).nil?
+    if ( (@alumn).nil? )
       redirect_to add_alumns_path(@classroom)
     else
       @alumn.classroom_id = @classroom.id
@@ -79,7 +81,6 @@ def add_alumn
       end
     end
   end
-
 end
 
 private
