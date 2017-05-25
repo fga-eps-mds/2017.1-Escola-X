@@ -136,15 +136,32 @@ RSpec.describe NotificationsController, type: :controller do
   define "DELETE destroy" do
     before(:each) do
       login_principal
+      notification = Notification.create!(valid_inputs)
     end
 
     it "deletes an notification" do
-      post :create, params: {notification: valid_inputs}
-      expect(Notification.count).to eq(1)
       notification = Notification.find_by(title: "Ausencia de prosso")
       expect{
         delete :destroy, params:{id: notification.id}
       }.to change(Notification, :count).by(-1)
+    end
+  end
+
+  describe "GET edit" do
+    before(:each) do
+      login_principal
+    end
+
+    it "assigns a notification to @notification" do
+      notification = Notification.create!(valid_inputs)
+      get :edit, params: {id: notification.id, notification: valid_inputs}
+      expect(assigns(:notification)).to be_a(Notification)
+    end
+
+    it "render edit template" do
+      notification = Notification.create!(valid_inputs)
+      get :edit, params: {id: notification.id, notification: valid_inputs}
+      expect(response).to render_template("edit")
     end
   end
 end
