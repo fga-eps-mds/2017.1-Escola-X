@@ -9,7 +9,7 @@
       <%end%>
       <% if is_parent?%>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
-      <% else %>
+      <% elsif is_principal? or is_secretary? or is_teacher? %>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
       <% end %>
       <%if is_principal? %>
@@ -24,7 +24,11 @@
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
-          <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>
+          <% if @alumn.image_file_name == nil %>
+            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+          <% else %>
+            <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>  
+          <%end%>
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h3>Nome: <%= @alumn.name %></h3>
