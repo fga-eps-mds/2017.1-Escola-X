@@ -35,7 +35,7 @@ RSpec.describe EmployeesController, type: :controller do
     end
   end
 
-  describe "edit password" do
+  describe "update password" do
     before(:each) do
       login_principal
     end
@@ -43,6 +43,11 @@ RSpec.describe EmployeesController, type: :controller do
       employee = Employee.create!(valid_inputs)
       get :edit_password_employee, params:{id: employee.id}
       expect(assigns(:user)).to eq(employee)
+    end
+    it "updates the requested employee" do
+      employee = Employee.create! (valid_inputs)
+      put :update_password_employee, params:{id: employee.to_param, employee: valid_inputs}
+      employee.reload
     end
     it "render edit_password template" do
       employee = Employee.create!(valid_inputs)
