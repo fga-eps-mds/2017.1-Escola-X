@@ -41,7 +41,7 @@ RSpec.describe EmployeesController, type: :controller do
     end
     it "assings employee to @employee" do
       employee = Employee.create!(valid_inputs)
-      get :edit_password_employee, params:{id: employee}
+      get :edit_password_employee, params:{id: employee.id}
       expect(assigns(:user)).to eq(employee)
     end
     it "render edit_password template" do

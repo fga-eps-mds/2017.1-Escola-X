@@ -16,7 +16,7 @@ RSpec.describe ParentsController, type: :controller do
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr",parent_cpf:"77777777"} }
 
-
+  let(:invalid_inputs_password) { { password: "123"} }
 
   describe "GET new" do
     before(:each) do
@@ -200,6 +200,30 @@ RSpec.describe ParentsController, type: :controller do
       parent = Parent.create!(valid_inputs)
       get :edit_password_parent, params:{id: parent}
       expect(response).to render_template("../users/edit_password")
+    end
+  end
+
+  describe "update_password_parent" do
+    before(:each) do
+      login_principal
+    end
+    it "assigns a parent to a user" do
+      parent = Parent.create!(valid_inputs)
+      get :update_password_parent, params:{id: parent.to_param, parent: valid_inputs}
+      expect(assigns(:user)).to be_a(Parent)
+    end
+    it "redirects to parent" do
+      parent = Parent.create!(valid_inputs)
+      put :update_password_parent, params:{id: parent.to_param, parent: valid_inputs}
+      expect(response).to redirect_to parent_path(assigns(:user))
+    end
+
+    describe "with invalid params" do
+      it "assigns the alumn as @alumn" do
+        parent = Parent.create! valid_inputs
+        put :update_password_parent, params:{id: parent.to_param, parent: invalid_inputs_password }
+        expect(assigns(:user)).to eq(parent)
+      end
     end
   end
 end

@@ -59,6 +59,7 @@ class ParentsController < ApplicationController
       redirect_to users_path
     end
   end
+
   def edit_password_parent
     if ( is_principal? )
       @user = Parent.find(params[:id])
@@ -77,7 +78,7 @@ class ParentsController < ApplicationController
     end
   end
 
-private
+  private
   def parent_params
     params.require(:parent).permit(:parent_cpf,
                                    :name,
