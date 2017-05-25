@@ -118,7 +118,6 @@ end
     end
   end
 
-
   describe "GET index" do
     describe "login as parent" do
       before(:each) do

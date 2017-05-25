@@ -1,4 +1,9 @@
 require 'rails_helper'
+require 'helper_module_spec'
+
+RSpec.configure do |c|
+  c.include Helpers
+end
 
 RSpec.describe NotificationsController, type: :controller do
   let(:valid_inputs) { { title: "Ausencia de prosso",
@@ -10,6 +15,22 @@ RSpec.describe NotificationsController, type: :controller do
   let(:invalid_inputs) { { title: "prosso vai",
                            notification_text: "rodaro",
                            notification_date: "10/03/1993"} }
+
+  describe "GET index" do
+    before(:each) do
+      login_principal
+    end
+
+    it "assigns all notifications to @notifications" do
+      get :index, {}
+      expect(assigns(:notifications)).to match(Notification.all)
+    end
+
+    it "renders the template" do
+      get :index, {}
+      expect(response).to render_template('index')
+    end
+  end
 
   describe "Post create" do
     before(:each) do
