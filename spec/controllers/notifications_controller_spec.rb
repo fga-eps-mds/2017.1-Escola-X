@@ -32,6 +32,50 @@ RSpec.describe NotificationsController, type: :controller do
     end
   end
 
+  describe "PUT update" do
+    before(:each) do
+      login_principal
+    end
+
+    describe "with valid inputs" do
+      it "assigns the requested notification to @notification" do
+        notification = Notification.create!(valid_inputs)
+        put :update, params:{id: notification.to_param, notification: valid_inputs}
+        expect(assigns(:notification)).to eq(notification)
+      end
+
+      it "updates the requested notification" do
+        notification = Notification.create!(valid_inputs)
+        put :update, params:{id: notification.to_param, notification: valid_inputs}
+        notification.reload
+      end
+
+      it "redirects to notification" do
+        notification = Notification.create!(valid_inputs)
+        put :update, params:{id: notification.to_param, notification: valid_inputs}
+        expect(response).to redirect_to notification_path(assigns(:notification))
+      end
+    end
+  end
+
+  describe "GET show" do
+    before(:each) do
+      login_principal
+    end
+
+    it "assigns the requested notification to @notification" do
+      notification = Notification.create!(valid_inputs)
+      get :show, params:{id: notification.to_param}
+      expect(assigns(:notification)).to eq(notification)
+    end
+
+    it "render the show template" do
+      notification = Notification.create!(valid_inputs)
+      get :show, params:{id: notification.to_param}
+      expect(response).to render_template('show')
+    end
+  end
+
   describe "Post create" do
     before(:each) do
       notification = Notification.create(title: "Ausencia de prosso",
