@@ -43,8 +43,10 @@
             </ul>
           </li>
         <% end %>
-        <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
-        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        <ul class="nav navbar-nav pull-right">
+          <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
+          <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        </ul>
       </ul>
     </div>
   </div>
