@@ -136,11 +136,10 @@ RSpec.describe NotificationsController, type: :controller do
   define "DELETE destroy" do
     before(:each) do
       login_principal
-      notification = Notification.create!(valid_inputs)
     end
 
     it "deletes an notification" do
-      notification = Notification.find_by(title: "Ausencia de prosso")
+      notification = Notification.create!(valid_inputs)
       expect{
         delete :destroy, params:{id: notification.id}
       }.to change(Notification, :count).by(-1)
