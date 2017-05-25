@@ -35,22 +35,21 @@ RSpec.describe EmployeesController, type: :controller do
     end
   end
 
-  # describe "PUT update_password_employee" do
-  #   before(:each) do
-  #     login_principal
-  #   end
-  #   it "assigns the requested employee as @employee" do
-  #     employee = Employee.create! valid_inputs
-  #     put :update_password_employee, params:{id: employee_params: valid_inputs}
-  #     expect(assigns(:alumn)).to eq(alumn)
-  #   end
-  #
-  #   it "updates the requested alumn" do
-  #     alumn = Alumn.create! alumn_inputs
-  #     put :update_password_employee, params:{id: alumn.to_param, alumn: valid_inputs }
-  #     alumn.reload
-  #   end
-  # end
+  describe "edit password" do
+    before(:each) do
+      login_principal
+    end
+    it "assings employee to @employee" do
+      employee = Employee.create!(valid_inputs)
+      get :edit_password_employee, params:{id: employee}
+      expect(assigns(:user)).to eq(employee)
+    end
+    it "render edit_password template" do
+      employee = Employee.create!(valid_inputs)
+      get :edit_password_employee, params:{id: employee}
+      expect(response).to render_template("../users/edit_password")
+    end
+  end
 
   describe "GET index" do
     before(:each) do
