@@ -1,6 +1,6 @@
 class Classroom < ApplicationRecord
   has_many :alumns
-  has_many :classroom_subjects
+  has_many :classroom_subjects, dependent: :destroy
   has_many :grades
   has_many :subjects, through: :classroom_subjects
   accepts_nested_attributes_for :alumns

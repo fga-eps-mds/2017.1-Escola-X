@@ -50,8 +50,13 @@ end
 
 def self.update_alumn (alumn)
   alumn.grades.each do |grade|
-      grade.classroom_id = alumn.classroom_id
-      grade.save
+    grade.classroom_id = alumn.classroom_id
+    grade.save
+  end
+  alumn.classroom.subjects.each do |subject|
+    if !Grade.where(alumn_id: alumn.id).where(subject_id: subject.id).exists?
+      Grade.create(alumn_id: alumn.id, classroom_id: alumn.classroom.id, subject_id: subject.id)
+    end
   end
 end
 

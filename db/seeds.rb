@@ -27,7 +27,6 @@ Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
 
 Subject.create(name_subject:"Filosofia", class_level:"2",teacher_id:Teacher.last.id)
 
-ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)
 
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -65,3 +64,5 @@ Alumn.create(name: 'America Hoffman', address: 'rua do leite com tode',gender:"M
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '098765', shift: "matutino", parent_id: Parent.last.id,
             classroom_id: Classroom.last.id)
+
+ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)

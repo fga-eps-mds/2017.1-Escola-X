@@ -7,7 +7,7 @@ class Alumn < ApplicationRecord
   belongs_to :grade
   has_many :strikes
   has_many :school_misses
-  has_many :grades
+  has_many :grades, dependent: :destroy
   has_many :subjects, through: :grades
 
   has_secure_password
