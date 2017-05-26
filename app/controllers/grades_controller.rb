@@ -1,24 +1,6 @@
 class GradesController < ApplicationController
   include SessionsHelper
 
-  def index
-    if (is_secretary?)
-    	@classrooms = Classroom.all
-    end
-  end
-
-  def new
-    if (is_secretary?)
-      @grade = Grade.new
-    end
-  end
-
-  def show
-    if (is_secretary?)
-      @grade = Grade.find(params[:id])
-    end
-  end
-
   def self.create (alumn)
       alumn.classroom.subjects.each do |subject|
         if !(Grade.where(alumn_id: alumn.id).where(subject_id: subject.id).exists?)
@@ -28,49 +10,35 @@ class GradesController < ApplicationController
       end
   end
 
-  def destroy
-  if (is_secretary?)
-    @grade = grade.find(params[:id])
-    @grade.destroy
-    redirect_to users_path
+  def set_grades
+    @classroom = Classroom.find(params[:id])
+    @subject = Subject.find(params[:subject_id])
+    @grades = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id)
   end
-end
 
-def edit
-  if ( is_secretary? )
-    @grade = grade.find(params[:id])
-  end
-end
-
-def set_grades
-  @classroom = Classroom.find(params[:id])
-  @subject = Subject.find(params[:subject_id])
-  @grades = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id)
-end
-
-def self.update_alumn (alumn)
-  alumn.grades.each do |grade|
-    grade.classroom_id = alumn.classroom_id
-    grade.save
-  end
-  alumn.classroom.subjects.each do |subject|
-    if !Grade.where(alumn_id: alumn.id).where(subject_id: subject.id).exists?
-      Grade.create(alumn_id: alumn.id, classroom_id: alumn.classroom.id, subject_id: subject.id)
+  def self.update_alumn (alumn)
+    alumn.grades.each do |grade|
+      grade.classroom_id = alumn.classroom_id
+      grade.save
+    end
+    alumn.classroom.subjects.each do |subject|
+      if !Grade.where(alumn_id: alumn.id).where(subject_id: subject.id).exists?
+        Grade.create(alumn_id: alumn.id, classroom_id: alumn.classroom.id, subject_id: subject.id)
+      end
     end
   end
-end
 
-def post_grades
-  @classroom = Classroom.find(params[:id])
-  @subject = Subject.find(params[:subject_id])
-  @alumn = Alumn.find(params[:alumn_id])
-  @grade = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id).where(alumn_id: @alumn.id)
-  if @grade.update(grade_params)
-    redirect_to set_grades_path(@classroom, @subject)
-  else
-    render "grades/index"
+  def post_grades
+    @classroom = Classroom.find(params[:id])
+    @subject = Subject.find(params[:subject_id])
+    @alumn = Alumn.find(params[:alumn_id])
+    @grade = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id).where(alumn_id: @alumn.id)
+    if @grade.update(grade_params)
+      redirect_to set_grades_path(@classroom, @subject)
+    else
+      render "grades/index"
+    end
   end
-end
 
 private
   def grade_params
