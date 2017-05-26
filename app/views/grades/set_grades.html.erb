@@ -5,13 +5,13 @@
   <% @grades.each do |grade| %>
     <div class="container">
       <h3 class="">Nome do Aluno: <%= grade.alumn.name %></h3>
-      <%= form_for (grade), url: post_grades_path, method: :put do |g| %>
+      <%= form_for (grade), url: post_grades_path, method: :put, html: {class: 'form-inline'} do |g| %>
         <div class="form-group">
           <%= g.label :grade_01, class:"sr-only" %>
           <div class="input-group">
             <span class="input-group-addon">
-              <span class="fa fa-user"></span>
-               1º Bimestre
+              <span class="fa fa-tag"></span>
+               1º
             </span>
             <%= g.text_field :grade_01, class:"form-control", placeholder:"1º Bimestre" %>
           </div>
@@ -20,8 +20,8 @@
           <%= g.label :grade_02, class:"sr-only" %>
           <div class="input-group">
             <span class="input-group-addon">
-              <span class="fa fa-user"></span>
-               2º Bimestre
+              <span class="fa fa-tag"></span>
+               2º
             </span>
             <%= g.text_field :grade_02, class:"form-control", placeholder:"2º Bimestre" %>
           </div>
@@ -30,8 +30,8 @@
           <%= g.label :grade_03, class:"sr-only" %>
           <div class="input-group">
             <span class="input-group-addon">
-              <span class="fa fa-user"></span>
-               3º Bimestre
+              <span class="fa fa-tag"></span>
+               3º
             </span>
             <%= g.text_field :grade_03, class:"form-control", placeholder:"3º Bimestre" %>
           </div>
@@ -40,8 +40,8 @@
           <%= g.label :grade_04, class:"sr-only" %>
           <div class="input-group">
             <span class="input-group-addon">
-              <span class="fa fa-user"></span>
-               4º Bimestre
+              <span class="fa fa-tag"></span>
+               4º
             </span>
             <%= g.text_field :grade_04, class:"form-control", placeholder:"4º Bimestre" %>
           </div>
