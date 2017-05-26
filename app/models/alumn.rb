@@ -14,26 +14,11 @@ class Alumn < ApplicationRecord
 
   before_create :initialize_strikes
   before_save :validates_password
-  # after_save :initialize_grades
   has_many :suspensions
-
-
-
 
   def initialize_strikes
     self.quantity_strike ||= 0
   end
-
-  # def initialize_grades
-  #   @classroom = Classroom.find(self.classroom_id)
-  #   if !@classroom.subjects.nil?
-  #     @classroom.subjects.each do |subject|
-  #       Grade.create!(alumn_id: self.id, subject_id: subject.id,
-  #                     classroom_id: self.classroom_id)
-  #     end
-  #   end
-  # end
-
 
   before_create{
     generate_token(:authorization_token)

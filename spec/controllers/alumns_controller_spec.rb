@@ -10,13 +10,15 @@ RSpec.describe AlumnsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: 1, shift:"matutino"} }
+                         parent_id: 1, shift:"matutino",classroom_id:classroom.id} }
 
   let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr",registry:"8",
                            parent_id: -1, shift:"matutino"} }
 
+ let(:subject_inputs) { { name_subject:"Filosofia", class_level:"2", teacher_id: teacher.id } }
+ let(:classroom_inputs) { { name_classroom: "3G", shift_classroom: "matutino" } }
 
   describe "GET new" do
     before(:each) do
@@ -113,6 +115,8 @@ end
 
   describe "Post create" do
     before(:each) do
+      subject = Subject.create! subject_inputs
+      classub= ClassroomSubject.create!(classroom_id: classroom.id, subject_id: subject.id)
       login_principal
     end
 

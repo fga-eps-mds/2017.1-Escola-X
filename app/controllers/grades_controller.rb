@@ -4,8 +4,9 @@ class GradesController < ApplicationController
   def self.create (alumn)
       alumn.classroom.subjects.each do |subject|
         if !(Grade.where(alumn_id: alumn.id).where(subject_id: subject.id).exists?)
-          Grade.create!(alumn_id: alumn.id, subject_id: subject.id,
+          @grade = Grade.new(alumn_id: alumn.id, subject_id: subject.id,
                         classroom_id: alumn.classroom_id)
+          @grade.save
         end
       end
   end
@@ -23,7 +24,7 @@ class GradesController < ApplicationController
     end
     alumn.classroom.subjects.each do |subject|
       if !Grade.where(alumn_id: alumn.id).where(subject_id: subject.id).exists?
-        Grade.create(alumn_id: alumn.id, classroom_id: alumn.classroom.id, subject_id: subject.id)
+        GradesController.create(alumn)
       end
     end
   end
