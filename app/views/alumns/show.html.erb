@@ -63,6 +63,58 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="boletim">
                 <!-- <%# TODO:  %> -->
+
+                <div class="col-sm-12 col-md-8 text-capitalize descript">
+                <ul>
+                  <h4>Primeiro Bimestre</h4>
+                <% @alumn.classroom.subjects.each do |subjects| %>
+                  <li class="text-danger"><%= subjects.name_subject%>
+                    <% subjects.grades.each do |grades| %>
+                          <%=   grades.grade_01%></li>
+                      <%end%>
+                      <%end%>
+                  </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-8 text-capitalize descript">
+                <ul>
+                  <h4>Segundo Bimestre</h4>
+                <% @alumn.classroom.subjects.each do |subjects| %>
+                  <li class="text-danger"><%= subjects.name_subject%>
+
+                    <% subjects.grades.each do |grades| %>
+                          <%=   grades.grade_02%></li>
+                      <%end%>
+                        <%end%>
+                  </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-8 text-capitalize descript">
+                <ul>
+                  <h4>Terceiro Bimestre</h4>
+                <% @alumn.classroom.subjects.each do |subjects| %>
+                  <li class="text-danger"><%= subjects.name_subject%>
+
+                    <% subjects.grades.each do |grades| %>
+                          <%=   grades.grade_03%></li>
+                      <%end%>
+                      <%end%>
+                  </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-8 text-capitalize descript">
+                <ul>
+                  <h4>Quarto Bimestre</h4>
+                <% @alumn.classroom.subjects.each do |subjects| %>
+                  <li class="text-danger"><%= subjects.name_subject%>
+
+                    <% subjects.grades.each do |grades| %>
+                          <%=   grades.grade_04%></li>
+                      <%end%>
+                      <%end%>
+                  </ul>
+                </div>
+                </div>
             </div>
         </div>
     </div>
