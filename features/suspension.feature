@@ -12,7 +12,8 @@ Feature: Suspension
 		When I click in "Entrar" button
 		Then I logon
 		Given I am on the users in page
-		When I press "Criar" field And I click in "Responsável e Aluno, I had register one parent and one alumn
+		When I press "Criar" field
+		And I click in "Responsável e Aluno" I had register one parent and one alumn
 		And I fill in field parent "Nome" with "Victor Hugo"
 		And I fill in field parent "CPF" with "02951294174"
 		And I fill in field parent "Senha" with "123456"

@@ -31,7 +31,11 @@ Given (/^I am on the users in page$/) do
 	driver.get('http://localhost:3000/users')
 end
 
-When (/^I press "Criar" field And I click in "Responsável e Aluno, I had register one parent and one alumn$/) do
+When (/^I press "Criar" field$/) do
+	driver.get('http://localhost:3000/parents/new')
+end
+
+And (/^I click in "Responsável e Aluno" I had register one parent and one alumn$/) do
 	driver.get('http://localhost:3000/parents/new')
 end
 
