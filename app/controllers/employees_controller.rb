@@ -6,13 +6,13 @@ class EmployeesController < UsersController
 	include SessionsHelper
 
   def index
-    if ( logged_in? )
+    if ( is_employee? )
       @employees = Employee.all
     end
   end
 
   def show
-    if ( logged_in? )
+    if ( is_employee? )
       @employee = Employee.find(params[:id])
     end
   end

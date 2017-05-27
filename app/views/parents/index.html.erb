@@ -3,8 +3,8 @@
 <hr>
 <section class="content-section" id="alumns-list">
   <div class="container">
+    <% @parents.each do |user| %>
       <div class="row item">
-        <% @parents.each do |user| %>
         <div class="col-sm-12 col-md-4">
           <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
         </div>
@@ -13,7 +13,7 @@
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(user), class:'btn btn-default' %>
         </div>
         <hr>
-        <% end %>
       </div>
-    </div>
+    <% end %>
+  </div>
 </section>
