@@ -5,7 +5,7 @@ Feature: Suspension
 	the principal must be able 
 	to register a suspension.
 
-	Scenario: Only principal can register suspension 
+	Scenario: Only principal can register parent and alumn
 		Given I am logged in as principal
 		Then I logged as principal
 		Given I am on the users in page
@@ -30,6 +30,12 @@ Feature: Suspension
 		And I fill in field alumn "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the alumn and I go to page users
+
+
+
+	Scenario: Only principal can register suspension
+		Given I am logged in as principal
+		Then I logged as principal
 		When I press field "Dar Suspensão" button
 		And I fill in field "Motivo da Suspensão" with "Bater na Professora"
 		And I fill in field "Quantidade de Dias" with "10"
@@ -37,3 +43,5 @@ Feature: Suspension
 		And I fill in field "Data da Suspensão" with "12121912"
 		When I press "Salvar" button
 		Then I had register a suspension
+
+		

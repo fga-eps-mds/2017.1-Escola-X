@@ -9,9 +9,19 @@ driver = Selenium::WebDriver.for :chrome
 Given (/^I am logged in as parent$/) do
 	driver.get('http://localhost:3000/')
 	login = driver.find_element(:name, 'login')
-	login.send_keys "05423623170"
+	login.send_keys "00968977162"
 	senha = driver.find_element(:name, 'password')
-	senha.send_keys "555555"
+	senha.send_keys "12345678"
+	entrar = driver.find_element(:name, 'commit')
+	entrar.click
+end
+
+Given (/^I am logged in as alumn$/) do
+	driver.get('http://localhost:3000/')
+	login = driver.find_element(:name, 'login')
+	login.send_keys "654321"
+	senha = driver.find_element(:name, 'password')
+	senha.send_keys "12345678"
 	entrar = driver.find_element(:name, 'commit')
 	entrar.click
 end
@@ -216,7 +226,7 @@ When (/^I had register a suspension$/) do
 end
 
 When (/^I press field "Dar Suspensão" button$/) do
-	driver.get('http://localhost:3000/alumns/4/suspensions/new')
+	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
 ### Registrys
