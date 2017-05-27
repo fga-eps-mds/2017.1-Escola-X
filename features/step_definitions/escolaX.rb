@@ -254,6 +254,13 @@ And (/^I press "Nova Matéria" button$/) do
 	driver.get('http://localhost:3000/subjects/new')
 end
 
+When (/^I press "Avisos" button$/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
+When (/^I press "Melhor Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/1')
+end
 
 ### Registrys
 
@@ -271,4 +278,8 @@ end
 
 Then (/^I register the subject$/) do
 	driver.get('http://localhost:3000/users')
+end
+
+Then (/^I see notification$/) do
+	driver.get('http://localhost:3000/notifications/1')
 end
