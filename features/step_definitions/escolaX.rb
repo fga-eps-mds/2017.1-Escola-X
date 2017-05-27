@@ -186,6 +186,23 @@ And (/^I fill in field "Data da Suspensão" with "12121912"$/) do
 	suspension_date.send_keys '12121912'
 end
 
+### Data - Subject
+
+And (/^I fill in fiend subject "Nome" with "Geografia"$/) do
+	subject_name = driver.find_element(:name, 'subject[name_subject]')
+	subject_name.send_keys 'Geografia'	
+end
+
+And (/^I fill in fiend subject "Série" with "3"$/) do
+	subject_class = driver.find_element(:name, 'subject[class_level]')
+	subject_class.send_keys '3'	
+end
+
+And (/^I fill in fiend subject "Matrícula do Professor" with "123456"$/) do
+	subject_registry = driver.find_element(:name, 'teacher_registry')
+	subject_registry.send_keys '123456'	
+end
+
 ### Initial pages
 
 Then (/^I logged as parent$/) do
@@ -229,6 +246,15 @@ When (/^I press field "Dar Suspensão" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
+When (/^I press "Matéria" button$/) do
+	driver.get('http://localhost:3000/subjects')
+end
+
+And (/^I press "Nova Matéria" button$/) do
+	driver.get('http://localhost:3000/subjects/new')
+end
+
+
 ### Registrys
 
 Then (/^I register alumn now, I had stay in page alumn new$/) do
@@ -241,5 +267,8 @@ end
 
 Then (/^I register the teacher and I go to page users$/) do
 	driver.get('http://localhost:3000/users')
-	#driver.quit
+end
+
+Then (/^I register the subject$/) do
+	driver.get('http://localhost:3000/users')
 end

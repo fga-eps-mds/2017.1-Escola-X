@@ -44,4 +44,13 @@ Feature: Suspension
 		When I press "Salvar" button
 		Then I had register a suspension
 
-		
+	Scenario: Only principal can register subject
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Matéria" button
+		And I press "Nova Matéria" button
+		And I fill in fiend subject "Nome" with "Geografia"
+		And I fill in fiend subject "Série" with "3"
+		And I fill in fiend subject "Matrícula do Professor" with "123456"
+		When I press "Salvar" button
+		Then I register the subject
