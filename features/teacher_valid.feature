@@ -6,12 +6,8 @@ Feature: Teacher
 	to register a teacher.
 
 	Scenario: Only principal can register teacher valid
-		Given I am on the log in page
-		And I fill in "Login" with "123456"
-		And I fill in "Senha" with "12345678"
-		When I press "Entrar" button
-		Then I login
-		Given I am on the user in page
+		Given I am logged in as principal
+		Then I logged as principal
 		When I press "Criar Professor" field
 		And I fill in "Nome" with "Victor Hugo"
 		And I fill in "Matricula" with "153456"
