@@ -49,6 +49,7 @@
     if ( is_principal? )
       @alumn = Alumn.new(alumn_params)
       @alumn.parent_id = @@parent.id
+      @classrooms = Classroom.all.order('name_classroom')
       if (@alumn.save)
         redirect_to @alumn
       else
@@ -60,6 +61,7 @@
   def update
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
+      @classrooms = Classroom.all.order('name_classroom')
       if @alumn.update alumn_params
         redirect_to @alumn
       else
@@ -95,17 +97,18 @@
   end
 
  private
-   # Strong params to be passed to a alumn
- def alumn_params
-  params.require(:alumn).permit(:registry,
-                                 :shift,
-                                 :name,
-                                 :address,
-                                 :phone,
-                                 :gender,
-                                 :birth_date,
-                                 :password,
-                                 :parent_id,
-                                 :classroom_id)
- end
+  def alumn_params
+    params.require(:alumn).permit(:registry,
+                                  :shift,
+                                  :name,
+                                  :address,
+                                  :phone,
+                                  :gender,
+                                  :image,
+                                  :birth_date,
+                                  :password,
+                                  :parent_id,
+                                  :classroom_id)
+  end
 end
+

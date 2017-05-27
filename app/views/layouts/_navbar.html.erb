@@ -16,7 +16,6 @@
       <ul class="nav navbar-nav pull-right">
         <% if is_principal? or is_secretary? or is_teacher? %>
           <li><%=link_to '<span class="fa fa-book"></span> Matéria'.html_safe, subjects_path %></li>
-          <!-- <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li> -->
         <%end%>
           <%if is_principal? %>
             <li class="dropdown">
@@ -44,8 +43,10 @@
             </ul>
           </li>
         <% end %>
-        <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
-        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        <ul class="nav navbar-nav pull-right">
+          <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
+          <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        </ul>
       </ul>
     </div>
   </div>

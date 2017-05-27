@@ -15,6 +15,10 @@ class Alumn < ApplicationRecord
   before_create :initialize_strikes
   before_save :validates_password
 
+  has_many :suspensions
+  has_attached_file :image, :styles => { :medium => "250x300>", :thumb => "250x90#" }
+
+
   def initialize_strikes
     self.quantity_strike ||= 0
   end

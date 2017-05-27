@@ -1,5 +1,5 @@
 <%= render "layouts/navbar" %>
-<%= form_for (@alumn)  do |f| %>
+<%= form_for @alumn, :html => { :multipart => true }  do |f| %>
   <% if @alumn.errors.any? %>
     <div class="container">
       <div class="text-danger text-justify">
@@ -54,7 +54,6 @@
       <%= f.text_field :shift, class:"form-control", placeholder:"Ex.: matutino" %>
     </div>
   </div>
-
   <div class="form-group">
     <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
     <div class="input-group">
@@ -65,7 +64,6 @@
       <%= f.select :classroom_id, @classrooms.collect {|classroom| [classroom.name_classroom, classroom.id]},{:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
-
   <div class="form-group">
     <%= f.label :address, class:"sr-only" %>
     <div class="input-group">
@@ -107,6 +105,13 @@
       <%= f.radio_button(:gender,"Masculino") %>
       <%= label :gender, "Masculino" %>
     </div>
+      <div class="form-group">
+    <%= f.label :phone, class:"sr-only" %>
+    <div class="field">
+       <p class="text-uppercase"><strong>Imagem</strong></p>
+      <%= f.file_field :image %>
+    </div>
+  </div>
   </div>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-lg btn-warning' %>
