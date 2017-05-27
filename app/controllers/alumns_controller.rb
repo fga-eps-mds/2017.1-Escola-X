@@ -9,26 +9,17 @@
       @alumns = @current_user.alumns
     elsif ( is_employee? )
       @alumns = Alumn.all
-
       if params[:search]
         @alumns = Alumn.search(params[:search]).order("created_at DESC")
-
         if (@alumns.empty?)
            flash.now[:feedback] = "Nenhum(a) aluno(a) encontrado!"
-        end
-
-         if params[:search].blank?
+        elsif (params[:search].blank?)
            @alumns = Alumn.all.order('created_at DESC')
           flash.now[:feedback_warning] = "Digite algo para pesquisar!"
         end
-
-        else
-          @alumns = Alumn.all.order('created_at DESC')
+      else
+        @alumns = Alumn.all.order('created_at DESC')
       end
-
-      elsif ( logged_in? )
-        @alumns = Alumn.all
-
     end
   end
 
@@ -83,23 +74,41 @@
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       @alumn.destroy
-
       redirect_to users_path
     end
   end
 
- private
-   def alumn_params
-     params.require(:alumn).permit(:registry,
-                                   :shift,
-                                   :name,
-                                   :address,
-                                   :phone,
-                                   :gender,
-                                   :image,
-                                   :birth_date,
-                                   :password,
-                                   :parent_id,
-                                   :classroom_id)
-   end
+  def edit_password_alumn
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+      render action: "../users/edit_password"
+    end
   end
+
+  def update_password_alumn
+    if ( is_principal? )
+      @user = Alumn.find(params[:id])
+      if (@user.update!(alumn_params))
+        redirect_to @user
+      else
+        render action: "../users/edit_password"
+      end
+    end
+  end
+
+ private
+  def alumn_params
+    params.require(:alumn).permit(:registry,
+                                  :shift,
+                                  :name,
+                                  :address,
+                                  :phone,
+                                  :gender,
+                                  :image,
+                                  :birth_date,
+                                  :password,
+                                  :parent_id,
+                                  :classroom_id)
+  end
+end
+

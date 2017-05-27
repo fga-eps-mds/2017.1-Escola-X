@@ -1,3 +1,6 @@
+#File name: strike.rb
+#Class name: Strike
+#Description: Validates strike's attributes
 class Strike < ApplicationRecord
   belongs_to :alumn
   belongs_to :employee

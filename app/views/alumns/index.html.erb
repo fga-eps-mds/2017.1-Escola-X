@@ -8,7 +8,7 @@
         <div class="input-group">
            <%= text_field_tag :search, params[:search], placeholder: "Digite nome ou matrícula do aluno", class: "form-control", :size=>"50"%>
            <span class="input-group-btn">
-             <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %> 
+             <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %>
            </span>
         </div>
       </div>
@@ -35,10 +35,10 @@
         <h4> <%= alumn.birth_date %> </h4>
         <h4> <%= alumn.gender %> </h4>
         <h4> <%= alumn.phone %> </h4>
-        <h4><%= alumn.registry %></h4>
+        <h4> <%= alumn.registry %></h4>
         <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
         <%if is_principal? %>
-          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(alumn), class:'btn btn-default' %>
+          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_alumn_path(alumn), class:'btn btn-default' %>
         <% end %>
       </div>
     </div>
