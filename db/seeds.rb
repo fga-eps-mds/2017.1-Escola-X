@@ -18,7 +18,7 @@ Teacher.create(name: 'MC Love', address: 'rua do ovo', phone: '6133213030',
 
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
-            parent_cpf: '00968977162',gender:"Masculino")
+            parent_cpf: '00968977162',gender:'Masculino')
 
 Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
