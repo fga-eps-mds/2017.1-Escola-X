@@ -1,7 +1,7 @@
 
 	Feature: Parent
 
-		To better manage your children,
+		To spy your children,
 		the parent must be able,
 		to accompany them.
 
@@ -16,4 +16,8 @@
 			And I press "Melhor Notificação" button
 			Then I see notification
 
-
+		Scenario: Parent can view your exactly your child
+			Given I am logged in as parent
+			Then I logged as parent
+			When I press "Vizualizar" button
+			Then I see information
