@@ -33,7 +33,7 @@
   end
 
   def show
-    if ( current_user_alumn(params[:id]) )
+    if ( current_user_alumn(params[:id]) or is_employee?)
       @alumn = Alumn.find(params[:id])
       Alumn.current = @alumn
     end
