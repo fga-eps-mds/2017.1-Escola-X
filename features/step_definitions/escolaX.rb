@@ -213,6 +213,10 @@ Then (/^I logged as principal$/) do
 	driver.get('http://localhost:3000/users')
 end
 
+Then (/^I logged as alumn$/) do
+	driver.get('http://localhost:3000/alumn/1')
+end
+
 ### Initial status
 
 Given (/^I am on the users in page$/) do
@@ -264,6 +268,18 @@ end
 
 When (/^I press "Melhor Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
+end
+
+When (/^I press "Advertencias" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes')
+end
+
+When (/^I press "Responsavel" button$/) do
+	driver.get('http://localhost:3000/parents/1')
+end
+
+When (/^I press "Notification name" button$/) do
+	driver.get('http://localhost:3000/notifications/2')
 end
 
 ### Registrys
