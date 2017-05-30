@@ -1,3 +1,5 @@
+require 'set'
+
 class TeachersController < ApplicationController
 
   include SessionsHelper
@@ -57,6 +59,17 @@ class TeachersController < ApplicationController
       @teacher.destroy
 
       redirect_to users_path
+    end
+  end
+
+  def xablau
+    @subjects = Subject.where("teacher_id = ?", params[:id])
+    @classroom_ids = Set.new
+    @subjects.each do |subject|
+      relations = ClassroomSubject.where("subject_id = ?", subject.id)
+      relations.each do |relation|
+        @classroom_ids.add(relation.classroom_id)
+      end
     end
   end
 
