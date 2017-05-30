@@ -2,7 +2,7 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-user-plus"></span> Listar Turmas'.html_safe, classrooms_path, class:'btn btn-sm btn-success' %>
+      <%= link_to '<span class="fa fa-user-plus"></span> Visualizar Minhas Turmas'.html_safe, teacher_classrooms_path(@teacher), class:'btn btn-sm btn-success' %>
       <%if @current_user.is_a? (Principal) %>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_teacher_path(@teacher), class:"btn btn-sm btn-default" %>

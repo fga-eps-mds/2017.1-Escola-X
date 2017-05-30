@@ -62,14 +62,23 @@ class TeachersController < ApplicationController
     end
   end
 
-  def xablau
+  def teacher_classrooms
     @subjects = Subject.where("teacher_id = ?", params[:id])
-    @classroom_ids = Set.new
+    @classrooms = Set.new
     @subjects.each do |subject|
       relations = ClassroomSubject.where("subject_id = ?", subject.id)
       relations.each do |relation|
-        @classroom_ids.add(relation.classroom_id)
+        @classrooms.add(Classroom.find_by_id(relation.classroom_id))
       end
+    end
+  end
+
+  def teacher_classroom_subjects
+    @subjects = Subject.where("teacher_id = ?", params[:id])
+    current_classroom_id = params[:classroom_id]
+    @classroom_subjects = []
+    @subjects.each do |subject|
+      @classroom_subject.append(subject)
     end
   end
 
