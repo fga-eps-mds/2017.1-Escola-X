@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519015110) do
+ActiveRecord::Schema.define(version: 20170510230809) do
 
   create_table "alumns", force: :cascade do |t|
     t.string   "name"
@@ -65,11 +65,9 @@ ActiveRecord::Schema.define(version: 20170519015110) do
     t.float    "grade_final"
     t.integer  "alumn_id"
     t.integer  "subject_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "classroom_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["alumn_id"], name: "index_grades_on_alumn_id"
-    t.index ["classroom_id"], name: "index_grades_on_classroom_id"
     t.index ["subject_id"], name: "index_grades_on_subject_id"
   end
 
@@ -123,8 +121,6 @@ ActiveRecord::Schema.define(version: 20170519015110) do
     t.integer  "teacher_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "classroom_id"
-    t.index ["classroom_id"], name: "index_subjects_on_classroom_id"
     t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 

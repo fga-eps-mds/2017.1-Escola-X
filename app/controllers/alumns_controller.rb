@@ -96,7 +96,14 @@
     end
   end
 
- private
+  def report
+    @alumn = Alumn.find(params[:id])
+    if ( is_principal? or is_related_to_alumn?(@alumn, @current_user) or is_me?(@alumn, @current_user) )
+      redirect_to alumn_report_path(@alumn)
+    end
+  end
+
+  private
   def alumn_params
     params.require(:alumn).permit(:registry,
                                   :shift,
@@ -111,4 +118,3 @@
                                   :classroom_id)
   end
 end
-
