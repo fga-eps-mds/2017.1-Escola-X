@@ -2,7 +2,9 @@ class SchoolMissesController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
+    id = params[:id]
+    
+    if ( is_employee? or verify_alumn(id) or is_son?(id) )
       @misses = @alumn.school_misses.all
     end
   end

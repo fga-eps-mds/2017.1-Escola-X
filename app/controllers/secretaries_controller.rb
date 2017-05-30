@@ -23,7 +23,7 @@ class SecretariesController < ApplicationController
   end
 
   def show
-    if ( logged_in? )
+    if ( is_principal? or is_secretary? )
       @secretary = Secretary.find(params[:id])
     end
   end

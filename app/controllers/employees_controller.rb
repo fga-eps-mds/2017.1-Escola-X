@@ -4,12 +4,12 @@
 
 class EmployeesController < UsersController
 	include SessionsHelper
-
-  def index
-    if ( logged_in? )
-      @employees = Employee.all
-    end
-  end
+	
+	def index
+    	if ( is_employee? )
+      		@employees = Employee.all
+    	end
+  	end
 
 	def edit_password_employee
 		if ( is_principal? )
@@ -29,8 +29,8 @@ class EmployeesController < UsersController
 		end
 	end
 
-private
-  def employee_params
+	private
+  	def employee_params
     params.require(:employee).permit(	:registry,
 																			:admission_date,
 																			:employee_cpf,
@@ -42,5 +42,5 @@ private
 																			:gender,
 																			:birth_date)
 
-  end
+  	end
 end

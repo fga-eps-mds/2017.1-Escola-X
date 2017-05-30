@@ -19,8 +19,9 @@
         <%if @alumn.suspensions.any?%>
           <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
         <%end%>
+        <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-warning' %>
       <%end%>
-      <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-warning' %>
+      
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">

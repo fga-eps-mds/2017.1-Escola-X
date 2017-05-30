@@ -11,8 +11,10 @@ class ParentsController < ApplicationController
   end
 
   def show
-    if ( is_employee? )
-      @parent = Parent.find(params[:id])
+    id = params[:id]
+
+    if ( is_employee? or verify_parent(id) or is_related?(id) )
+      @parent = Parent.find(id)
     end
   end
 
