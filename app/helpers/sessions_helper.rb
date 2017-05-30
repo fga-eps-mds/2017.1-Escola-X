@@ -73,4 +73,30 @@ module SessionsHelper
   def is_employee?
     return ( is_principal? or is_secretary? or is_teacher? )
   end
+
+  def is_son?(id)
+    
+    found = false
+    if is_parent?
+      @current_user.alumns.each do |alumn|
+        if (alumn == Alumn.find_by_id(id))
+          found = true
+        end
+      end
+    end
+    
+    return found
+  end
+
+  def verify_alumn(id)
+    
+    found = false
+    if @current_user == Alumn.find_by_id(id)
+      found = true
+    else
+      # nothing to do
+    end
+    return found
+  end
+
 end
