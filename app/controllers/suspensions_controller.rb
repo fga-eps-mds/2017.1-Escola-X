@@ -5,12 +5,14 @@ class SuspensionsController < ApplicationController
 	include SessionsHelper
 
 	def index
-    if ( logged_in? )
-      @@alumn = Alumn.find(params[:alumn_id])
-      @suspensions = @@alumn.suspensions
+	id = params[:alumn_id]
+
+    if ( is_employee? or verify_alumn(id) or is_son?(id) )
+      	@@alumn = Alumn.find(id)
+	  	@suspensions = @@alumn.suspensions
     end
   end
-
+   
 	def new
 		if ( is_principal? )
 			@@alumn = Alumn.find(params[:alumn_id])

@@ -1,25 +1,27 @@
-<%= render "layouts/navbar" %>
-<section class="content-section" id="alunos-desc">
-  <div class="container">
-    <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
-      <%if @current_user.is_a?(Principal) %>
-        <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_alumn_suspension_path(@suspension), class:"btn btn-sm btn-default" %>
-        <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, @suspension, method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-      <%end%>
-    </div>
-    <div class="row item">
-      <div class="col-sm-12 col-md-8 descript">
-        <h3 class="">Título da Suspensão: <%= @suspension.title %></h3>
-        <h3 class="">Quantidade de Dias da Suspensão: <%= @suspension.quantity_days %></h3>
-        <h3 class="">Descrição da Suspensão: <%= @suspension.description %></h3>
-        <h3 class="">Data da Suspensão: <%= @suspension.date_suspension %></h3>
-        <h3 class="">Nome do aluno: <%= @alumn.name %></h3>
-        <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
+<% if( is_employee? or verify_alumn(@alumn.id) or is_son?(@alumn.id)) %> 
+  <%= render "layouts/navbar" %>
+  <section class="content-section" id="alunos-desc">
+    <div class="container">
+      <div class="pull-right">
+        <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
         <%if @current_user.is_a?(Principal) %>
-          <h3 class="">Matricula do Diretor: <%= @employee.registry %></h3>
+          <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_alumn_suspension_path(@suspension), class:"btn btn-sm btn-default" %>
+          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, @suspension, method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
         <%end%>
       </div>
+      <div class="row item">
+        <div class="col-sm-12 col-md-8 descript">
+          <h3 class="">Título da Suspensão: <%= @suspension.title %></h3>
+          <h3 class="">Quantidade de Dias da Suspensão: <%= @suspension.quantity_days %></h3>
+          <h3 class="">Descrição da Suspensão: <%= @suspension.description %></h3>
+          <h3 class="">Data da Suspensão: <%= @suspension.date_suspension %></h3>
+          <h3 class="">Nome do aluno: <%= @alumn.name %></h3>
+          <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
+          <%if @current_user.is_a?(Principal) %>
+            <h3 class="">Matricula do Diretor: <%= @employee.registry %></h3>
+          <%end%>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>

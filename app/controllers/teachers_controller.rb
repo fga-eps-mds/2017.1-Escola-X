@@ -5,13 +5,13 @@ class TeachersController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
+    if ( is_employee? )
       @teachers = Teacher.all
     end
   end
 
   def show
-    if ( logged_in? )
+    if ( is_employee? )
       @teacher = Teacher.find(params[:id])
     end
   end

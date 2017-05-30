@@ -5,14 +5,16 @@ class StrikesController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
-      @@alumn = Alumn.find(params[:alumn_id])
+    id = params[:alumn_id]
+
+    if ( is_employee? or verify_alumn(id) or is_son?(id) )
+      @@alumn = Alumn.find(id)
       @strikes = @@alumn.strikes
     end
   end
 
   def new
-    if ( is_principal? )
+    if ( is_employee? )
       @@alumn = Alumn.find(params[:alumn_id])
       @strike = Strike.new
     end
@@ -27,7 +29,7 @@ class StrikesController < ApplicationController
   end
 
   def create
-    if ( is_principal? )
+    if ( is_employee? )
       @strike = @@alumn.strikes.create(strike_params)
       @strike.employee_id = @current_user.id
       if (@strike.save)
@@ -45,7 +47,7 @@ class StrikesController < ApplicationController
   end
 
   def destroy
-    if ( is_principal? )
+    if ( is_employee? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
       if @strike.destroy
@@ -58,14 +60,14 @@ class StrikesController < ApplicationController
   end
 
   def edit
-    if ( is_principal? )
+    if ( is_employee? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
     end
   end
 
   def update
-    if ( is_principal? )
+    if ( is_employee? )
       @strike = Strike.find(params[:id])
       if @strike.update(strike_params)
         redirect_to strike_path(@strike)
