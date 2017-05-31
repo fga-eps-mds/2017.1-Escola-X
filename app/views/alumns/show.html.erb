@@ -4,8 +4,11 @@
     <div class="pull-right">
       <% if is_alumn? or is_parent?%>
         <%if @alumn.suspensions.any?%>
-          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
-          <%end%>
+          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-danger" %>
+        <%end%>
+        <%if @alumn.strikes.any?%>
+          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Advertências'.html_safe, alumn_strikes_path(@alumn), class:"btn btn-sm btn-warning" %>
+        <%end%>
       <%end%>
       <% if is_parent?%>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
@@ -21,14 +24,14 @@
         <%end%>
         <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-warning' %>
       <%end%>
-      
+
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
           <% if @alumn.image_file_name == nil %>
             <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
           <% else %>
-            <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>  
+            <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>
           <%end%>
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
