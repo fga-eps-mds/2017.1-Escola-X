@@ -1,5 +1,5 @@
 
-  Feature: Amnumn
+  Feature: Alnumn
 
     To see your academic life,
     the alumn must be able,

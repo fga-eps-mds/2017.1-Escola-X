@@ -1,5 +1,5 @@
 
-Feature: Suspension
+Feature: Principal
 
 	To better manage the college, 
 	the principal must be able 
@@ -30,7 +30,6 @@ Feature: Suspension
 		And I fill in field alumn "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the alumn and I go to page users
-
 
 
 	Scenario: Only principal can register suspension
