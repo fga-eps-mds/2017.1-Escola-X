@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
        as:'teacher_classroom_subjects'
 
+  get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id/teacher_grades/:subject_id', to:'teachers#teacher_grades',
+       as:'teacher_grades'
 
   root 'sessions#new'
 

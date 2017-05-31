@@ -82,6 +82,12 @@ class TeachersController < ApplicationController
     end
   end
 
+  def teacher_grades
+    @classroom = Classroom.find(params[:classroom_id])
+    @subject = Subject.find(params[:subject_id])
+    @grades = Grade.where(classroom_id: @classroom.id).where(subject_id: @subject.id)
+  end
+
 private
   def teacher_params
     params.require(:teacher).permit(:registry,

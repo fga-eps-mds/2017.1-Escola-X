@@ -1,0 +1,54 @@
+<%= render "layouts/navbar" %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de alunos</h1>
+<hr>
+<section class="content-section" id="alunos-desc">
+  <% @grades.each do |grade| %>
+    <div class="container">
+      <h3 class="">Nome do Aluno: <%= grade.alumn.name %></h3>
+      <%= form_for (grade) do |g| %>
+        <div class="form-group">
+          <%= g.label :grade_01, class:"sr-only" %>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="fa fa-tag"></span>
+               1º
+            </span>
+            <%= g.text_field :grade_01, class:"form-control", placeholder:"1º Bimestre", :readonly => true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= g.label :grade_02, class:"sr-only" %>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="fa fa-tag"></span>
+               2º
+            </span>
+            <%= g.text_field :grade_02, class:"form-control", placeholder:"2º Bimestre", :readonly => true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= g.label :grade_03, class:"sr-only" %>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="fa fa-tag"></span>
+               3º
+            </span>
+            <%= g.text_field :grade_03, class:"form-control", placeholder:"3º Bimestre", :readonly => true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= g.label :grade_04, class:"sr-only" %>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="fa fa-tag"></span>
+               4º
+            </span>
+            <%= g.text_field :grade_04, class:"form-control", placeholder:"4º Bimestre", :readonly => true %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+  <% end %>
+  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, teacher_classroom_subjects_path(params[:teacher_id], params[:classroom_id]), class:'btn btn-info' %>
+</section>
