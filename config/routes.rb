@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   put 'classroom/:id/subject/:subject_id/grades', to:'grades#post_grades', as:'post_grades'
 
   get 'teachers/:id/teacher_classrooms', to:'teachers#teacher_classrooms', as:'teacher_classrooms'
-  get 'teachers/:teacher_id/teacher_classroom_subjects', to:'teachers#teacher_classroom_subjects',
+  get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
        as:'teacher_classroom_subjects'
 
 

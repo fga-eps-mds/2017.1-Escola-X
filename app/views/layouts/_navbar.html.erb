@@ -9,7 +9,7 @@
       <% elsif is_parent? %>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), alumns_path %>
       <% elsif is_teacher? %>
-        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), teacher_path %>
+        <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), teacher_path(@current_user) %>
       <% else %>
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
       <% end %>

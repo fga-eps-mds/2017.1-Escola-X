@@ -74,11 +74,11 @@ class TeachersController < ApplicationController
   end
 
   def teacher_classroom_subjects
-    @subjects = Subject.where("teacher_id = ?", params[:id])
+    @subjects = Subject.where("teacher_id = ?", params[:teacher_id])
     current_classroom_id = params[:classroom_id]
     @classroom_subjects = []
     @subjects.each do |subject|
-      @classroom_subject.append(subject)
+      @classroom_subjects << subject
     end
   end
 
