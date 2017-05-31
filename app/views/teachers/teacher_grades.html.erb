@@ -15,18 +15,20 @@
         </tr>
         <% @grades.each do |grade| %>
         <tr>
-          <td><%= grade.alumn.name %></td>
-          <td><%= grade.grade_01 %></td>
-          <td><%= grade.grade_02 %></td>
-          <td><%= grade.grade_03 %></td>
-          <td><%= grade.grade_04 %></td>
-          <td><%= grade.grade_final %></td>
+          <td align = "center"><%= grade.alumn.name %></td>
+          <td align = "center"><%= grade.grade_01 %></td>
+          <td align = "center"><%= grade.grade_02 %></td>
+          <td align = "center"><%= grade.grade_03 %></td>
+          <td align = "center"><%= grade.grade_04 %></td>
+          <td align = "center"><%= grade.grade_final %></td>
         </tr>
         <% end %>  
       </thead>
     </table>
   </div>
 <hr>
-  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, teacher_classroom_subjects_path(params[:teacher_id], params[:classroom_id]), class:'btn btn-info' %>
+  <div align="center">
+    <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, teacher_classroom_subjects_path(params[:teacher_id], params[:classroom_id]), class:'btn btn-info' %>
+  </div>
 </section>
 
