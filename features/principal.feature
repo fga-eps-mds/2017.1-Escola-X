@@ -57,7 +57,7 @@ Feature: Principal
 	Scenario: Only principal can register teacher valid
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press "Criar Professor" field
+		When I press "Criar Professor" button
 		And I fill in "Nome" with "Victor Hugo"
 		And I fill in "Matricula" with "153456"
 		And I fill in "CPF" with "02951294174"
@@ -69,3 +69,20 @@ Feature: Principal
 		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the teacher and I go to page users
+
+	Scenario: Only principal can register secretary valid
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Criar Secretário" button
+		And I fill in "Nome" with "Juca Balla"
+		And I fill in "CPF" with "46804811372"
+		And I fill in "Matricula" with "147258"
+		And I fill in "Senha" with "555555555"
+		And I fill in "Data de Admissão" with "09071995"
+		And I fill in "Turno" with "Integral"
+		And I fill in "Endereço" with "Super República do Gama - Gama Sul"
+		And I fill in "Telefone" with "61983104999"
+		And I fill in "Data de Nascimento" with "01011800"
+		And I fill in secretary "Sexo" with "Masculino"
+		When I press "Salvar" button
+		Then I register the secretary and I go to page secretaries

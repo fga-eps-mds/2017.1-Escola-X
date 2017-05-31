@@ -82,53 +82,53 @@ end
 ### Data - Secretary
 
 And (/^I fill in "Nome" with "Juca Balla"$/) do
-	nameUser = driver.find_element(:name, 'teacher[name]')
+	nameUser = driver.find_element(:name, 'secretary[name]')
 	nameUser.send_keys "Juca Balla"
 end
 
-And (/^I fill in "CPF" with "02951294174"$/) do
-	cpfUser = driver.find_element(:name, 'teacher[employee_cpf]')
-	cpfUser.send_keys "02951294174"
+And (/^I fill in "CPF" with "46804811372"$/) do
+	cpfUser = driver.find_element(:name, 'secretary[employee_cpf]')
+	cpfUser.send_keys "46804811372"
 end
 
 And (/^I fill in "Matricula" with "147258"$/) do
-	matriculaUser = driver.find_element(:name, 'teacher[registry]')
+	matriculaUser = driver.find_element(:name, 'secretary[registry]')
 	matriculaUser.send_keys "147258"
 end
 
 And (/^I fill in "Senha" with "555555555"$/) do
-	senhaUser = driver.find_element(:name, 'teacher[password]')
+	senhaUser = driver.find_element(:name, 'secretary[password]')
 	senhaUser.send_keys "555555555"
 end
 
 And (/^I fill in "Data de Admissão" with "09071995"$/) do
-	birthDate = driver.find_element(:name, 'teacher[birth_date]')
+	birthDate = driver.find_element(:name, 'secretary[admission_date]')
 	birthDate.send_keys "09071995"
 end
 
 And (/^I fill in "Turno" with "Integral"$/) do
-	turnUser = driver.find_element(:name, 'teacher[shift]')
+	turnUser = driver.find_element(:name, 'secretary[shift]')
 	turnUser.send_keys "Integral"
 end
 
-And (/^I fill in "Endereço" with "QR 602 Conjunto 06 Casa 05"$/) do
-	addressUser = driver.find_element(:name, 'teacher[address]')
-	addressUser.send_keys "QR 602 Conjunto 06 Casa 05"
+And (/^I fill in "Endereço" with "Super República do Gama - Gama Sul"$/) do
+	addressUser = driver.find_element(:name, 'secretary[address]')
+	addressUser.send_keys "Super República do Gama - Gama Sul"
 end
 
-And (/^I fill in "Telefone" with "61983104981"$/) do
-	phoneUser = driver.find_element(:name, 'teacher[phone]')
-	phoneUser.send_keys "61983104981"
+And (/^I fill in "Telefone" with "61983104999"$/) do
+	phoneUser = driver.find_element(:name, 'secretary[phone]')
+	phoneUser.send_keys "61983104999"
 end
 
 And (/^I fill in "Data de Nascimento" with "01011800"$/) do
-	birthDate = driver.find_element(:name, 'teacher[birth_date]')
+	birthDate = driver.find_element(:name, 'secretary[birth_date]')
 	birthDate.send_keys "01011800"
 end
 
-And (/^I fill in "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'teacher_gender_masculino').selected?
-	driver.find_element(:id, 'teacher_gender_masculino').click
+And (/^I fill in secretary "Sexo" with "Masculino"$/) do
+	driver.find_element(:id, 'secretary_gender_masculino').selected?
+	driver.find_element(:id, 'secretary_gender_masculino').click
 end
 
 ### Data - Teacher
@@ -276,7 +276,7 @@ end
 
 ### Buttons pressed
 
-When (/^I press "Criar Professor" field$/) do
+When (/^I press "Criar Professor" button$/) do
 	driver.get('http://localhost:3000/teachers/new')
 end
 
@@ -301,7 +301,7 @@ When (/^I press field "Dar Suspensão" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
-When (/^I press "Vizualizar" button$/) do
+When (/^I press "Visualizar" button$/) do
 	driver.get('http://localhost:3000/alumns/1')
 end
 
@@ -333,6 +333,10 @@ When (/^I press "Notification name" button$/) do
 	driver.get('http://localhost:3000/notifications/2')
 end
 
+When (/^I press "Criar Secretário" button$/) do
+	driver.get('http://localhost:3000/secretaries/new')
+end
+
 ### Registrys
 
 Then (/^I register alumn now, I had stay in page alumn new$/) do
@@ -345,6 +349,10 @@ end
 
 Then (/^I register the teacher and I go to page users$/) do
 	driver.get('http://localhost:3000/users')
+end
+
+Then (/^I register the secretary and I go to page secretaries$/) do
+	driver.get('http://localhost:3000/secretaries/')
 end
 
 Then (/^I register the subject$/) do
