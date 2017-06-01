@@ -379,9 +379,6 @@ And (/^I press "Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
-When (/^I press "Advertencias" button$/) do
-	driver.get('http://localhost:3000/alumns/1/strikes')
-end
 
 When (/^I press "Responsável" button$/) do
 	driver.get('http://localhost:3000/parents/1')
@@ -495,7 +492,8 @@ And (/^I press Notificacoes button$/) do
 end
 
 When (/^I press Sair button$/) do
-	driver.get('http://localhost:3000/')
+	logoff = driver.find_element(:name, 'loggoffbtn')
+	logoff.click
 end
 
 Then (/^I logged out$/) do
@@ -508,4 +506,9 @@ end
 
 When (/^I press "Voltar" button$/) do
 	driver.get('http://localhost:3000/users')
+end
+
+When (/^I press "Advertencias" button$/) do
+	advertencia = driver.find_element(:name, 'strikebtn')
+	advertencia.click
 end

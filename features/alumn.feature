@@ -41,7 +41,7 @@
       And I press Boletim button
       And I press Notificacoes button
 
-    Scenario: Aumn can log off
+    Scenario: Alumn can log off
       Given I am logged in as alumn
       Then I logged as alumn
       When i press Sair button
