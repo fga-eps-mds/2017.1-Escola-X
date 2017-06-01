@@ -19,5 +19,5 @@
 		Scenario: Parent can view your exactly your child
 			Given I am logged in as parent
 			Then I logged as parent
-			When I press "Vizualizar" button
+			When I press "Visualizar" button
 			Then I see information

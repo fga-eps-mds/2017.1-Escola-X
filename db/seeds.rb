@@ -8,7 +8,15 @@
 
 Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
 
-Principal.create!(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
+Notification.create(title: "Super Festa Julina em Junho", 
+                    notification_text: "Na festa vai ter quadrilha, pipoca, quentão e muito cural.",
+                    notification_emitter_id: '1',
+                    notification_date: '10-10-1990',
+                    notification_hour: "10:10",
+                    motive: "Não precisa de motivo pra beber quentão.")
+
+
+Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
                 registry: '123456', employee_cpf: '73117438262',shift:"Diurno")
 

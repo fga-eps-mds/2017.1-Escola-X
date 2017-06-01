@@ -265,7 +265,7 @@ Then (/^I logged as principal$/) do
 end
 
 Then (/^I logged as alumn$/) do
-	driver.get('http://localhost:3000/alumn/1')
+	driver.get('http://localhost:3000/alumns/1')
 end
 
 ### Initial status
@@ -321,16 +321,16 @@ When (/^I press "Melhor Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
+And (/^I press "Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/2')
+end
+
 When (/^I press "Advertencias" button$/) do
 	driver.get('http://localhost:3000/alumns/1/strikes')
 end
 
-When (/^I press "Responsavel" button$/) do
+When (/^I press "Responsável" button$/) do
 	driver.get('http://localhost:3000/parents/1')
-end
-
-When (/^I press "Notification name" button$/) do
-	driver.get('http://localhost:3000/notifications/2')
 end
 
 When (/^I press "Criar Secretário" button$/) do
@@ -365,4 +365,16 @@ end
 
 Then (/^I see information$/) do
 	driver.get('http://localhost:3000/alumns/1')
+end
+
+Then (/^I see strikes$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes')
+end
+
+Then (/^I see parent information$/) do
+	driver.get('http://localhost:3000/parents/1')
+end
+
+Then (/^I see nofications information$/) do
+	driver.get('http://localhost:3000/notifications/2')
 end

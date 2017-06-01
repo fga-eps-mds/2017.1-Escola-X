@@ -1,5 +1,5 @@
 
-  Feature: Alnumn
+  Feature: Alumn
 
     To see your academic life,
     the alumn must be able,
@@ -18,13 +18,12 @@
     Scenario: Alumn can see your parent information
       Given I am logged in as alumn
       Then I logged as alumn
-      When I press "Responsavel: Nome do Parent" button
+      When I press "Responsável" button
       Then I see parent information
 
     Scenario: Alumn can see notification
       Given I am logged in as alumn
       Then I logged as alumn
-      When i press "Avisos" button
-      Then I see notifications
-      When i press "Notification name" button
-      Then i see nofications information
+      When I press "Avisos" button
+      And I press "Notificação" button
+      Then I see nofications information
