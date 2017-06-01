@@ -31,7 +31,7 @@
             <% if alumn.image_file_name == nil %>
               <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
             <% else %>
-              <%= image_tag(alumn.image.url(:medium), alt: "", class: "img-responsive") %>  
+              <%= image_tag(alumn.image.url(:original), alt: "", class: "img-responsive") %>  
             <%end%>
           </div>
           <div class="col-sm-12 col-md-8 text-capitalize descript">
