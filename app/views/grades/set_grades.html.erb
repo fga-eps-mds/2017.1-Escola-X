@@ -1,3 +1,4 @@
+
 <%= render "layouts/navbar" %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de alunos</h1>
 <hr>
@@ -7,13 +8,13 @@
       <h3 class="">Nome do Aluno: <%= grade.alumn.name %></h3>
       <%= form_for (grade), url: post_grades_path, method: :put, html: {class: 'form-inline'} do |g| %>
         <div class="form-group">
-          <%= g.label :grade_01, class:"sr-only" %>
+          <%= g.label :grade_01, class:"sr-only"%>
           <div class="input-group">
             <span class="input-group-addon">
               <span class="fa fa-tag"></span>
                1º
             </span>
-            <%= g.text_field :grade_01, class:"form-control", placeholder:"1º Bimestre" %>
+            <%= g.text_field :grade_01, class:"form-control", placeholder:"1º Bimestre", id:"grade_01" , onchange: "sum()"%>
           </div>
         </div>
         <div class="form-group">
@@ -23,7 +24,7 @@
               <span class="fa fa-tag"></span>
                2º
             </span>
-            <%= g.text_field :grade_02, class:"form-control", placeholder:"2º Bimestre" %>
+            <%= g.text_field :grade_02, class:"form-control", placeholder:"2º Bimestre", id:"grade_02" , onchange: "sum()"%>
           </div>
         </div>
         <div class="form-group">
@@ -33,7 +34,7 @@
               <span class="fa fa-tag"></span>
                3º
             </span>
-            <%= g.text_field :grade_03, class:"form-control", placeholder:"3º Bimestre" %>
+            <%= g.text_field :grade_03, class:"form-control", placeholder:"3º Bimestre", id:"grade_03", onchange: "sum()" %>
           </div>
         </div>
         <div class="form-group">
@@ -43,7 +44,17 @@
               <span class="fa fa-tag"></span>
                4º
             </span>
-            <%= g.text_field :grade_04, class:"form-control", placeholder:"4º Bimestre" %>
+            <%= g.text_field :grade_04, class:"form-control", placeholder:"4º Bimestre", id:"grade_04", onchange: "sum()" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= g.label :grade_final, class:"sr-only" %>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="fa fa-tag"></span>
+               Nota Final
+            </span>
+            <%= g.text_field :grade_final, class:"form-control", placeholder:"Nota final", id:"grade_final" %>
           </div>
         </div>
         <%= hidden_field_tag(:alumn_id, grade.alumn.id)%>
