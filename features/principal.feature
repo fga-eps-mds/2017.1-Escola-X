@@ -1,8 +1,8 @@
 
 Feature: Principal
 
-	To better manage the college, 
-	the principal must be able 
+	To better manage the college,
+	the principal must be able
 	to register a suspension.
 
 	Scenario: Only principal can register parent and alumn
@@ -132,7 +132,7 @@ Feature: Principal
 		When I press "Visualizar Turmas" button
 		Then I see all classrooms
 
-	Scenario: Princiapl can see all alumns
+	Scenario: Principal can see all alumns
 		Given I am logged in as principal
 		Then I logged as principal
 		When I press "Visualizar Alunos" button
