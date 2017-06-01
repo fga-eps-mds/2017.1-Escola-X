@@ -86,3 +86,14 @@ Feature: Principal
 		And I fill in secretary "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the secretary and I go to page secretaries
+
+	Scenario: Principal can create notification
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Avisos" button
+		And I press "Nova Notificação" button
+		And I fill in "Título" with "Super Gincana Beneficiente"
+		And I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy"
+		And I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e aventuras"
+		When I press "Salvar" button
+		Then I see notification created

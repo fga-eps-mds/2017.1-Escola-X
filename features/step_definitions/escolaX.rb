@@ -254,6 +254,24 @@ And (/^I fill in fiend subject "Matrícula do Professor" with "123456"$/) do
 	subject_registry.send_keys '123456'
 end
 
+### Data - Notification
+
+And (/^I fill in "Título" with "Super Gincana Beneficiente"$/) do
+	subject_name = driver.find_element(:name, 'notification[title]')
+	subject_name.send_keys "Super Gincana Beneficiente"
+end
+
+
+And (/^I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy"$/) do
+	subject_name = driver.find_element(:name, 'notification[motive]')
+	subject_name.send_keys "Arrecadar fundos pra formatura do pessoal de Softy"
+end
+
+And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e aventuras"$/) do
+	subject_name = driver.find_element(:name, 'notification[notification_text]')
+	subject_name.send_keys "Muitos jogos, gincanas e aventuras"
+end
+
 ### Initial pages
 
 Then (/^I logged as parent$/) do
@@ -322,7 +340,7 @@ When (/^I press "Melhor Notificação" button$/) do
 end
 
 And (/^I press "Notificação" button$/) do
-	driver.get('http://localhost:3000/notifications/2')
+	driver.get('http://localhost:3000/notifications/1')
 end
 
 When (/^I press "Advertencias" button$/) do
@@ -335,6 +353,10 @@ end
 
 When (/^I press "Criar Secretário" button$/) do
 	driver.get('http://localhost:3000/secretaries/new')
+end
+
+And (/^I press "Nova Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/new')
 end
 
 ### Registrys
@@ -376,5 +398,9 @@ Then (/^I see parent information$/) do
 end
 
 Then (/^I see nofications information$/) do
+	driver.get('http://localhost:3000/notifications/1')
+end
+
+Then (/^I see notification created$/) do
 	driver.get('http://localhost:3000/notifications/2')
 end
