@@ -480,3 +480,32 @@ end
 Then (/^I see notification edited$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
+
+##Alumn options
+
+
+And (/^I press Faltas button$/) do
+	driver.get('http://localhost:3000/alumns/1#faltas')
+end
+And (/^I press Boletim button$/) do
+	driver.get('http://localhost:3000/alumns/1#boletim')
+end
+And (/^I press Notificacoes button$/) do
+	driver.get('http://localhost:3000/alumns/1#notificoes')
+end
+
+When (/^I press Sair button$/) do
+	driver.get('http://localhost:3000/')
+end
+
+Then (/^I logged out$/) do
+	driver.get('http://localhost:3000/')
+end
+
+Then (/^I back to users?/) do
+	driver.get('http://localhost:3000/users')
+end
+
+When (/^I press "Voltar" button$/) do
+	driver.get('http://localhost:3000/users')
+end
