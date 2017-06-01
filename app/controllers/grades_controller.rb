@@ -12,9 +12,11 @@ class GradesController < ApplicationController
   end
 
   def set_grades
-    @classroom = Classroom.find(params[:id])
-    @subject = Subject.find(params[:subject_id])
-    @grades = Grade.where(classroom_id:@classroom.id).where(subject_id:@subject.id)
+    if (is_secretary? or is_principal?)
+      @classroom = Classroom.find(params[:id])
+      @subject = Subject.find(params[:subject_id])
+      @grades = Grade.where(classroom_id:@classroom.id).where(subject_id:@subject.id)
+    end
   end
 
   def self.update_alumn (alumn)
@@ -30,22 +32,18 @@ class GradesController < ApplicationController
   end
 
   def post_grades
-    @classroom = Classroom.find(params[:id])
-    @subject = Subject.find(params[:subject_id])
-    @alumn = Alumn.find(params[:alumn_id])
-    @grade = Grade.find_by_classroom_id_and_subject_id_and_alumn_id(@classroom.id, @subject.id, @alumn.id)
-    if @grade.update(grade_params)
+    if is_secretary?
+      @classroom = Classroom.find(params[:id])
+      @subject = Subject.find(params[:subject_id])
+      @alumn = Alumn.find(params[:alumn_id])
+      @grade = Grade.find_by_classroom_id_and_subject_id_and_alumn_id(@classroom.id, @subject.id, @alumn.id)
       final_grade(@grade,grade_params)
-      redirect_to set_grades_path(@classroom, @subject)
-    else
-      render "grades/index"
-    end
-  end
-
-  def final_grade (grade,grade_params)
-    if (grade_params[:grade_final].blank?)
-      grade.grade_final = (grade.grade_01 + grade.grade_02 + grade.grade_03 + grade.grade_04)/4
-      grade.save
+      if @grade.update(grade_params)
+        GradeHistoriesController.create(@grade,@current_user)
+        redirect_to set_grades_path(@classroom, @subject)
+      else
+        render "grades/index"
+      end
     end
   end
 

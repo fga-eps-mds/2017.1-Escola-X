@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'classroom/:id/subject/:subject_id/grades', to:'grades#set_grades', as:'set_grades'
   put 'classroom/:id/subject/:subject_id/grades', to:'grades#post_grades', as:'post_grades'
 
+  get 'classroom/:id/subject/:subject_id/grade/:grade_id/history', to:'grade_histories#show_history', as:'show_history'
+  
   root 'sessions#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
