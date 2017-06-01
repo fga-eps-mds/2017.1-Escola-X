@@ -367,6 +367,18 @@ When (/^I press "Criar Secretário" button$/) do
 	driver.get('http://localhost:3000/secretaries/new')
 end
 
+When (/^I press "Visualizar Secretários" button$/) do
+	driver.get('http://localhost:3000/secretaries')
+end
+
+When (/^I press "Visualizar Turmas" button$/) do
+	driver.get('http://localhost:3000/classrooms')
+end
+
+When (/^I press "Visualizar Alunos" button$/) do
+	driver.get('http://localhost:3000/alumns')
+end
+
 And (/^I press "Nova Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/new')
 end
@@ -423,4 +435,16 @@ end
 
 Then (/^I see classroom created$/) do
 	driver.get('http://localhost:3000/classrooms/2')
+end
+
+Then (/^I see all secretaries$/) do
+	driver.get('http://localhost:3000/secretaries')
+end
+
+Then (/^I see all classrooms$/) do
+	driver.get('http://localhost:3000/classrooms')
+end
+
+Then (/^I see all alumns$/) do
+	driver.get('http://localhost:3000/alumns')
 end
