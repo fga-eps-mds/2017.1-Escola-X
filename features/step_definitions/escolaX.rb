@@ -448,3 +448,7 @@ end
 Then (/^I see all alumns$/) do
 	driver.get('http://localhost:3000/alumns')
 end
+
+Then (/^I see all notifications$/) do
+	driver.get('http://localhost:3000/notifications')
+end
