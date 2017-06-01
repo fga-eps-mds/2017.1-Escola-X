@@ -111,6 +111,18 @@ Feature: Principal
 		And I press "Melhor Notificação" button
 		Then I see nofications information
 
+	Scenario: Principal can edit any notification
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Avisos" button
+		And I press "Melhor Notificação" button
+		When I press "Edit Notification" button
+		And I fill in "Título" with "Super Gincana Beneficiente - Parte 2"
+		And I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy e de Aero"
+		And I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas, aventuras e divertimentos."
+		When I press "Salvar" button
+		Then I see notification edited
+
 	Scenario: Only principal can create classroom
 		Given I am logged in as principal
 		Then I logged as principal

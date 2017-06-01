@@ -271,6 +271,26 @@ And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e ave
 	subject_name.send_keys "Muitos jogos, gincanas e aventuras"
 end
 
+### Data - Notification - Edit
+
+And (/^I fill in "Título" with "Super Gincana Beneficiente - Parte 2"$/) do
+	subject_name = driver.find_element(:name, 'notification[title]')
+	subject_name.clear()
+	subject_name.send_keys "Super Gincana Beneficiente - Parte 2"
+end
+
+And (/^I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy e de Aero"$/) do
+	subject_name = driver.find_element(:name, 'notification[motive]')
+	subject_name.clear()
+	subject_name.send_keys "Arrecadar fundos pra formatura do pessoal de Softy e de Aero"
+end
+
+And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas, aventuras e divertimentos."$/) do
+	subject_name = driver.find_element(:name, 'notification[notification_text]')
+	subject_name.clear()
+	subject_name.send_keys "Muitos jogos, gincanas, aventuras e divertimentos."
+end
+
 ### Data - Classroom
 
 And (/^I fill in "Nome da Turma" with "3D"$/) do
@@ -321,6 +341,10 @@ end
 When (/^I press "Salvar" button$/) do
 	entrar = driver.find_element(:name, 'button')
 	entrar.click
+end
+
+When (/^I press "Edit Notification" button$/) do
+	driver.get('http://localhost:3000/notifications/1/edit')
 end
 
 When (/^I had register a suspension$/) do
@@ -451,4 +475,8 @@ end
 
 Then (/^I see all notifications$/) do
 	driver.get('http://localhost:3000/notifications')
+end
+
+Then (/^I see notification edited$/) do
+	driver.get('http://localhost:3000/notifications/1')
 end
