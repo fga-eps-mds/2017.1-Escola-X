@@ -45,6 +45,6 @@ Rails.application.routes.draw do
   end
 
   # get '/alumns/:id/:year/report', to: 'alumns#report', as: 'alumn_report'
-  get '/alumns/:id//report', to: 'alumns#report', as: 'alumn_report'
+  get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
 end

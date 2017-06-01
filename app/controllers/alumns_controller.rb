@@ -97,9 +97,8 @@
   end
 
   def report
-    @alumn = Alumn.find(params[:id])
     if ( is_principal? or is_related_to_alumn?(@alumn, @current_user) or is_me?(@alumn, @current_user) )
-      redirect_to alumn_report_path(@alumn)
+      @alumn = Alumn.find(params[:id])
     end
   end
 
