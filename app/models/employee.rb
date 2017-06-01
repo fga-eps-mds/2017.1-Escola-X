@@ -5,6 +5,7 @@ class Employee < ApplicationRecord
   before_save :validates_password
   has_many :strike
   has_many :suspension
+  has_many :grade_histories
 
   self.inheritance_column = :permission
   has_secure_password
