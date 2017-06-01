@@ -97,3 +97,12 @@ Feature: Principal
 		And I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e aventuras"
 		When I press "Salvar" button
 		Then I see notification created
+
+	Scenario: Only principal can create classroom
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Criar Turma" button
+		And I fill in "Nome da Turma" with "3D"
+		And I fill in "Turno da Turma" with "Vespertino"
+		When I press "Salvar" button
+		Then I see classroom created

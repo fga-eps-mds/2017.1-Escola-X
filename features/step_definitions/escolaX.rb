@@ -261,7 +261,6 @@ And (/^I fill in "Título" with "Super Gincana Beneficiente"$/) do
 	subject_name.send_keys "Super Gincana Beneficiente"
 end
 
-
 And (/^I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy"$/) do
 	subject_name = driver.find_element(:name, 'notification[motive]')
 	subject_name.send_keys "Arrecadar fundos pra formatura do pessoal de Softy"
@@ -271,6 +270,19 @@ And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e ave
 	subject_name = driver.find_element(:name, 'notification[notification_text]')
 	subject_name.send_keys "Muitos jogos, gincanas e aventuras"
 end
+
+### Data - Classroom
+
+And (/^I fill in "Nome da Turma" with "3D"$/) do
+	subject_name = driver.find_element(:name, 'classroom[name_classroom]')
+	subject_name.send_keys "3D"
+end
+
+And (/^I fill in "Turno da Turma" with "Vespertino"$/) do
+	subject_name = driver.find_element(:name, 'classroom[shift_classroom]')
+	subject_name.send_keys "Vespertino"
+end
+
 
 ### Initial pages
 
@@ -359,6 +371,10 @@ And (/^I press "Nova Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/new')
 end
 
+And (/^I press "Criar Turma" button$/) do
+	driver.get('http://localhost:3000/classrooms/new')
+end
+
 ### Registrys
 
 Then (/^I register alumn now, I had stay in page alumn new$/) do
@@ -403,4 +419,8 @@ end
 
 Then (/^I see notification created$/) do
 	driver.get('http://localhost:3000/notifications/2')
+end
+
+Then (/^I see classroom created$/) do
+	driver.get('http://localhost:3000/classrooms/2')
 end
