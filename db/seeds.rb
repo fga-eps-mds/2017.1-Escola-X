@@ -27,7 +27,6 @@ Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
 
 Subject.create(name_subject:"Filosofia", class_level:"2",teacher_id:Teacher.last.id)
 
-
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
             parent_cpf: '00968977162',gender:"Masculino")
