@@ -98,6 +98,19 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I see notification created
 
+	Scenario: Principal can see all notifications
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Avisos" button
+		Then I see all notifications
+
+	Scenario: Principal can see specific notification
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Avisos" button
+		And I press "Melhor Notificação" button
+		Then I see nofications information
+
 	Scenario: Only principal can create classroom
 		Given I am logged in as principal
 		Then I logged as principal
