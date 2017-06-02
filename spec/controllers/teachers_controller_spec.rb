@@ -5,7 +5,6 @@ RSpec.configure do |c|
   c.include Helpers
 end
 
-
 RSpec.describe TeachersController, type: :controller do
 	let(:valid_inputs) { { name:"Victor Hugo",phone:"61983104981",
                          address:"QR 602 Conjunto 06 Casa 05",
@@ -35,6 +34,15 @@ RSpec.describe TeachersController, type: :controller do
                            	 gender:"M",birth_date:"09/07/1995",
                              password:"12345678",admission_date:"14/04/2012")
   end
+
+  def subject
+    Subject.create(name_subject:"Filosofia", class_level:"2", teacher_id: Teacher.last.id)
+  end
+
+  def classroom
+    Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
+  end
+
   describe "GET new" do
     before(:each) do
       login_principal
@@ -131,6 +139,29 @@ RSpec.describe TeachersController, type: :controller do
       expect{
         delete :destroy, id: teacher
       }.to change(Teacher, :count).by(-1)
+    end
+  end
+
+  describe "teacher miscellaneous" do
+    before(:each) do
+      login_principal
+    end
+
+
+    it "gets teacher's specific grades" do
+      get :teacher_grades, {teacher_id: teacher.id, classroom_id: classroom.id, subject_id: subject.id}
+    end
+
+  # get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
+  #      as:'teacher_classroom_subjects'
+    it "gets teacher's classroom subjects" do
+      get :teacher_classroom_subjects, {teacher_id: teacher.id, classroom_id: classroom.id}
+    end
+
+    it "gets teacher's classrooms" do
+      t = teacher
+      s = Subject.create(name_subject:"Filosofia", class_level:"2", teacher_id: t.id)
+      get :teacher_classrooms, {id: t.id}
     end
   end
 end
