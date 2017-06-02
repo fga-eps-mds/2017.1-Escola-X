@@ -53,7 +53,6 @@ def update
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
     if @classroom.update(classroom_params)
-      flash[:notice] = "Turma alterada com sucesso"
       redirect_to classroom_path(@classroom)
     else
       render "classrooms/edit"
