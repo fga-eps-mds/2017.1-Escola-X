@@ -28,6 +28,23 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I register the alumn and I go to page users
 
+	Scenario: Principal can edit parents
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Responsável" button
+		And I press "Editar Responsável" button
+		And I fill in field parent "Endereço" with "Super Rua Nova do DF"
+		When I press "Salvar" button
+		Then I see parent information
+
+	Scenario: Principal can edit alumns
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Editar Aluno" button
+		And I fill in field parent "Endereço" with "Magnífica Mansão no Pedregal"
+		When I press "Salvar" button
+		Then I see information
 
 	Scenario: Only principal can register suspension
 		Given I am logged in as principal

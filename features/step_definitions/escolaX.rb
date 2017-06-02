@@ -79,6 +79,14 @@ And (/^I fill in field alumn "Sexo" with "Masculino"$/) do
 	driver.find_element(:id, 'alumn_gender_masculino').click
 end
 
+### Data - Alumn - Edit
+
+And (/^I fill in field parent "Endereço" with "Magnífica Mansão no Pedregal"$/) do
+	alumn_address = driver.find_element(:name, 'alumn[address]')
+	alumn_address.clear()
+	alumn_address.send_keys "Magnífica Mansão no Pedregal"
+end
+
 ### Data - Secretary
 
 And (/^I fill in "Nome" with "Juca Balla"$/) do
@@ -215,6 +223,14 @@ And (/^I fill in field parent "Sexo" with "Feminino"$/) do
 	driver.find_element(:id, 'parent_gender_feminino').click
 end
 
+### Data - Parent - Edit
+
+And (/^I fill in field parent "Endereço" with "Super Rua Nova do DF"$/) do
+	parent_address = driver.find_element(:name, 'parent[address]')
+	parent_address.clear()
+	parent_address.send_keys "Super Rua Nova do DF"
+end
+
 ### Data - Suspensions
 
 And (/^I fill in field "Motivo da Suspensão" with "Bater na Professora"$/) do
@@ -236,6 +252,7 @@ And (/^I fill in field "Data da Suspensão" with "12121912"$/) do
 	suspension_date = driver.find_element(:name, 'suspension[date_suspension]')
 	suspension_date.send_keys '12121912'
 end
+
 
 ### Data - Subject
 
@@ -338,6 +355,14 @@ And (/^I click in "Responsável e Aluno" I had register one parent and one alumn
 	driver.get('http://localhost:3000/parents/new')
 end
 
+And (/^I press "Editar Responsável" button$/) do
+	driver.get('http://localhost:3000/parents/1/edit')
+end
+
+And (/^I press "Editar Aluno" button$/) do
+	driver.get('http://localhost:3000/alumns/1/edit')
+end
+
 When (/^I press "Salvar" button$/) do
 	entrar = driver.find_element(:name, 'button')
 	entrar.click
@@ -378,7 +403,6 @@ end
 And (/^I press "Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
-
 
 When (/^I press "Responsável" button$/) do
 	driver.get('http://localhost:3000/parents/1')
