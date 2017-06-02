@@ -16,7 +16,10 @@ class Alumn < ApplicationRecord
   before_save :validates_password
 
   has_many :suspensions
-  has_attached_file :image, :styles => { :medium => "250x300>", :thumb => "250x90#" }
+  has_attached_file :image, :styles => { :original => "250x300>"},
+  :storage => :dropbox,
+  :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+  :dropbox_visibility => 'public'
 
 
   def initialize_strikes
