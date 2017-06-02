@@ -15,7 +15,7 @@ RSpec.describe GradesController, type: :controller do
                          birth_date:"07/06/1988", registry:"12345",
                          parent_id: parent.id, shift:"matutino"} }
 
-  let(:valid_inputs){{grade_01:5.0,grade_02:5.0,grade_03:6.0,grade_04:8.0}}
+  let(:valid_inputs){{grade_01:5.0,grade_02:5.0,grade_03:6.0,grade_04:8.0, grade_final:7.0}}
 
   describe "POST create" do
     before(:each) do
@@ -64,14 +64,14 @@ RSpec.describe GradesController, type: :controller do
     before(:each) do
       classroom
       alumn
-      login_principal
+      login_secretary
     end
 
     it "assigns the requested grade to @grade" do
       subject = Subject.create!(subject_inputs)
       classub = ClassroomSubject.create!(classroom_id: @classroom.id, subject_id: subject.id)
-      put :post_grades, params: {id:@classroom.id, subject_id:subject.id, alumn_id:@alumn.id, grade: valid_inputs}
-      expect(assigns(:grade)).to eq(Grade.where(classroom_id: @classroom.id).where(subject_id: subject.id).where(alumn_id: @alumn.id))
+      put :post_grades, params: {id:@classroom.id, subject_id:subject.id, alumn_id: @alumn.id, grade: valid_inputs}
+      expect(assigns(:grade)).to eq(Grade.find_by_classroom_id_and_subject_id_and_alumn_id(@classroom.id, subject.id, @alumn.id))
     end
 
     it "post alumn grade" do
@@ -87,7 +87,7 @@ RSpec.describe GradesController, type: :controller do
       alumn
       login_principal
     end
-    
+
     it "updates alumn grades" do
       subject = Subject.create!(subject_inputs)
       classub = ClassroomSubject.create!(classroom_id: @classroom.id, subject_id: subject.id)

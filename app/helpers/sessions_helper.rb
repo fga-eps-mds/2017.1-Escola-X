@@ -41,16 +41,6 @@ end
     end
   end
 
-  def current_user_alumn(id)
-    alumn = Alumn.find(id)
-    if ( (is_alumn?) and (current_user ==  alumn ))
-      return true
-    else
-      # raise 'Not allowed'
-      return false
-    end
-  end
-
   def is_parent?
     if ( (logged_in?) and (current_user.is_a?(Parent)))
       return true
