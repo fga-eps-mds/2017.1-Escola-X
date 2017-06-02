@@ -147,15 +147,16 @@ RSpec.describe TeachersController, type: :controller do
       login_principal
     end
 
-
     it "gets teacher's specific grades" do
       get :teacher_grades, {teacher_id: teacher.id, classroom_id: classroom.id, subject_id: subject.id}
     end
 
-  # get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
-  #      as:'teacher_classroom_subjects'
     it "gets teacher's classroom subjects" do
-      get :teacher_classroom_subjects, {teacher_id: teacher.id, classroom_id: classroom.id}
+      t = teacher
+      s = Subject.create(name_subject:"Filosofia", class_level:"2", teacher_id: t.id)
+      c = Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
+      cs = ClassroomSubject.create(classroom_id: c.id, subject_id: s.id)
+      get :teacher_classroom_subjects, {teacher_id: t.id, classroom_id: c.id}
     end
 
     it "gets teacher's classrooms" do
