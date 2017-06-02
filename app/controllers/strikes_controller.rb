@@ -10,6 +10,8 @@ class StrikesController < ApplicationController
     if ( is_employee? or verify_alumn(id) or is_son?(id) )
       @@alumn = Alumn.find(id)
       @strikes = @@alumn.strikes
+    else
+      redirect_to "/errors/error_500"
     end
   end
 

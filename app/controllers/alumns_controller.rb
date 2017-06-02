@@ -20,6 +20,8 @@
       else
         @alumns = Alumn.all.order('created_at DESC')
       end
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 

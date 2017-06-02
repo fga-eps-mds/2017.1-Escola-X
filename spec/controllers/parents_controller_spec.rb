@@ -93,7 +93,10 @@ RSpec.describe ParentsController, type: :controller do
 
       it "renders the 'error 500' template" do
         get :index
-        expect(response).to render_template(http://test.host/500.html)
+        
+        expect(response).to redirect_to '/errors/error_500'
+
+        
       end
 
     end

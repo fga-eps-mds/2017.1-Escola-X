@@ -8,6 +8,8 @@ class EmployeesController < UsersController
 	def index
     	if ( is_employee? )
       		@employees = Employee.all
+      	else
+      		redirect_to "/errors/error_500"
     	end
   	end
 
@@ -15,6 +17,8 @@ class EmployeesController < UsersController
 		if ( is_principal? )
 			@user = Employee.find(params[:id])
 			render action: 	"../users/edit_password"
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -26,6 +30,8 @@ class EmployeesController < UsersController
 			else
 				render action: "../users/edit_password"
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 

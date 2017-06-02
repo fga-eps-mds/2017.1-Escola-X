@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   put 'employees/:id/edit_password', to:'employees#update_password_employee'
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
+  get '/errors/error_500' , to:'errors#error_500'
   match "/500", :to => "errors#error_500", :via => :all
 
   root 'sessions#new'

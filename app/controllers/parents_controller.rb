@@ -8,7 +8,7 @@ class ParentsController < ApplicationController
     if ( is_employee? )
       @parents = Parent.all
     else
-      redirect_back(fallback_location: "/500.html")
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -17,18 +17,24 @@ class ParentsController < ApplicationController
 
     if ( is_employee? or verify_parent(id) or is_related?(id) )
       @parent = Parent.find(id)
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def new
     if ( is_principal? )
       @parent = Parent.new
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def edit
     if ( is_principal? )
       @parent = Parent.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -41,6 +47,8 @@ class ParentsController < ApplicationController
       else
         render 'new'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -52,6 +60,8 @@ class ParentsController < ApplicationController
       else
         render 'edit'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -61,6 +71,8 @@ class ParentsController < ApplicationController
       @parent.destroy
 
       redirect_to users_path
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -68,6 +80,8 @@ class ParentsController < ApplicationController
     if ( is_principal? )
       @user = Parent.find(params[:id])
       render action: "../users/edit_password"
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -79,6 +93,8 @@ class ParentsController < ApplicationController
       else
         render action: "../users/edit_password"
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
