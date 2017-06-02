@@ -1,13 +1,12 @@
 class SchoolMissesController < ApplicationController
   include SessionsHelper
 
-  def index
-    id = params[:id]
-    
-    if ( is_employee? or verify_alumn(id) or is_son?(id) )
-      @misses = @alumn.school_misses.all
-    end
-  end
+  # def index
+  #   id = params[:id]
+  #   if ( is_employee? or verify_alumn(id) or is_son?(id) )
+  #     @misses = @alumn.school_misses.all
+  #   end
+  # end
 
   # def show
   #   #if ( logged_in? )

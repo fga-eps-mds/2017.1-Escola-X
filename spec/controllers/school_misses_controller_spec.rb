@@ -35,9 +35,8 @@ RSpec.describe SchoolMissesController, type: :controller do
     #   it "assigns table content to @school_misses" do
     #     miss1 = SchoolMiss.new(valid_inputs)
     #     miss2 = SchoolMiss.new(valid_inputs)
-    #     Alumn.current.school_misses = miss1, miss2
     #     get :index, params:{alumn_id: alumn.id}
-    #     expect(assigns(:misses)).to match_array([miss1])
+    #     expect(assigns(:misses)).to match_array([miss1, miss2])
     #   end
     #   it "renders index template" do
     #     get :index, params:{alumn_id: Alumn.current.id}
