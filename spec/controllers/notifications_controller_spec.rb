@@ -163,4 +163,16 @@ RSpec.describe NotificationsController, type: :controller do
       expect(response).to render_template("edit")
     end
   end
+
+  describe "DELETE delete" do
+    before(:each) do
+      login_principal
+    end
+    it "does delete an Notification" do
+      notification = Notification.create!(valid_inputs)
+      expect{
+        delete :destroy, params:{id: notification}
+      }.to change(Notification, :count).by(-1)
+    end
+  end
 end
