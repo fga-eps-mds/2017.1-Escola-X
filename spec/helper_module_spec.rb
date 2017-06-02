@@ -14,7 +14,16 @@ module Helpers
                            password:"12345678", gender:"Masculino",
                            birth_date:"08/10/1989",parent_cpf:"06057577124")
     cookies[:authorization_token] = parent.authorization_token
+  end
 
+  def login_alumn
+    alumn = Alumn.create(name: "Michael Kyle", phone:"61988885555",
+                           address:"Rua Vida Casa 15,Taguatinga",
+                           password: "12345678", gender:"Masculino",
+                           birth_date:"07/06/1988", registry:"707070",
+                           shift:"matutino",parent_id: 5,
+                           classroom_id: 1)
+    cookies[:authorization_token] = alumn.authorization_token
   end
 
   def parent
@@ -23,7 +32,7 @@ module Helpers
                            password:"12345678", gender:"Masculino",
                            birth_date:"08/10/1989",parent_cpf:"06057577124")
   end
-  
+
   def alumn
     alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",

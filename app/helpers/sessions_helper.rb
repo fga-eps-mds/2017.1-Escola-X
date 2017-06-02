@@ -74,7 +74,7 @@ module SessionsHelper
     return ( is_principal? or is_secretary? or is_teacher? )
   end
 
-  def is_parent_related_to_alumn?(alumn, current_user)
+  def is_parent_related_to_alumn?(alumn)
     if ( alumn.parent_id == current_user.id and current_user.is_a?(Parent))
       return true
     else
@@ -82,7 +82,7 @@ module SessionsHelper
     end
   end
 
-  def is_me?(alumn, current_user)
+  def is_me?(alumn)
     if ( alumn.id == current_user.id and current_user.is_a?(Alumn))
       return true
     else

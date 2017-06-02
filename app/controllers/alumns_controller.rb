@@ -97,9 +97,10 @@
   end
 
   def report
-    if ( is_principal? or is_related_to_alumn?(@alumn, @current_user) or is_me?(@alumn, @current_user) )
       @alumn = Alumn.find(params[:id])
-    end
+      if ( !(is_parent_related_to_alumn?(@alumn) or is_me?(@alumn) or is_principal?) )
+        redirect_to @current_user
+      end
   end
 
   private
