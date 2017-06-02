@@ -37,7 +37,7 @@
         <h4>Endereço: <%= @alumn.address %></h4>
         <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
         <h4><%= link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
-        <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class:""  %></h4>
+        <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class: "", name: "report_link"  %></h4>
       </div>
     </div>
     <ul class="nav nav-tabs">
