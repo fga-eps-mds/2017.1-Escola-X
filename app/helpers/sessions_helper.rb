@@ -75,7 +75,7 @@ module SessionsHelper
   end
 
   def is_son?(id)
-    
+
     found = false
     if is_parent?
       @current_user.alumns.each do |alumn|
@@ -84,20 +84,20 @@ module SessionsHelper
         end
       end
     end
-    
+
     return found
   end
 
   def is_related?(id)
     found = false
     if is_alumn?
-      parent = @current_user.parent 
-      
+      parent = @current_user.parent
+
       if (parent == Parent.find_by_id(id))
         found = true
       end
     end
-    
+
     return found
   end
 
@@ -105,7 +105,7 @@ module SessionsHelper
   def verify_parent(id)
 
     found = false
-    if @current_user == Parent.find_by_id(id)
+    if current_user == Parent.find_by_id(id)
       found = true
     else
       # nothing to do
@@ -116,9 +116,9 @@ module SessionsHelper
 
 
   def verify_alumn(id)
-    
+
     found = false
-    if @current_user == Alumn.find_by_id(id)
+    if current_user == Alumn.find_by_id(id)
       found = true
     else
       # nothing to do

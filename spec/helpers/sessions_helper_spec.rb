@@ -103,7 +103,7 @@ RSpec.describe SessionsHelper, type: :helper do
 
 	        it "current user is related to a certain parent" do
 	          parent1 = Parent.create!(parent_inputs)
-	          alumn1 = Alumn.create!(alumn1_inputs) 
+	          alumn1 = Alumn.create!(alumn1_inputs)
 
 	          cookies[:authorization_token] = alumn1.authorization_token
 	          expect(is_related?(parent1.id)).to be true
@@ -111,12 +111,63 @@ RSpec.describe SessionsHelper, type: :helper do
 
         	it "current user is related to a certain alumn" do
 	          parent1 = Parent.create!(parent_inputs)
-	          alumn1 = Alumn.create!(alumn1_inputs) 
+	          alumn1 = Alumn.create!(alumn1_inputs)
 
 	          cookies[:authorization_token] = parent1.authorization_token
 	          expect(is_son?(alumn1.id)).to be true
         	end
-        	
+
+					it "current user is a certain alumn" do
+						parent1 = Parent.create!(parent_inputs)
+						alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
+																 address:"Rua Vida Casa 15,Taguatinga",
+																 password: "12345678", gender:"M",
+																 birth_date:"07/06/1988",registry:"555456",
+																 shift:"matutino" , parent_id: parent1.id )
+
+						cookies[:authorization_token] = alumn1.authorization_token
+						expect(verify_alumn(alumn1.id)).to be true
+					end
+
+					it "current user is a certain parent" do
+						parent1 = Parent.create!(parent_inputs)
+
+						cookies[:authorization_token] = parent1.authorization_token
+						expect(verify_parent(parent1.id)).to be true
+					end
+
+					it "current user is not related to a certain parent" do
+						parent1 = Parent.create!(parent_inputs)
+						alumn1 = Alumn.create!(alumn1_inputs)
+						teacher = Teacher.create! teacher_inputs
+
+						cookies[:authorization_token] = teacher.authorization_token
+						expect(is_related?(parent1.id)).to be false
+					end
+
+					it "current user is not related to a certain alumn" do
+						parent1 = Parent.create!(parent_inputs)
+						alumn1 = Alumn.create!(alumn1_inputs)
+						teacher = Teacher.create! teacher_inputs
+
+						cookies[:authorization_token] = teacher.authorization_token
+						expect(is_son?(alumn1.id)).to be false
+					end
+
+					it "current user is a  not certain alumn" do
+						teacher = Teacher.create! teacher_inputs
+
+						cookies[:authorization_token] = teacher.authorization_token
+						expect(verify_alumn(teacher.id)).to be false
+					end
+
+					it "current user is a not certain parent" do
+						teacher = Teacher.create! teacher_inputs
+
+						cookies[:authorization_token] = teacher.authorization_token
+						expect(verify_parent(teacher.id)).to be false
+					end
+
     	end
   	end
 
