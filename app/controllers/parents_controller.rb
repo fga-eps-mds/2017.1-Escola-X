@@ -7,6 +7,8 @@ class ParentsController < ApplicationController
   def index
     if ( is_employee? )
       @parents = Parent.all
+    else
+      redirect_back(fallback_location: "/500.html")
     end
   end
 

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   put 'parents/:id/edit_password', to:'parents#update_password_parent'
   get 'employees/:id/edit_password', to:'employees#edit_password_employee', as:'edit_password_employee'
   put 'employees/:id/edit_password', to:'employees#update_password_employee'
-
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
+  match "/500", :to => "errors#error_500", :via => :all
 
   root 'sessions#new'
 
