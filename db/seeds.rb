@@ -15,6 +15,10 @@ Notification.create(title: "Super Festa Julina em Junho",
                     notification_hour: "10:10",
                     motive: "Não precisa de motivo pra beber quentão.")
 
+Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
+              date_strike: "25-12-2015",
+              alumn_id: "1",
+              employee_id: "1")
 
 Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
@@ -41,7 +45,6 @@ Alumn.create(name: 'Evan Junior', address: 'rua do mortandela',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '333123', shift: "matutino",gender:"Masculino",
             parent_id: Parent.last.id,classroom_id: Classroom.last.id)
-
 
 Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',

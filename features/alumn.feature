@@ -32,7 +32,7 @@
       Given I am logged in as alumn
       Then I logged as alumn
       When I press "Voltar" button
-      Then I back to users?
+      Then I back to users
 
     Scenario: Alumn can see informations
       Given I am logged in as alumn

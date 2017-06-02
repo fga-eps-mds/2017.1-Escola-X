@@ -253,6 +253,13 @@ And (/^I fill in field "Data da Suspensão" with "12121912"$/) do
 	suspension_date.send_keys '12121912'
 end
 
+### Data - Suspensions - Edit
+
+And (/^I fill in field "Quantidade de Dias" with "15"$/) do
+	suspension_quantityDays = driver.find_element(:name, 'suspension[quantity_days]')
+	suspension_quantityDays.clear()
+	suspension_quantityDays.send_keys '15'
+end
 
 ### Data - Subject
 
@@ -269,6 +276,18 @@ end
 And (/^I fill in fiend subject "Matrícula do Professor" with "123456"$/) do
 	subject_registry = driver.find_element(:name, 'teacher_registry')
 	subject_registry.send_keys '123456'
+end
+
+### Data - Strike
+
+And (/^I fill in "Descrição" with "Falsificou a Assinatura do colega"$/) do
+	strike_description = driver.find_element(:name, 'strike[description_strike]')
+	strike_description.send_keys "Falsificou a Assinatura do colega"
+end
+
+And (/^I fill in "Data da Advertência" with "12122012"$/) do
+	strike_date = driver.find_element(:name, 'strike[date_strike]')
+	strike_date.send_keys "12122012"
 end
 
 ### Data - Notification
@@ -376,6 +395,18 @@ When (/^I had register a suspension$/) do
 	driver.get('http://localhost:3000/suspensions/1')
 end
 
+And (/^I press "Visualizar Suspensões" button$/) do
+	driver.get('http://localhost:3000/alumns/1/suspensions')
+end
+
+And (/^I press "Editar Suspensão" button$/) do
+	driver.get('http://localhost:3000/alumns/1/suspensions/1/edit')
+end
+
+And (/^I press "Primeira Suspensão" button$/) do
+	driver.get('http://localhost:3000/suspensions/1')
+end
+
 When (/^I press field "Dar Suspensão" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
@@ -424,7 +455,11 @@ When (/^I press "Visualizar Alunos" button$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
-And (/^I press "Nova Notificação" button$/) do
+And (/^I press "Nova Advertência" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/new')
+end
+
+When (/^I press "Nova Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/new')
 end
 
@@ -494,12 +529,20 @@ Then (/^I see all alumns$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
+Then (/^I see strike created$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/2')
+end
+
 Then (/^I see all notifications$/) do
 	driver.get('http://localhost:3000/notifications')
 end
 
 Then (/^I see notification edited$/) do
 	driver.get('http://localhost:3000/notifications/1')
+end
+
+Then (/^I see suspension edited$/) do
+	driver.get('http://localhost:3000/suspensions/1')
 end
 
 ##Alumn options
@@ -523,7 +566,7 @@ Then (/^I logged out$/) do
 	driver.get('http://localhost:3000/')
 end
 
-Then (/^I back to users?/) do
+Then (/^I back to users/) do
 	driver.get('http://localhost:3000/users')
 end
 

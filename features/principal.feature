@@ -57,6 +57,26 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I had register a suspension
 
+	Scenario: Only principal can edit suspension
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Visualizar Suspensões" button
+		And I press "Primeira Suspensão" button
+		And I press "Editar Suspensão" button
+		And I fill in field "Quantidade de Dias" with "15"
+		When I press "Salvar" button
+		Then I see suspension edited
+
+	Scenario: Principal can create strike
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Nova Advertência" button
+		And I fill in "Descrição" with "Falsificou a Assinatura do colega"
+		And I fill in "Data da Advertência" with "12122012"
+		When I press "Salvar" button
+		Then I see strike created
+
 	Scenario: Only principal can register subject
 		Given I am logged in as principal
 		Then I logged as principal
