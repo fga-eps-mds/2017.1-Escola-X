@@ -26,6 +26,7 @@ class ClassroomsController < ApplicationController
     if ( is_principal? )
       @classroom = Classroom.create(classroom_params)
       if ( @classroom.save )
+        flash[:success] = "Turma criada com sucesso"
         redirect_to classroom_path(@classroom)
       else
         render 'classrooms/new'
@@ -37,6 +38,7 @@ class ClassroomsController < ApplicationController
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
     @classroom.destroy
+    flash[:alert] = "Turma excluída com sucesso"
     redirect_to users_path
   end
 end
@@ -51,6 +53,7 @@ def update
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
     if @classroom.update(classroom_params)
+      flash[:notice] = "Turma alterada com sucesso"
       redirect_to classroom_path(@classroom)
     else
       render "classrooms/edit"
