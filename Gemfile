@@ -46,6 +46,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver', '~> 2.53'
   gem 'chromedriver-helper'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end
 
 group :development do

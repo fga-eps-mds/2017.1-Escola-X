@@ -217,6 +217,8 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -285,6 +287,8 @@ DEPENDENCIES
   rspec-rails (>= 3.5.0)
   sass-rails (~> 5.0)
   selenium-webdriver (~> 2.53)
+  simplecov
+  simplecov-rcov
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

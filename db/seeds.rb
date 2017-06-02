@@ -26,7 +26,7 @@ Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133
 
 Teacher.create(name: 'MC Love', address: 'rua do ovo', phone: '6133213030',
             permission: 'Teacher', password: '12345678', birth_date: '10-10-1990',
-            registry: '123456', employee_cpf: '02277449180', admission_date: "14/04/1912")
+            registry: '555555', employee_cpf: '02277449180', admission_date: "14/04/1912")
 
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
