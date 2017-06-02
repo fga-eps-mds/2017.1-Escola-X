@@ -1,9 +1,6 @@
 
 Feature: Principal
 
-	To better manage the college,
-	the principal must be able
-	to register a suspension.
 
 	Scenario: Only principal can register parent and alumn
 		Given I am logged in as principal
@@ -149,3 +146,9 @@ Feature: Principal
 		Then I logged as principal
 		When I press "Visualizar Alunos" button
 		Then I see all alumns
+
+	Scenario: Principal can exit the system
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press Sair button
+        Then I logged out 

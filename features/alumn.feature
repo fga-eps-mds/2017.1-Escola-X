@@ -32,7 +32,7 @@
       Given I am logged in as alumn
       Then I logged as alumn
       When I press "Voltar" button
-      Then i back to users?
+      Then I back to users?
 
     Scenario: Alumn can see informations
       Given I am logged in as alumn
@@ -44,5 +44,5 @@
     Scenario: Alumn can log off
       Given I am logged in as alumn
       Then I logged as alumn
-      When i press Sair button
-      Then i logged out
+      When I press Sair button
+      Then I logged out

@@ -492,8 +492,7 @@ And (/^I press Notificacoes button$/) do
 end
 
 When (/^I press Sair button$/) do
-	logoff = driver.find_element(:name, 'loggoffbtn')
-	logoff.click
+	driver.get('http://localhost:3000/logout')
 end
 
 Then (/^I logged out$/) do
