@@ -28,7 +28,6 @@ class StrikesController < ApplicationController
       @strike = @@alumn.strikes.create(strike_params)
       @strike.employee_id = @current_user.id
       if (@strike.save)
-        # @alumn = Alumn.find_by_id(@strike.alumn_id)
         @@alumn.quantity_strike += 1
         if @@alumn.save
           redirect_to alumn_strike_path(@@alumn,@strike)

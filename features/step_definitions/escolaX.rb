@@ -36,6 +36,16 @@ Given (/^I am logged in as principal$/) do
 	entrar.click
 end
 
+Given (/^I am logged in as teacher$/) do
+	driver.get('http://localhost:3000/')
+	login = driver.find_element(:name, 'login')
+	login.send_keys "363636"
+	senha = driver.find_element(:name, 'password')
+	senha.send_keys "12345678"
+	entrar = driver.find_element(:name, 'commit')
+	entrar.click
+end
+
 ### Data - Alumn
 
 And (/^I fill in field alumn "Nome" with "Leo Arthur"$/) do
@@ -133,14 +143,14 @@ end
 
 ### Data - Teacher
 
-And (/^I fill in "Nome" with "Mauricio"$/) do
+And (/^I fill in "Nome" with "Victor Hugo"$/) do
 	nameUser = driver.find_element(:name, 'teacher[name]')
-	nameUser.send_keys "Mauricio"
+	nameUser.send_keys "Victor Hugo"
 end
 
-And (/^I fill in "Matricula" with "141414"$/) do
+And (/^I fill in "Matricula" with "153456"$/) do
 	matriculaUser = driver.find_element(:name, 'teacher[registry]')
-	matriculaUser.send_keys "141414"
+	matriculaUser.send_keys "153456"
 end
 
 And (/^I fill in "CPF" with "02951294174"$/) do
@@ -249,10 +259,60 @@ And (/^I fill in fiend subject "Série" with "3"$/) do
 	subject_class.send_keys '3'
 end
 
-And (/^I fill in fiend subject "Matrícula do Professor" with "141414"$/) do
+And (/^I fill in fiend subject "Matrícula do Professor" with "369874"$/) do
 	subject_registry = driver.find_element(:name, 'teacher_registry')
-	subject_registry.send_keys '141414'
+	subject_registry.send_keys '369874'
 end
+
+### Data - Notification
+
+And (/^I fill in "Título" with "Super Gincana Beneficiente"$/) do
+	subject_name = driver.find_element(:name, 'notification[title]')
+	subject_name.send_keys "Super Gincana Beneficiente"
+end
+
+And (/^I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy"$/) do
+	subject_name = driver.find_element(:name, 'notification[motive]')
+	subject_name.send_keys "Arrecadar fundos pra formatura do pessoal de Softy"
+end
+
+And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e aventuras"$/) do
+	subject_name = driver.find_element(:name, 'notifitext[notification_text]notification[notification_text]')
+	subject_name.send_keys "Muitos jogos, gincanas e text"
+end
+
+### Data - Notification - Edit
+
+And (/^I fill in "Título" with "Super Gincana Beneficiente - Parte 2"$/) do
+	subject_name = driver.find_element(:name, 'notification[title]')
+	subject_name.clear()
+	subject_name.send_keys "Super Gincana Beneficiente - Parte 2"
+end
+
+And (/^I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy e de Aero"$/) do
+	subject_name = driver.find_element(:name, 'notification[motive]')
+	subject_name.clear()
+	subject_name.send_keys "Arrecadar fundos pra formatura do pessoal de Softy e de Aero"
+end
+
+And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas, aventuras e divertimentos."$/) do
+	subject_name = driver.find_element(:name, 'notification[notification_text]')
+	subject_name.clear()
+	subject_name.send_keys "Muitos jogos, gincanas, aventuras e divertimentos."
+end
+
+### Data - Classroom
+
+And (/^I fill in "Nome da Turma" with "3D"$/) do
+	subject_name = driver.find_element(:name, 'classroom[name_classroom]')
+	subject_name.send_keys "3D"
+end
+
+And (/^I fill in "Turno da Turma" with "Vespertino"$/) do
+	subject_name = driver.find_element(:name, 'classroom[shift_classroom]')
+	subject_name.send_keys "Vespertino"
+end
+
 
 ### Initial pages
 
@@ -265,7 +325,7 @@ Then (/^I logged as principal$/) do
 end
 
 Then (/^I logged as alumn$/) do
-	driver.get('http://localhost:3000/alumn/1')
+	driver.get('http://localhost:3000/alumns/1')
 end
 
 ### Initial status
@@ -291,6 +351,10 @@ end
 When (/^I press "Salvar" button$/) do
 	entrar = driver.find_element(:name, 'button')
 	entrar.click
+end
+
+When (/^I press "Edit Notification" button$/) do
+	driver.get('http://localhost:3000/notifications/1/edit')
 end
 
 When (/^I had register a suspension$/) do
@@ -321,20 +385,37 @@ When (/^I press "Melhor Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
-When (/^I press "Advertencias" button$/) do
-	driver.get('http://localhost:3000/alumns/1/strikes')
+And (/^I press "Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/1')
 end
 
-When (/^I press "Responsavel" button$/) do
+
+When (/^I press "Responsável" button$/) do
 	driver.get('http://localhost:3000/parents/1')
-end
-
-When (/^I press "Notification name" button$/) do
-	driver.get('http://localhost:3000/notifications/2')
 end
 
 When (/^I press "Criar Secretário" button$/) do
 	driver.get('http://localhost:3000/secretaries/new')
+end
+
+When (/^I press "Visualizar Secretários" button$/) do
+	driver.get('http://localhost:3000/secretaries')
+end
+
+When (/^I press "Visualizar Turmas" button$/) do
+	driver.get('http://localhost:3000/classrooms')
+end
+
+When (/^I press "Visualizar Alunos" button$/) do
+	driver.get('http://localhost:3000/alumns')
+end
+
+And (/^I press "Nova Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/new')
+end
+
+And (/^I press "Criar Turma" button$/) do
+	driver.get('http://localhost:3000/classrooms/new')
 end
 
 ### Registrys
@@ -365,4 +446,193 @@ end
 
 Then (/^I see information$/) do
 	driver.get('http://localhost:3000/alumns/1')
+end
+
+Then (/^I see strikes$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes')
+end
+
+Then (/^I see parent information$/) do
+	driver.get('http://localhost:3000/parents/1')
+end
+
+Then (/^I see nofications information$/) do
+	driver.get('http://localhost:3000/notifications/1')
+end
+
+Then (/^I see notification created$/) do
+	driver.get('http://localhost:3000/notifications/2')
+end
+
+Then (/^I see classroom created$/) do
+	driver.get('http://localhost:3000/classrooms/2')
+end
+
+Then (/^I see all secretaries$/) do
+	driver.get('http://localhost:3000/secretaries')
+end
+
+Then (/^I see all classrooms$/) do
+	driver.get('http://localhost:3000/classrooms')
+end
+
+Then (/^I see all alumns$/) do
+	driver.get('http://localhost:3000/alumns')
+end
+
+Then (/^I see all notifications$/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
+Then (/^I see notification edited$/) do
+	driver.get('http://localhost:3000/notifications/1')
+end
+
+##Alumn options
+
+And (/^I press Faltas button$/) do
+	driver.get('http://localhost:3000/alumns/1#faltas')
+end
+
+And (/^I press Boletim button$/) do
+	driver.get('http://localhost:3000/alumns/1#boletim')
+end
+
+And (/^I press Notificacoes button$/) do
+	driver.get('http://localhost:3000/alumns/1#notificoes')
+end
+
+When (/^I press Sair button$/) do
+	logoff = driver.find_element(:name, 'loggoffbtn')
+	logoff.click
+end
+
+Then (/^I logged out$/) do
+	driver.get('http://localhost:3000/')
+end
+
+Then (/^I back to users?/) do
+	driver.get('http://localhost:3000/users')
+end
+
+When (/^I press "Voltar" button$/) do
+	driver.get('http://localhost:3000/users')
+end
+
+When (/^I press "Advertencias" button$/) do
+	advertencia = driver.find_element(:name, 'strikebtn')
+	advertencia.click
+end
+
+## Teacher options
+
+Then (/^I logged as teacher$/) do
+	driver.get('http://localhost:3000/teachers/4')
+end
+
+When (/^I press "Visualizar Minhas Turmas" button$/) do
+	driver.get('http://localhost:3000/teachers/4/teacher_classrooms')
+end
+
+Then (/^I see my classrooms$/) do
+	driver.get('http://localhost:3000/teachers/4/teacher_classrooms')
+end
+
+When (/^I press "Matérias" button$/) do
+	driver.get('http://localhost:3000/teachers/4/teacher_classroom_subjects/1')
+end
+
+Then (/^I see my subjects$/) do
+	driver.get('http://localhost:3000/teachers/3/teacher_classroom_subjects/1')
+end
+
+When (/^I press "Notas dos Alunos" button$/) do
+	driver.get('http://localhost:3000/teachers/4/teacher_classroom_subjects/1/teacher_grades/1')
+end
+
+Then (/^I see grades of my students$/) do
+	driver.get('http://localhost:3000/teachers/4/teacher_classroom_subjects/1/teacher_grades/1')
+end
+
+When (/^I press "Criar" button$/) do
+	driver.get('http://localhost:3000/teachers/4')
+end
+   
+And (/^I click "Criar Notificação"$/) do
+	driver.get('http://localhost:3000/notifications/new')
+end
+    
+Then (/^I see new page notification$/) do
+	driver.get('http://localhost:3000/notifications/new')
+end
+
+And (/^I fill in "Title" with "Descubra"$/) do
+	notification_title = driver.find_element(:name, 'notification[title]')
+	notification_title.send_keys "Descubra"
+end
+   
+And (/^I fill in "Motivo" with "#Descubra"$/) do
+	notification_motive = driver.find_element(:name, 'notification[motive]')
+	notification_motive.send_keys "#Descubra"
+end
+   
+And (/^I fill in "Contéudo da notificação" with "To bem cansado"$/) do
+	notification_text = driver.find_element(:name, 'notification[notification_text]')
+	notification_text.send_keys "To bem cansado"
+end
+
+And (/^I click in "Salvar" button$/) do
+	button_save = driver.find_element(:name, 'button')
+	button_save.click
+end
+
+Then (/^I create a notification$/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
+When (/^I press "Notificações" button$/) do
+	driver.get('http://localhost:3000/notifications')
+end
+    
+Then (/^I see notification page$/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
+When (/^I choose "Descubra" notification$/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
+And (/^I press "Editar" button$/) do
+	driver.get('http://localhost:3000/notifications/1/edit')
+end
+
+Then (/^I see edit page notification$/) do
+	driver.get('http://localhost:3000/notifications/1/edit')
+end
+
+And (/^I fill in "Title" with "SOU UM FRACASSO"$/) do
+	notification_title_edit = driver.find_element(:name, 'notification[title]')
+	notification_title_edit.send_keys ""
+	notification_title_edit.send_keys "SOU UM FRACASSO"
+end
+
+And (/^I fill in "Motivo" with "POR FAVOR"$/) do
+	notification_motive_edit = driver.find_element(:name, 'notification[motive]')
+	notification_motive_edit.send_keys ""
+	notification_motive_edit.send_keys "POR FAVOR"
+end
+
+And (/^I fill in "Contéudo da notificação" with "NÃO É COISA DE MOMENTO, RAIVA PASSAGEIRA."$/) do
+	notification_text_edit = driver.find_element(:name, 'notification[notification_text]')
+	notification_text_edit.send_keys ""
+	notification_text_edit.send_keys "NÃO É COISA DE MOMENTO, RAIVA PASSAGEIRA."
+end
+
+And (/^I click in "Salvar" button in edit page$/) do
+	button_save = driver.find_element(:name, 'button')
+	button_save.click
+end
+
+Then (/^I edit a notification$/) do
+	driver.get('http://localhost:3000/notifications')
 end
