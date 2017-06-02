@@ -37,12 +37,12 @@
         <h4>Endereço: <%= @alumn.address %></h4>
         <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
         <h4><%= link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
-        <h4><%= link_to "birl", alumn_report_path(@alumn) %></h4>
+        <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class:""  %></h4>
       </div>
     </div>
     <ul class="nav nav-tabs">
       <li class="active" role="presentation"><a href="#faltas" aria-controls="faltas" role="tab" data-toggle="tab">Faltas</a></li>
-      <li class="active" role="presentation"><a href="#boletim"aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
+      <li class="active" role="presentation"><a href="#boletim" aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
       <li class="active" role="presentation"><a href="#notificacoes" aria-controls="notificacoes" role="tab" data-toggle="tab">Notificações</a></li>
     </ul>
     <div>

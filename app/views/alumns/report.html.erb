@@ -1,5 +1,70 @@
 <div class="container">
   <h1 class="text-uppercase"><%= @alumn.name %></h1>
-  <h3><small class="text-lowercase text-muted"></small><%= @alumn.parent.name %></h3>
-  
+  <h2>responsável: <%= @alumn.parent.name %></h2>
+  <h3>Matrícula: <%= @alumn.registry %></h3>
+  <h3>Ano e turma: <%= @alumn.classroom.name_classroom %></h3>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Matéria
+          </th>
+          <th>
+            1º Tri
+          </th>
+          <th>
+            2º Tri
+          </th>
+          <th>
+            3º Tri
+          </th>
+          <th>
+            4º Tri
+          </th>
+          <th>
+            Nota Final
+          </th>
+          <th>
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @alumn.subjects.each do |subj| %>
+        <tr>
+          <td>
+            <%= subj.name_subject %>
+          </td>
+          <td>
+            <%= subj.grade_01 %>
+          </td>
+          <td>
+            <%= subj.grade_02 %>
+          </td>
+          <td>
+            <%= subj.grade03 %>
+          </td>
+          <td>
+            <%= subj.grade04 %>
+          </td>
+          <td>
+            <%= subj.grade_final %>
+          </td>
+          <% if (subj.grade_final < 5) %>
+            <td class="text-danger">
+              REPROVADO
+            </td>
+            <% else %>
+            <td class="text-success">
+              APROVADO
+            </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
