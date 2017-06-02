@@ -33,6 +33,7 @@ class SuspensionsController < ApplicationController
 			if( @suspension.save )
 				@alumn = Alumn.find_by_id(@suspension.alumn_id)
 				if( @alumn.save )
+					flash[:success] = "Suspensão criada com sucesso"
 					redirect_to suspension_path(@suspension)
 				else
 					render 'suspensions/new'
@@ -49,6 +50,7 @@ class SuspensionsController < ApplicationController
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
 			if( @suspension.destroy )
 				if( @alumn.save )
+					flash[:alert] = "Suspensão excluída com sucesso"
 					redirect_to users_path
 				end
 			end
@@ -66,6 +68,7 @@ class SuspensionsController < ApplicationController
 		if( is_principal? )
 			@suspension = Suspension.find(params[:id])
 			if( @suspension.update(suspension_params) )
+				flash[:notice] = "Suspensão alterada com sucesso"
 				redirect_to suspension_path(@suspension)
 			else
 				render "suspensions/edit"
