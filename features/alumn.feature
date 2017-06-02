@@ -21,28 +21,33 @@
       When I press "Responsável" button
       Then I see parent information
 
-    Scenario: Alumn can see notification
-      Given I am logged in as alumn
-      Then I logged as alumn
-      When I press "Avisos" button
-      And I press "Notificação" button
-      Then I see nofications information
-
     Scenario: Alumn can back
       Given I am logged in as alumn
       Then I logged as alumn
       When I press "Voltar" button
       Then I back to users
 
-    Scenario: Alumn can see informations
+    Scenario: Alumn can see absence
       Given I am logged in as alumn
       Then I logged as alumn
-      And I press Faltas button
-      And I press Boletim button
-      And I press Notificacoes button
+      And I press "Faltas" button
+      Then I see "faltas"
+
+    Scenario: Alumn can see grade
+      Given I am logged in as alumn
+      Then I logged as alumn
+      And I press "Boletim" button
+      Then I see "boletim"
+
+    Scenario: Alumn can see notification
+      Given I am logged in as alumn
+      Then I logged as alumn
+      And I press "Notificacoes" button
+      Then I see "notificacoes"
 
     Scenario: Alumn can log off
       Given I am logged in as alumn
       Then I logged as alumn
-      When I press Sair button
+      When I press "Sair" button
       Then I logged out
+      

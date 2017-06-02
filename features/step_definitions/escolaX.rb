@@ -548,26 +548,18 @@ end
 ##Alumn options
 
 
-And (/^I press Faltas button$/) do
+And (/^I press "Faltas" button$/) do
 	driver.get('http://localhost:3000/alumns/1#faltas')
 end
-And (/^I press Boletim button$/) do
+And (/^I press "Boletim" button$/) do
 	driver.get('http://localhost:3000/alumns/1#boletim')
 end
-And (/^I press Notificacoes button$/) do
+And (/^I press "Notificacoes" button$/) do
 	driver.get('http://localhost:3000/alumns/1#notificoes')
 end
 
-When (/^I press Sair button$/) do
+When (/^I press "Sair" button$/) do
 	driver.get('http://localhost:3000/logout')
-end
-
-Then (/^I logged out$/) do
-	driver.get('http://localhost:3000/')
-end
-
-Then (/^I back to users/) do
-	driver.get('http://localhost:3000/users')
 end
 
 When (/^I press "Voltar" button$/) do
@@ -577,4 +569,24 @@ end
 When (/^I press "Advertencias" button$/) do
 	advertencia = driver.find_element(:name, 'strikebtn')
 	advertencia.click
+end
+
+Then (/^Then I see "notificacoes"$/) do
+	driver.get('http://localhost:3000/alumns/1#notificoes')
+end
+
+Then (/^I see "faltas"$/) do
+	driver.get('http://localhost:3000/alumns/1#faltas')
+end
+
+Then (/^I see "boletim"$/) do
+	driver.get('http://localhost:3000/alumns/1#boletim')
+end
+
+Then (/^I logged out$/) do
+	driver.get('http://localhost:3000/')
+end
+
+Then (/^I back to users/) do
+	driver.get('http://localhost:3000/users')
 end
