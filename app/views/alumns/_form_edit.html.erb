@@ -95,8 +95,11 @@
       <%= f.radio_button(:gender,"Masculino") %>
       <%= label :gender, "Masculino" %>
     </div>
+    <div class="field">
+       <p class="text-uppercase"><strong>Imagem</strong></p>
+      <%= f.file_field :image %>
+    </div>
   </div>
-  <%= f.hidden_field :permission, :value => "Alumn"%>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumn_path(@alumn), class:'btn btn-lg btn-warning' %>
 <% end %>

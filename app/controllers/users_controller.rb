@@ -9,18 +9,8 @@ class UsersController < ApplicationController
       @alumns = Alumn.all
       @employees = Employee.all
       @parents = Parent.all
-    end
-  end
-
-  def edit_password
-    if ( is_principal? )
-      @user = Alumn.find(params[:id])
-    end
-  end
-
-  def edit_password
-    if ( is_principal? )
-      @user = Alumn.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 end

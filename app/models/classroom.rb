@@ -1,6 +1,11 @@
+#File name: classroom.rb
+#Class name: Classroom
+#Description: Validates classroom's attributes
 class Classroom < ApplicationRecord
   has_many :alumns
-
+  has_many :classroom_subjects, dependent: :destroy
+  has_many :grades
+  has_many :subjects, through: :classroom_subjects
   accepts_nested_attributes_for :alumns
 
   validates :name_classroom, presence: { message: "não pode estar em branco" },
@@ -14,7 +19,5 @@ class Classroom < ApplicationRecord
                      maximum: 11,
                      :too_short => "deve possuir no mínimo 7 caracteres",
                      :too_long => "deve possuir no máximo 11 caracteres" }
-
-
 
 end

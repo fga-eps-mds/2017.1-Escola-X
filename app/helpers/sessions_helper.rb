@@ -1,6 +1,9 @@
+# File name: sessions_helpers.rb
+# Module name: SessionsHelper
+# Description: Helper used to help in some authentication functions
 module SessionsHelper
   def current_user
-    if !@current_user.nil?
+    if ( !@current_user.nil? )
       @current_user = @current_user
     else
       if ( !(@current_user = Employee.find_by_authorization_token(cookies[:authorization_token])).nil? )
@@ -11,15 +14,15 @@ module SessionsHelper
         return @current_user
       else
         @current_user = nil
+      end
     end
-end
   end
 
   def logged_in?
     if ( current_user.nil? )
       raise 'Not logged in'
     else
-      !current_user.nil?
+      !(current_user.nil?)
     end
   end
 
@@ -70,4 +73,74 @@ end
   def is_employee?
     return ( is_principal? or is_secretary? or is_teacher? )
   end
+
+
+  def is_son?(id)
+
+    found = false
+    if is_parent?
+      @current_user.alumns.each do |alumn|
+        if (alumn == Alumn.find_by_id(id))
+          found = true
+        end
+      end
+    end
+
+    return found
+  end
+
+  def is_related?(id)
+    found = false
+    if is_alumn?
+      parent = @current_user.parent
+
+      if (parent == Parent.find_by_id(id))
+        found = true
+      end
+    end
+
+    return found
+  end
+
+
+  def verify_parent(id)
+
+    found = false
+    if current_user == Parent.find_by_id(id)
+      found = true
+    else
+      # nothing to do
+    end
+    return found
+  end
+
+
+
+  def verify_alumn(id)
+
+    found = false
+    if current_user == Alumn.find_by_id(id)
+      found = true
+    else
+      # nothing to do
+    end
+    return found
+  end
+
+  def is_parent_related_to_alumn?(alumn)
+    if ( alumn.parent_id == current_user.id and current_user.is_a?(Parent))
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_me?(alumn)
+    if ( alumn.id == current_user.id and current_user.is_a?(Alumn))
+      return true
+    else
+      return false
+    end
+  end
+
 end

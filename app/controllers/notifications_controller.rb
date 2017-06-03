@@ -1,9 +1,14 @@
+# File name: notifications_controller.rb
+# Class name: NotificationsController
+# Description: Controller used to communicate with the proprietary view of notifications
 class NotificationsController < ApplicationController
-  include SessionsHelper
+  include SessionsHelper 
 
   def index
     if ( logged_in? )
       @notifications = Notification.all
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -17,6 +22,8 @@ class NotificationsController < ApplicationController
   def new
     if ( is_employee? )
       @notification = Notification.new
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -31,12 +38,16 @@ class NotificationsController < ApplicationController
       else
         render new_notification_path
       end
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
   def edit
     if ( is_employee? )
       @notification = Notification.find(params[:id])
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -49,6 +60,8 @@ class NotificationsController < ApplicationController
       else
         render edit_notification_path
       end
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -57,6 +70,8 @@ class NotificationsController < ApplicationController
       @notification = Notification.find(params[:id])
       @notification.destroy
       redirect_to notifications_path
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 

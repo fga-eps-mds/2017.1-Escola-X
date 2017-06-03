@@ -5,24 +5,24 @@ class SessionsController < ApplicationController
   include SessionsHelper
   def create
     if ( !Alumn.find_by_registry(params[:login]).nil? )
-      user = Alumn.find_by_registry(params[:login])
+      @user = Alumn.find_by_registry(params[:login])
     elsif ( !Parent.find_by_parent_cpf(params[:login]).nil? )
-      user = Parent.find_by_parent_cpf(params[:login])
+      @user = Parent.find_by_parent_cpf(params[:login])
     elsif ( !Employee.find_by_registry(params[:login]).nil? )
-      user = Employee.find_by_registry(params[:login])
-    elsif ( !Employee.find_by_employee_cpf(params[:login]).nil?)
-      user = Employee.find_by_employee_cpf(params[:login])
+      @user = Employee.find_by_registry(params[:login])
     end
 
-    if ( user and user.authenticate(params[:password]) )
-      cookies[:authorization_token] = user.authorization_token
+    if ( @user and @user.authenticate(params[:password]) )
+      cookies[:authorization_token] = @user.authorization_token
       if (is_alumn?)
-        redirect_to alumn_path(@current_user)
-      elsif (is_principal?)
-        redirect_to users_path
+        redirect_to alumn_path(@user)
       elsif (is_parent?)
-        redirect_to parent_alumns_path(@current_user)
-      elsif (is_employee?)
+        redirect_to parent_alumns_path(@user)
+      elsif (is_teacher?)
+        redirect_to teacher_path(@user)
+      elsif(is_secretary?)
+        redirect_to secretary_path(@user)
+      elsif (is_principal?)
         redirect_to users_path
       end
     else

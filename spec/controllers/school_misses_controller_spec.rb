@@ -17,10 +17,32 @@ RSpec.describe SchoolMissesController, type: :controller do
         login_principal
       end
       it "assigns a new SchoolMiss to @school_miss" do
-        get :new, {}
+        get :new
         expect( assigns(:school_miss) ).to be_a_new SchoolMiss
       end
     end
+
+    # describe "GET index" do
+    #   before(:each) do
+    #     login_principal
+    #     alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
+    #                          address:"Rua Vida Casa 15,Taguatinga",
+    #                          password: "12345678", gender:"M",
+    #                          birth_date:"07/06/1988", registry:"123456",
+    #                          parent_id: 1, shift:"matutino")
+    #    Alumn.current = alumn
+    #   end
+    #   it "assigns table content to @school_misses" do
+    #     miss1 = SchoolMiss.new(valid_inputs)
+    #     miss2 = SchoolMiss.new(valid_inputs)
+    #     get :index, params:{alumn_id: alumn.id}
+    #     expect(assigns(:misses)).to match_array([miss1, miss2])
+    #   end
+    #   it "renders index template" do
+    #     get :index, params:{alumn_id: Alumn.current.id}
+    #     expect(response).to render_template("alumns/show")
+    #   end
+    # end
 
     describe "POST create" do
       before(:each) do
@@ -74,9 +96,14 @@ RSpec.describe SchoolMissesController, type: :controller do
         it "Updates a school_miss" do
           current_date = DateTime.now
           @school_miss = SchoolMiss.create(date: current_date, alumn_id: Alumn.current.id)
-          put :update, id: @school_miss.id, school_miss: valid_inputs
+          put :update, params:{id: @school_miss.id, school_miss: valid_inputs}
           @school_miss.reload
           expect(@school_miss.date).to eq(valid_inputs[:date])
+        end
+        it "assing a school_miss to @school_miss" do
+          school_miss = SchoolMiss.create!(valid_inputs)
+          get :edit, params:{id:school_miss.id,alumn:alumn.id}
+          expect(assigns(:school_miss)).to be_a SchoolMiss
         end
       end
 
@@ -84,7 +111,7 @@ RSpec.describe SchoolMissesController, type: :controller do
         it "does not updates a school_miss" do
           current_date = DateTime.now
           @school_miss = SchoolMiss.create(date: current_date, alumn_id: Alumn.current.id)
-          put :update, id: @school_miss.id, school_miss: invalid_inputs, alumn_id: Alumn.current.id
+          put :update, params:{id: @school_miss.id, school_miss: invalid_inputs, alumn_id: Alumn.current.id}
           @school_miss.reload
           expect(@school_miss.date).not_to eq(invalid_inputs[:date])
         end

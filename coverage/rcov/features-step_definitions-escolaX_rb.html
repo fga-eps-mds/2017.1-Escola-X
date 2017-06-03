@@ -1,0 +1,1799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>features/step_definitions/escolaX.rb</title>
+    <link href="./assets/0.2.3/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.2.3/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.2.3/rcov.js"></script>
+  </head>
+  <body>
+    <h1>2017.1-escola-x C0 Coverage Information - Simploco - RCov</h1>
+    <h2>features/step_definitions/escolaX.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="features-step_definitions-escolaX_rb.html">features/step_definitions/escolaX.rb</a></td>
+            <td class='right_align'><tt>580</tt></td>
+            <td class='right_align'><tt>311</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:100px"></div>
+        <div class="uncovered" style="width:0px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:100px"></div>
+        <div class="uncovered" style="width:0px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="marked">
+          <td><pre><a name="line2">2</a> require &#39;selenium-webdriver&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line3">3</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line4">4</a> driver = Selenium::WebDriver.for :chrome</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line5">5</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line6">6</a> @selenium</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line7">7</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line8">8</a> ### Logins</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line9">9</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line10">10</a> Given (/^I am logged in as parent$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line11">11</a> 	driver.get(&#39;http://localhost:3000/&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line12">12</a> 	login = driver.find_element(:name, &#39;login&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line13">13</a> 	login.send_keys &quot;00968977162&quot;</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line14">14</a> 	senha = driver.find_element(:name, &#39;password&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line15">15</a> 	senha.send_keys &quot;12345678&quot;</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line16">16</a> 	entrar = driver.find_element(:name, &#39;commit&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line17">17</a> 	entrar.click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line18">18</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line19">19</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line20">20</a> Given (/^I am logged in as alumn$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line21">21</a> 	driver.get(&#39;http://localhost:3000/&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line22">22</a> 	login = driver.find_element(:name, &#39;login&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line23">23</a> 	login.send_keys &quot;654321&quot;</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line24">24</a> 	senha = driver.find_element(:name, &#39;password&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line25">25</a> 	senha.send_keys &quot;12345678&quot;</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line26">26</a> 	entrar = driver.find_element(:name, &#39;commit&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line27">27</a> 	entrar.click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line28">28</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line29">29</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line30">30</a> Given (/^I am logged in as principal$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line31">31</a> 	driver.get(&#39;http://localhost:3000/&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line32">32</a> 	login = driver.find_element(:name, &#39;login&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line33">33</a> 	login.send_keys &quot;123456&quot;</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line34">34</a> 	senha = driver.find_element(:name, &#39;password&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line35">35</a> 	senha.send_keys &quot;12345678&quot;</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line36">36</a> 	entrar = driver.find_element(:name, &#39;commit&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line37">37</a> 	entrar.click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line38">38</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line39">39</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line40">40</a> ### Data - Alumn</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line41">41</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line42">42</a> And (/^I fill in field alumn &quot;Nome&quot; with &quot;Leo Arthur&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line43">43</a> 	alumn_name = driver.find_element(:name, &#39;alumn[name]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line44">44</a> 	alumn_name.send_keys &quot;Leo Arthur&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line45">45</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line46">46</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line47">47</a> And (/^I fill in field alumn &quot;Matricula&quot; with &quot;456789&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line48">48</a> 	alumn_registry = driver.find_element(:name, &#39;alumn[registry]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line49">49</a> 	alumn_registry.send_keys &#39;456789&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line50">50</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line51">51</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line52">52</a> And (/^I fill in field alumn &quot;Senha&quot; with &quot;222222&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line53">53</a> 	alumn_password = driver.find_element(:name, &#39;alumn[password]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line54">54</a> 	alumn_password.send_keys &#39;222222&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line55">55</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line56">56</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line57">57</a> And (/^I fill in field alumn &quot;Turno&quot; with &quot;Matutino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line58">58</a> 	alumn_turn = driver.find_element(:name, &#39;alumn[shift]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line59">59</a> 	alumn_turn.send_keys &#39;Matutino&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line60">60</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line61">61</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line62">62</a> And (/^I fill in field alumn &quot;Endereço&quot; with &quot;QR 602 Conjunto 06 Casa 05&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line63">63</a> 	alumn_address = driver.find_element(:name, &#39;alumn[address]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line64">64</a> 	alumn_address.send_keys &#39;QR 602 Conjunto 06 Casa 05&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line65">65</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line66">66</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line67">67</a> And (/^I fill in field alumn &quot;Telefone&quot; with &quot;61983104981&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line68">68</a> 	alumn_phone = driver.find_element(:name, &#39;alumn[phone]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line69">69</a> 	alumn_phone.send_keys &#39;6198310481&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line70">70</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line71">71</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line72">72</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line73">73</a> And (/^I fill in field alumn &quot;Data de Nascimento&quot; with &quot;09071995&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line74">74</a> 	alumn_birth = driver.find_element(:name, &#39;alumn[birth_date]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line75">75</a> 	alumn_birth.send_keys &#39;09071995&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line76">76</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line77">77</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line78">78</a> And (/^I fill in field alumn &quot;Sexo&quot; with &quot;Masculino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line79">79</a> 	driver.find_element(:id, &#39;alumn_gender_masculino&#39;).selected?</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line80">80</a> 	driver.find_element(:id, &#39;alumn_gender_masculino&#39;).click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line81">81</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line82">82</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line83">83</a> ### Data - Alumn - Edit</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line84">84</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line85">85</a> And (/^I fill in field parent &quot;Endereço&quot; with &quot;Magnífica Mansão no Pedregal&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line86">86</a> 	alumn_address = driver.find_element(:name, &#39;alumn[address]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line87">87</a> 	alumn_address.clear()</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line88">88</a> 	alumn_address.send_keys &quot;Magnífica Mansão no Pedregal&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line89">89</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line90">90</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line91">91</a> ### Data - Secretary</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line92">92</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line93">93</a> And (/^I fill in &quot;Nome&quot; with &quot;Juca Balla&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line94">94</a> 	nameUser = driver.find_element(:name, &#39;secretary[name]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line95">95</a> 	nameUser.send_keys &quot;Juca Balla&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line96">96</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line97">97</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line98">98</a> And (/^I fill in &quot;CPF&quot; with &quot;46804811372&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line99">99</a> 	cpfUser = driver.find_element(:name, &#39;secretary[employee_cpf]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line100">100</a> 	cpfUser.send_keys &quot;46804811372&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line101">101</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line102">102</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line103">103</a> And (/^I fill in &quot;Matricula&quot; with &quot;147258&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line104">104</a> 	matriculaUser = driver.find_element(:name, &#39;secretary[registry]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line105">105</a> 	matriculaUser.send_keys &quot;147258&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line106">106</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line107">107</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line108">108</a> And (/^I fill in &quot;Senha&quot; with &quot;555555555&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line109">109</a> 	senhaUser = driver.find_element(:name, &#39;secretary[password]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line110">110</a> 	senhaUser.send_keys &quot;555555555&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line111">111</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line112">112</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line113">113</a> And (/^I fill in &quot;Data de Admissão&quot; with &quot;09071995&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line114">114</a> 	birthDate = driver.find_element(:name, &#39;secretary[admission_date]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line115">115</a> 	birthDate.send_keys &quot;09071995&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line116">116</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line117">117</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line118">118</a> And (/^I fill in &quot;Turno&quot; with &quot;Integral&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line119">119</a> 	turnUser = driver.find_element(:name, &#39;secretary[shift]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line120">120</a> 	turnUser.send_keys &quot;Integral&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line121">121</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line122">122</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line123">123</a> And (/^I fill in &quot;Endereço&quot; with &quot;Super República do Gama - Gama Sul&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line124">124</a> 	addressUser = driver.find_element(:name, &#39;secretary[address]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line125">125</a> 	addressUser.send_keys &quot;Super República do Gama - Gama Sul&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line126">126</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line127">127</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line128">128</a> And (/^I fill in &quot;Telefone&quot; with &quot;61983104999&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line129">129</a> 	phoneUser = driver.find_element(:name, &#39;secretary[phone]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line130">130</a> 	phoneUser.send_keys &quot;61983104999&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line131">131</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line132">132</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line133">133</a> And (/^I fill in &quot;Data de Nascimento&quot; with &quot;01011800&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line134">134</a> 	birthDate = driver.find_element(:name, &#39;secretary[birth_date]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line135">135</a> 	birthDate.send_keys &quot;01011800&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line136">136</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line137">137</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line138">138</a> And (/^I fill in secretary &quot;Sexo&quot; with &quot;Masculino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line139">139</a> 	driver.find_element(:id, &#39;secretary_gender_masculino&#39;).selected?</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line140">140</a> 	driver.find_element(:id, &#39;secretary_gender_masculino&#39;).click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line141">141</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line142">142</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line143">143</a> ### Data - Teacher</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line144">144</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line145">145</a> And (/^I fill in &quot;Nome&quot; with &quot;Victor Hugo&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line146">146</a> 	nameUser = driver.find_element(:name, &#39;teacher[name]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line147">147</a> 	nameUser.send_keys &quot;Victor Hugo&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line148">148</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line149">149</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line150">150</a> And (/^I fill in &quot;Matricula&quot; with &quot;153456&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line151">151</a> 	matriculaUser = driver.find_element(:name, &#39;teacher[registry]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line152">152</a> 	matriculaUser.send_keys &quot;153456&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line153">153</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line154">154</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line155">155</a> And (/^I fill in &quot;CPF&quot; with &quot;02951294174&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line156">156</a> 	cpfUser = driver.find_element(:name, &#39;teacher[employee_cpf]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line157">157</a> 	cpfUser.send_keys &quot;02951294174&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line158">158</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line159">159</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line160">160</a> And (/^I fill in &quot;Senha&quot; with &quot;bgatahkei42&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line161">161</a> 	senhaUser = driver.find_element(:name, &#39;teacher[password]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line162">162</a> 	senhaUser.send_keys &quot;bgatahkei42&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line163">163</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line164">164</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line165">165</a> And (/^I fill in &quot;Turno&quot; with &quot;Matutino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line166">166</a> 	turnUser = driver.find_element(:name, &#39;teacher[shift]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line167">167</a> 	turnUser.send_keys &quot;Matutino&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line168">168</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line169">169</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line170">170</a> And (/^I fill in &quot;Endereço&quot; with &quot;QR 602 Conjunto 06 Casa 05&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line171">171</a> 	addressUser = driver.find_element(:name, &#39;teacher[address]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line172">172</a> 	addressUser.send_keys &quot;QR 602 Conjunto 06 Casa 05&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line173">173</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line174">174</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line175">175</a> And (/^I fill in &quot;Telefone&quot; with &quot;61983104981&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line176">176</a> 	phoneUser = driver.find_element(:name, &#39;teacher[phone]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line177">177</a> 	phoneUser.send_keys &quot;61983104981&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line178">178</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line179">179</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line180">180</a> And (/^I fill in &quot;Data de Nascimento&quot; with &quot;09071995&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line181">181</a> 	birthDate = driver.find_element(:name, &#39;teacher[birth_date]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line182">182</a> 	birthDate.send_keys &quot;09071995&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line183">183</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line184">184</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line185">185</a> And (/^I fill in &quot;Sexo&quot; with &quot;Masculino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line186">186</a> 	driver.find_element(:id, &#39;teacher_gender_masculino&#39;).selected?</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line187">187</a> 	driver.find_element(:id, &#39;teacher_gender_masculino&#39;).click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line188">188</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line189">189</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line190">190</a> ### Data - Parent</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line191">191</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line192">192</a> And (/^I fill in field parent &quot;Nome&quot; with &quot;Naiara Camelo&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line193">193</a> 	parent_name = driver.find_element(:name, &#39;parent[name]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line194">194</a> 	parent_name.send_keys &quot;Naiara Camelo&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line195">195</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line196">196</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line197">197</a> And (/^I fill in field parent &quot;CPF&quot; with &quot;02951294174&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line198">198</a> 	parent_cpf = driver.find_element(:name, &#39;parent[parent_cpf]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line199">199</a> 	parent_cpf.send_keys &quot;02951294174&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line200">200</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line201">201</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line202">202</a> And (/^I fill in field parent &quot;Senha&quot; with &quot;111111&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line203">203</a> 	parent_password = driver.find_element(:name, &#39;parent[password]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line204">204</a> 	parent_password.send_keys &quot;111111&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line205">205</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line206">206</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line207">207</a> And (/^I fill in field parent &quot;Endereço&quot; with &quot;QR 612 Conjunto 12 Casa 21&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line208">208</a> 	parent_address = driver.find_element(:name, &#39;parent[address]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line209">209</a> 	parent_address.send_keys &quot;QR 612 Conjunto 12 Casa 21&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line210">210</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line211">211</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line212">212</a> And (/^I fill in field parent &quot;Telefone&quot; with &quot;6133456382&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line213">213</a> 	parent_phone = driver.find_element(:name, &#39;parent[phone]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line214">214</a> 	parent_phone.send_keys &quot;6133456382&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line215">215</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line216">216</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line217">217</a> And (/^I fill in field parent &quot;Data de Nascimento&quot; with &quot;12121912&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line218">218</a> 	parent_birth = driver.find_element(:name, &#39;parent[birth_date]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line219">219</a> 	parent_birth.send_keys &quot;12121912&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line220">220</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line221">221</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line222">222</a> And (/^I fill in field parent &quot;Sexo&quot; with &quot;Feminino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line223">223</a> 	driver.find_element(:id, &#39;parent_gender_feminino&#39;).selected?</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line224">224</a> 	driver.find_element(:id, &#39;parent_gender_feminino&#39;).click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line225">225</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line226">226</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line227">227</a> ### Data - Parent - Edit</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line228">228</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line229">229</a> And (/^I fill in field parent &quot;Endereço&quot; with &quot;Super Rua Nova do DF&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line230">230</a> 	parent_address = driver.find_element(:name, &#39;parent[address]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line231">231</a> 	parent_address.clear()</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line232">232</a> 	parent_address.send_keys &quot;Super Rua Nova do DF&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line233">233</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line234">234</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line235">235</a> ### Data - Suspensions</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line236">236</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line237">237</a> And (/^I fill in field &quot;Motivo da Suspensão&quot; with &quot;Bater na Professora&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line238">238</a> 	suspension_title = driver.find_element(:name, &#39;suspension[title]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line239">239</a> 	suspension_title.send_keys &#39;Bater na Professora&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line240">240</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line241">241</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line242">242</a> And (/^I fill in field &quot;Quantidade de Dias&quot; with &quot;10&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line243">243</a> 	suspension_quantityDays = driver.find_element(:name, &#39;suspension[quantity_days]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line244">244</a> 	suspension_quantityDays.send_keys &#39;10&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line245">245</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line246">246</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line247">247</a> And (/^I fill in field &quot;Descrição da Suspensão&quot; with &quot;Chutou o bebe da professora&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line248">248</a> 	suspension_description = driver.find_element(:name, &#39;suspension[description]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line249">249</a> 	suspension_description.send_keys &#39;Chutou o bebe da professora&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line250">250</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line251">251</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line252">252</a> And (/^I fill in field &quot;Data da Suspensão&quot; with &quot;12121912&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line253">253</a> 	suspension_date = driver.find_element(:name, &#39;suspension[date_suspension]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line254">254</a> 	suspension_date.send_keys &#39;12121912&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line255">255</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line256">256</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line257">257</a> ### Data - Suspensions - Edit</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line258">258</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line259">259</a> And (/^I fill in field &quot;Quantidade de Dias&quot; with &quot;15&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line260">260</a> 	suspension_quantityDays = driver.find_element(:name, &#39;suspension[quantity_days]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line261">261</a> 	suspension_quantityDays.clear()</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line262">262</a> 	suspension_quantityDays.send_keys &#39;15&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line263">263</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line264">264</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line265">265</a> ### Data - Subject</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line266">266</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line267">267</a> And (/^I fill in fiend subject &quot;Nome&quot; with &quot;Geografia&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line268">268</a> 	subject_name = driver.find_element(:name, &#39;subject[name_subject]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line269">269</a> 	subject_name.send_keys &#39;Geografia&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line270">270</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line271">271</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line272">272</a> And (/^I fill in fiend subject &quot;Série&quot; with &quot;3&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line273">273</a> 	subject_class = driver.find_element(:name, &#39;subject[class_level]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line274">274</a> 	subject_class.send_keys &#39;3&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line275">275</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line276">276</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line277">277</a> And (/^I fill in fiend subject &quot;Matrícula do Professor&quot; with &quot;123456&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line278">278</a> 	subject_registry = driver.find_element(:name, &#39;teacher_registry&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line279">279</a> 	subject_registry.send_keys &#39;123456&#39;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line280">280</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line281">281</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line282">282</a> ### Data - Strike</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line283">283</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line284">284</a> And (/^I fill in &quot;Descrição&quot; with &quot;Falsificou a Assinatura do colega&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line285">285</a> 	strike_description = driver.find_element(:name, &#39;strike[description_strike]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line286">286</a> 	strike_description.send_keys &quot;Falsificou a Assinatura do colega&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line287">287</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line288">288</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line289">289</a> And (/^I fill in &quot;Data da Advertência&quot; with &quot;12122012&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line290">290</a> 	strike_date = driver.find_element(:name, &#39;strike[date_strike]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line291">291</a> 	strike_date.send_keys &quot;12122012&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line292">292</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line293">293</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line294">294</a> ### Data - Notification</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line295">295</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line296">296</a> And (/^I fill in &quot;Título&quot; with &quot;Super Gincana Beneficiente&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line297">297</a> 	subject_name = driver.find_element(:name, &#39;notification[title]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line298">298</a> 	subject_name.send_keys &quot;Super Gincana Beneficiente&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line299">299</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line300">300</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line301">301</a> And (/^I fill in &quot;Motivo&quot; with &quot;Arrecadar fundos pra formatura do pessoal de Softy&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line302">302</a> 	subject_name = driver.find_element(:name, &#39;notification[motive]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line303">303</a> 	subject_name.send_keys &quot;Arrecadar fundos pra formatura do pessoal de Softy&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line304">304</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line305">305</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line306">306</a> And (/^I fill in &quot;Conteúdo da Notificação&quot; with &quot;Muitos jogos, gincanas e aventuras&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line307">307</a> 	subject_name = driver.find_element(:name, &#39;notification[notification_text]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line308">308</a> 	subject_name.send_keys &quot;Muitos jogos, gincanas e aventuras&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line309">309</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line310">310</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line311">311</a> ### Data - Notification - Edit</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line312">312</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line313">313</a> And (/^I fill in &quot;Título&quot; with &quot;Super Gincana Beneficiente - Parte 2&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line314">314</a> 	subject_name = driver.find_element(:name, &#39;notification[title]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line315">315</a> 	subject_name.clear()</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line316">316</a> 	subject_name.send_keys &quot;Super Gincana Beneficiente - Parte 2&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line317">317</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line318">318</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line319">319</a> And (/^I fill in &quot;Motivo&quot; with &quot;Arrecadar fundos pra formatura do pessoal de Softy e de Aero&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line320">320</a> 	subject_name = driver.find_element(:name, &#39;notification[motive]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line321">321</a> 	subject_name.clear()</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line322">322</a> 	subject_name.send_keys &quot;Arrecadar fundos pra formatura do pessoal de Softy e de Aero&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line323">323</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line324">324</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line325">325</a> And (/^I fill in &quot;Conteúdo da Notificação&quot; with &quot;Muitos jogos, gincanas, aventuras e divertimentos.&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line326">326</a> 	subject_name = driver.find_element(:name, &#39;notification[notification_text]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line327">327</a> 	subject_name.clear()</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line328">328</a> 	subject_name.send_keys &quot;Muitos jogos, gincanas, aventuras e divertimentos.&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line329">329</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line330">330</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line331">331</a> ### Data - Classroom</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line332">332</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line333">333</a> And (/^I fill in &quot;Nome da Turma&quot; with &quot;3D&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line334">334</a> 	subject_name = driver.find_element(:name, &#39;classroom[name_classroom]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line335">335</a> 	subject_name.send_keys &quot;3D&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line336">336</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line337">337</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line338">338</a> And (/^I fill in &quot;Turno da Turma&quot; with &quot;Vespertino&quot;$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line339">339</a> 	subject_name = driver.find_element(:name, &#39;classroom[shift_classroom]&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line340">340</a> 	subject_name.send_keys &quot;Vespertino&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line341">341</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line342">342</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line343">343</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line344">344</a> ### Initial pages</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line345">345</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line346">346</a> Then (/^I logged as parent$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line347">347</a> 	driver.get(&#39;http://localhost:3000/alumns&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line348">348</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line349">349</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line350">350</a> Then (/^I logged as principal$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line351">351</a> 	driver.get(&#39;http://localhost:3000/users&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line352">352</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line353">353</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line354">354</a> Then (/^I logged as alumn$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line355">355</a> 	driver.get(&#39;http://localhost:3000/alumns/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line356">356</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line357">357</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line358">358</a> ### Initial status</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line359">359</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line360">360</a> Given (/^I am on the users in page$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line361">361</a> 	driver.get(&#39;http://localhost:3000/users&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line362">362</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line363">363</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line364">364</a> ### Buttons pressed</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line365">365</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line366">366</a> When (/^I press &quot;Criar Professor&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line367">367</a> 	driver.get(&#39;http://localhost:3000/teachers/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line368">368</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line369">369</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line370">370</a> When (/^I press &quot;Criar&quot; field$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line371">371</a> 	driver.get(&#39;http://localhost:3000/parents/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line372">372</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line373">373</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line374">374</a> And (/^I click in &quot;Responsável e Aluno&quot; I had register one parent and one alumn$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line375">375</a> 	driver.get(&#39;http://localhost:3000/parents/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line376">376</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line377">377</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line378">378</a> And (/^I press &quot;Editar Responsável&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line379">379</a> 	driver.get(&#39;http://localhost:3000/parents/1/edit&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line380">380</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line381">381</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line382">382</a> And (/^I press &quot;Editar Aluno&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line383">383</a> 	driver.get(&#39;http://localhost:3000/alumns/1/edit&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line384">384</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line385">385</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line386">386</a> When (/^I press &quot;Salvar&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line387">387</a> 	entrar = driver.find_element(:name, &#39;button&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line388">388</a> 	entrar.click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line389">389</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line390">390</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line391">391</a> When (/^I press &quot;Edit Notification&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line392">392</a> 	driver.get(&#39;http://localhost:3000/notifications/1/edit&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line393">393</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line394">394</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line395">395</a> When (/^I had register a suspension$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line396">396</a> 	driver.get(&#39;http://localhost:3000/suspensions/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line397">397</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line398">398</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line399">399</a> And (/^I press &quot;Visualizar Suspensões&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line400">400</a> 	driver.get(&#39;http://localhost:3000/alumns/1/suspensions&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line401">401</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line402">402</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line403">403</a> And (/^I press &quot;Editar Suspensão&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line404">404</a> 	driver.get(&#39;http://localhost:3000/alumns/1/suspensions/1/edit&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line405">405</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line406">406</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line407">407</a> And (/^I press &quot;Primeira Suspensão&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line408">408</a> 	driver.get(&#39;http://localhost:3000/suspensions/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line409">409</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line410">410</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line411">411</a> When (/^I press field &quot;Dar Suspensão&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line412">412</a> 	driver.get(&#39;http://localhost:3000/alumns/1/suspensions/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line413">413</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line414">414</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line415">415</a> When (/^I press &quot;Visualizar&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line416">416</a> 	driver.get(&#39;http://localhost:3000/alumns/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line417">417</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line418">418</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line419">419</a> When (/^I press &quot;Matéria&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line420">420</a> 	driver.get(&#39;http://localhost:3000/subjects&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line421">421</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line422">422</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line423">423</a> And (/^I press &quot;Nova Matéria&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line424">424</a> 	driver.get(&#39;http://localhost:3000/subjects/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line425">425</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line426">426</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line427">427</a> When (/^I press &quot;Avisos&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line428">428</a> 	driver.get(&#39;http://localhost:3000/notifications&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line429">429</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line430">430</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line431">431</a> When (/^I press &quot;Melhor Notificação&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line432">432</a> 	driver.get(&#39;http://localhost:3000/notifications/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line433">433</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line434">434</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line435">435</a> And (/^I press &quot;Notificação&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line436">436</a> 	driver.get(&#39;http://localhost:3000/notifications/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line437">437</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line438">438</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line439">439</a> When (/^I press &quot;Responsável&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line440">440</a> 	driver.get(&#39;http://localhost:3000/parents/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line441">441</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line442">442</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line443">443</a> When (/^I press &quot;Criar Secretário&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line444">444</a> 	driver.get(&#39;http://localhost:3000/secretaries/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line445">445</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line446">446</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line447">447</a> When (/^I press &quot;Visualizar Secretários&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line448">448</a> 	driver.get(&#39;http://localhost:3000/secretaries&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line449">449</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line450">450</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line451">451</a> When (/^I press &quot;Visualizar Turmas&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line452">452</a> 	driver.get(&#39;http://localhost:3000/classrooms&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line453">453</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line454">454</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line455">455</a> When (/^I press &quot;Visualizar Alunos&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line456">456</a> 	driver.get(&#39;http://localhost:3000/alumns&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line457">457</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line458">458</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line459">459</a> And (/^I press &quot;Nova Advertência&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line460">460</a> 	driver.get(&#39;http://localhost:3000/alumns/1/strikes/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line461">461</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line462">462</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line463">463</a> When (/^I press &quot;Nova Notificação&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line464">464</a> 	driver.get(&#39;http://localhost:3000/notifications/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line465">465</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line466">466</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line467">467</a> And (/^I press &quot;Criar Turma&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line468">468</a> 	driver.get(&#39;http://localhost:3000/classrooms/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line469">469</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line470">470</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line471">471</a> ### Registrys</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line472">472</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line473">473</a> Then (/^I register alumn now, I had stay in page alumn new$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line474">474</a> 	driver.get(&#39;http://localhost:3000/parents/5/alumns/new&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line475">475</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line476">476</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line477">477</a> Then (/^I register the alumn and I go to page users$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line478">478</a> 	driver.get(&#39;http://localhost:3000/alumns/4&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line479">479</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line480">480</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line481">481</a> Then (/^I register the teacher and I go to page users$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line482">482</a> 	driver.get(&#39;http://localhost:3000/users&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line483">483</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line484">484</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line485">485</a> Then (/^I register the secretary and I go to page secretaries$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line486">486</a> 	driver.get(&#39;http://localhost:3000/secretaries/&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line487">487</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line488">488</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line489">489</a> Then (/^I register the subject$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line490">490</a> 	driver.get(&#39;http://localhost:3000/users&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line491">491</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line492">492</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line493">493</a> Then (/^I see notification$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line494">494</a> 	driver.get(&#39;http://localhost:3000/notifications/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line495">495</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line496">496</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line497">497</a> Then (/^I see information$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line498">498</a> 	driver.get(&#39;http://localhost:3000/alumns/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line499">499</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line500">500</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line501">501</a> Then (/^I see strikes$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line502">502</a> 	driver.get(&#39;http://localhost:3000/alumns/1/strikes&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line503">503</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line504">504</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line505">505</a> Then (/^I see parent information$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line506">506</a> 	driver.get(&#39;http://localhost:3000/parents/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line507">507</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line508">508</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line509">509</a> Then (/^I see nofications information$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line510">510</a> 	driver.get(&#39;http://localhost:3000/notifications/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line511">511</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line512">512</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line513">513</a> Then (/^I see notification created$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line514">514</a> 	driver.get(&#39;http://localhost:3000/notifications/2&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line515">515</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line516">516</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line517">517</a> Then (/^I see classroom created$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line518">518</a> 	driver.get(&#39;http://localhost:3000/classrooms/2&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line519">519</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line520">520</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line521">521</a> Then (/^I see all secretaries$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line522">522</a> 	driver.get(&#39;http://localhost:3000/secretaries&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line523">523</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line524">524</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line525">525</a> Then (/^I see all classrooms$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line526">526</a> 	driver.get(&#39;http://localhost:3000/classrooms&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line527">527</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line528">528</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line529">529</a> Then (/^I see all alumns$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line530">530</a> 	driver.get(&#39;http://localhost:3000/alumns&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line531">531</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line532">532</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line533">533</a> Then (/^I see strike created$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line534">534</a> 	driver.get(&#39;http://localhost:3000/alumns/1/strikes/2&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line535">535</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line536">536</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line537">537</a> Then (/^I see all notifications$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line538">538</a> 	driver.get(&#39;http://localhost:3000/notifications&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line539">539</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line540">540</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line541">541</a> Then (/^I see notification edited$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line542">542</a> 	driver.get(&#39;http://localhost:3000/notifications/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line543">543</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line544">544</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line545">545</a> Then (/^I see suspension edited$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line546">546</a> 	driver.get(&#39;http://localhost:3000/suspensions/1&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line547">547</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line548">548</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line549">549</a> ##Alumn options</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line550">550</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line551">551</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line552">552</a> And (/^I press Faltas button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line553">553</a> 	driver.get(&#39;http://localhost:3000/alumns/1#faltas&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line554">554</a> end</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line555">555</a> And (/^I press Boletim button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line556">556</a> 	driver.get(&#39;http://localhost:3000/alumns/1#boletim&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line557">557</a> end</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line558">558</a> And (/^I press Notificacoes button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line559">559</a> 	driver.get(&#39;http://localhost:3000/alumns/1#notificoes&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line560">560</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line561">561</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line562">562</a> When (/^I press Sair button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line563">563</a> 	driver.get(&#39;http://localhost:3000/logout&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line564">564</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line565">565</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line566">566</a> Then (/^I logged out$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line567">567</a> 	driver.get(&#39;http://localhost:3000/&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line568">568</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line569">569</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line570">570</a> Then (/^I back to users/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line571">571</a> 	driver.get(&#39;http://localhost:3000/users&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line572">572</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line573">573</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line574">574</a> When (/^I press &quot;Voltar&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line575">575</a> 	driver.get(&#39;http://localhost:3000/users&#39;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line576">576</a> end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line577">577</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line578">578</a> When (/^I press &quot;Advertencias&quot; button$/) do</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line579">579</a> 	advertencia = driver.find_element(:name, &#39;strikebtn&#39;)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line580">580</a> 	advertencia.click</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line581">581</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2017-06-02 19:20:17 -0300 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.2.3</a></p>
+
+  </body>
+</html>

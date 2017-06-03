@@ -112,13 +112,13 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
     describe "with valid params" do
       it "put update" do
         suspension = Suspension.create!(valid_inputs_suspension)
-        put :update, {id: suspension.to_param, suspension: updated_inputs}
+        put :update, params:{id: suspension.to_param, suspension: updated_inputs}
         suspension.reload
       end
 
       it "redirects to @suspension" do
         suspension = Suspension.create!(valid_inputs_suspension)
-        put :update, {id: suspension.to_param, suspension: updated_inputs}
+        put :update, params:{id: suspension.to_param, suspension: updated_inputs}
         expect(response).to redirect_to suspension_path(suspension)
       end
     end
@@ -127,14 +127,14 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
       it "does not update" do
         suspension = Suspension.create!(valid_inputs_suspension)
         allow_any_instance_of(Suspension).to receive(:save).and_return(false)
-        put :update, {id: suspension.to_param, suspension: invalid_inputs_suspension}
+        put :update, params:{id: suspension.to_param, suspension: invalid_inputs_suspension}
         expect(assigns(:suspension)).to eq(suspension)
       end
 
       it "re-render edit template" do
         suspension = Suspension.create!(valid_inputs_suspension)
         allow_any_instance_of(Suspension).to receive(:save).and_return(false)
-        put :update, {id: suspension.to_param, suspension: invalid_inputs_suspension}
+        put :update, params:{id: suspension.to_param, suspension: invalid_inputs_suspension}
         expect(assigns(:suspension)).to eq(suspension)
         expect(response).to render_template('edit')
       end
@@ -171,7 +171,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
     end
     it "render index template" do
       alumn = Alumn.create!(valid_inputs_alumn)
-      get :index, {alumn_id:alumn.id}
+      get :index, params:{alumn_id:alumn.id}
       expect(response).to render_template("index")
     end
   end
@@ -186,7 +186,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
       expect(Suspension.count).to eq(1)
       suspension = Suspension.find_by(title: "Trolando ao vivo")
       expect{
-        delete :destroy, id: suspension.id
+        delete :destroy, params:{id: suspension.id}
       }.to change(Suspension, :count).by(-1)
     end
   end
@@ -198,12 +198,12 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
     it "assigns a suspension to @suspension" do
       alumn = Alumn.create!(valid_inputs_alumn)
       suspension = Suspension.create!(valid_inputs_suspension)
-      get :show, {id:suspension.id}
+      get :show, params:{id:suspension.id}
       expect(assigns(:suspension)).to eq(suspension)
     end
     it "render show template" do
       suspension = Suspension.create!(valid_inputs_suspension)
-      get :show, {id:suspension.id}
+      get :show, params:{id:suspension.id}
       expect(response).to render_template("show")
     end
   end

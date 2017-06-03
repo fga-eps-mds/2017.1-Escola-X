@@ -14,11 +14,11 @@ RSpec.describe SubjectsController, type: :controller do
       login_principal
     end
     it "assigns a new subject to @subject" do
-      get :new, {}
+      get :new
       expect(assigns(:subject)).to be_a_new(Subject)
     end
     it "render new template" do
-      get :new,{}
+      get :new
       expect(response).to render_template("new")
     end
   end
@@ -102,13 +102,13 @@ RSpec.describe SubjectsController, type: :controller do
     describe "with valid params" do
       it "put update" do
         subject = Subject.create!(valid_inputs)
-        put :update, {id: subject.to_param, subject: updated_inputs,
+        put :update, params:{id: subject.to_param, subject: updated_inputs,
                       teacher_registry:teacher.registry}
         subject.reload
       end
       it "redirects to @subject" do
         subject = Subject.create!(valid_inputs)
-        put :update, {id: subject.to_param, subject: updated_inputs,
+        put :update, params:{id: subject.to_param, subject: updated_inputs,
                       teacher_registry:teacher.registry}
         expect(response).to redirect_to subject_path(subject)
       end
@@ -117,14 +117,14 @@ RSpec.describe SubjectsController, type: :controller do
       it "does not update" do
         subject = Subject.create!(valid_inputs)
         allow_any_instance_of(Subject).to receive(:save).and_return(false)
-        put :update, {id: subject.to_param, subject: invalid_inputs,
+        put :update, params:{id: subject.to_param, subject: invalid_inputs,
                       teacher_registry:teacher.registry}
         expect(assigns(:subject)).to eq(subject)
       end
       it "re-render edit template" do
         subject = Subject.create!(valid_inputs)
         allow_any_instance_of(Subject).to receive(:save).and_return(false)
-        put :update, {id: subject.to_param, subject: invalid_inputs,
+        put :update, params:{id: subject.to_param, subject: invalid_inputs,
                       teacher_registry:teacher.registry}
         expect(response).to render_template('edit')
       end
@@ -138,12 +138,12 @@ RSpec.describe SubjectsController, type: :controller do
     it "deletes subject" do
       subject = Subject.create!(valid_inputs)
       expect{
-        delete :destroy, {id:subject.to_param}
+        delete :destroy, params:{id:subject.to_param}
       }.to change(Subject, :count).by -1
     end
     it "redirects to subjects" do
       subject = Subject.create!(valid_inputs)
-        delete :destroy, {id:subject.to_param}
+        delete :destroy, params:{id:subject.to_param}
         expect(response).to redirect_to subjects_path
     end
   end
@@ -154,11 +154,11 @@ RSpec.describe SubjectsController, type: :controller do
     end
     it "assigns all subjects to @subjects" do
       subject = Subject.create!(valid_inputs)
-      get :index, {}
+      get :index
       expect(assigns(:subjects)).to eq([subject])
     end
     it "render index template" do
-      get :index, {}
+      get :index
       expect(response).to render_template("index")
     end
   end
@@ -169,12 +169,12 @@ RSpec.describe SubjectsController, type: :controller do
     end
     it "assigns a subject to @subject" do
       subject = Subject.create!(valid_inputs)
-      get :show, {id: subject.to_param}
+      get :show, params:{id: subject.to_param}
       expect(assigns(:subject)).to eq(subject)
     end
     it "render show template" do
       subject = Subject.create!(valid_inputs)
-      get :show, {id: subject.to_param}
+      get :show, params:{id: subject.to_param}
       expect(response).to render_template("show")
     end
   end

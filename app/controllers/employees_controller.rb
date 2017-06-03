@@ -1,18 +1,44 @@
 # File name: employees_controller.rb
 # Class name: EmployeesController
-# Description: Controller used to communicate with the view highways/show
+# Description: Controller used to communicate with the views of emplyoees
 
 class EmployeesController < UsersController
 	include SessionsHelper
 
-  def index
-    if ( logged_in? )
-      @employees = Employee.all
-    end
-  end
+	
+	def index
+    	if ( is_employee? )
+      		@employees = Employee.all
+      	else
+      		redirect_to "/errors/error_500"
+    	end
+  	end
+
+
+	def edit_password_employee
+		if ( is_principal? )
+			@user = Employee.find(params[:id])
+			render action: 	"../users/edit_password"
+		else
+      		redirect_to "/errors/error_500"
+		end
+	end
+
+	def update_password_employee
+		if ( is_principal? )
+			@user = Employee.find(params[:id])
+			if (@user.update!(employee_params))
+				redirect_to @user
+			else
+				render action: "../users/edit_password"
+			end
+		else
+      		redirect_to "/errors/error_500"
+		end
+	end
 
   def show
-    if ( logged_in? )
+    if ( is_employee? )
       @employee = Employee.find(params[:id])
     end
   end
@@ -61,15 +87,16 @@ class EmployeesController < UsersController
 
 private
   def employee_params
-    params.require(:employee).permit(:registry,
-                                   :admission_date,
-                                   :employee_cpf,
-                                   :shift,
-																	 :password,
-                                   :name,
-                                   :address,
-                                   :phone,
-                                   :gender,
-                                   :birth_date)
-  end
+    params.require(:employee).permit(	:registry,
+																			:admission_date,
+																			:employee_cpf,
+																			:shift,
+																			:password,
+																			:name,
+																			:address,
+																			:phone,
+																			:gender,
+																			:birth_date)
+
+  	end
 end
