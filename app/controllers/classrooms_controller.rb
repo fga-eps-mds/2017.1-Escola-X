@@ -2,7 +2,7 @@
 # Class name: ClassroomsController
 # Description: Controller used to communicate with the proprietary view of classrooms
 class ClassroomsController < ApplicationController
-  include SessionsHelper
+  include SessionsHelper 
 
   def index
     if ( is_principal? )
