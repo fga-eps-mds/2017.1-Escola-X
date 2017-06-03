@@ -8,9 +8,7 @@
           <%end%>
       <%end%>
       <% if is_parent?%>
-        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
-      <% else %>
-        
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>     
       <% end %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
@@ -21,7 +19,7 @@
         <%end%>
       <%end%>
       <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-warning' %>
-      <%= link_to '<span class="fa fa-address-card"></span> Advertências'.html_safe, alumn_strikes_path(@alumn), class:'btn btn-sm btn-warning'%>
+      <%= link_to '<span class="fa fa-address-card"></span> Advertências'.html_safe, alumn_strikes_path(@alumn), class:'btn btn-sm btn-warning', name:'strikebtn' %>
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">

@@ -89,6 +89,14 @@ And (/^I fill in field alumn "Sexo" with "Masculino"$/) do
 	driver.find_element(:id, 'alumn_gender_masculino').click
 end
 
+### Data - Alumn - Edit
+
+And (/^I fill in field parent "Endereço" with "Magnífica Mansão no Pedregal"$/) do
+	alumn_address = driver.find_element(:name, 'alumn[address]')
+	alumn_address.clear()
+	alumn_address.send_keys "Magnífica Mansão no Pedregal"
+end
+
 ### Data - Secretary
 
 And (/^I fill in "Nome" with "Juca Balla"$/) do
@@ -225,6 +233,14 @@ And (/^I fill in field parent "Sexo" with "Feminino"$/) do
 	driver.find_element(:id, 'parent_gender_feminino').click
 end
 
+### Data - Parent - Edit
+
+And (/^I fill in field parent "Endereço" with "Super Rua Nova do DF"$/) do
+	parent_address = driver.find_element(:name, 'parent[address]')
+	parent_address.clear()
+	parent_address.send_keys "Super Rua Nova do DF"
+end
+
 ### Data - Suspensions
 
 And (/^I fill in field "Motivo da Suspensão" with "Bater na Professora"$/) do
@@ -247,6 +263,14 @@ And (/^I fill in field "Data da Suspensão" with "12121912"$/) do
 	suspension_date.send_keys '12121912'
 end
 
+### Data - Suspensions - Edit
+
+And (/^I fill in field "Quantidade de Dias" with "15"$/) do
+	suspension_quantityDays = driver.find_element(:name, 'suspension[quantity_days]')
+	suspension_quantityDays.clear()
+	suspension_quantityDays.send_keys '15'
+end
+
 ### Data - Subject
 
 And (/^I fill in fiend subject "Nome" with "Geografia"$/) do
@@ -264,6 +288,18 @@ And (/^I fill in fiend subject "Matrícula do Professor" with "369874"$/) do
 	subject_registry.send_keys '369874'
 end
 
+### Data - Strike
+
+And (/^I fill in "Descrição" with "Falsificou a Assinatura do colega"$/) do
+	strike_description = driver.find_element(:name, 'strike[description_strike]')
+	strike_description.send_keys "Falsificou a Assinatura do colega"
+end
+
+And (/^I fill in "Data da Advertência" with "12122012"$/) do
+	strike_date = driver.find_element(:name, 'strike[date_strike]')
+	strike_date.send_keys "12122012"
+end
+
 ### Data - Notification
 
 And (/^I fill in "Título" with "Super Gincana Beneficiente"$/) do
@@ -277,8 +313,8 @@ And (/^I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Sof
 end
 
 And (/^I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas e aventuras"$/) do
-	subject_name = driver.find_element(:name, 'notifitext[notification_text]notification[notification_text]')
-	subject_name.send_keys "Muitos jogos, gincanas e text"
+	subject_name = driver.find_element(:name, 'notification[notification_text]')
+	subject_name.send_keys "Muitos jogos, gincanas e aventuras"
 end
 
 ### Data - Notification - Edit
@@ -348,6 +384,14 @@ And (/^I click in "Responsável e Aluno" I had register one parent and one alumn
 	driver.get('http://localhost:3000/parents/new')
 end
 
+And (/^I press "Editar Responsável" button$/) do
+	driver.get('http://localhost:3000/parents/1/edit')
+end
+
+And (/^I press "Editar Aluno" button$/) do
+	driver.get('http://localhost:3000/alumns/1/edit')
+end
+
 When (/^I press "Salvar" button$/) do
 	entrar = driver.find_element(:name, 'button')
 	entrar.click
@@ -359,6 +403,22 @@ end
 
 When (/^I had register a suspension$/) do
 	driver.get('http://localhost:3000/suspensions/1')
+end
+
+And (/^I press "Visualizar Suspensões" button$/) do
+	driver.get('http://localhost:3000/alumns/1/suspensions')
+end
+
+And (/^I press "Editar Suspensão" button$/) do
+	driver.get('http://localhost:3000/alumns/1/suspensions/1/edit')
+end
+
+And (/^I press "Primeira Suspensão" button$/) do
+	driver.get('http://localhost:3000/suspensions/1')
+end
+
+And (/^I press "Ver Relatório" button$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
 end
 
 When (/^I press field "Dar Suspensão" button$/) do
@@ -389,7 +449,6 @@ And (/^I press "Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
-
 When (/^I press "Responsável" button$/) do
 	driver.get('http://localhost:3000/parents/1')
 end
@@ -410,7 +469,15 @@ When (/^I press "Visualizar Alunos" button$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
+<<<<<<< HEAD
 And (/^I press "Nova Notificação" button$/) do
+=======
+And (/^I press "Nova Advertência" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/new')
+end
+
+When (/^I press "Nova Notificação" button$/) do
+>>>>>>> cucumber_testing
 	driver.get('http://localhost:3000/notifications/new')
 end
 
@@ -480,6 +547,13 @@ Then (/^I see all alumns$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
+<<<<<<< HEAD
+=======
+Then (/^I see strike created$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/2')
+end
+
+>>>>>>> cucumber_testing
 Then (/^I see all notifications$/) do
 	driver.get('http://localhost:3000/notifications')
 end
@@ -488,6 +562,7 @@ Then (/^I see notification edited$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
+<<<<<<< HEAD
 ##Alumn options
 
 And (/^I press Faltas button$/) do
@@ -513,6 +588,39 @@ end
 
 Then (/^I back to users?/) do
 	driver.get('http://localhost:3000/users')
+=======
+Then (/^I see suspension edited$/) do
+	driver.get('http://localhost:3000/suspensions/1')
+end
+
+Then (/^I see alumn informations$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
+end
+
+Then (/^I see my report$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
+end
+
+Then (/^I see your report$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
+end
+
+##Alumn options
+
+
+And (/^I press "Faltas" button$/) do
+	driver.get('http://localhost:3000/alumns/1#faltas')
+end
+And (/^I press "Boletim" button$/) do
+	driver.get('http://localhost:3000/alumns/1#boletim')
+end
+And (/^I press "Notificacoes" button$/) do
+	driver.get('http://localhost:3000/alumns/1#notificoes')
+end
+
+When (/^I press "Sair" button$/) do
+	driver.get('http://localhost:3000/logout')
+>>>>>>> cucumber_testing
 end
 
 When (/^I press "Voltar" button$/) do
@@ -524,6 +632,7 @@ When (/^I press "Advertencias" button$/) do
 	advertencia.click
 end
 
+<<<<<<< HEAD
 ## Teacher options
 
 Then (/^I logged as teacher$/) do
@@ -636,3 +745,24 @@ end
 Then (/^I edit a notification$/) do
 	driver.get('http://localhost:3000/notifications')
 end
+=======
+Then (/^Then I see "notificacoes"$/) do
+	driver.get('http://localhost:3000/alumns/1#notificoes')
+end
+
+Then (/^I see "faltas"$/) do
+	driver.get('http://localhost:3000/alumns/1#faltas')
+end
+
+Then (/^I see "boletim"$/) do
+	driver.get('http://localhost:3000/alumns/1#boletim')
+end
+
+Then (/^I logged out$/) do
+	driver.get('http://localhost:3000/')
+end
+
+Then (/^I back to users/) do
+	driver.get('http://localhost:3000/users')
+end
+>>>>>>> cucumber_testing

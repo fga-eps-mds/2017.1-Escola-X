@@ -4,6 +4,8 @@ Feature: Principal
 	the principal must be able
 	to register a suspension.
 
+Feature: Principal
+
 	Scenario: Only principal can register parent and alumn
 		Given I am logged in as principal
 		Then I logged as principal
@@ -30,6 +32,23 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I register the alumn and I go to page users
 
+	Scenario: Principal can edit parents
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Responsável" button
+		And I press "Editar Responsável" button
+		And I fill in field parent "Endereço" with "Super Rua Nova do DF"
+		When I press "Salvar" button
+		Then I see parent information
+
+	Scenario: Principal can edit alumns
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Editar Aluno" button
+		And I fill in field parent "Endereço" with "Magnífica Mansão no Pedregal"
+		When I press "Salvar" button
+		Then I see information
 
 	Scenario: Only principal can register suspension
 		Given I am logged in as principal
@@ -41,6 +60,26 @@ Feature: Principal
 		And I fill in field "Data da Suspensão" with "12121912"
 		When I press "Salvar" button
 		Then I had register a suspension
+
+	Scenario: Only principal can edit suspension
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Visualizar Suspensões" button
+		And I press "Primeira Suspensão" button
+		And I press "Editar Suspensão" button
+		And I fill in field "Quantidade de Dias" with "15"
+		When I press "Salvar" button
+		Then I see suspension edited
+
+	Scenario: Principal can create strike
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Nova Advertência" button
+		And I fill in "Descrição" with "Falsificou a Assinatura do colega"
+		And I fill in "Data da Advertência" with "12122012"
+		When I press "Salvar" button
+		Then I see strike created
 
 	Scenario: Only principal can register subject
 		Given I am logged in as principal
@@ -148,3 +187,16 @@ Feature: Principal
 		Then I logged as principal
 		When I press "Visualizar Alunos" button
 		Then I see all alumns
+
+	Scenario: Principal can exit the system
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press Sair button
+        Then I logged out 
+
+    Scenario: Principal can generate reports
+    	Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Ver Relatório" button
+		Then I see alumn informations
