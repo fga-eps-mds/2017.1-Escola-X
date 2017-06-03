@@ -469,15 +469,11 @@ When (/^I press "Visualizar Alunos" button$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
-<<<<<<< HEAD
-And (/^I press "Nova Notificação" button$/) do
-=======
 And (/^I press "Nova Advertência" button$/) do
 	driver.get('http://localhost:3000/alumns/1/strikes/new')
 end
 
 When (/^I press "Nova Notificação" button$/) do
->>>>>>> cucumber_testing
 	driver.get('http://localhost:3000/notifications/new')
 end
 
@@ -547,13 +543,10 @@ Then (/^I see all alumns$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
-<<<<<<< HEAD
-=======
 Then (/^I see strike created$/) do
 	driver.get('http://localhost:3000/alumns/1/strikes/2')
 end
 
->>>>>>> cucumber_testing
 Then (/^I see all notifications$/) do
 	driver.get('http://localhost:3000/notifications')
 end
@@ -562,7 +555,6 @@ Then (/^I see notification edited$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
-<<<<<<< HEAD
 ##Alumn options
 
 And (/^I press Faltas button$/) do
@@ -586,9 +578,6 @@ Then (/^I logged out$/) do
 	driver.get('http://localhost:3000/')
 end
 
-Then (/^I back to users?/) do
-	driver.get('http://localhost:3000/users')
-=======
 Then (/^I see suspension edited$/) do
 	driver.get('http://localhost:3000/suspensions/1')
 end
@@ -620,7 +609,6 @@ end
 
 When (/^I press "Sair" button$/) do
 	driver.get('http://localhost:3000/logout')
->>>>>>> cucumber_testing
 end
 
 When (/^I press "Voltar" button$/) do
@@ -632,7 +620,6 @@ When (/^I press "Advertencias" button$/) do
 	advertencia.click
 end
 
-<<<<<<< HEAD
 ## Teacher options
 
 Then (/^I logged as teacher$/) do
@@ -745,7 +732,6 @@ end
 Then (/^I edit a notification$/) do
 	driver.get('http://localhost:3000/notifications')
 end
-=======
 Then (/^Then I see "notificacoes"$/) do
 	driver.get('http://localhost:3000/alumns/1#notificoes')
 end
@@ -765,4 +751,3 @@ end
 Then (/^I back to users/) do
 	driver.get('http://localhost:3000/users')
 end
->>>>>>> cucumber_testing
