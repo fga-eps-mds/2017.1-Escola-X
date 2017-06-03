@@ -12,10 +12,25 @@ Rails.application.routes.draw do
 
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
+  get 'subjects/:id/add_classrooms', to:'subjects#add_classrooms', as:'add_classrooms'
+  post 'subjects/:id/add_classrooms', to:'subjects#add_classroom', as:'add_classroom'
+  get 'subjects/:id/show_subjects', to:'subjects#show_subjects', as:'show_subjects'
+
+  get 'classroom/:id/classroom_subjects', to:'subjects#classroom_subjects', as:'classroom_subjects'
+
+  get 'classroom/:id/subject/:subject_id/grades', to:'grades#set_grades', as:'set_grades'
+  put 'classroom/:id/subject/:subject_id/grades', to:'grades#post_grades', as:'post_grades'
+
+  get 'teachers/:id/teacher_classrooms', to:'teachers#teacher_classrooms', as:'teacher_classrooms'
+  get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
+       as:'teacher_classroom_subjects'
+
+  get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id/teacher_grades/:subject_id', to:'teachers#teacher_grades',
+       as:'teacher_grades'
+
+  get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
   root 'sessions#new'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users
   resources :alumns do
@@ -29,7 +44,7 @@ Rails.application.routes.draw do
   resources :teachers
   resources :classrooms
   resources :suspensions
-
+  resources :grades
   resources :subjects
   resources :school_misses
   resources :alumns do
@@ -44,7 +59,11 @@ Rails.application.routes.draw do
     resources :suspensions
   end
 
-  # get '/alumns/:id/:year/report', to: 'alumns#report', as: 'alumn_report'
-  get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
+  resources :classrooms do
+    resources :subjects
+  end
 
+  resources :classrooms do
+    resources :grades
+  end
 end

@@ -11,7 +11,7 @@ RSpec.describe SessionsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino"} }
+                         parent_id: parent.id, shift:"matutino",classroom_id:1} }
 
   let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                         address:"Rua Vida Casa 15,Taguatinga",

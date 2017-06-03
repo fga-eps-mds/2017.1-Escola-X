@@ -24,7 +24,7 @@
   end
 
   def show
-    if ( logged_in? )
+    if ( current_user_alumn(params[:id]) or is_employee?)
       @alumn = Alumn.find(params[:id])
       Alumn.current = @alumn
     end
@@ -51,6 +51,7 @@
       @alumn.parent_id = @@parent.id
       @classrooms = Classroom.all.order('name_classroom')
       if (@alumn.save)
+        GradesController.create(@alumn)
         redirect_to @alumn
       else
         render 'new'
@@ -63,6 +64,7 @@
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
       if @alumn.update alumn_params
+        GradesController.update_alumn(@alumn)
         redirect_to @alumn
       else
         render 'edit'

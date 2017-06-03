@@ -34,7 +34,7 @@ module Helpers
   end
 
   def alumn
-    alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
+    @alumn = Alumn.create(name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"Masculino",
                            birth_date:"07/06/1988", registry:"985679",
@@ -59,15 +59,24 @@ module Helpers
   end
 
   def teacher
-    teacher = Teacher.create(name: "Teacher insano", phone:"61988885555",
+    @teacher = Teacher.create(name: "Teacher insano", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
-                            birth_date:"07/06/1988",registry:"892146",
+                            birth_date:"07/06/1988",registry:"224569",
                             employee_cpf:"06057577124",shift:"matutino")
+  end
+  def teacher2
+    @teacher = Teacher.create(name: "Teacher insano", phone:"61988885555",
+                            address:"Rua Vida Casa 15,Taguatinga",
+                            password: "12345678", gender:"Masculino",
+                            birth_date:"07/06/1988",registry:"951357",
+                            employee_cpf:"46247602391",shift:"matutino")
   end
 
   def classroom
-    classroom = Classroom.create!(name_classroom: "3G",
+    @classroom = Classroom.create(name_classroom: "3G",
                                  shift_classroom: "matutino")
+    # ClassroomSubject.create!(classroom_id: classroom.id, subject_id: subject.id)
   end
+
 end
