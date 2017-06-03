@@ -46,3 +46,10 @@
       Then I logged as alumn
       When I press Sair button
       Then I logged out
+
+    Scenario: Alumn can see your report
+      Given I am logged in as alumn
+      Then I logged as alumn
+      When I press "Ver Relatório" button
+      Then I see my report
+

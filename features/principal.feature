@@ -189,3 +189,10 @@ Feature: Principal
 		Then I logged as principal
 		When I press Sair button
         Then I logged out 
+
+    Scenario: Principal can generate reports
+    	Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Ver Relatório" button
+		Then I see alumn informations

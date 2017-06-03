@@ -407,6 +407,10 @@ And (/^I press "Primeira Suspensão" button$/) do
 	driver.get('http://localhost:3000/suspensions/1')
 end
 
+And (/^I press "Ver Relatório" button$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
+end
+
 When (/^I press field "Dar Suspensão" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
@@ -543,6 +547,18 @@ end
 
 Then (/^I see suspension edited$/) do
 	driver.get('http://localhost:3000/suspensions/1')
+end
+
+Then (/^I see alumn informations$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
+end
+
+Then (/^I see my report$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
+end
+
+Then (/^I see your report$/) do
+	driver.get('http://localhost:3000/alumns/1/report')
 end
 
 ##Alumn options
