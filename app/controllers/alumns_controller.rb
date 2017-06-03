@@ -24,7 +24,7 @@
   end
 
   def show
-    if ( current_user_alumn(params[:id]) or is_employee?)
+    if ( logged_in? )
       @alumn = Alumn.find(params[:id])
       Alumn.current = @alumn
     end

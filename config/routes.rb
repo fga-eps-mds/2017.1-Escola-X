@@ -21,12 +21,18 @@ Rails.application.routes.draw do
   get 'classroom/:id/subject/:subject_id/grades', to:'grades#set_grades', as:'set_grades'
   put 'classroom/:id/subject/:subject_id/grades', to:'grades#post_grades', as:'post_grades'
 
+
+  get 'classroom/:id/subject/:subject_id/grade/:grade_id/history', to:'grade_histories#show_history', as:'show_history'
+  
+  root 'sessions#new'
+
   get 'teachers/:id/teacher_classrooms', to:'teachers#teacher_classrooms', as:'teacher_classrooms'
   get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
        as:'teacher_classroom_subjects'
 
   get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id/teacher_grades/:subject_id', to:'teachers#teacher_grades',
        as:'teacher_grades'
+
 
   get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 

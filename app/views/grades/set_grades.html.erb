@@ -1,3 +1,4 @@
+
 <%= render "layouts/navbar" %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de alunos</h1>
 <hr>
@@ -7,47 +8,92 @@
       <h3 class="">Nome do Aluno: <%= grade.alumn.name %></h3>
       <%= form_for (grade), url: post_grades_path, method: :put, html: {class: 'form-inline'} do |g| %>
         <div class="form-group">
-          <%= g.label :grade_01, class:"sr-only" %>
-          <div class="input-group">
+          <%= g.label :grade_01, class:"sr-only"%>
+          <div class="input-group grade-group">
             <span class="input-group-addon">
               <span class="fa fa-tag"></span>
                1º
             </span>
-            <%= g.text_field :grade_01, class:"form-control", placeholder:"1º Bimestre" %>
+            <% if is_secretary? %>
+              <%= g.text_field :grade_01, class:"form-control", placeholder:"1º Bimestre"%>
+            <% elsif is_principal? %>
+              <output class="grade form-control">
+                <%= grade.grade_01 %>
+              </output>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
           <%= g.label :grade_02, class:"sr-only" %>
-          <div class="input-group">
+          <div class="input-group grade-group">
             <span class="input-group-addon">
               <span class="fa fa-tag"></span>
                2º
             </span>
-            <%= g.text_field :grade_02, class:"form-control", placeholder:"2º Bimestre" %>
+            <% if is_secretary? %>
+              <%= g.text_field :grade_02, class:"form-control", placeholder:"2º Bimestre"%>
+            <% elsif is_principal? %>
+              <output class="grade form-control">
+                <%= grade.grade_02 %>
+              </output>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
           <%= g.label :grade_03, class:"sr-only" %>
-          <div class="input-group">
+          <div class="input-group grade-group">
             <span class="input-group-addon">
               <span class="fa fa-tag"></span>
                3º
             </span>
-            <%= g.text_field :grade_03, class:"form-control", placeholder:"3º Bimestre" %>
+            <% if is_secretary? %>
+              <%= g.text_field :grade_03, class:"form-control", placeholder:"3º Bimestre" %>
+            <% elsif is_principal? %>
+              <output class="grade form-control">
+                <%= grade.grade_03 %>
+              </output>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
           <%= g.label :grade_04, class:"sr-only" %>
-          <div class="input-group">
+          <div class="input-group grade-group">
             <span class="input-group-addon">
               <span class="fa fa-tag"></span>
                4º
             </span>
-            <%= g.text_field :grade_04, class:"form-control", placeholder:"4º Bimestre" %>
+            <% if is_secretary? %>
+              <%= g.text_field :grade_04, class:"form-control", placeholder:"4º Bimestre"%>
+            <% elsif is_principal? %>
+              <output class="grade form-control">
+                <%= grade.grade_04 %>
+              </output>
+            <% end %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= g.label :grade_final, class:"sr-only" %>
+          <div class="input-group grade-group">
+            <span class="input-group-addon">
+              <span class="fa fa-tag"></span>
+               Nota Final
+            </span>
+            <% if is_secretary? %>
+              <%= g.text_field :grade_final, class:"form-control", placeholder:"Nota final" %>
+            <% elsif is_principal? %>
+              <output class="grade form-control">
+                <%= grade.grade_final %>
+              </output>
+            <% end %>
           </div>
         </div>
         <%= hidden_field_tag(:alumn_id, grade.alumn.id)%>
-        <%= g.submit "Salvar", subject_id: grade.subject.id, class:'btn btn-lg btn-success' %>
+        <% if is_secretary? %>
+          <%= g.submit "Salvar", subject_id: grade.subject.id, class:'btn btn-lg btn-success' %>
+        <% end %>
+        <div class="pull-right">
+          <%= link_to 'Histórico de alteração', show_history_path(grade_id: grade.id) %>
+        </div>
       <% end %>
     </div>
     <hr>
