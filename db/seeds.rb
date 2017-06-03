@@ -20,6 +20,11 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               alumn_id: "1",
               employee_id: "1")
 
+Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
+                 name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
+                 shift: 'Matutino', password_digest: '12345678', birth_date: '03-03-2000',
+                 admission_date: '03-03-2001', phone: '06133713601')
+
 Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
                 registry: '123456', employee_cpf: '73117438262',shift:"Diurno")
