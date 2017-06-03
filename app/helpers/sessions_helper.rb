@@ -74,6 +74,59 @@ module SessionsHelper
     return ( is_principal? or is_secretary? or is_teacher? )
   end
 
+
+  def is_son?(id)
+
+    found = false
+    if is_parent?
+      @current_user.alumns.each do |alumn|
+        if (alumn == Alumn.find_by_id(id))
+          found = true
+        end
+      end
+    end
+
+    return found
+  end
+
+  def is_related?(id)
+    found = false
+    if is_alumn?
+      parent = @current_user.parent
+
+      if (parent == Parent.find_by_id(id))
+        found = true
+      end
+    end
+
+    return found
+  end
+
+
+  def verify_parent(id)
+
+    found = false
+    if current_user == Parent.find_by_id(id)
+      found = true
+    else
+      # nothing to do
+    end
+    return found
+  end
+
+
+
+  def verify_alumn(id)
+
+    found = false
+    if current_user == Alumn.find_by_id(id)
+      found = true
+    else
+      # nothing to do
+    end
+    return found
+  end
+
   def is_parent_related_to_alumn?(alumn)
     if ( alumn.parent_id == current_user.id and current_user.is_a?(Parent))
       return true
@@ -89,4 +142,5 @@ module SessionsHelper
       return false
     end
   end
+
 end

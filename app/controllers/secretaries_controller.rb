@@ -19,24 +19,32 @@ class SecretariesController < ApplicationController
       else
         @secretaries = Secretary.all.order('created_at DESC')
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def show
-    if ( logged_in? )
+    if ( is_principal? or is_secretary? )
       @secretary = Secretary.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def new
     if ( is_principal? )
       @secretary = Secretary.new
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def edit
     if ( is_principal? )
       @secretary = Secretary.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -49,6 +57,8 @@ class SecretariesController < ApplicationController
       else
         render 'new'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -61,6 +71,8 @@ class SecretariesController < ApplicationController
       else
         render 'edit'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -71,6 +83,8 @@ class SecretariesController < ApplicationController
         flash[:notice] = "Secretário(a) excluído(a) com sucesso"
       end
       redirect_to secretaries_path
+    else
+      redirect_to "/errors/error_500"
     end
   end
 

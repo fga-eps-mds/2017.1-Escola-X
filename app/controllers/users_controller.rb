@@ -9,6 +9,8 @@ class UsersController < ApplicationController
       @alumns = Alumn.all
       @employees = Employee.all
       @parents = Parent.all
+    else
+      redirect_to "/errors/error_500"
     end
   end
 end

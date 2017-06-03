@@ -5,16 +5,22 @@ class SuspensionsController < ApplicationController
 	include SessionsHelper
 
 	def index
-    if ( logged_in? )
-      @@alumn = Alumn.find(params[:alumn_id])
-      @suspensions = @@alumn.suspensions
+	id = params[:alumn_id]
+
+    if ( is_employee? or verify_alumn(id) or is_son?(id) )
+      	@@alumn = Alumn.find(id)
+	  	@suspensions = @@alumn.suspensions
+	else
+      redirect_to "/errors/error_500"
     end
   end
-
+   
 	def new
 		if ( is_principal? )
 			@@alumn = Alumn.find(params[:alumn_id])
 			@suspension = Suspension.new
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -40,6 +46,8 @@ class SuspensionsController < ApplicationController
 			else
 				render 'suspensions/new'
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -52,6 +60,8 @@ class SuspensionsController < ApplicationController
 					redirect_to users_path
 				end
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -59,6 +69,8 @@ class SuspensionsController < ApplicationController
 		if( is_principal? )
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -70,6 +82,8 @@ class SuspensionsController < ApplicationController
 			else
 				render "suspensions/edit"
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 

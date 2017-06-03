@@ -9,12 +9,16 @@ Rails.application.routes.draw do
   put 'parents/:id/edit_password', to:'parents#update_password_parent'
   get 'employees/:id/edit_password', to:'employees#edit_password_employee', as:'edit_password_employee'
   put 'employees/:id/edit_password', to:'employees#update_password_employee'
-
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
+
+  get '/errors/error_500' , to:'errors#error_500'
+  match "/500", :to => "errors#error_500", :via => :all
+
   get 'subjects/:id/add_classrooms', to:'subjects#add_classrooms', as:'add_classrooms'
   post 'subjects/:id/add_classrooms', to:'subjects#add_classroom', as:'add_classroom'
   get 'subjects/:id/show_subjects', to:'subjects#show_subjects', as:'show_subjects'
+
 
   get 'classroom/:id/classroom_subjects', to:'subjects#classroom_subjects', as:'classroom_subjects'
 

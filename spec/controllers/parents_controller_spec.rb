@@ -71,19 +71,36 @@ RSpec.describe ParentsController, type: :controller do
   end
 
   describe "GET index" do
-    before(:each) do
-      login_principal
+    describe "with the right permission" do
+      before(:each) do
+        login_principal
+      end
+
+      it "assigns all parents to @parents" do
+        get :index
+        expect(assigns(:parents)).to match_array(Parent.all)
+      end
+
+      it "renders the 'index' template" do
+        get :index
+        expect(response).to render_template('index')
+      end
+    end
+    describe "with the wrong permission" do
+      before(:each) do
+        login_parent
+      end
+
+      it "renders the 'error 500' template" do
+        get :index
+        
+        expect(response).to redirect_to '/errors/error_500'
+
+        
+      end
+
     end
 
-    it "assigns all parents to @parents" do
-      get :index
-      expect(assigns(:parents)).to match_array(Parent.all)
-    end
-
-    it "renders the 'index' template" do
-      get :index
-      expect(response).to render_template('index')
-    end
   end
 
   describe "POST create" do

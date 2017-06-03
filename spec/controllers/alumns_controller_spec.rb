@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper' 
 require 'helper_module_spec'
 
 RSpec.configure do |c|
@@ -21,56 +21,99 @@ RSpec.describe AlumnsController, type: :controller do
  let(:classroom_inputs) { { name_classroom: "3G", shift_classroom: "matutino" } }
 
   describe "GET new" do
-    before(:each) do
-      login_principal
+
+    describe "with right permission" do
+      before(:each) do
+        login_principal
+      end
+
+      it "assigns a new alumn as @alumn" do
+        get :new, params:{parent_id:parent.id}
+        expect(assigns(:alumn)).to be_a_new(Alumn)
+      end
+
+      it "render the new template" do
+        get :new, params:{parent_id:parent.id}
+        expect(response).to render_template('new')
+      end
     end
 
-    it "assigns a new alumn as @alumn" do
-      get :new, params:{parent_id:parent.id}
-      expect(assigns(:alumn)).to be_a_new(Alumn)
-    end
+    describe "with wrong permission" do
+      before(:each) do
+        login_parent
+      end
 
-    it "render the new template" do
-      get :new, params:{parent_id:parent.id}
-      expect(response).to render_template('new')
+      it "render the error template" do
+        get :new, params:{parent:parent}
+        expect(response).to redirect_to '/errors/error_500'
+        
+      end
     end
   end
 
   describe "GET edit" do
-    before(:each) do
-      login_principal
+
+    describe "with right permissions" do
+      before(:each) do
+        login_principal
+      end
+
+      it "assigns the requested alumn as @alumn" do
+        alumn = Alumn.create! valid_inputs
+        get :edit, params:{id: alumn.to_param}
+        expect(assigns(:alumn)).to eq(alumn)
+      end
+
+      it "render the edit template" do
+        alumn = Alumn.create! valid_inputs
+        get :edit, params:{id: alumn.to_param}
+        expect(response).to render_template('edit')
+      end
     end
 
-    it "assigns the requested alumn as @alumn" do
-      alumn = Alumn.create! valid_inputs
-      get :edit, params:{id: alumn.to_param}
-      expect(assigns(:alumn)).to eq(alumn)
-    end
+    describe "with wrong permissions" do
+      before(:each) do
+        login_parent
+      end
 
-    it "render the edit template" do
-      alumn = Alumn.create! valid_inputs
-      get :edit, params:{id: alumn.to_param}
-      expect(response).to render_template('edit')
+      it "redirects to errors page" do
+        alumn = Alumn.create! valid_inputs
+        get :edit, params:{id: alumn.to_param}
+        expect(response).to redirect_to('/errors/error_500')
+      end
     end
   end
 
   describe 'GET show' do
-    before(:each) do
-      login_principal
+    describe "with right permissions" do
+      before(:each) do
+        login_principal
+      end
+
+      it 'assigns the requested alumn to @alumn' do
+        alumn = Alumn.create! valid_inputs
+        get :show, params:{ id: alumn.to_param}
+        expect(assigns(:alumn)).to eq(alumn)
+      end
+
+      it "render the show template" do
+        alumn = Alumn.create! valid_inputs
+        get :show, params:{ id: alumn.to_param}
+        expect(response).to render_template('show')
+      end
     end
+    describe "with wrong permissions" do
+      before(:each) do 
+        login_parent
+      end
 
-  it 'assigns the requested alumn to @alumn' do
-    alumn = Alumn.create! valid_inputs
-    get :show, params:{ id: alumn.to_param}
-    expect(assigns(:alumn)).to eq(alumn)
-  end
-
-  it "render the show template" do
-    alumn = Alumn.create! valid_inputs
-    get :show, params:{ id: alumn.to_param}
-    expect(response).to render_template('show')
-  end
-end
+      it "redirect to error_500 page" do
+        alumn = Alumn.create! valid_inputs
+        get :show, params:{ id: alumn.to_param}
+        expect(response).to redirect_to('/errors/error_500')
+      end
+    end
+  end # end of describe GET SHOW
 
   describe "PUT update" do
     before(:each) do
@@ -116,6 +159,18 @@ end
         # allow_any_instance_of(Alumn).to receive(:save).and_return(false)
         put :update, params:{id: alumn.to_param, alumn: invalid_inputs }
         expect(response).to render_template("edit")
+      end
+    end
+
+    describe "with wrong permissions" do
+      before (:each) do
+        login_parent
+      end
+
+      it "redirects to error_500 page" do
+        alumn = Alumn.create! valid_inputs
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs}
+        expect(response).to redirect_to ('/errors/error_500')
       end
     end
   end
@@ -177,6 +232,7 @@ end
         end
       end
     end
+
   end
 
   describe "Post create" do
@@ -226,30 +282,46 @@ end
 
 
   describe "DELETE delete" do
-    before(:each) do
-      login_principal
-    end
-    it "does delete an Alumn" do
-      alumn = Alumn.create!(valid_inputs)
-      expect{
-        delete :destroy, params:{id: alumn}
-      }.to change(Alumn, :count).by(-1)
-    end
+      before(:each) do
+        login_principal
+      end
+      it "does delete an Alumn" do
+        alumn = Alumn.create!(valid_inputs)
+        expect{
+          delete :destroy, params:{id: alumn}
+        }.to change(Alumn, :count).by(-1)
+      end
   end
+
   describe "edit password" do
-    before(:each) do
-      login_principal
+    describe "with right permissions" do
+      before(:each) do
+        login_principal
+      end
+      it "assings alumn to @alumn" do
+        alumn = Alumn.create!(valid_inputs)
+        get :edit_password_alumn, params:{id: alumn}
+        expect(assigns(:user)).to eq(alumn)
+      end
+      it "render edit_password template" do
+        alumn = Alumn.create!(valid_inputs)
+        get :edit_password_alumn, params:{id: alumn}
+        expect(response).to render_template("../users/edit_password")
+      end
     end
-    it "assings alumn to @alumn" do
-      alumn = Alumn.create!(valid_inputs)
-      get :edit_password_alumn, params:{id: alumn}
-      expect(assigns(:user)).to eq(alumn)
+
+    describe "with wrong permissions" do
+      before (:each) do
+        login_parent
+      end
+
+      it "redirect_to error_500 page" do
+        alumn = Alumn.create!(valid_inputs)
+        get :edit_password_alumn, params:{id: alumn}
+        expect(response).to redirect_to("/errors/error_500")
+      end
     end
-    it "render edit_password template" do
-      alumn = Alumn.create!(valid_inputs)
-      get :edit_password_alumn, params:{id: alumn}
-      expect(response).to render_template("../users/edit_password")
-    end
+
   end
 
   describe "GET report as principal" do

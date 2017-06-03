@@ -5,16 +5,22 @@
 class EmployeesController < UsersController
 	include SessionsHelper
 
-  def index
-    if ( is_employee? )
-      @employees = Employee.all
-    end
-  end
+	
+	def index
+    	if ( is_employee? )
+      		@employees = Employee.all
+      	else
+      		redirect_to "/errors/error_500"
+    	end
+  	end
+
 
 	def edit_password_employee
 		if ( is_principal? )
 			@user = Employee.find(params[:id])
 			render action: 	"../users/edit_password"
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -26,6 +32,8 @@ class EmployeesController < UsersController
 			else
 				render action: "../users/edit_password"
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -90,5 +98,5 @@ private
 																			:gender,
 																			:birth_date)
 
-  end
+  	end
 end

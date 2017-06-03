@@ -1,11 +1,12 @@
 class SchoolMissesController < ApplicationController
   include SessionsHelper
 
-  def index
-    if ( logged_in? )
-      @misses = @alumn.school_misses.all
-    end
-  end
+  # def index
+  #   id = params[:id]
+  #   if ( is_employee? or verify_alumn(id) or is_son?(id) )
+  #     @misses = @alumn.school_misses.all
+  #   end
+  # end
 
   # def show
   #   #if ( logged_in? )
@@ -16,6 +17,8 @@ class SchoolMissesController < ApplicationController
   def new
     if ( is_employee? )
       @school_miss = SchoolMiss.new
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -29,6 +32,8 @@ class SchoolMissesController < ApplicationController
       else
         render new_school_miss_path
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -36,6 +41,8 @@ class SchoolMissesController < ApplicationController
     if ( is_employee? )
      @school_miss = SchoolMiss.find(params[:id])
     # @alumn = Alumn.find_by_id(@school_miss.alumn_id)
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -51,6 +58,8 @@ class SchoolMissesController < ApplicationController
       else
         # render edit_school_miss_path
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -59,6 +68,8 @@ class SchoolMissesController < ApplicationController
       @school_miss = SchoolMiss.find(params[:id])
       @school_miss.destroy
       redirect_to alumn_path(@school_miss.alumn_id)
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
