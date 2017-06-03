@@ -18,7 +18,11 @@ class SessionsController < ApplicationController
         redirect_to alumn_path(@user)
       elsif (is_parent?)
         redirect_to parent_alumns_path(@user)
-      elsif (is_employee?)
+      elsif (is_teacher?)
+        redirect_to teacher_path(@user)
+      elsif(is_secretary?)
+        redirect_to secretary_path(@user)
+      elsif (is_principal?)
         redirect_to users_path
       end
     else

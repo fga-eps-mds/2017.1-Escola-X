@@ -77,12 +77,6 @@ RSpec.describe SessionsController, type: :controller do
         post :create, params:{login: employee.registry, password:employee.password}
         expect(cookies[:authorization_token]).to eq(employee.authorization_token)
       end
-
-      it "redirects to user path" do
-        employee = Employee.create! employee_inputs
-        post :create, params:{login: employee.registry, password:employee.password}
-        expect(response).to redirect_to users_path
-      end
     end
 
     describe "does not login" do
