@@ -7,24 +7,32 @@ class SubjectsController < ApplicationController
   def index
   	if ( is_principal? or is_teacher? )
   		@subjects = Subject.all
+    else
+      redirect_to "/errors/error_500"
   	end
   end
 
   def new
   	if ( is_principal? )
   		@subject = Subject.new
+    else
+      redirect_to "/errors/error_500"
   	end
   end
 
   def edit
   	if ( is_principal? )
     	@subject = Subject.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def show
   	if( is_principal? )
   		@subject = Subject.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
   	end
   end
 
@@ -43,6 +51,8 @@ class SubjectsController < ApplicationController
 	    		render 'new'
 	    	end
 	    end
+    else
+      redirect_to "/errors/error_500"
 		end
   end
 
@@ -51,6 +61,8 @@ class SubjectsController < ApplicationController
   		@subject = Subject.find(params[:id])
   		@subject.destroy
   		redirect_to subjects_path
+    else
+      redirect_to "/errors/error_500"
   	end
   end
 
@@ -69,6 +81,8 @@ class SubjectsController < ApplicationController
 	    		render 'edit'
 	    	end
 	    end
+    else
+      redirect_to "/errors/error_500"
 		end
   end
 

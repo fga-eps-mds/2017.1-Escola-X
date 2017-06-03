@@ -31,6 +31,8 @@
     if ( is_employee? or is_son?(id) or verify_alumn(id) )
       @alumn = Alumn.find(id)
       Alumn.current = @alumn
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -39,6 +41,8 @@
       @alumn = Alumn.new
       @@parent = Parent.find(params[:parent_id])
       @classrooms = Classroom.all.order('name_classroom')
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -46,6 +50,8 @@
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -59,6 +65,8 @@
       else
         render 'new'
       end
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -71,6 +79,8 @@
       else
         render 'edit'
       end
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -86,6 +96,8 @@
     if ( is_principal? )
       @user = Alumn.find(params[:id])
       render action: "../users/edit_password"
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -97,6 +109,8 @@
       else
         render action: "../users/edit_password"
       end
+    else
+      redirect_to "/errors/error_500" 
     end
   end
 

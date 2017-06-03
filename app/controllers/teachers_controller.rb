@@ -7,24 +7,32 @@ class TeachersController < ApplicationController
   def index
     if ( is_employee? )
       @teachers = Teacher.all
+    else
+        redirect_to "/errors/error_500"
     end
   end
 
   def show
     if ( is_employee? )
       @teacher = Teacher.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def new
     if ( is_principal? )
       @teacher = Teacher.new
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
   def edit
     if ( is_principal? )
       @teacher = Teacher.find(params[:id])
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -37,6 +45,8 @@ class TeachersController < ApplicationController
       else
         render 'new'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -49,6 +59,8 @@ class TeachersController < ApplicationController
       else
         render 'edit'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -57,6 +69,8 @@ class TeachersController < ApplicationController
       @teacher = Teacher.find(params[:id])
       @teacher.destroy
       redirect_to users_path
+    else
+      redirect_to "/errors/error_500"
     end
   end
 

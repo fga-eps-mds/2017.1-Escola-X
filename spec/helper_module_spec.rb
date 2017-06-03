@@ -17,6 +17,14 @@ module Helpers
 
   end
 
+  def login_alumn
+    alumn = Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
+            phone: '6140028922', password: '12648678', birth_date: '10-10-1991',
+            registry: '664523', shift: "matutino", gender:"Masculino",
+            parent_id: 1 )
+    cookies[:authorization_token] = parent.authorization_token
+  end
+
   def parent
     parent = Parent.create(name:"Jaozin Silva",phone:"61989998888",
                            address:"Rua do pao casa 22, Asa sul",

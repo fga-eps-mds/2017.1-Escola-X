@@ -19,6 +19,8 @@ class SuspensionsController < ApplicationController
 		if ( is_principal? )
 			@@alumn = Alumn.find(params[:alumn_id])
 			@suspension = Suspension.new
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -44,6 +46,8 @@ class SuspensionsController < ApplicationController
 			else
 				render 'suspensions/new'
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -56,6 +60,8 @@ class SuspensionsController < ApplicationController
 					redirect_to users_path
 				end
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -63,6 +69,8 @@ class SuspensionsController < ApplicationController
 		if( is_principal? )
 			@suspension = Suspension.find(params[:id])
 			@alumn = Alumn.find_by_id(@suspension.alumn_id)
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 
@@ -74,6 +82,8 @@ class SuspensionsController < ApplicationController
 			else
 				render "suspensions/edit"
 			end
+		else
+      		redirect_to "/errors/error_500"
 		end
 	end
 

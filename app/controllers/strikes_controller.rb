@@ -19,6 +19,8 @@ class StrikesController < ApplicationController
     if ( is_employee? )
       @@alumn = Alumn.find(params[:alumn_id])
       @strike = Strike.new
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -27,6 +29,8 @@ class StrikesController < ApplicationController
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
       @employee = Employee.find(@strike.employee_id)
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -45,6 +49,8 @@ class StrikesController < ApplicationController
       else
         render 'strikes/new'
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -58,6 +64,8 @@ class StrikesController < ApplicationController
           redirect_to users_path
         end
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -65,6 +73,8 @@ class StrikesController < ApplicationController
     if ( is_employee? )
       @strike = Strike.find(params[:id])
       @alumn = Alumn.find_by_id(@strike.alumn_id)
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -76,6 +86,8 @@ class StrikesController < ApplicationController
       else
         render "strikes/edit"
       end
+    else
+      redirect_to "/errors/error_500"
     end
   end
 
