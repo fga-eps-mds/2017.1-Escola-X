@@ -91,6 +91,7 @@ def add_alumn
     else
       @alumn.classroom_id = @classroom.id
       if @alumn.save
+        GradesController.update_alumn(@alumn)
         render "classrooms/add_alumns"
       else
         render "classrooms/add_alumns"

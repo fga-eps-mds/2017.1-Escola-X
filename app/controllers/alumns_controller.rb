@@ -61,6 +61,7 @@
       @alumn.parent_id = @@parent.id
       @classrooms = Classroom.all.order('name_classroom')
       if (@alumn.save)
+        GradesController.create(@alumn)
         redirect_to @alumn
       else
         render 'new'
@@ -75,6 +76,7 @@
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
       if @alumn.update alumn_params
+        GradesController.update_alumn(@alumn)
         redirect_to @alumn
       else
         render 'edit'
@@ -114,7 +116,14 @@
     end
   end
 
- private
+  def report
+      @alumn = Alumn.find(params[:id])
+      if ( !(is_parent_related_to_alumn?(@alumn) or is_me?(@alumn) or is_principal?) )
+        redirect_to @current_user
+      end
+  end
+
+  private
   def alumn_params
     params.require(:alumn).permit(:registry,
                                   :shift,
@@ -129,4 +138,3 @@
                                   :classroom_id)
   end
 end
-

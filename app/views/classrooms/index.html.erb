@@ -10,13 +10,14 @@
           <%if @current_user.permission=="Principal" %>
             <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
             <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-            <%= link_to '<span class="fa fa-user-plus"></span> Adicionar alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-success" %>
+            <%= link_to '<span class="fa fa-user-plus"></span> Adicionar Alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-success" %>
+            <%= link_to '<span class="fa fa-address-card"></span> Matérias'.html_safe, classroom_subjects_path(classroom), class:'btn btn-sm btn-warning' %>
           <% end %>
         <% end %>
       </div>
       <div class="row item">
         <div class="col-sm-12 col-md-8 descript">
-          <h3 class="">Nome da turma: <%= classroom.name_classroom %></h3>
+          <h3 class="">Nome da Turma: <%= classroom.name_classroom %></h3>
           <h3 class="">Turno: <%= classroom.shift_classroom %></h3>
         </div>
       </div>

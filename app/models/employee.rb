@@ -6,7 +6,10 @@ class Employee < ApplicationRecord
 
   has_many :strike
   has_many :suspension
+  has_many :grade_histories
+
   has_secure_password
+
 
   self.inheritance_column = :permission
 

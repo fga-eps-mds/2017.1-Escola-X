@@ -11,12 +11,36 @@ Rails.application.routes.draw do
   put 'employees/:id/edit_password', to:'employees#update_password_employee'
   get 'classrooms/:id/add_alumns', to:'classrooms#add_alumns', as:'add_alumns'
   post 'classrooms/:id/add_alumns', to:'classrooms#add_alumn', as:'add_alumn'
+
   get '/errors/error_500' , to:'errors#error_500'
   match "/500", :to => "errors#error_500", :via => :all
 
+  get 'subjects/:id/add_classrooms', to:'subjects#add_classrooms', as:'add_classrooms'
+  post 'subjects/:id/add_classrooms', to:'subjects#add_classroom', as:'add_classroom'
+  get 'subjects/:id/show_subjects', to:'subjects#show_subjects', as:'show_subjects'
+
+
+  get 'classroom/:id/classroom_subjects', to:'subjects#classroom_subjects', as:'classroom_subjects'
+
+  get 'classroom/:id/subject/:subject_id/grades', to:'grades#set_grades', as:'set_grades'
+  put 'classroom/:id/subject/:subject_id/grades', to:'grades#post_grades', as:'post_grades'
+
+
+  get 'classroom/:id/subject/:subject_id/grade/:grade_id/history', to:'grade_histories#show_history', as:'show_history'
+  
   root 'sessions#new'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'teachers/:id/teacher_classrooms', to:'teachers#teacher_classrooms', as:'teacher_classrooms'
+  get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id', to:'teachers#teacher_classroom_subjects',
+       as:'teacher_classroom_subjects'
+
+  get 'teachers/:teacher_id/teacher_classroom_subjects/:classroom_id/teacher_grades/:subject_id', to:'teachers#teacher_grades',
+       as:'teacher_grades'
+
+
+  get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
+
+  root 'sessions#new'
 
   resources :users
   resources :alumns do
@@ -30,7 +54,7 @@ Rails.application.routes.draw do
   resources :teachers
   resources :classrooms
   resources :suspensions
-
+  resources :grades
   resources :subjects
   resources :school_misses
   resources :alumns do
@@ -43,5 +67,13 @@ Rails.application.routes.draw do
 
   resources :alumns do
     resources :suspensions
+  end
+
+  resources :classrooms do
+    resources :subjects
+  end
+
+  resources :classrooms do
+    resources :grades
   end
 end

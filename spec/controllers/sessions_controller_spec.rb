@@ -11,7 +11,7 @@ RSpec.describe SessionsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino"} }
+                         parent_id: parent.id, shift:"matutino",classroom_id:1} }
 
   let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                         address:"Rua Vida Casa 15,Taguatinga",
@@ -76,12 +76,6 @@ RSpec.describe SessionsController, type: :controller do
         employee = Employee.create! employee_inputs
         post :create, params:{login: employee.registry, password:employee.password}
         expect(cookies[:authorization_token]).to eq(employee.authorization_token)
-      end
-
-      it "redirects to user path" do
-        employee = Employee.create! employee_inputs
-        post :create, params:{login: employee.registry, password:employee.password}
-        expect(response).to redirect_to users_path
       end
     end
 

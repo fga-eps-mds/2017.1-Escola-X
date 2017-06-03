@@ -1,3 +1,4 @@
+
 <% if( is_employee? or verify_alumn(@alumn.id) or is_son?(@alumn.id)) %>
   <%= render "layouts/navbar" %>
   <section class="content-section" id="alunos-desc">
@@ -18,6 +19,7 @@
           <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
           <h3 class="">Matricula do professor/diretor: <%= @employee.registry %></h3>
         </div>
+
       </div>
 
     </div>

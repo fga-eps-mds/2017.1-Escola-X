@@ -31,7 +31,10 @@ gem 'bootswatch-rails'
 gem 'font-awesome-rails'
 
 gem 'carrierwave', '~> 0.10.0'
+
 gem 'mini_magick', '~> 4.3'
+
+gem "paperclip-dropbox", ">= 1.1.7"
 
 gem 'rails-i18n', '~> 5.0.0' 
 
@@ -48,6 +51,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver', '~> 2.53'
   gem 'chromedriver-helper'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end
 
 group :development do

@@ -12,6 +12,11 @@ class SubjectsController < ApplicationController
   	end
   end
 
+	def classroom_subjects
+		@classroom = Classroom.find(params[:id])
+		@subjects = @classroom.subjects
+	end
+
   def new
   	if ( is_principal? )
   		@subject = Subject.new
@@ -86,8 +91,37 @@ class SubjectsController < ApplicationController
 		end
   end
 
+  def add_classrooms
+    if ( is_principal? )
+      @classroom = Classroom.find(params[:id])
+      @subjects = Subject.all
+    end
+  end
+
+  def add_classroom
+    if ( is_principal? )
+      @classroom = Classroom.find(params[:id])
+      @subject = Subject.find(params[:subject_id])
+			if !((ClassroomSubject.where(classroom_id: @classroom.id).where(subject_id: @subject.id)).exists?)
+				@classroom_subject = ClassroomSubject.new
+				@classroom_subject.subject_id = @subject.id
+				@classroom_subject.classroom_id = @classroom.id
+				if @classroom_subject.save
+					redirect_to add_classrooms_path(@classroom)
+				end
+			else
+				redirect_to add_classrooms_path(@classroom)
+			end
+    end
+  end
+
+  def show_subjects
+    @classroom = Classroom.find(params[:id])
+    @subjects = @classroom.subject
+  end
+
   private
   def subject_params
-  	params.require(:subject).permit(:name_subject,:class_level,:teacher_id)
+  	params.require(:subject).permit(:name_subject,:class_level,:teacher_id,:classroom_id,:subject_id)
   end
 end

@@ -1,0 +1,34 @@
+<%= render "layouts/navbar" %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de alunos</h1>
+<hr>
+<section class="content-section" id="alunos-desc">
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nome do Aluno</th>
+          <th>Nota do Primeiro Bimestre</th>
+          <th>Nota do Segundo Bimestre</th>
+          <th>Nota do Terceiro Bimestre</th>
+          <th>Nota do Quarto Bimestre</th>
+          <th>Nota Final</th>
+        </tr>
+        <% @grades.each do |grade| %>
+        <tr>
+          <td align = "center"><%= grade.alumn.name %></td>
+          <td align = "center"><%= grade.grade_01 %></td>
+          <td align = "center"><%= grade.grade_02 %></td>
+          <td align = "center"><%= grade.grade_03 %></td>
+          <td align = "center"><%= grade.grade_04 %></td>
+          <td align = "center"><%= grade.grade_final %></td>
+        </tr>
+        <% end %>  
+      </thead>
+    </table>
+  </div>
+<hr>
+  <div align="center">
+    <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, teacher_classroom_subjects_path(params[:teacher_id], params[:classroom_id]), class:'btn btn-info' %>
+  </div>
+</section>
+

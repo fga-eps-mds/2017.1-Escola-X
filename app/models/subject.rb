@@ -1,12 +1,9 @@
-#File name: subject.rb
-#Class name: Subject
-#Description: Validates subject's attributes
 class Subject < ApplicationRecord
 	belongs_to :teacher
-
-	has_many :grades
+	has_many :grades, dependent: :destroy
+	has_many :classroom_subjects, dependent: :destroy
 	has_many :alumns, through: :grades
-
+	has_many :classrooms, through: :classroom_subjects
 	validates_associated :grades
 	validates_associated :alumns
 
@@ -24,4 +21,5 @@ class Subject < ApplicationRecord
   validates :teacher,
             presence: { message: "não válido para criar matéria!" },
             uniqueness: true
+
 end

@@ -1,0 +1,21 @@
+<%= render "layouts/navbar" %>
+<%= render "layouts/feedback_messages" %>
+
+<section class="content-section">
+  <% @grade_histories.each do |grade_history| %>
+  <div class="container">
+    <div class="row item grade-group">
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <table>
+          <tr class="form-control">
+            <td><%=grade_history.employee.name%></td>
+          </tr>
+          <tr class="form-control">
+            <td><%=grade_history.created_at.strftime("%d/%m/%Y %H:%M")%></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</section>

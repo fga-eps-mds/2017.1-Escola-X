@@ -47,8 +47,6 @@ RSpec.describe SessionsHelper, type: :helper do
                 			   gender: "Masculino", birth_date: "02/02/2012",
                 			   password: "12345678", permission:"Secretary", registry:"555444"} }
 
-    pending "add some examples to (or delete) #{__FILE__}"
-
     describe SessionsHelper do
 
       	describe "current user not nil" do

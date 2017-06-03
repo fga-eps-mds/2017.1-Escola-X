@@ -74,6 +74,7 @@ module SessionsHelper
     return ( is_principal? or is_secretary? or is_teacher? )
   end
 
+
   def is_son?(id)
 
     found = false
@@ -124,6 +125,22 @@ module SessionsHelper
       # nothing to do
     end
     return found
+  end
+
+  def is_parent_related_to_alumn?(alumn)
+    if ( alumn.parent_id == current_user.id and current_user.is_a?(Parent))
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_me?(alumn)
+    if ( alumn.id == current_user.id and current_user.is_a?(Alumn))
+      return true
+    else
+      return false
+    end
   end
 
 end
