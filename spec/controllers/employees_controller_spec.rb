@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper' 
 require 'helper_module_spec'
 
 RSpec.configure do |c|
@@ -20,49 +20,91 @@ RSpec.describe EmployeesController, type: :controller do
                          parent_id: parent.id, shift:"matutino"} }
 
   describe "edit password" do
-    before(:each) do
-      login_principal
-    end
-    it "assings employee to @employee" do
-      employee = Employee.create!(valid_inputs)
-      get :edit_password_employee, params:{id: employee}
-      expect(assigns(:user)).to eq(employee)
-    end
-    it "render edit_password template" do
-      employee = Employee.create!(valid_inputs)
-      get :edit_password_employee, params:{id: employee}
-      expect(response).to render_template("../users/edit_password")
+    describe "with right permissions" do 
+      before(:each) do
+        login_principal
+      end
+      it "assings employee to @employee" do
+        employee = Employee.create!(valid_inputs)
+        get :edit_password_employee, params:{id: employee}
+        expect(assigns(:user)).to eq(employee)
+      end
+      it "render edit_password template" do
+        employee = Employee.create!(valid_inputs)
+        get :edit_password_employee, params:{id: employee}
+        expect(response).to render_template("../users/edit_password")
+      end
+    end 
+
+    describe "with wrong permissions" do 
+      before(:each) do
+        login_parent
+      end
+
+      it "redirect to error_500" do 
+        employee = Employee.create!(valid_inputs)
+        get :edit_password_employee, params:{id: employee}
+        expect(response).to redirect_to("/errors/error_500")
+      end
     end
   end
 
   describe "update password" do
-    before(:each) do
-      login_principal
-    end
-    it "assings employee to @employee" do
-      employee = Employee.create!(valid_inputs)
-      get :edit_password_employee, params:{id: employee.id}
-      expect(assigns(:user)).to eq(employee)
-    end
-    it "updates the requested employee" do
-      employee = Employee.create! (valid_inputs)
-      put :update_password_employee, params:{id: employee.to_param, employee: valid_inputs}
-      employee.reload
-    end
-    it "render edit_password template" do
-      employee = Employee.create!(valid_inputs)
-      get :edit_password_employee, params:{id: employee}
-      expect(response).to render_template("../users/edit_password")
+    describe "with right permissions" do
+      before(:each) do
+        login_principal
+      end
+      it "assings employee to @employee" do
+        employee = Employee.create!(valid_inputs)
+        get :edit_password_employee, params:{id: employee.id}
+        expect(assigns(:user)).to eq(employee)
+      end
+      it "updates the requested employee" do
+        employee = Employee.create! (valid_inputs)
+        put :update_password_employee, params:{id: employee.to_param, employee: valid_inputs}
+        employee.reload
+      end
+      it "render edit_password template" do
+        employee = Employee.create!(valid_inputs)
+        get :edit_password_employee, params:{id: employee}
+        expect(response).to render_template("../users/edit_password")
+      end
+    end 
+
+    describe "with wrong permissions" do 
+      before(:each) do
+        login_parent
+      end
+
+      it "renders to error_500 page" do 
+        employee = Employee.create!(valid_inputs)
+        get :edit_password_employee, params:{id: employee}
+        expect(response).to redirect_to("/errors/error_500")
+      end
+
     end
   end
 
   describe "GET index" do
-    before(:each) do
-      login_principal
-    end
-    it "assigns all employees to @employees" do
-      get :index
-      expect(assigns(:employees)).to match_array(Employee.all)
+    describe "with right permissions" do 
+      before(:each) do
+        login_principal
+      end
+      it "assigns all employees to @employees" do
+        get :index
+        expect(assigns(:employees)).to match_array(Employee.all)
+      end
+    end 
+
+    describe "with wrong permissions" do 
+      before(:each) do
+        login_parent
+      end
+
+      it "redirect to error_500 page" do 
+        get :index
+        expect(request).to redirect_to('/errors/error_500')
+      end
     end
   end
 end
