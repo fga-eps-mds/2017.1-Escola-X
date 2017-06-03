@@ -17,19 +17,22 @@ RSpec.describe NotificationsController, type: :controller do
                            notification_date: "10/03/1993"} }
 
   describe "GET index" do
-    before(:each) do
-      login_principal
-    end
+    describe "with right permissions" do 
+      before(:each) do
+        login_principal
+      end
 
-    it "assigns all notifications to @notifications" do
-      get :index, {}
-      expect(assigns(:notifications)).to match(Notification.all)
-    end
+      it "assigns all notifications to @notifications" do
+        get :index, {}
+        expect(assigns(:notifications)).to match(Notification.all)
+      end
 
-    it "renders the template" do
-      get :index, {}
-      expect(response).to render_template('index')
-    end
+      it "renders the template" do
+        get :index, {}
+        expect(response).to render_template('index')
+      end
+    end 
+
   end
 
   describe "PUT update" do

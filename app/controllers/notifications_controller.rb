@@ -2,7 +2,7 @@
 # Class name: NotificationsController
 # Description: Controller used to communicate with the proprietary view of notifications
 class NotificationsController < ApplicationController
-  include SessionsHelper
+  include SessionsHelper 
 
   def index
     if ( logged_in? )
