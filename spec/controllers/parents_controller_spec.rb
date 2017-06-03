@@ -16,7 +16,7 @@ RSpec.describe ParentsController, type: :controller do
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr",parent_cpf:"77777777"} }
 
-
+  let(:invalid_inputs_password) { { password: "123"} }
 
   describe "GET new" do
     before(:each) do
@@ -24,10 +24,67 @@ RSpec.describe ParentsController, type: :controller do
     end
 
     it "assigns a new parent as @parent" do
-      get :new, {}
+      get :new
       expect(assigns(:parent)).to be_a_new(Parent)
-      end
     end
+
+    it "renders the 'new' template" do
+      get :new
+      expect(response).to render_template('new')
+    end
+  end
+
+  describe "GET edit" do
+    before(:each) do
+      login_principal
+    end
+
+    it "assigns the requested parent as @parent" do
+      parent = Parent.create!(valid_inputs)
+      get :edit, params:{id:parent.to_param}
+      expect(assigns(:parent)).to eq(parent)
+    end
+
+    it "renders the 'edit' template" do
+      parent = Parent.create!(valid_inputs)
+      get :edit, params:{id:parent.to_param}
+      expect(response).to render_template('edit')
+    end
+  end
+
+  describe "GET show" do
+    before(:each) do
+      login_principal
+    end
+
+    it "assigns the requested parent as @parent" do
+      parent = Parent.create!(valid_inputs)
+      get :show, params:{id:parent.to_param}
+      expect(assigns(:parent)).to eq(parent)
+    end
+
+    it "renders the 'show' template" do
+      parent = Parent.create!(valid_inputs)
+      get :show, params:{id:parent.to_param}
+      expect(response).to render_template('show')
+    end
+  end
+
+  describe "GET index" do
+    before(:each) do
+      login_principal
+    end
+
+    it "assigns all parents to @parents" do
+      get :index
+      expect(assigns(:parents)).to match_array(Parent.all)
+    end
+
+    it "renders the 'index' template" do
+      get :index
+      expect(response).to render_template('index')
+    end
+  end
 
   describe "POST create" do
     before(:each) do
@@ -72,6 +129,52 @@ RSpec.describe ParentsController, type: :controller do
     end
   end
 
+  describe "PUT update" do
+    before(:each) do
+      login_principal
+    end
+
+    describe "with valid params" do
+      it "assigns the requested parent as @parent" do
+        parent = Parent.create! valid_inputs
+        put :update,params:{id: parent.to_param, parent: valid_inputs}
+        expect(assigns(:parent)).to eq(parent)
+      end
+
+      it "updates the requested parent" do
+        parent = Parent.create! valid_inputs
+        put :update, params:{id: parent.to_param, parent: valid_inputs }
+        parent.reload
+      end
+
+      it "redirects to the parent" do
+        paretn = Parent.create! valid_inputs
+        put :update, params:{id: parent.to_param, parent: valid_inputs}
+        expect(response).to redirect_to parent_path(assigns(:parent))
+      end
+    end
+
+    describe "with invalid params" do
+      it "assigns the parent as @parent" do
+        parent = Parent.create! valid_inputs
+        put :update, params:{id: parent.to_param, parent: invalid_inputs }
+        expect(assigns(:parent)).to eq(parent)
+      end
+
+      it "does not update" do
+        parent = Parent.create! valid_inputs
+        put :update, params:{id: parent.to_param, parent: invalid_inputs}
+        expect(assigns(:parent)).to eq(parent)
+      end
+
+      it "re-renders the 'edit' template" do
+        parent = Parent.create! valid_inputs
+        put :update, params:{id: parent.to_param, parent: invalid_inputs }
+        expect(response).to render_template("edit")
+      end
+    end
+  end
+
   describe "DELETE delete" do
     before(:each) do
       login_principal
@@ -79,8 +182,48 @@ RSpec.describe ParentsController, type: :controller do
     it "does delete an Parent" do
       parent = Parent.create! valid_inputs
       expect{
-        delete :destroy, id: parent
+        delete :destroy, params:{id: parent}
       }.to change(Parent, :count).by(-1)
+    end
+  end
+
+  describe "edit password" do
+    before(:each) do
+      login_principal
+    end
+    it "assings parent to @parent" do
+      parent = Parent.create!(valid_inputs)
+      get :edit_password_parent, params:{id: parent}
+      expect(assigns(:user)).to eq(parent)
+    end
+    it "render edit_password template" do
+      parent = Parent.create!(valid_inputs)
+      get :edit_password_parent, params:{id: parent}
+      expect(response).to render_template("../users/edit_password")
+    end
+  end
+
+  describe "update_password_parent" do
+    before(:each) do
+      login_principal
+    end
+    it "assigns a parent to a user" do
+      parent = Parent.create!(valid_inputs)
+      get :update_password_parent, params:{id: parent.to_param, parent: valid_inputs}
+      expect(assigns(:user)).to be_a(Parent)
+    end
+    it "redirects to parent" do
+      parent = Parent.create!(valid_inputs)
+      put :update_password_parent, params:{id: parent.to_param, parent: valid_inputs}
+      expect(response).to redirect_to parent_path(assigns(:user))
+    end
+
+    describe "with invalid params" do
+      it "assigns the alumn as @alumn" do
+        parent = Parent.create! valid_inputs
+        put :update_password_parent, params:{id: parent.to_param, parent: invalid_inputs_password }
+        expect(assigns(:user)).to eq(parent)
+      end
     end
   end
 end

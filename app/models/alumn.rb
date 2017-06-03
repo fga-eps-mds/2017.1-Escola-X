@@ -4,24 +4,24 @@
 class Alumn < ApplicationRecord
   belongs_to :parent
   belongs_to :classroom
+
   has_many :strikes
   has_many :school_misses
   has_many :grades
   has_many :subjects, through: :grades
-
-  has_secure_password
-
-  before_create :initialize_strikes
-  before_save :validates_password
   has_many :suspensions
 
+  has_secure_password
+  before_create :initialize_strikes
+  before_save :validates_password
 
+  has_many :suspensions
+  has_attached_file :image, :styles => { :medium => "250x300>", :thumb => "250x90#" }
 
 
   def initialize_strikes
     self.quantity_strike ||= 0
   end
-
 
   before_create{
     generate_token(:authorization_token)
@@ -91,8 +91,7 @@ class Alumn < ApplicationRecord
     errors[:image] << "deve ser menor que 600KB" if image.size > 0.6.megabytes
   end
 
-def self.search(search)
-  where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
-end
-
+  def self.search(search)
+    where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+  end
 end

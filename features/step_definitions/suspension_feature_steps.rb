@@ -126,11 +126,11 @@ When (/^I press field alumn "Salvar" button$/) do
 end
 	
 Then (/^I register the alumn and I go to page users$/) do
-	driver.get('http://localhost:3000/alumns/4')
+	driver.get('http://localhost:3000/alumns/5')
 end
 
 When (/^I press field "Dar Suspensão" button$/) do
-	driver.get('http://localhost:3000/alumns/4/suspensions/new')
+	driver.get('http://localhost:3000/alumns/5/suspensions/new')
 end
 
 And (/^I fill in field "Motivo da Suspensão" with "Não interessa"$/) do
@@ -155,4 +155,5 @@ end
 
 When (/^I press field "Salvar" button$/) do
 	driver.get('http://localhost:3000/suspensions/1')
+	driver.quit
 end

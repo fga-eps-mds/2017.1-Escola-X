@@ -1,3 +1,6 @@
+# File name: notifications_controller.rb
+# Class name: NotificationsController
+# Description: Controller used to communicate with the proprietary view of notifications
 class NotificationsController < ApplicationController
   include SessionsHelper
 
@@ -26,8 +29,8 @@ class NotificationsController < ApplicationController
       @notification.notification_emitter_id = @current_user.id
       @notification.notification_date = @notification.get_date
       if (@notification.save)
-        redirect_to notification_path(@notification),
-          notice: "A notificação foi criada com sucesso."
+        flash[:success] = "A notificação foi criada com sucesso."
+        redirect_to notification_path(@notification)
       else
         render new_notification_path
       end
@@ -44,8 +47,8 @@ class NotificationsController < ApplicationController
     if ( is_employee? )
       @notification = Notification.find(params[:id])
       if ( @notification.update(notification_params) )
-        redirect_to notification_path(@notification),
-          notice: "A notificação foi criada com sucesso."
+        flash[:notice] = "A notificação foi alterada com sucesso."
+        redirect_to notification_path(@notification)
       else
         render edit_notification_path
       end
@@ -56,6 +59,7 @@ class NotificationsController < ApplicationController
     if ( is_employee? )
       @notification = Notification.find(params[:id])
       @notification.destroy
+      flash[:alert] = "Notificação excluída com sucesso"
       redirect_to notifications_path
     end
   end

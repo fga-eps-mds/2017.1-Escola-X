@@ -1,4 +1,12 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+ <% if flash[:success]%>
+  <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+ <% end %>
+ <% if flash[:notice]%>
+  <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+ <% end %>
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
@@ -9,7 +17,7 @@
       <%end%>
     </div>
       <div class="row item">
-        
+
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h3>Matéria: <%= @subject.name_subject %></h3>
           <h4>Série: <%= @subject.class_level %></h4>

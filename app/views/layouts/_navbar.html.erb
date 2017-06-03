@@ -16,22 +16,21 @@
       <ul class="nav navbar-nav pull-right">
         <% if is_principal? or is_secretary? or is_teacher? %>
           <li><%=link_to '<span class="fa fa-book"></span> Matéria'.html_safe, subjects_path %></li>
-          <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <%end%>
           <%if is_principal? %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
-                  <span class="fa fa-plus"></span> Criar
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e Aluno'.html_safe, new_parent_path %></li>
-                  <li><%= link_to '<span class="fa fa-user-circle-o"></span> Criar Secretário'.html_safe, new_secretary_path %></li>
-                  <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Professor'.html_safe, new_teacher_path %></li>
-                  <li><%= link_to '<span class="fa fa-users"></span> Criar Turma'.html_safe, new_classroom_path %></li>
-                  <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
-          <% end %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
+                <span class="fa fa-plus"></span> Criar
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e Aluno'.html_safe, new_parent_path %></li>
+                <li><%= link_to '<span class="fa fa-user-circle-o"></span> Criar Secretário'.html_safe, new_secretary_path %></li>
+                <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Professor'.html_safe, new_teacher_path %></li>
+                <li><%= link_to '<span class="fa fa-users"></span> Criar Turma'.html_safe, new_classroom_path %></li>
+                <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
               </ul>
             </li>
+          <% end %>
         <%if is_principal? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
@@ -44,8 +43,10 @@
             </ul>
           </li>
         <% end %>
-        <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
-        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        <ul class="nav navbar-nav pull-right">
+          <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
+          <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        </ul>
       </ul>
     </div>
   </div>

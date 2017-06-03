@@ -5,13 +5,13 @@ class ParentsController < ApplicationController
   include SessionsHelper
 
   def index
-    if ( logged_in? )
+    if ( is_employee? )
       @parents = Parent.all
     end
   end
 
   def show
-    if ( logged_in? )
+    if ( is_employee? )
       @parent = Parent.find(params[:id])
     end
   end
@@ -44,6 +44,7 @@ class ParentsController < ApplicationController
     if ( is_principal? )
       @parent = Parent.find(params[:id])
       if ( @parent.update(parent_params) )
+        flash[:notice] = "Responsável alterado(a) com sucesso"
         redirect_to @parent
       else
         render 'edit'
@@ -55,12 +56,30 @@ class ParentsController < ApplicationController
     if ( is_principal? )
       @parent = Parent.find(params[:id])
       @parent.destroy
-
+      flash[:alert] = "Responsável excluído(a) com sucesso"
       redirect_to users_path
     end
   end
 
-private
+  def edit_password_parent
+    if ( is_principal? )
+      @user = Parent.find(params[:id])
+      render action: "../users/edit_password"
+    end
+  end
+
+  def update_password_parent
+    if ( is_principal? )
+      @user = Parent.find(params[:id])
+      if (@user.update!(parent_params))
+        redirect_to @user
+      else
+        render action: "../users/edit_password"
+      end
+    end
+  end
+
+  private
   def parent_params
     params.require(:parent).permit(:parent_cpf,
                                    :name,

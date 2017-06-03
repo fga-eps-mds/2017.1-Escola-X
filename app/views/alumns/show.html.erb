@@ -1,4 +1,13 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+
+ <% if flash[:success]%>
+  <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+ <% end %>
+ <% if flash[:notice]%>
+  <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+ <% end %>
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
@@ -9,7 +18,7 @@
       <%end%>
       <% if is_parent?%>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
-      <% else %>
+      <% elsif is_principal? or is_secretary? or is_teacher? %>
         <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-info' %>
       <% end %>
       <%if is_principal? %>
@@ -20,11 +29,15 @@
           <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
         <%end%>
       <%end%>
-      <%= link_to '<span class="fa fa-address-card"></span> Advertências'.html_safe, alumn_strikes_path(@alumn), class:'btn btn-sm btn-warning' %>
+      <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-warning' %>
     </div>
       <div class="row item">
         <div class="col-sm-12 col-md-4">
-          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive") %>
+          <% if @alumn.image_file_name == nil %>
+            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+          <% else %>
+            <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>
+          <%end%>
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h3>Nome: <%= @alumn.name %></h3>
@@ -32,37 +45,20 @@
         <h4>Sexo: <%= @alumn.gender %></h4>
         <h4>Endereço: <%= @alumn.address %></h4>
         <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
-        <h4>Turma: <%= @alumn.classroom.name_classroom %></h4>
         <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
       </div>
     </div>
     <ul class="nav nav-tabs">
       <li class="active" role="presentation"><a href="#faltas" aria-controls="faltas" role="tab" data-toggle="tab">Faltas</a></li>
-      <li role="presentation"><a href="#boletim"aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
-      <li role="presentation"><a href="#notificacoes" aria-controls="notificacoes" role="tab" data-toggle="tab">Notificações</a></li>
+      <li class="active" role="presentation"><a href="#boletim"aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
+      <li class="active" role="presentation"><a href="#notificacoes" aria-controls="notificacoes" role="tab" data-toggle="tab">Notificações</a></li>
     </ul>
     <div>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="faltas">
-              <% if (@current_user.is_a?(Employee)) %>
-                <%= link_to '<span class="fa fa-user-times"></span> Adicionar uma nova falta'.html_safe, new_alumn_school_miss_path(@alumn), class:"btn btn-success btn-sm" %>
-              <% end %>
-                <ul>
-                  <% @alumn.school_misses.all.reverse.each do |miss| %>
-                    <% if (@current_user.is_a?(Principal)) %>
-                      <br>
-                      <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %>
-                        <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_school_miss_path(miss), class:"btn btn-sm btn-default" %>
-                      </li>
-                    <% else %>
-                      <br>
-                      <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %></li>
-                    <% end %>
-                  <% end %>
-                </ul>
+              <%= render "school_misses/index" %>
             </div>
             <div role="tabpanel" class="tab-pane" id="boletim">
-                <!-- <%# TODO:  %> -->
             </div>
         </div>
     </div>

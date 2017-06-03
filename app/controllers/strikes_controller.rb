@@ -1,3 +1,6 @@
+# File name: strikes_controller.rb
+# Class name: StrikesController
+# Description: Controller used to communicate with the proprietary view of strikes
 class StrikesController < ApplicationController
   include SessionsHelper
 
@@ -31,6 +34,7 @@ class StrikesController < ApplicationController
         # @alumn = Alumn.find_by_id(@strike.alumn_id)
         @@alumn.quantity_strike += 1
         if @@alumn.save
+          flash[:success] = "Advertência criada com sucesso"
           redirect_to alumn_strike_path(@@alumn,@strike)
         else
           render 'strikes/new'
@@ -48,6 +52,7 @@ class StrikesController < ApplicationController
       if @strike.destroy
         @alumn.quantity_strike -= 1
         if @alumn.save
+          flash[:alert] = "Advertência excluída com sucesso"
           redirect_to users_path
         end
       end
@@ -65,6 +70,7 @@ class StrikesController < ApplicationController
     if ( is_principal? )
       @strike = Strike.find(params[:id])
       if @strike.update(strike_params)
+        flash[:notice] = "Advertência alterada com sucesso"
         redirect_to strike_path(@strike)
       else
         render "strikes/edit"
@@ -72,7 +78,7 @@ class StrikesController < ApplicationController
     end
   end
 
-private
+  private
   def strike_params
     params.require(:strike).permit(:description_strike,
                                  :date_strike,

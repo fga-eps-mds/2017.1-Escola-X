@@ -46,7 +46,7 @@ RSpec.describe StrikesController, type: :controller do
 
     it 'should show strikes' do
       strike = Strike.create!(valid_inputs)
-      get :show, { :id => strike.to_param, template: 'strikes/:id' }
+      get :show, params:{ id: strike.to_param, template: 'strikes/:id' }
       expect(response).to render_template :show
     end
   end
@@ -96,7 +96,7 @@ RSpec.describe StrikesController, type: :controller do
     it "does delete an Strike" do
       strike = Strike.create!(valid_inputs)
       expect{
-        delete :destroy, id: strike
+        delete :destroy, params:{id: strike}
       }.to change(Strike, :count).by(-1)
     end
   end
@@ -107,7 +107,7 @@ RSpec.describe StrikesController, type: :controller do
     end
     it "assings the requested classroom as Classroom" do
       strike = Strike.create!(valid_inputs)
-      get :edit, {:id => strike.to_param, :alumn_id => strike.alumn_id}
+      get :edit, params:{id: strike.to_param, alumn_id: strike.alumn_id}
       expect(assigns(:strike)).to be_a Strike
     end
   end
@@ -119,24 +119,24 @@ RSpec.describe StrikesController, type: :controller do
     describe "with valid params" do
       it "updates an strike" do
         strike = Strike.create! valid_inputs
-        put :update, {id: strike.id, strike: valid_inputs}
+        put :update, params:{id: strike.id, strike: valid_inputs}
         expect(assigns(:strike)).to be_a(Strike)
       end
       it "redirect to strike path" do
         strike = Strike.create! valid_inputs
-        put :update, {id: strike.id, strike: valid_inputs}
+        put :update, params:{id: strike.id, strike: valid_inputs}
         expect(response).to redirect_to strike_path
       end
     end
     describe "with invalid params" do
       it "updates an strike" do
         strike = Strike.create! valid_inputs
-        put :update, {id: strike.id, strike: invalid_inputs}
+        put :update, params:{id: strike.id, strike: invalid_inputs}
         expect(assigns(:strike)).to eq(strike)
       end
       it "redirect to strike path" do
         strike = Strike.create! valid_inputs
-        put :update, {id: strike.id, strike: invalid_inputs}
+        put :update, params:{id: strike.id, strike: invalid_inputs}
         expect(response).to render_template("edit")
       end
     end
