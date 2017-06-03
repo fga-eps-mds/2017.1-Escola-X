@@ -104,12 +104,14 @@ RSpec.describe AlumnsController, type: :controller do
     end
     describe "with wrong permissions" do
       before(:each) do 
-        login_parent
+        login_alumn
       end
 
+
       it "redirect to error_500 page" do
-        alumn = Alumn.create! valid_inputs
-        get :show, params:{ id: alumn.to_param}
+
+        get :show, params:{ id: 13}
+
         expect(response).to redirect_to('/errors/error_500')
       end
     end
