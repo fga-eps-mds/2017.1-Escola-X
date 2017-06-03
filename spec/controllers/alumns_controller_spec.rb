@@ -247,4 +247,20 @@ end
       expect(response).to render_template("../users/edit_password")
     end
   end
+
+  describe "GET report as principal" do
+    before(:each) do
+      alumn = Alumn.create!(valid_inputs)
+    end
+    it "redirects to alumns report as principal" do
+      login_principal
+      get :report, params:{id: alumn.id}
+      expect(response).to render_template("alumns/report")
+    end
+    it "redirects to current_user if it is not related" do
+      login_alumn
+      get :report, params:{id: alumn.id}
+      expect(response).not_to render_template("alumns/report")
+    end
+  end
 end

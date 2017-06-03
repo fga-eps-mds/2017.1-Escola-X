@@ -27,7 +27,7 @@
           <% if @alumn.image_file_name == nil %>
             <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
           <% else %>
-            <%= image_tag(@alumn.image.url(:original), alt: "", class: "img-responsive") %>  
+            <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>
           <%end%>
         </div>
       <div class="col-sm-12 col-md-8 text-capitalize descript">
@@ -36,12 +36,13 @@
         <h4>Sexo: <%= @alumn.gender %></h4>
         <h4>Endereço: <%= @alumn.address %></h4>
         <h4>Data de Nascimento: <%= @alumn.birth_date %></h4>
-        <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
+        <h4><%= link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
+        <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class: "", name: "report_link"  %></h4>
       </div>
     </div>
     <ul class="nav nav-tabs">
       <li class="active" role="presentation"><a href="#faltas" aria-controls="faltas" role="tab" data-toggle="tab">Faltas</a></li>
-      <li class="active" role="presentation"><a href="#boletim"aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
+      <li class="active" role="presentation"><a href="#boletim" aria-controls="boletim" role="tab" data-toggle="tab">Boletim</a></li>
       <li class="active" role="presentation"><a href="#notificacoes" aria-controls="notificacoes" role="tab" data-toggle="tab">Notificações</a></li>
     </ul>
     <div>
