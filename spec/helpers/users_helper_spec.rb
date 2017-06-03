@@ -12,6 +12,7 @@ require 'rails_helper'
 # end
 
 RSpec.describe UsersHelper, type: :helper do
+
 let(:principal_inputs) { { name: "Michael Cera", phone:"61988885555",
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",

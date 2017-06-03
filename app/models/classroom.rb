@@ -1,3 +1,6 @@
+#File name: classroom.rb
+#Class name: Classroom
+#Description: Validates classroom's attributes
 class Classroom < ApplicationRecord
   has_many :alumns
   has_many :classroom_subjects, dependent: :destroy
@@ -16,7 +19,5 @@ class Classroom < ApplicationRecord
                      maximum: 11,
                      :too_short => "deve possuir no mínimo 7 caracteres",
                      :too_long => "deve possuir no máximo 11 caracteres" }
-
-
 
 end

@@ -4,17 +4,23 @@
 class Alumn < ApplicationRecord
   belongs_to :parent
   belongs_to :classroom
-  belongs_to :grade
+
   has_many :strikes
   has_many :school_misses
-  has_many :grades, dependent: :destroy
+  has_many :grades
   has_many :subjects, through: :grades
+  has_many :suspensions
 
   has_secure_password
-
   before_create :initialize_strikes
   before_save :validates_password
+
   has_many :suspensions
+  has_attached_file :image, :styles => { :original => "250x300>"},
+  :storage => :dropbox,
+  :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+  :dropbox_visibility => 'public'
+
 
   def initialize_strikes
     self.quantity_strike ||= 0
@@ -88,8 +94,7 @@ class Alumn < ApplicationRecord
     errors[:image] << "deve ser menor que 600KB" if image.size > 0.6.megabytes
   end
 
-def self.search(search)
-  where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
-end
-
+  def self.search(search)
+    where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+  end
 end

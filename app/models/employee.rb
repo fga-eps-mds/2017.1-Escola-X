@@ -3,12 +3,15 @@
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
   before_save :validates_password
+
   has_many :strike
   has_many :suspension
   has_many :grade_histories
 
-  self.inheritance_column = :permission
   has_secure_password
+
+
+  self.inheritance_column = :permission
 
   validates :registry, presence: { message: "não pode estar em branco" },
                        uniqueness: true
@@ -22,9 +25,6 @@ class Employee < ApplicationRecord
                       :too_long => "deve possuir no máximo 11 caracteres" }
 
   validates :birth_date, presence: { message: "não pode estar em branco." }
-
-  #Precisa ser arrumada nos forms de Secretary e Teacher
-  # validates :admission_date, presence: { message: "não pode estar em branco." }
 
   validates :gender, presence: { message: "Não pode estar em branco." }
 
@@ -48,8 +48,8 @@ class Employee < ApplicationRecord
   before_create{
     generate_token(:authorization_token)
   }
-  private
 
+  private
   def validates_password
     if self.password_digest.nil?
       validates :password, presence:true,
@@ -62,5 +62,4 @@ class Employee < ApplicationRecord
       self[column]= SecureRandom.urlsafe_base64
     end while Employee.exists?(column => self[column])
   end
-
 end

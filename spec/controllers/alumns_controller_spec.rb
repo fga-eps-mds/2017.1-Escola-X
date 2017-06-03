@@ -29,6 +29,11 @@ RSpec.describe AlumnsController, type: :controller do
       get :new, params:{parent_id:parent.id}
       expect(assigns(:alumn)).to be_a_new(Alumn)
     end
+
+    it "render the new template" do
+      get :new, params:{parent_id:parent.id}
+      expect(response).to render_template('new')
+    end
   end
 
   describe "GET edit" do
@@ -38,8 +43,14 @@ RSpec.describe AlumnsController, type: :controller do
 
     it "assigns the requested alumn as @alumn" do
       alumn = Alumn.create! valid_inputs
-      get :edit, {:id => alumn.to_param}
+      get :edit, params:{id: alumn.to_param}
       expect(assigns(:alumn)).to eq(alumn)
+    end
+
+    it "render the edit template" do
+      alumn = Alumn.create! valid_inputs
+      get :edit, params:{id: alumn.to_param}
+      expect(response).to render_template('edit')
     end
   end
 
@@ -48,10 +59,16 @@ RSpec.describe AlumnsController, type: :controller do
       login_principal
     end
 
-  it 'should show alumn' do
-    @alumn = Alumn.create! valid_inputs
-    get :show, { :id => alumn.to_param, template: 'alumns/:id' }
-    expect(response).to render_template :show
+  it 'assigns the requested alumn to @alumn' do
+    alumn = Alumn.create! valid_inputs
+    get :show, params:{ id: alumn.to_param}
+    expect(assigns(:alumn)).to eq(alumn)
+  end
+
+  it "render the show template" do
+    alumn = Alumn.create! valid_inputs
+    get :show, params:{ id: alumn.to_param}
+    expect(response).to render_template('show')
   end
 end
 
@@ -61,55 +78,104 @@ end
     end
 
     describe "with valid params" do
-      it "updates the requested alumn" do
-        alumn = Alumn.create! valid_inputs
-        # Assuming there are no other alumns in the database, this
-        # specifies that the alumn created on the previous line
-        # receives the :update_attributes message with whatever params are
-        put :update, {:id => alumn.to_param, :alumn =>  valid_inputs }
-      end
 
       it "assigns the requested alumn as @alumn" do
         alumn = Alumn.create! valid_inputs
-        put :update, {:id => alumn.to_param, :alumn => valid_inputs}
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs}
         expect(assigns(:alumn)).to eq(alumn)
+      end
+
+      it "updates the requested alumn" do
+        alumn = Alumn.create! valid_inputs
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs }
+        alumn.reload
       end
 
       it "redirects to the alumn" do
         alumn = Alumn.create! valid_inputs
-        put :update, {:id => alumn.to_param, :alumn => valid_inputs}
-        expect(response).to redirect_to alumn_path
+        put :update, params:{id: alumn.to_param, alumn: valid_inputs}
+        expect(response).to redirect_to alumn_path(assigns(:alumn))
       end
     end
 
     describe "with invalid params" do
       it "assigns the alumn as @alumn" do
         alumn = Alumn.create! valid_inputs
-        # Trigger the behavior that occurs when invalid params are submitted
-        #allow_any_instance_of(alumn).to receive(:save).and_return(false)
-        put :update, {:id => alumn.to_param, :alumn => invalid_inputs }
+        put :update, params:{id: alumn.to_param, alumn: invalid_inputs }
+        expect(assigns(:alumn)).to eq(alumn)
+      end
+
+      it "does not update" do
+        alumn = Alumn.create! valid_inputs
+        put :update, params:{id: alumn.to_param, alumn: invalid_inputs}
         expect(assigns(:alumn)).to eq(alumn)
       end
 
       it "re-renders the 'edit' template" do
         alumn = Alumn.create! valid_inputs
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Alumn).to receive(:save).and_return(false)
-        put :update, {:id => alumn.to_param, :alumn => invalid_inputs }
+        # allow_any_instance_of(Alumn).to receive(:save).and_return(false)
+        put :update, params:{id: alumn.to_param, alumn: invalid_inputs }
         expect(response).to render_template("edit")
       end
     end
   end
 
-
   describe "GET index" do
-    before(:each) do
-      login_principal
-    end
+    describe "login as parent" do
+      before(:each) do
+        login_parent
+      end
 
-    it "assigns all alumns as @alumns" do
-      get :index
-      response.should be_success
+      it "assigns all parents alumns as @alumns" do
+        get :index, {}
+        expect(assigns(:alumns)).to match((assigns(:current_user)).alumns)
+      end
+
+      it "renders the 'index' template" do
+        get :index, {}
+        expect(response).to render_template('index')
+      end
+    end
+    describe "login as employee" do
+      before(:each) do
+        login_principal
+      end
+
+      it "assigns all alumns to @alumns" do
+        get :index, {}
+        expect(assigns(:alumns)).to match_array(Alumn.all)
+      end
+
+      describe "search alumns" do
+        describe "with valid params" do
+          it "assings to @alumn the searched alumn by name" do
+            alumn = Alumn.create!(valid_inputs)
+            get :index, params:{search: alumn.name}
+            expect(assigns(:alumns)).to match_array(alumn)
+          end
+
+          it "assings to @alumn the searched alumn by registry" do
+            alumn = Alumn.create!(valid_inputs)
+            get :index, params:{search: alumn.registry}
+            expect(assigns(:alumns)).to match_array(alumn)
+          end
+        end
+
+        describe "with invalid params" do
+          it "shows all alumns with blank search params" do
+            alumn = Alumn.create!(valid_inputs)
+            get :index, params:{search: ""}
+            expect(assigns(:alumns)).to match_array(Alumn.all)
+            expect(flash[:feedback_warning]).to be_present
+          end
+          it "does not find alumns with no matching params" do
+            alumn = Alumn.create!(valid_inputs)
+            get :index, params:{search: "!*"}
+            expect(assigns(:alumns)).to match_array(nil)
+            expect(flash[:feedback]).to be_present
+          end
+        end
+      end
     end
   end
 
@@ -164,15 +230,41 @@ end
       login_principal
     end
     it "does delete an Alumn" do
-      alumn = Alumn.create!(name: "Michael Cera", phone:"61988885555",
-                             address:"Rua Vida Casa 15,Taguatinga",
-                             password: "12345678", gender:"M",
-                             birth_date:"07/06/1988", registry:"123456",
-                             shift:"matutino",parent_id:parent.id)
+      alumn = Alumn.create!(valid_inputs)
       expect{
-        delete :destroy, id: alumn
+        delete :destroy, params:{id: alumn}
       }.to change(Alumn, :count).by(-1)
     end
   end
+  describe "edit password" do
+    before(:each) do
+      login_principal
+    end
+    it "assings alumn to @alumn" do
+      alumn = Alumn.create!(valid_inputs)
+      get :edit_password_alumn, params:{id: alumn}
+      expect(assigns(:user)).to eq(alumn)
+    end
+    it "render edit_password template" do
+      alumn = Alumn.create!(valid_inputs)
+      get :edit_password_alumn, params:{id: alumn}
+      expect(response).to render_template("../users/edit_password")
+    end
+  end
 
+  describe "GET report as principal" do
+    before(:each) do
+      alumn = Alumn.create!(valid_inputs)
+    end
+    it "redirects to alumns report as principal" do
+      login_principal
+      get :report, params:{id: alumn.id}
+      expect(response).to render_template("alumns/report")
+    end
+    it "redirects to current_user if it is not related" do
+      login_alumn
+      get :report, params:{id: alumn.id}
+      expect(response).not_to render_template("alumns/report")
+    end
+  end
 end

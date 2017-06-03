@@ -1,19 +1,26 @@
 <%= render "layouts/navbar" %>
-<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Responsáveis</h1>
-<hr>
-<section class="content-section" id="alumns-list">
+
+<section class="content-section" id="parents-list">
+  <% @parents.each do |parent| %>
   <div class="container">
-    <% @parents.each do |user| %>
-      <div class="row item">
-        <div class="col-sm-12 col-md-4">
-          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-        </div>
-        <div class="col-sm-12 col-md-8 text-capitalize descript">
-          <h2><%= user.name %></h2>
-          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(user), class:'btn btn-default' %>
-        </div>
-        <hr>
+    <div class="row item">
+      <div class="col-sm-12 col-md-4">
+        <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
       </div>
-    <% end %>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h2> <%= parent.name %></h2>
+        <h4> <%= parent.address %> </h4>
+        <h4> <%= parent.birth_date %> </h4>
+        <h4> <%= parent.gender %> </h4>
+        <h4> <%= parent.phone %> </h4>
+        <h4> <%= parent.parent_cpf %></h4>
+        <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(parent), class:'btn btn-info' %>
+        <%if is_principal? %>
+          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_parent_path(parent), class:'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+    <hr>
   </div>
+  <% end %>
 </section>

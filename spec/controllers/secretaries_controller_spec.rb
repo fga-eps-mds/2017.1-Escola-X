@@ -27,7 +27,7 @@ RSpec.describe SecretariesController, type: :controller do
 	    end
 
 	  it "assigns a new secreatry as @secretary" do
-      	get :new, {}
+      	get :new
       	expect(assigns(:secretary)).to be_a_new(Secretary)
     end
 end
@@ -43,18 +43,18 @@ describe "PUT update" do
         # Assuming there are no other secretarys in the database, this
         # specifies that the secretary created on the previous line
         # receives the :update_attributes message with whatever params are
-        put :update, {:id => secretary.to_param, :secretary =>  valid_inputs }
+        put :update, params:{id: secretary.to_param, secretary: valid_inputs }
       end
 
       it "assigns the requested secretary as @secretary" do
         secretary = Secretary.create! valid_inputs
-        put :update, {:id => secretary.to_param, :secretary => valid_inputs}
+        put :update, params:{id: secretary.to_param, secretary: valid_inputs}
         expect(assigns(:secretary)).to eq(secretary)
       end
 
       it "redirects to the secretary" do
         secretary = Secretary.create! valid_inputs
-        put :update, {:id => secretary.to_param, :secretary => valid_inputs}
+        put :update, params:{id: secretary.to_param, secretary: valid_inputs}
         expect(response).to redirect_to secretary_path
       end
     end
@@ -64,7 +64,7 @@ describe "PUT update" do
         secretary = Secretary.create! valid_inputs
         # Trigger the behavior that occurs when invalid params are submitted
         #allow_any_instance_of(secretary).to receive(:save).and_return(false)
-        put :update, {:id => secretary.to_param, :secretary => invalid_inputs }
+        put :update, params:{id: secretary.to_param, secretary: invalid_inputs }
         expect(assigns(:secretary)).to eq(secretary)
       end
 
@@ -72,7 +72,7 @@ describe "PUT update" do
         secretary = Secretary.create! valid_inputs
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Secretary).to receive(:save).and_return(false)
-        put :update, {:id => secretary.to_param, :secretary => invalid_inputs }
+        put :update, params:{id: secretary.to_param, secretary: invalid_inputs }
         expect(response).to render_template("edit")
       end
     end
@@ -85,12 +85,12 @@ describe "PUT update" do
 
     it "assigns all secretaries as @secretaries" do
       get :index
-      response.should be_success
+      expect(assigns(:secretaries)).to match_array(Secretary.all)
     end
 
     it "should search secretary" do
       secretary = Secretary.create!(valid_inputs)
-      get :index, { :id => secretary.to_param, template: 'secretaries/:id' }
+      get :index, params:{ id: secretary.to_param, template: 'secretaries/:id' }
       expect(response).to render_template :index
     end
 
@@ -103,7 +103,7 @@ describe "PUT update" do
 
     it "assigns the requested secretary as @secretary" do
       secretary = Secretary.create!(valid_inputs)
-      get :edit, {:id => secretary.to_param}
+      get :edit, params:{id: secretary.to_param}
       expect(assigns(:secretary)).to eq(secretary)
     end
   end
@@ -115,7 +115,7 @@ describe "PUT update" do
 
   it 'should show secretary' do
     secretary = Secretary.create! valid_inputs
-    get :show, { :id => secretary.to_param, template: 'secretaries/:id' }
+    get :show, params:{ id: secretary.to_param, template: 'secretaries/:id' }
     expect(response).to render_template :show
   end
 end
@@ -127,7 +127,7 @@ end
     it "does delete an Secretary" do
       secretary = Secretary.create!(valid_inputs)
       expect{
-        delete :destroy, id: secretary
+        delete :destroy, params:{id: secretary}
       }.to change(Secretary, :count).by(-1)
     end
   end
