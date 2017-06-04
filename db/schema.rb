@@ -76,15 +76,15 @@ ActiveRecord::Schema.define(version: 20170601110457) do
   end
 
   create_table "grades", force: :cascade do |t|
-    t.float    "grade_01"
-    t.float    "grade_02"
-    t.float    "grade_03"
-    t.float    "grade_04"
-    t.float    "grade_final"
+    t.float    "grade_01",     default: 0.0
+    t.float    "grade_02",     default: 0.0
+    t.float    "grade_03",     default: 0.0
+    t.float    "grade_04",     default: 0.0
+    t.float    "grade_final",  default: 0.0
     t.integer  "alumn_id"
     t.integer  "subject_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "classroom_id"
     t.index ["alumn_id"], name: "index_grades_on_alumn_id"
     t.index ["classroom_id"], name: "index_grades_on_classroom_id"

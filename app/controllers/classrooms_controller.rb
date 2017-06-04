@@ -2,13 +2,13 @@
 # Class name: ClassroomsController
 # Description: Controller used to communicate with the proprietary view of classrooms
 class ClassroomsController < ApplicationController
-  include SessionsHelper 
+  include SessionsHelper
 
   def index
-    if ( is_principal? )
+    if ( is_principal? or is_secretary? )
       @classrooms = Classroom.all.order('name_classroom')
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -16,15 +16,15 @@ class ClassroomsController < ApplicationController
     if ( is_principal? )
       @classroom = Classroom.new
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
   def show
-    if ( is_principal? )
+    if ( is_principal? or is_secretary?)
       @classroom = Classroom.find(params[:id])
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -37,7 +37,7 @@ class ClassroomsController < ApplicationController
         render 'classrooms/new'
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -47,7 +47,7 @@ class ClassroomsController < ApplicationController
     @classroom.destroy
     redirect_to users_path
   else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
   end
 end
 
@@ -55,7 +55,7 @@ def edit
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
   else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
   end
 end
 
@@ -68,7 +68,7 @@ def update
       render "classrooms/edit"
     end
   else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
   end
 end
 
@@ -77,7 +77,7 @@ def add_alumns
     @classroom = Classroom.find(params[:id])
     @alumns = @classroom.alumns
   else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
   end
 end
 
@@ -98,7 +98,7 @@ def add_alumn
       end
     end
   else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
   end
 end
 
