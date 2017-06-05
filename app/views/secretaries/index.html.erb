@@ -14,7 +14,7 @@
       <div class="input-group">
                 <%= text_field_tag :search, params[:search], placeholder: "Digite o nome do secretário(a)", class: "form-control", :size=>"50"%>
                 <span class="input-group-btn">
-                  <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %> 
+                  <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %>
                 </span>
       </div>
       </div>
@@ -40,7 +40,7 @@
         <h4><%= secretary.employee_cpf %></h4>
         <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, secretary_path(secretary), class:'btn btn-info' %>
         <%if is_principal? %>
-          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_path(secretary), class:'btn btn-default' %>
+          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(secretary), class:'btn btn-default' %>
         <% end %>
       </div>
     </div>

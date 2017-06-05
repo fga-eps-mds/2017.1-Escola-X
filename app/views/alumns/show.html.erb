@@ -11,7 +11,7 @@
         <%end%>
       <%end%>
       <% if is_parent?%>
-        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>     
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
       <% end %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
@@ -30,7 +30,7 @@
           <% if @alumn.image_file_name == nil %>
             <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
           <% else %>
-            <%= image_tag(@alumn.image.url(:medium), alt: "", class: "img-responsive") %>
+            <%= image_tag(@alumn.image.url(:original), alt: "", class: "img-responsive") %>
           <%end%>
 
         </div>
@@ -71,7 +71,7 @@
                 </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="boletim">
-     
+
 
                 <div class="col-sm-12 col-md-8 text-capitalize descript">
                 <ul>
