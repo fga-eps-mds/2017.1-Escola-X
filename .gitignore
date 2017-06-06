@@ -29,3 +29,5 @@
 # Ignore metrics files
 metrics/*.txt
 
+#Ignore Gemfile.lock
+Gemfile.lock
