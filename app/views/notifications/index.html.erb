@@ -9,7 +9,7 @@
       <div class="row">
         <% @notifications.reverse.each do |note| %>
             <div class="col-sm-6 col-md-4 col-lg-3 text-capitalize descript">
-              <%= link_to "<strong>#{note.title}</strong><br><h6>#{note.notification_date.day}/#{note.notification_date.month}/#{note.notification_date.year}</h6>".html_safe, notification_path(note), class:'btn btn-lg btn-roxo btn-block' %>
+              <%= link_to "<strong style='white-space:normal'>#{note.title}</strong><br><h6>#{note.notification_date.day}/#{note.notification_date.month}/#{note.notification_date.year}</h6>".html_safe, notification_path(note), class:'btn btn-lg btn-roxo btn-block' %>
             </div>
         <% end %>
       </div>

@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170601110457) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.string   "birth_date"
+    t.date     "birth_date"
     t.string   "permission"
     t.string   "password_digest"
     t.string   "authorization_token"

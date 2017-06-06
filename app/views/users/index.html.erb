@@ -11,7 +11,7 @@
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2> <%= parent.name %> </h2>
           <h4>Endereço: <%= parent.address %> </h4>
-          <h4>Data de Aniversário: <%= parent.birth_date %> </h4>
+          <h4>Data de Aniversário: <%= parent.birth_date.day %>/<%= parent.birth_date.month %>/<%= parent.birth_date.year %> </h4>
           <h4>Gênero: <%= parent.gender %> </h4>
           <h4>Telefone: <%= parent.phone %> </h4>
           <h4>CPF: <%= parent.parent_cpf %> </h4>
@@ -31,13 +31,13 @@
             <% if alumn.image_file_name == nil %>
               <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
             <% else %>
-              <%= image_tag(alumn.image.url(:original), alt: "", class: "img-responsive") %>  
+              <%= image_tag(alumn.image.url(:original), alt: "", class: "img-responsive") %>
             <%end%>
           </div>
           <div class="col-sm-12 col-md-8 text-capitalize descript">
             <h2><%= alumn.name %></h2>
             <h4>Endereço: <%= alumn.address %> </h4>
-            <h4>Data de Aniversário: <%= alumn.birth_date %> </h4>
+            <h4>Data de Aniversário: <%= alumn.birth_date.day %>/<%= alumn.birth_date.month %>/<%= alumn.birth_date.year %> </h4>
             <h4>Idade: <%= alumn.get_age %> </h4>
             <h4>Gênero: <%= alumn.gender %> </h4>
             <h4>Telefone: <%= alumn.phone %> </h4>
@@ -62,7 +62,7 @@
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2><%= employee.name %></h2>
           <h4>Endereço: <%= employee.address %> </h4>
-          <h4>Data de Aniversário: <%= employee.birth_date %> </h4>
+          <h4>Data de Aniversário: <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
           <h4>Gênero: <%= employee.gender %> </h4>
           <h4>Telefone: <%= employee.phone %> </h4>
           <h4>Matrícula: <%= employee.registry %></h4>
