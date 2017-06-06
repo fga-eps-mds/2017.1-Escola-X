@@ -9,7 +9,7 @@ RSpec.describe NotificationsController, type: :controller do
   let(:valid_inputs) { { title: "Ausencia de prosso",
                          notification_text: "vai ter aula nao mlkada",
                          notification_date: "01/03/1995",
-                         notification_emitter_id: 1,
+                         employee_id: 1,
                          motive: "bebeu demais na noite passada"} }
 
   let(:invalid_inputs) { { title: "prosso vai",
@@ -17,7 +17,7 @@ RSpec.describe NotificationsController, type: :controller do
                            notification_date: "10/03/1993"} }
 
   describe "GET index" do
-    describe "with right permissions" do 
+    describe "with right permissions" do
       before(:each) do
         login_principal
       end
@@ -31,7 +31,7 @@ RSpec.describe NotificationsController, type: :controller do
         get :index, {}
         expect(response).to render_template('index')
       end
-    end 
+    end
 
   end
 

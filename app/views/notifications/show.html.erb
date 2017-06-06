@@ -4,7 +4,7 @@
     <div class="text-center">
       <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, notifications_path, class:'btn btn-sm btn-info' %>
       <%if is_employee? %>
-        <%if @current_user.id == @notification.notification_emitter_id %>
+        <%if @current_user.id == @notification.employee_id %>
           <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_notification_path(@notification), class:"btn btn-sm btn-default" %>
         <%end%>
         <%if is_principal? %>

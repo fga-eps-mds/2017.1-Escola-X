@@ -2,20 +2,20 @@
 # Class name: NotificationsController
 # Description: Controller used to communicate with the proprietary view of notifications
 class NotificationsController < ApplicationController
-  include SessionsHelper 
+  include SessionsHelper
 
   def index
     if ( logged_in? )
       @notifications = Notification.all
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
   def show
     if ( logged_in? )
       @notification = Notification.find(params[:id])
-      @assignee = Employee.exists?(@notification.notification_emitter_id) ? Employee.find_by_id(@notification.notification_emitter_id).name : "Desconhecido"
+      @assignee = Employee.exists?(@notification.employee_id) ? Employee.find_by_id(@notification.employee_id).name : "Desconhecido"
     end
   end
 
@@ -23,14 +23,14 @@ class NotificationsController < ApplicationController
     if ( is_employee? )
       @notification = Notification.new
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
   def create
     if ( is_employee? )
       @notification = Notification.new(notification_params)
-      @notification.notification_emitter_id = @current_user.id
+      @notification.employee_id = @current_user.id
       @notification.notification_date = @notification.get_date
       if (@notification.save)
         redirect_to notification_path(@notification),
@@ -39,7 +39,7 @@ class NotificationsController < ApplicationController
         render new_notification_path
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -47,7 +47,7 @@ class NotificationsController < ApplicationController
     if ( is_employee? )
       @notification = Notification.find(params[:id])
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -61,7 +61,7 @@ class NotificationsController < ApplicationController
         render edit_notification_path
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -71,7 +71,7 @@ class NotificationsController < ApplicationController
       @notification.destroy
       redirect_to notifications_path
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -80,7 +80,7 @@ class NotificationsController < ApplicationController
     params.require(:notification).permit( :title,
                                           :motive,
                                           :notification_text,
-                                          :notification_emitter_id,
+                                          :employee_id,
                                           :notification_date,
                                           :notification_hour)
   end

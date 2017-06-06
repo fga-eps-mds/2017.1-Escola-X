@@ -14,7 +14,7 @@ class Notification < ApplicationRecord
             length: { minimum: 10,
                       :too_short => "deve possuir mais de 10 caracteres." }
 
-  validates :notification_emitter_id,
+  validates :employee_id,
             presence: { message: "Usuário não válido para criar notificação!" }
 
   validates :motive, presence: { message: "Deve conter um motivo para notificação." },

@@ -9,7 +9,7 @@
 
 Notification.create(title: "Super Festa Julina em Junho", 
                     notification_text: "Na festa vai ter quadrilha, pipoca, quentão e muito cural.",
-                    notification_emitter_id: '1',
+                    employee_id: '1',
                     notification_date: '10-10-1990',
                     notification_hour: "10:10",
                     motive: "Não precisa de motivo pra beber quentão.")
