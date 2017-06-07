@@ -116,15 +116,19 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :gender, class:"sr-only" %>
-    <p class="text-uppercase"><strong>Sexo</strong></p>
-    <div class="checkbox">
-      <%= f.radio_button(:gender,"Feminino") %>
-      <%= label :gender, "Feminino" %>
-    </div>
-    <div class="checkbox">
-      <%= f.radio_button(:gender,"Masculino") %>
-      <%= label :gender, "Masculino" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-venus-mars"></span>
+         Sexo
+      </span>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-radio">
+          <%= f.radio_button(:gender,"Masculino") %> Feminino
+        </label>
+        <label class="btn btn-radio">
+          <%= f.radio_button(:gender,"Masculino") %> Masculino
+        </label>
+      </div>
     </div>
   </div>
 

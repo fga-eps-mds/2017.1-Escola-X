@@ -29,6 +29,24 @@ body {
 .btn-roxo{
  background-color: #7B52AB;
  color: white;
+
+}
+
+.btn-radio{
+ background-color: white;
+ color: black;
+ border-color:  #ECF0F1;
+}
+
+.btn-radio:hover,
+.btn-radio:active{
+ background-color: #ECF0F1;
+ color: black;
+}
+
+.btn-radio:focus{
+background-color: black;
+color: black;
 }
 
 .btn-roxo:hover{
