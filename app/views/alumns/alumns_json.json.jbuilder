@@ -1,1 +1,1 @@
-json.array! @alumns, partial: 'alumns/alumn', as: :alumn
+json.Alumns @alumns, partial: 'alumns/alumn', as: :alumn
