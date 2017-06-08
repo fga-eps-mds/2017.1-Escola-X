@@ -68,4 +68,21 @@ color: black;
  color: white;
 }
 
+.hub-item{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#hub #hub-grid{
+  overflow: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 0.7s linear;
+}
+
+#hub:hover #hub-grid{
+  opacity: 1;
+  height: 12em;
+}
+
 @import "bootswatch/flatly/bootswatch";

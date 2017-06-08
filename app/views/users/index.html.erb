@@ -1,7 +1,44 @@
 <%= render "layouts/navbar" %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Usuários</h1>
-<hr>
 <section class="content-section" id="alumns-list">
+  <div class="container">
+    <% if ( is_principal? ) %>
+    <section id="hub" class="text-center">
+      <h3 class="text-muted text-center">
+        Olá, Diretor!<br>
+        <small class="visible-md visible-lg">Passe o mouse para exibir opções</small>
+      </h3>
+      <div class="visible-md visible-lg" id="hub-grid">
+        <div class="row">
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Alunos'.html_safe, alumns_path, class:"btn btn-block btn-lg btn-success" %>
+          </div>
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Responsáveis'.html_safe, parents_path, class:"btn btn-block btn-lg btn-warning" %>
+          </div>
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Funcionários'.html_safe, employees_path, class:"btn btn-block btn-lg btn-info" %>
+          </div>
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Avisos'.html_safe, notifications_path, class:"btn btn-block btn-lg btn-roxo" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Turmas'.html_safe, classrooms_path, class:"btn btn-block btn-lg btn-default" %>
+          </div>
+          <div class="col-xs-6 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Matérias'.html_safe, subjects_path, class:"btn btn-block btn-lg btn-default" %>
+          </div>
+          <div class="col-xs-6 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-link"></span> Professores'.html_safe, teachers_path, class:"btn btn-block btn-lg btn-default" %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <% end %>
+  </div>
+  <hr>
   <% @parents.each do |parent| %>
     <div class="container">
       <div class="row item">
