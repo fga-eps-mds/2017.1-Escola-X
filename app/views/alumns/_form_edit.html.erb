@@ -1,16 +1,13 @@
-<%= render "layouts/navbar" %>
 <%= form_for (@alumn) do |f| %>
   <% if @alumn.errors.any? %>
-    <div class="container">
-      <div class="text-danger text-justify">
-        <div id="error_explanation">
-          <h2 class=""><%= pluralize(@alumn.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
-          <ul>
-          <% @alumn.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+    <div class="text-danger text-justify">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@alumn.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+        <ul>
+        <% @alumn.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
       </div>
     </div>
   <% end %>
@@ -79,7 +76,7 @@
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-gift"></span>
-         Data de nascimento
+         Nasc.
       </span>
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>

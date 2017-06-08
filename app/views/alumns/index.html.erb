@@ -19,8 +19,8 @@
 <%= render "layouts/feedback_messages" %>
 
 <section class="content-section" id="alumns-list">
-  <% @alumns.each do |alumn| %>
   <div class="container">
+  <% @alumns.each do |alumn| %>
     <div class="row item">
       <div class="col-sm-12 col-md-4">
         <% if alumn.image_file_name == nil %>
@@ -43,6 +43,6 @@
       </div>
     </div>
     <hr>
-  </div>
   <% end %>
+  </div>
 </section>

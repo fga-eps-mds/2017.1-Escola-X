@@ -1,8 +1,11 @@
 <%= render "layouts/navbar" %>
-
+<div class="container text-center">
+  <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Responsáveis</h1>
+  <hr>
+</div>
 <section class="content-section" id="parents-list">
-  <% @parents.each do |parent| %>
   <div class="container">
+  <% @parents.each do |parent| %>
     <div class="row item">
       <div class="col-sm-12 col-md-4">
         <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
@@ -10,7 +13,7 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2> <%= parent.name %></h2>
         <h4> <%= parent.address %> </h4>
-        <h4> <%= parent.birth_date %> </h4>
+        <h4> <%= parent.birth_date.day %>/<%= parent.birth_date.month %>/<%= parent.birth_date.year %> </h4>
         <h4> <%= parent.gender %> </h4>
         <h4> <%= parent.phone %> </h4>
         <h4> <%= parent.parent_cpf %></h4>
@@ -21,6 +24,6 @@
       </div>
     </div>
     <hr>
-  </div>
   <% end %>
+  </div>
 </section>

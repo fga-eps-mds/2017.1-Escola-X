@@ -78,11 +78,16 @@ color: black;
   opacity: 0;
   height: 0;
   transition: all 0.7s linear;
+  transition-delay: 0.2s;
 }
 
 #hub:hover #hub-grid{
   opacity: 1;
   height: 12em;
+}
+
+.class-name{
+  font-size: 2.25em;
 }
 
 @import "bootswatch/flatly/bootswatch";
