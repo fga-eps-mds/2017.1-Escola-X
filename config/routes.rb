@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
 
   get 'classroom/:id/subject/:subject_id/grade/:grade_id/history', to:'grade_histories#show_history', as:'show_history'
-  
+
   root 'sessions#new'
 
   get 'teachers/:id/teacher_classrooms', to:'teachers#teacher_classrooms', as:'teacher_classrooms'
@@ -40,6 +40,9 @@ Rails.application.routes.draw do
 
   get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
+  get '/alumns_json', to: 'alumns#alumns_json', as:'json_alumn'
+  get '/parents_json', to: 'parents#parents_json', as:'json_parent'
+  get '/strikes/strike_json', to:'strikes#strike_json', as:'json_strike'
   root 'sessions#new'
 
   resources :users
