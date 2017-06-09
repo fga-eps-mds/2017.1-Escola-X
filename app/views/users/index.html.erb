@@ -49,7 +49,7 @@
           <h2> <%= parent.name %> </h2>
           <h4>Endereço: <%= parent.address %> </h4>
           <h4>Data de Aniversário: <%= parent.birth_date.day %>/<%= parent.birth_date.month %>/<%= parent.birth_date.year %> </h4>
-          <h4>Gênero: <%= parent.gender %> </h4>
+          <h4>Sexo: <%= parent.gender %> </h4>
           <h4>Telefone: <%= parent.phone %> </h4>
           <h4>CPF: <%= parent.parent_cpf %> </h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(parent), class:'btn btn-info' %>
@@ -76,7 +76,7 @@
             <h4>Endereço: <%= alumn.address %> </h4>
             <h4>Data de Aniversário: <%= alumn.birth_date.day %>/<%= alumn.birth_date.month %>/<%= alumn.birth_date.year %> </h4>
             <h4>Idade: <%= alumn.get_age %> </h4>
-            <h4>Gênero: <%= alumn.gender %> </h4>
+            <h4>Sexo: <%= alumn.gender %> </h4>
             <h4>Telefone: <%= alumn.phone %> </h4>
             <h4>Matrícula: <%= alumn.registry %></h4>
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
@@ -100,7 +100,7 @@
           <h2><%= employee.name %></h2>
           <h4>Endereço: <%= employee.address %> </h4>
           <h4>Data de Aniversário: <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
-          <h4>Gênero: <%= employee.gender %> </h4>
+          <h4>Sexo: <%= employee.gender %> </h4>
           <h4>Telefone: <%= employee.phone %> </h4>
           <h4>Matrícula: <%= employee.registry %></h4>
           <% if employee.is_a?(Teacher) %>
