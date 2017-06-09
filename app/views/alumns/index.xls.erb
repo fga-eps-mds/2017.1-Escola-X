@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Nome</Data></Cell>
+        <Cell><Data ss:Type="String">Matrícula</Data></Cell>
+        <Cell><Data ss:Type="String">Turma</Data></Cell>
+        <Cell><Data ss:Type="String">Qtd Advertências</Data></Cell>
+        <Cell><Data ss:Type="String">Matérias</Data></Cell>
+      </Row>
+    <% @alumns.each do |alumn| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= alumn.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= alumn.registry %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= alumn.classroom.name_classroom %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= alumn.quantity_strike %></Data></Cell>
+        <% alumn.classroom.subjects.each do |subject| %>
+            <Cell><Data ss:Type="String"><%= subject.name_subject  %></Data>
+            </Cell>
+        <% end %>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

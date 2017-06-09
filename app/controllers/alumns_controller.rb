@@ -9,6 +9,11 @@
       @alumns = @current_user.alumns
     elsif ( is_employee? )
       @alumns = Alumn.all
+      respond_to do |format|
+      format.html
+      format.csv { send_data @alumns.to_csv }
+      format.xls # { send_data @alumns.to_csv(col_sep: "\t") }
+      end
       if params[:search]
         @alumns = Alumn.search(params[:search]).order("created_at DESC")
         if (@alumns.empty?)
@@ -21,7 +26,7 @@
         @alumns = Alumn.all.order('created_at DESC')
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -32,7 +37,7 @@
       @alumn = Alumn.find(id)
       Alumn.current = @alumn
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -42,7 +47,7 @@
       @@parent = Parent.find(params[:parent_id])
       @classrooms = Classroom.all.order('name_classroom')
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -51,7 +56,7 @@
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -67,7 +72,7 @@
         render 'new'
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -82,7 +87,7 @@
         render 'edit'
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -99,7 +104,7 @@
       @user = Alumn.find(params[:id])
       render action: "../users/edit_password"
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
@@ -112,7 +117,7 @@
         render action: "../users/edit_password"
       end
     else
-      redirect_to "/errors/error_500" 
+      redirect_to "/errors/error_500"
     end
   end
 
