@@ -25,13 +25,13 @@
         </div>
         <div class="row">
           <div class="col-xs-6 col-md-4 hub-item">
-            <%= link_to '<span class="fa fa-link"></span> Turmas'.html_safe, classrooms_path, class:"btn btn-block btn-lg btn-default" %>
+            <%= link_to '<span class="fa fa-link"></span> Turmas'.html_safe, classrooms_path, class:"btn btn-block btn-lg btn-suspension-show" %>
           </div>
           <div class="col-xs-6 col-md-4 hub-item">
-            <%= link_to '<span class="fa fa-link"></span> Matérias'.html_safe, subjects_path, class:"btn btn-block btn-lg btn-default" %>
+            <%= link_to '<span class="fa fa-link"></span> Matérias'.html_safe, subjects_path, class:"btn btn-block btn-lg btn-strike-show" %>
           </div>
           <div class="col-xs-6 col-md-4 hub-item">
-            <%= link_to '<span class="fa fa-link"></span> Professores'.html_safe, teachers_path, class:"btn btn-block btn-lg btn-default" %>
+            <%= link_to '<span class="fa fa-link"></span> Professores'.html_safe, teachers_path, class:"btn btn-block btn-lg btn-suspension" %>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
             <% if is_principal? %>
               <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_alumn_path(alumn), class:'btn btn-default' %>
               <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
-              <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-warning' %>
+              <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-danger' %>
             <% end %>
           </div>
         </div>

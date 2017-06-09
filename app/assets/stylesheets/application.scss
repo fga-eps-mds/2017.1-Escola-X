@@ -54,7 +54,26 @@ body {
 .btn-suspension-show{
  background-color: #560101;
  color: white;
+}
 
+.btn-strike:hover{
+ background-color: #673aa8;
+ color: white;
+}
+
+.btn-strike-show:hover{
+ background-color: #452b6e;
+ color: white;
+}
+
+.btn-suspension:hover{
+ background-color: #c73f3f;
+ color: white;
+}
+
+.btn-suspension-show:hover{
+ background-color: #782323;
+ color: white;
 }
 
 
@@ -99,28 +118,30 @@ body {
   font-size: 2.25em;
 }
 
-
-
 .btn-radio {
   color: black;
   background-color: white;
   border-color: #ECF0F1;
 }
+
 .btn-radio:focus,
 .btn-radio.focus {
   color: black;
   background-color: #ECF0F1;
 }
+
 .btn-radio:hover {
   color: black;
   background-color: #ECF0F1;
 }
+
 .btn-radio:active,
 .btn-radio.active,
 .open > .dropdown-toggle.btn-radio {
   color: black;
   background-color: #ECF0F1;
 }
+
 .btn-radio:active:hover,
 .btn-radio.active:hover,
 .open > .dropdown-toggle.btn-radio:hover,
@@ -133,12 +154,14 @@ body {
   background-color: #ECF0F1;
   color: black;
 }
+
 .btn-radio:active,
 .btn-radio.active,
 .open > .dropdown-toggle.btn-radio {
   background-image: none;
   color: black;
 }
+
 .btn-radio.disabled:hover,
 .btn-radio[disabled]:hover,
 fieldset[disabled] .btn-radio:hover,
@@ -151,24 +174,17 @@ fieldset[disabled] .btn-radio.focus {
   background-color: #ECF0F1;
   color: black;
 }
+
 .btn-radio .badge {
   color: #2c3e50;
   background-color: #ECF0F1;
   color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media(min-width:767px) {
+  .navbar-nav{
+    float: right;
+  }
+}
 
 @import "bootswatch/flatly/bootswatch";
