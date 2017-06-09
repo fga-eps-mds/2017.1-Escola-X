@@ -11,9 +11,9 @@
             <%if is_principal? %>
               <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
               <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-              <%= link_to '<span class="fa fa-user-plus"></span> Adicionar Alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-success" %>
+              <%= link_to '<span class="fa fa-user-plus"></span> Adicionar Alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-warning" %>
             <% end %>
-            <%= link_to '<span class="fa fa-address-card"></span> Matérias'.html_safe, classroom_subjects_path(classroom), class:'btn btn-sm btn-warning' %>
+            <%= link_to '<span class="fa fa-address-card"></span> Matérias'.html_safe, classroom_subjects_path(classroom), class:'btn btn-sm btn-primary' %>
           <% end %>
         </div>
         <div class="col-sm-12 col-md-5">

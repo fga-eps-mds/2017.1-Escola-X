@@ -6,12 +6,14 @@
   <div class="container">
     <% @alumns.each do |alumn| %>
       <div class="row item">
-        <div class="col-sm-12 col-md-8 text-capitalize">
-          <h2>Nome: <%= alumn.name %></h2>
-          <h4>Matricula: <%= alumn.registry %> </h4>
-          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
+          <div class="col-sm-12 col-md-9">
+            <p class="class-name">Nome: <%= alumn.name %></p>
+            <h4>Matricula: <%= alumn.registry %> </h4>
+          </div>
+          <div class="col-sm-12 col-md-3 pull-right">
+            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
+          </div>
         </div>
-      </div>
       <hr>
     <% end %>
   </div>
