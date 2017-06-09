@@ -2,25 +2,18 @@
 <section class="content-section" id="alunos-desc">
   <div class="container">
     <div class="pull-right">
-      <% if is_alumn? or is_parent?%>
-        <%if @alumn.suspensions.any?%>
-          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-danger" %>
-        <%end%>
-        <%if @alumn.strikes.any?%>
-          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Advertências'.html_safe, alumn_strikes_path(@alumn), class:"btn btn-sm btn-warning" %>
-        <%end%>
-      <%end%>
-      <% if is_parent?%>
-        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
-      <% end %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-        <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-warning' %>
-        <%if @alumn.suspensions.any?%>
-          <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-warning" %>
+        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
+        <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-strike' %>
+        <%if @alumn.strikes.any?%>
+        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Advertências'.html_safe, alumn_strikes_path(@alumn), class:"btn btn-sm btn-strike-show" %>
         <%end%>
-        <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-warning' %>
+        <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-suspension' %>
+        <%if @alumn.suspensions.any?%>
+        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-suspension-show" %>
+        <%end%>
       <%end%>
 
 
@@ -42,7 +35,7 @@
         <h4>Data de Nascimento: <%= @alumn.birth_date.day %>/<%= @alumn.birth_date.month %>/<%= @alumn.birth_date.year %></h4>
         <h4>Turma: <%= @alumn.classroom.name_classroom %></h4>
         <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
-        <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class: "", name: "report_link"  %></h4>
+        <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class: "btn btn-primary", name: "report_link"  %></h4>
       </div>
     </div>
     <ul class="nav nav-tabs">
