@@ -43,6 +43,13 @@ Rails.application.routes.draw do
   get '/alumns_json', to: 'alumns#alumns_json', as:'json_alumn'
   get '/parents_json', to: 'parents#parents_json', as:'json_parent'
   get '/strikes/strike_json', to:'strikes#strike_json', as:'json_strike'
+
+  namespace :api, defaults: { format: :json } do
+    resources :alumns
+    resources :strikes
+    resources :suspensions
+  end
+
   root 'sessions#new'
 
   resources :users
