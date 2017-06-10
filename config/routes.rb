@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     resources :strikes
     resources :suspensions
     resources :notifications
+    resources :parents
   end
 
   root 'sessions#new'
