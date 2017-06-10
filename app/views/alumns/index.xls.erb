@@ -6,6 +6,8 @@
     <th>Turma</th>
     <th>Faltas</th>
     <th>Matéria</th>
+    <th>Advertências</th>
+    <th>Responsável</th>
   </tr>
 
   <% @alumns.each do |alumn| %>
@@ -21,5 +23,7 @@
             <%= subject.name_subject %><br>
           <% end %>
       </td>
+      <td><%= alumn.quantity_strike %></td>
+      <td><%= alumn.parent.name %></td>
     </tr>
   <% end %>
