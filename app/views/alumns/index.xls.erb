@@ -2,37 +2,24 @@
 <table border="1">
   <tr>
     <th>Nome</th>
-    <th>Matéria</th>
-    <th>Notas</th>
+    <th>Matrícula</th>
+    <th>Turma</th>
     <th>Faltas</th>
-    
+    <th>Matéria</th>
   </tr>
 
   <% @alumns.each do |alumn| %>
-
     <tr>
-      <td> <%= alumn.name%> 
-
-        <td> 
-          <% alumn.classroom.subjects.each do |subject| %>
-            <%= subject.name_subject %> <br>
-            
-       
+      <td> <%= alumn.name%></td>
+      <td><%= alumn.registry%></td>
+      <td><%= alumn.classroom.name_classroom%></td>
+      <td><% alumn.school_misses.each do |miss|  %>
+            <%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %> <br>
+        <% end %>
+      </td>
+      <td><% alumn.classroom.subjects.each do |subject| %>
+            <%= subject.name_subject %><br>
           <% end %>
-
-          <td>
-
-          </td>
-
-          <td>
-            <% alumn.school_misses.each do |miss|  %>
-              <$= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %> <br>
-            <% end %>
-          </td>
-        </td>
-        
-      </td>   
+      </td>
     </tr>
   <% end %>
-
-
