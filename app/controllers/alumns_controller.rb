@@ -123,10 +123,6 @@
       end
   end
 
-  def alumns_json
-    @alumns = Alumn.all
-  end
-
   private
   def alumn_params
     params.require(:alumn).permit(:registry,

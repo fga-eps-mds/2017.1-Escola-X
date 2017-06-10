@@ -8,5 +8,4 @@ class Api::SuspensionsController < ApplicationController
   def show
     respond_with Suspension.find(params[:id])
   end
-
 end

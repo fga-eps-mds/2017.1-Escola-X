@@ -98,10 +98,6 @@ class ParentsController < ApplicationController
     end
   end
 
-  def parents_json
-    @parents = Parent.all
-  end
-
   private
   def parent_params
     params.require(:parent).permit(:parent_cpf,

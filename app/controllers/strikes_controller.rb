@@ -90,13 +90,6 @@ class StrikesController < ApplicationController
     end
   end
 
-  def strike_json
-    @strike = Strike.find(params[:id])
-    @parent= @strike.alumn.parent
-    # @parents =
-    # @strikes = Strike.all
-  end
-
   private
   def strike_params
     params.require(:strike).permit(:description_strike,

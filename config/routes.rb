@@ -40,10 +40,6 @@ Rails.application.routes.draw do
 
   get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
-  get '/alumns_json', to: 'alumns#alumns_json', as:'json_alumn'
-  get '/parents_json', to: 'parents#parents_json', as:'json_parent'
-  get '/strikes/strike_json', to:'strikes#strike_json', as:'json_strike'
-
   namespace :api, defaults: { format: :json } do
     resources :alumns
     resources :strikes
