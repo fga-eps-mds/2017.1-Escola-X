@@ -10,7 +10,7 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :phone
       t.string :gender
-      t.string :birth_date
+      t.date :birth_date
       t.string :permission
       t.string :password_digest
       t.string :authorization_token

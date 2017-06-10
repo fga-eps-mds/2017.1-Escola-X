@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170601110457) do
     t.string   "address"
     t.string   "phone"
     t.string   "gender"
-    t.string   "birth_date"
+    t.date     "birth_date"
     t.string   "permission"
     t.string   "password_digest"
     t.string   "authorization_token"
@@ -93,14 +93,15 @@ ActiveRecord::Schema.define(version: 20170601110457) do
 
   create_table "notifications", force: :cascade do |t|
     t.string   "title"
+    t.string   "notification_type"
     t.text     "notification_text"
-    t.integer  "notification_emitter_id"
+    t.integer  "employee_id"
     t.date     "notification_date"
     t.time     "notification_hour"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "motive"
-    t.index ["notification_emitter_id"], name: "index_notifications_on_notification_emitter_id"
+    t.index ["employee_id"], name: "index_notifications_on_employee_id"
   end
 
   create_table "parents", force: :cascade do |t|
