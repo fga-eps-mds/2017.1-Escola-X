@@ -4,7 +4,7 @@ class CreateNotifications < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :notification_type
       t.text :notification_text
-      t.references :notification_emitter, foreign_key: true
+      t.references :employee, foreign_key: true
       t.date :notification_date
       t.time :notification_hour
 

@@ -41,6 +41,7 @@ class StrikesController < ApplicationController
       if (@strike.save)
         @@alumn.quantity_strike += 1
         if @@alumn.save
+          flash[:success] = "Advertência criada com sucesso"
           redirect_to alumn_strike_path(@@alumn,@strike)
         else
           render 'strikes/new'
@@ -60,6 +61,7 @@ class StrikesController < ApplicationController
       if @strike.destroy
         @alumn.quantity_strike -= 1
         if @alumn.save
+          flash[:alert] = "Advertência excluída com sucesso"
           redirect_to users_path
         end
       end
@@ -81,6 +83,7 @@ class StrikesController < ApplicationController
     if ( is_employee? )
       @strike = Strike.find(params[:id])
       if @strike.update(strike_params)
+        flash[:notice] = "Advertência alterada com sucesso"
         redirect_to strike_path(@strike)
       else
         render "strikes/edit"

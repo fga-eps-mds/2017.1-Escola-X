@@ -1,10 +1,15 @@
 <%= render "layouts/navbar" %>
-<h1 class="text-uppercase text-center" id="title-list"><span class="fa fa-book"></span> Matérias</h1>
+<% if flash[:alert]%>
+<br>
+<br>
+ <div class="alert alert-danger" role = "alert"><%= flash[:alert]%></div>
+<% end %>
+<h1 class="text-uppercase text-center" id="title-list"><span class="fa fa-sticky-note text-left"></span> Matérias</h1>
 <hr>
 <section class="content-section" >
   <div class="container">
     <% if is_principal? %>
-      <%= link_to '<span class="fa fa-plus-circle"></span> Nova Matéria'.html_safe, new_subject_path, class:"text-center btn btn-info pull-right" %>
+      <%= link_to '<span class="fa fa-plus-circle"></span> Nova Matéria'.html_safe, new_subject_path, class:"text-center btn btn-info" %>
     <% end %>
     <% @subjects.each do |subject| %>
       <div class="row item">
