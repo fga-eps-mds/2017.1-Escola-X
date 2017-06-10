@@ -8,8 +8,45 @@
  <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
 <% end %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Usuários</h1>
-<hr>
 <section class="content-section" id="alumns-list">
+  <div class="container">
+    <% if ( is_principal? ) %>
+    <section id="hub" class="text-center">
+      <h3 class="text-muted text-center">
+        Olá, Diretor!<br>
+        <small class="visible-md visible-lg">Coloque o mouse para exibir opções</small>
+      </h3>
+      <div class="visible-md visible-lg" id="hub-grid">
+        <div class="row">
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path, class:"btn btn-block btn-lg btn-success" %>
+          </div>
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-user-circle-o"></span> Responsáveis'.html_safe, parents_path, class:"btn btn-block btn-lg btn-warning" %>
+          </div>
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-id-card"></span> Funcionários'.html_safe, employees_path, class:"btn btn-block btn-lg btn-info" %>
+          </div>
+          <div class="col-xs-6 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-sticky-note"></span> Avisos'.html_safe, notifications_path, class:"btn btn-block btn-lg btn-roxo" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path, class:"btn btn-block btn-lg btn-suspension-show" %>
+          </div>
+          <div class="col-xs-6 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-book"></span> Matérias'.html_safe, subjects_path, class:"btn btn-block btn-lg btn-strike-show" %>
+          </div>
+          <div class="col-xs-6 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-graduation-cap"></span> Professores'.html_safe, teachers_path, class:"btn btn-block btn-lg btn-suspension" %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <% end %>
+  </div>
+  <hr>
   <% @parents.each do |parent| %>
     <div class="container">
       <div class="row item">
@@ -18,9 +55,10 @@
         </div>
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2> <%= parent.name %> </h2>
+          <h6 class="text-info">Responsável</h6>
           <h4>Endereço: <%= parent.address %> </h4>
-          <h4>Data de Aniversário: <%= parent.birth_date %> </h4>
-          <h4>Gênero: <%= parent.gender %> </h4>
+          <h4>Data de Aniversário: <%= parent.birth_date.day %>/<%= parent.birth_date.month %>/<%= parent.birth_date.year %> </h4>
+          <h4>Sexo: <%= parent.gender %> </h4>
           <h4>Telefone: <%= parent.phone %> </h4>
           <h4>CPF: <%= parent.parent_cpf %> </h4>
           <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, parent_path(parent), class:'btn btn-info' %>
@@ -39,23 +77,23 @@
             <% if alumn.image_file_name == nil %>
               <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
             <% else %>
-              <%= image_tag(alumn.image.url(:original), alt: "", class: "img-responsive") %>  
-
+              <%= image_tag(alumn.image.url(:original), alt: "", class: "img-responsive") %>
             <%end%>
           </div>
           <div class="col-sm-12 col-md-8 text-capitalize descript">
             <h2><%= alumn.name %></h2>
+            <h6 class="text-success">Aluno</h6>
             <h4>Endereço: <%= alumn.address %> </h4>
-            <h4>Data de Aniversário: <%= alumn.birth_date %> </h4>
+            <h4>Data de Aniversário: <%= alumn.birth_date.day %>/<%= alumn.birth_date.month %>/<%= alumn.birth_date.year %> </h4>
             <h4>Idade: <%= alumn.get_age %> </h4>
-            <h4>Gênero: <%= alumn.gender %> </h4>
+            <h4>Sexo: <%= alumn.gender %> </h4>
             <h4>Telefone: <%= alumn.phone %> </h4>
             <h4>Matrícula: <%= alumn.registry %></h4>
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
             <% if is_principal? %>
               <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_alumn_path(alumn), class:'btn btn-default' %>
               <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
-              <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-warning' %>
+              <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-danger' %>
             <% end %>
           </div>
         </div>
@@ -70,9 +108,16 @@
         </div>
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h2><%= employee.name %></h2>
+          <% if employee.is_a?(Teacher) %>
+            <h6 class="text-danger">Professor</h6>
+          <% elsif employee.is_a?(Secretary) %>
+            <h6 class="text-warning">Secretário</h6>
+          <% elsif is_principal? %>
+            <h6 class="text-muted">Diretor</h6>
+          <%end%>
           <h4>Endereço: <%= employee.address %> </h4>
-          <h4>Data de Aniversário: <%= employee.birth_date %> </h4>
-          <h4>Gênero: <%= employee.gender %> </h4>
+          <h4>Data de Aniversário: <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
+          <h4>Sexo: <%= employee.gender %> </h4>
           <h4>Telefone: <%= employee.phone %> </h4>
           <h4>Matrícula: <%= employee.registry %></h4>
           <% if employee.is_a?(Teacher) %>

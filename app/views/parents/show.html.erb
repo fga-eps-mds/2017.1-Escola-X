@@ -31,6 +31,9 @@
         <h4 class="">Endereço: <%= @parent.address %></h4>
         <h4 class="">Data de Nascimento: <%= @parent.birth_date %></h4>
         <h4 class="">CPF: <%= @parent.parent_cpf %></h4>
+        <% @parent.alumns.each do |alumn| %>
+          <h4><%=link_to "Aluno: #{alumn.name}",alumn_path(alumn), class: "btn btn-default" %></h4>
+        <% end %>
       </div>
     </div>
   </div>

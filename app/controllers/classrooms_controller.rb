@@ -77,7 +77,7 @@ end
 def add_alumns
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
-    @alumns = @classroom.alumns
+    @alumns = @classroom.alumns.order('name')
   else
       redirect_to "/errors/error_500"
   end

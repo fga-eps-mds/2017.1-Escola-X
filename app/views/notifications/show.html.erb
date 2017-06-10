@@ -22,9 +22,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-8 text-justify">
-        <p>
-          <%= @notification.notification_text %>
-        </p>
+        <%= simple_format(@notification.notification_text) %>
       </div>
       <div class="col-sm-12 col-md-4 text-capitalize">
         <h3><%= @notification.title %></h3>
