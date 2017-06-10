@@ -1,4 +1,12 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+ <% if flash[:success]%>
+  <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+ <% end %>
+ <% if flash[:notice]%>
+  <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+ <% end %>
 <section class="content-section" id="notification">
   <div class="container">
     <div class="text-center">
@@ -14,9 +22,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-8 text-justify">
-        <p>
-          <%= @notification.notification_text %>
-        </p>
+        <%= simple_format(@notification.notification_text) %>
       </div>
       <div class="col-sm-12 col-md-4 text-capitalize">
         <h3><%= @notification.title %></h3>

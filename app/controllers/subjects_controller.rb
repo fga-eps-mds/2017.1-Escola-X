@@ -51,6 +51,7 @@ class SubjectsController < ApplicationController
 			else
 				@subject.teacher_id = @teacher.id
 	  		if ( @subject.save )
+					flash[:success] = "Matéria criada com sucesso"
 	    		redirect_to @subject
 	    	else
 	    		render 'new'
@@ -65,6 +66,7 @@ class SubjectsController < ApplicationController
   	if ( is_principal? )
   		@subject = Subject.find(params[:id])
   		@subject.destroy
+			flash[:alert] = "Turma excluída com sucesso"
   		redirect_to subjects_path
     else
       redirect_to "/errors/error_500"
@@ -81,6 +83,7 @@ class SubjectsController < ApplicationController
 			else
 				@subject.teacher_id = @teacher.id
 	  		if ( @subject.update(subject_params) )
+					flash[:notice] = "Matéria alterada com sucesso"
 	    		redirect_to @subject
 	    	else
 	    		render 'edit'
