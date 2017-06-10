@@ -62,6 +62,7 @@
       @classrooms = Classroom.all.order('name_classroom')
       if (@alumn.save)
         GradesController.create(@alumn)
+        flash[:success] = "Aluno(a) criado(a) com sucesso"
         redirect_to @alumn
       else
         render 'new'
@@ -77,6 +78,7 @@
       @classrooms = Classroom.all.order('name_classroom')
       if @alumn.update alumn_params
         GradesController.update_alumn(@alumn)
+        flash[:notice] = "Aluno(a) alterado(a) com sucesso"
         redirect_to @alumn
       else
         render 'edit'
@@ -90,6 +92,7 @@
     if ( is_principal? )
       @alumn = Alumn.find(params[:id])
       @alumn.destroy
+      flash[:alert] = "Aluno(a) excluído(a) com sucesso"
       redirect_to users_path
     end
   end

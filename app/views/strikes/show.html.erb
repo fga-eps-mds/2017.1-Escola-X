@@ -1,6 +1,13 @@
-
 <% if( is_employee? or verify_alumn(@alumn.id) or is_son?(@alumn.id)) %>
   <%= render "layouts/navbar" %>
+	<br>
+	<br>
+	<% if flash[:success]%>
+		<div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+	<% end %>
+	<% if flash[:notice]%>
+		<div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+	<% end %>
   <section class="content-section" id="alunos-desc">
     <div class="container">
       <div class="pull-right">
@@ -10,7 +17,6 @@
           <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
         <% end %>
       </div>
-
       <div class="row item">
         <div class="col-sm-12 col-md-8 descript">
           <h3 class="">Descrição da advertência: <%= @strike.description_strike %></h3>
@@ -19,9 +25,7 @@
           <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
           <h3 class="">Matricula do professor/diretor: <%= @employee.registry %></h3>
         </div>
-
       </div>
-
     </div>
   </section>
 <%end%>

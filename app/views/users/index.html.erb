@@ -1,4 +1,12 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+<% if flash[:alert]%>
+ <div class="alert alert-danger" role = "alert"><%= flash[:alert]%></div>
+<% end %>
+<% if flash[:success]%>
+ <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+<% end %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Usuários</h1>
 <hr>
 <section class="content-section" id="alumns-list">
@@ -32,6 +40,7 @@
               <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
             <% else %>
               <%= image_tag(alumn.image.url(:original), alt: "", class: "img-responsive") %>  
+
             <%end%>
           </div>
           <div class="col-sm-12 col-md-8 text-capitalize descript">
