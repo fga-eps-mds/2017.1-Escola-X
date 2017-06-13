@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'principal/resources'
-
   get 'login', to:'sessions#new', as:'login'
   post 'login', to:'sessions#create'
   get 'logout', to:'sessions#destroy', as:'logout'
@@ -29,7 +27,7 @@ Rails.application.routes.draw do
 
 
   get 'classroom/:id/subject/:subject_id/grade/:grade_id/history', to:'grade_histories#show_history', as:'show_history'
-  
+
   root 'sessions#new'
 
   get 'teachers/:id/teacher_classrooms', to:'teachers#teacher_classrooms', as:'teacher_classrooms'
@@ -59,6 +57,7 @@ Rails.application.routes.draw do
   resources :grades
   resources :subjects
   resources :school_misses
+  resources :principal, only: [:show, :edit, :update]
   resources :alumns do
     resources :school_misses
   end
