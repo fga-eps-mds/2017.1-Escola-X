@@ -1,4 +1,4 @@
 class AlumnSerializer < ActiveModel::Serializer
-  attributes :id, :registry, :name
+  attributes :id,:name, :registry
   has_one :parent
 end
