@@ -1,12 +1,55 @@
 require 'rails_helper'
+require 'helper_module_spec'
+
+RSpec.configure do |c|
+  c.include Helpers
+end
 
 RSpec.describe PrincipalController, type: :controller do
+  let(:valid_inputs) { { name: "Michael Cera", phone:"61988885555",
+                         password: "12345678", gender:"M",
+                         birth_date:"07/06/1970", shift: "diurno",
+                         admission_date: "08/09/2007",
+                         address: "samambaia Norte", employee_cpf: "26184391208",
+                         registry:"123456",} }
 
-  describe "GET #resources" do
-    it "returns http success" do
-      get :resources
-      expect(response).to have_http_status(:success)
+  describe 'GET show' do
+    describe "with right permissions" do
+      before(:each) do
+        login_principal
+      end
+
+      it 'assigns the requested principal to @principal' do
+        principal = Employee.create! valid_inputs
+        get :show, params:{id: principal.id}
+        expect(assigns(:principal)).to eq(principal)
+      end
+
+      it 'render the show template' do
+        principal = Employee.create! valid_inputs
+        get :show, params:{id: principal.id}
+        expect(response).to render_template('show')
+      end
     end
   end
 
+  describe 'GET edit' do
+    describe "with right permissions" do
+      before(:each) do
+        login_principal
+      end
+
+      it 'assigns the requested principal to @principal' do
+        principal = Employee.create! valid_inputs
+        get :edit, params:{id: principal.id}
+        expect(assigns(:principal)).to eq(principal)
+      end
+
+      it 'render the edit template' do
+        principal = Employee.create! valid_inputs
+        get :edit, params:{id: principal.id}
+        expect(response).to render_template('edit')
+      end
+    end
+  end
 end
