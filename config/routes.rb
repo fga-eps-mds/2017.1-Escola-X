@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
+  get '/reader/index' , to: 'reader#index'
+
   root 'sessions#new'
 
   resources :users
