@@ -64,6 +64,7 @@
       <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-suspension-show' %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_principal_path(@principal), class:"btn btn-sm btn-default" %>
+        <%= link_to '<span class="fa fa-edit"></span> Editar Senha'.html_safe, edit_password_employee_path(@principal), class:"btn btn-sm btn-default" %>
       <%end%>
     </div>
     <div class="row item">

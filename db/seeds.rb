@@ -12,8 +12,9 @@ Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '446
                  admission_date: '03-03-2001', phone: '06133713601')
 
 Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
-                password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '123456', employee_cpf: '73117438262',shift:"Diurno")
+                password: '12345678', birth_date: '10-10-1990', admission_date: '10-05-2000',
+                gender:"Masculino", registry: '123456',
+                employee_cpf: '73117438262',shift:"Diurno")
 
 
 Teacher.create(name: 'McLovin', address: 'rua do ovo', phone: '6133213030',

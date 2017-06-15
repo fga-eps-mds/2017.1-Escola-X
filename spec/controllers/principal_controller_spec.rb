@@ -98,6 +98,13 @@ RSpec.describe PrincipalController, type: :controller do
         put :update, params:{id: principal.id, principal: invalid_inputs}
         principal.reload
       end
+
+      it "re-renders the 'edit' template" do
+        principal = Principal.create! valid_inputs
+        # allow_any_instance_of(Alumn).to receive(:save).and_return(false)
+        put :update, params:{id: principal.id, principal: invalid_inputs }
+        expect(response).to render_template("edit")
+      end
     end
   end
 end
