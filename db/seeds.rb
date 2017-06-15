@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+photofile = "app/assets/images/boletim.png"
+fin = File.open(photofile, "rb")
+teste = fin.read
+
 Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
                  name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
                  shift: 'Matutino', password_digest: '12345678', birth_date: '03-03-2000',
@@ -43,7 +47,8 @@ Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
 Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '654321', shift: "matutino", gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id)
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+            photo: teste)
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
