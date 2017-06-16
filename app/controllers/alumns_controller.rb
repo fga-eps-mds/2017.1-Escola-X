@@ -13,7 +13,6 @@
       @subjects = Subject.all
       respond_to do |format|
       format.html
-      format.csv { send_data @alumns.to_csv }
       format.xls #{ send_data @alumns.to_csv  (col_sep: "\t")}
 
       end

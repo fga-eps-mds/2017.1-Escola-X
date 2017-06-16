@@ -76,15 +76,6 @@ class Alumn < ApplicationRecord
     @current_alumn
   end
 
-  def self.to_csv
-    attributes = %w{name registry quantity_strike}
-    CSV.generate do |csv|
-      csv << attributes
-      all.each do |alumn|
-        csv << alumn.attributes.values_at(*attributes)
-      end
-    end
-  end
 
   private
   def validates_password
