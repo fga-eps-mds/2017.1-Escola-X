@@ -7,6 +7,12 @@ class ClassroomsController < ApplicationController
   def index
     if ( is_principal? or is_secretary? )
       @classrooms = Classroom.all.order('name_classroom')
+      unless params[:classroom_grades_id].blank?
+        @classrooms &= Classroom.where(classroom_grades_id: params[:classroom_grades_id])
+      end
+      unless params[:shifts_id].blank?
+        @classrooms &= Classroom.where(shifts_id: params[:shifts_id])
+      end
     else
       redirect_to "/errors/error_500"
     end
@@ -15,6 +21,8 @@ class ClassroomsController < ApplicationController
   def new
     if ( is_principal? )
       @classroom = Classroom.new
+      @classroom_grades = ClassroomGrade.all
+      @shifts = Shift.all
     else
       redirect_to "/errors/error_500"
     end
@@ -23,6 +31,8 @@ class ClassroomsController < ApplicationController
   def show
     if ( is_principal? or is_secretary?)
       @classroom = Classroom.find(params[:id])
+      @shift = Shift.find_by_id(@classroom.shifts_id)
+      @classroom_grade = ClassroomGrade.find_by_id(@classroom.classroom_grades_id)
     else
       redirect_to "/errors/error_500"
     end
@@ -31,6 +41,8 @@ class ClassroomsController < ApplicationController
   def create
     if ( is_principal? )
       @classroom = Classroom.create(classroom_params)
+      @classroom_grades = ClassroomGrade.all
+      @shifts = Shift.all
       if ( @classroom.save )
         flash[:success] = "Turma criada com sucesso"
         redirect_to classroom_path(@classroom)
@@ -56,6 +68,8 @@ end
 def edit
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
+    @classroom_grades = ClassroomGrade.all
+    @shifts = Shift.all
   else
       redirect_to "/errors/error_500"
   end
@@ -64,6 +78,8 @@ end
 def update
   if ( is_principal? )
     @classroom = Classroom.find(params[:id])
+    @classroom_grades = ClassroomGrade.all
+    @shifts = Shift.all
     if @classroom.update(classroom_params)
       redirect_to classroom_path(@classroom)
     else
@@ -107,6 +123,7 @@ end
 private
   def classroom_params
     params.require(:classroom).permit(:name_classroom,
-                                      :shift_classroom)
+                                      :shifts_id,
+                                      :classroom_grades_id)
   end
 end
