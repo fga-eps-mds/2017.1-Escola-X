@@ -27,15 +27,7 @@
             </li>
           <%end%>
           <% if is_principal? %>
-            <li class="dropdown">
-
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
-                <span class="fa fa-address-card-o"></span> Catraca
-              </a>
-              
-            </li>
-          <% end %>
-          <% if is_principal? %>
+            <li><%=link_to '<span class="fa fa-address-card-o"></span> Catraca'.html_safe, reader_index_path %></li>
             <li class="dropdown">
 
               <a href="errors/error_500" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">

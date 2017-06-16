@@ -1,12 +1,17 @@
 class ReaderController < ApplicationController
-	def index
-		bar_code = params[:bar_code]
-
-		time = mountCurrentTime()	
-		# do method to get date	
-
-		@alumn = Alumn.find_by_bar_code bar_code
+	include SessionsHelper
 	
+	def index
+		if ( logged_in? and is_principal? )
+			bar_code = params[:bar_code]
+
+			time = mountCurrentTime()	
+			# do method to get date	
+
+			@alumn = Alumn.find_by_bar_code bar_code
+		else
+      		redirect_to "/errors/error_500"
+    	end
 	end
 	
 	TWO_POINTS = ":"
