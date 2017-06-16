@@ -36,12 +36,15 @@ gem 'mini_magick', '~> 4.3'
 
 gem "paperclip-dropbox", ">= 1.1.7"
 
-gem 'rails-i18n', '~> 5.0.0' 
+gem 'rails-i18n', '~> 5.0.0'
 
 gem "paperclip", "~> 3.0"
 
+gem 'responders'
+gem 'active_model_serializers'
+
 group :development, :test do
-  
+
   gem 'sqlite3'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '>= 3.5.0'
