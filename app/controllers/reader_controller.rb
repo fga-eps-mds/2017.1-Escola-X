@@ -1,5 +1,6 @@
 class ReaderController < ApplicationController
 	include SessionsHelper
+	include ReaderHelper
 	
 	def index
 		if ( logged_in? and is_principal? )
@@ -46,14 +47,14 @@ class ReaderController < ApplicationController
 	ZERO = "0";
 	SINGLE_CHAR = 1
 
-	private 
+
 	def mountCurrentDate() 
 	
  		#hour = (Time.current.hour - ADJUSTING_FUSE_TO_BRAZILIAN).to_s
  		#minute = Time.current.min .to_s
  		day = Time.current.day.to_s
  		month = Time.current.month.to_s
- 		year = Time.current.year.to_s
+ 		year = Time.current.year.to_s 
 
  		if (month.length == SINGLE_CHAR)
  			month = ZERO + month

@@ -90,3 +90,4 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               date_strike: "25-12-2015",
               alumn_id: Alumn.last.id,
               employee_id: Employee.last.id)
+
