@@ -1,16 +1,13 @@
-<%= render "layouts/navbar" %>
 <%= form_for (@alumn) do |f| %>
   <% if @alumn.errors.any? %>
-    <div class="container">
-      <div class="text-danger text-justify">
-        <div id="error_explanation">
-          <h2 class=""><%= pluralize(@alumn.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
-          <ul>
-          <% @alumn.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+    <div class="text-danger text-justify">
+      <div id="error_explanation">
+        <h2 class=""><%= pluralize(@alumn.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+        <ul>
+        <% @alumn.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
       </div>
     </div>
   <% end %>
@@ -79,22 +76,30 @@
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-gift"></span>
-         Data de nascimento
+         Nasc.
       </span>
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :gender, class:"sr-only" %>
-    <p class="text-uppercase"><strong>Sexo</strong></p>
-    <div class="checkbox">
-      <%= f.radio_button(:gender,"Feminino") %>
-      <%= label :gender, "Feminino" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-venus-mars"></span>
+         Sexo
+      </span>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-radio">
+          <%= f.radio_button(:gender,"Feminino") %> Feminino
+        </label>
+        <label class="btn btn-radio">
+          <%= f.radio_button(:gender,"Masculino") %> Masculino
+        </label>
+      </div>
     </div>
-    <div class="checkbox">
-      <%= f.radio_button(:gender,"Masculino") %>
-      <%= label :gender, "Masculino" %>
-    </div>
+  </div>
+
+  <div class="form-group">
     <div class="field">
        <p class="text-uppercase"><strong>Imagem</strong></p>
       <%= f.file_field :image %>

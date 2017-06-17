@@ -52,7 +52,7 @@ class SecretariesController < ApplicationController
     if ( is_principal? )
       @secretary = Secretary.new(secretary_params)
       if (@secretary.save)
-        flash[:notice] = "Secretário(a) criado(a) com sucesso"
+        flash[:success] = "Secretário(a) criado(a) com sucesso"
         redirect_to @secretary
       else
         render 'new'
@@ -80,11 +80,11 @@ class SecretariesController < ApplicationController
     if ( is_principal? )
       @secretary = Secretary.find(params[:id])
       if (@secretary.destroy)
-        flash[:notice] = "Secretário(a) excluído(a) com sucesso"
+        flash[:alert] = "Secretário(a) excluído(a) com sucesso"
+      	redirect_to secretaries_path
+      else
+      	redirect_to "/errors/error_500"
       end
-      redirect_to secretaries_path
-    else
-      redirect_to "/errors/error_500"
     end
   end
 

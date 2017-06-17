@@ -3,33 +3,39 @@
 <hr>
 <section class="content-section" id="alumns-list">
 
-  <% @alumns.each do |alumn| %>
-      <div class="container">
-        <div class="row item">
-          <div class="col-sm-12 col-md-8 text-capitalize descript">
-            <h2>Nome: <%= alumn.name %></h2>
+  <div class="container">
+    <% @alumns.each do |alumn| %>
+      <div class="row item">
+          <div class="col-sm-12 col-md-9">
+            <p class="class-name">Nome: <%= alumn.name %></p>
             <h4>Matricula: <%= alumn.registry %> </h4>
+          </div>
+          <div class="col-sm-12 col-md-3 pull-right">
             <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
           </div>
         </div>
-        <hr>
-      </div>
-  <% end %>
+      <hr>
+    <% end %>
+  </div>
   <%= form_tag html: { class: "form-inline"} do %>
-    <div class="form-group">
-      <div class="col-xs-4">
-        <%= label_tag :registry, nil ,class: 'sr-only' %>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <span class="fa fa-hourglass-half "></span>
-             Adicionar aluno
+    <div class="container">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-xs-4">
+            <%= label_tag :registry, nil ,class: 'sr-only' %>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <span class="fa fa-hourglass-half "></span>
+                 Adicionar aluno
+              </span>
+              <%= text_field_tag :registry, nil ,class: 'form-control', placeholder:"Matricula" %>
+            </div>
+          </div>
+          <span class="input-group-btn">
+            <%= button_tag '<span class="fa fa-check"></span> Adicionar aluno'.html_safe, type:"submit", class:'btn btn-default btn-success' %>
           </span>
-          <%= text_field_tag :registry, nil ,class: 'form-control', placeholder:"Digite a matricula" %>
         </div>
       </div>
-      <span class="input-group-btn">
-        <%= button_tag '<span class="fa fa-check"></span> Adicionar aluno'.html_safe, type:"submit", class:'btn btn-default btn-success' %>
-      </span>
     </div>
   <% end %>
 </section>

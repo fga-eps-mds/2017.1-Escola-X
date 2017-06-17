@@ -56,6 +56,7 @@ class ParentsController < ApplicationController
     if ( is_principal? )
       @parent = Parent.find(params[:id])
       if ( @parent.update(parent_params) )
+        flash[:notice] = "Responsável alterado(a) com sucesso"
         redirect_to @parent
       else
         render 'edit'
@@ -69,7 +70,7 @@ class ParentsController < ApplicationController
     if ( is_principal? )
       @parent = Parent.find(params[:id])
       @parent.destroy
-
+      flash[:alert] = "Responsável excluído(a) com sucesso"
       redirect_to users_path
     else
       redirect_to "/errors/error_500"

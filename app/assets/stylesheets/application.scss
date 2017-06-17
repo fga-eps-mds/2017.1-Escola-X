@@ -26,15 +26,58 @@
 body {
   padding-top: 3em;
 }
+
 .btn-roxo{
- background-color: #7B52AB;
+ background-color: #9768D1;
+ color: white;
+
+}
+
+.btn-strike{
+ color: white;
+ background-color: #673aa8;
+}
+
+.btn-strike-show{
+ color: white;
+ background-color: #452b6e;
+}
+
+.btn-suspension{
+ color: white;
+ background-color: #c73f3f;
+}
+
+.btn-suspension-show{
+ background-color: #782323;
  color: white;
 }
 
-.btn-roxo:hover{
- background-color: #9768D1;
+.btn-strike:hover{
+ background-color: #45188e;
+ color: white;
 }
 
+.btn-strike-show:hover{
+ background-color: #23094c;
+ color: white;
+}
+
+.btn-suspension:hover{
+ background-color: #a51d1d;
+ color: white;
+}
+
+.btn-suspension-show:hover{
+ background-color: #560101;
+ color: white;
+}
+
+
+.btn-roxo:hover{
+ // background-color: #9768D1;
+ background-color: #7B52AB;
+}
 
 .grade-group{
   margin-right: 1em;
@@ -42,14 +85,106 @@ body {
 }
 
 .btn-shades{
- background-color: #aaa;
- color: white;
-}
-
-.btn-shades:hover{
+ // background-color: #aaa;
  background-color: #555;
  color: white;
 }
 
+.btn-shades:hover{
+ // background-color: #555;
+ background-color: #aaa;
+ color: white;
+}
+
+.hub-item{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#hub #hub-grid{
+  overflow: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 0.7s linear;
+  transition-delay: 0.2s;
+}
+
+#hub:hover #hub-grid{
+  opacity: 1;
+  height: 12em;
+}
+
+.class-name{
+  font-size: 2.25em;
+}
+
+.btn-radio {
+  color: black;
+  background-color: white;
+  border-color: #ECF0F1;
+}
+
+.btn-radio:focus,
+.btn-radio.focus {
+  color: black;
+  background-color: #ECF0F1;
+}
+
+.btn-radio:hover {
+  color: black;
+  background-color: #ECF0F1;
+}
+
+.btn-radio:active,
+.btn-radio.active,
+.open > .dropdown-toggle.btn-radio {
+  color: black;
+  background-color: #ECF0F1;
+}
+
+.btn-radio:active:hover,
+.btn-radio.active:hover,
+.open > .dropdown-toggle.btn-radio:hover,
+.btn-radio:active:focus,
+.btn-radio.active:focus,
+.open > .dropdown-toggle.btn-radio:focus,
+.btn-radio:active.focus,
+.btn-radio.active.focus,
+.open > .dropdown-toggle.btn-radio.focus {
+  background-color: #ECF0F1;
+  color: black;
+}
+
+.btn-radio:active,
+.btn-radio.active,
+.open > .dropdown-toggle.btn-radio {
+  background-image: none;
+  color: black;
+}
+
+.btn-radio.disabled:hover,
+.btn-radio[disabled]:hover,
+fieldset[disabled] .btn-radio:hover,
+.btn-radio.disabled:focus,
+.btn-radio[disabled]:focus,
+fieldset[disabled] .btn-radio:focus,
+.btn-radio.disabled.focus,
+.btn-radio[disabled].focus,
+fieldset[disabled] .btn-radio.focus {
+  background-color: #ECF0F1;
+  color: black;
+}
+
+.btn-radio .badge {
+  color: #2c3e50;
+  background-color: #ECF0F1;
+  color: black;
+}
+
+@media(min-width:767px) {
+  .navbar-nav{
+    float: right;
+  }
+}
 
 @import "bootswatch/flatly/bootswatch";

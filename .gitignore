@@ -29,5 +29,9 @@
 # Ignore metrics files
 metrics/*.txt
 
+
 # Ignore coverage files
 /coverage/rcov/*
+
+#Ignore Gemfile.lock
+Gemfile.lock
