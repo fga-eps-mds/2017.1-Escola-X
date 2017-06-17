@@ -6,6 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+ClassroomGrade.create(name_classroom_grade: "1° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "2° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "3° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "4° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "5° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "6° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "7° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "8° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "9° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "1° Médio")
+ClassroomGrade.create(name_classroom_grade: "2° Médio")
+ClassroomGrade.create(name_classroom_grade: "3° Médio")
+ClassroomGrade.create(name_classroom_grade: "Supletivo")
+
+Shift.create(name_shift: "Matutino")
+Shift.create(name_shift: "Vespertino")
+Shift.create(name_shift: "Noturno")
+Shift.create(name_shift: "Diurno")
+
 photofile = "app/assets/images/boletim.png"
 fin = File.open(photofile, "rb")
 teste = fin.read

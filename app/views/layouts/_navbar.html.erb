@@ -14,6 +14,19 @@
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
       <% end %>
     </div>
+    <div class="txt-branko pull-left nav nav-bar">
+      <% if is_alumn? %>
+        Logado como: Aluno
+      <% elsif is_parent? %>
+        Logado como: Responsável
+      <% elsif is_teacher? %>
+        Logado como: Professor
+      <% elsif is_principal? %>
+        Logado como: Diretor
+      <% else %>
+        Logado como: Secretário
+      <% end %>
+    </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav">
           <% if is_teacher? %>
