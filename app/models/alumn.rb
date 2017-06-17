@@ -64,6 +64,10 @@ class Alumn < ApplicationRecord
 
   validates :gender, presence: { message: "Não pode estar em branco." }
 
+  validates :bar_code, presence: { message: "Não pode estar em branco." },
+                        length: {minimum: 5,
+                                 :too_short => "Deve possuir no minimo 5 digitos"}
+
   def get_age
     DateTime.now.year - self.birth_date.year
   end

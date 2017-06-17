@@ -21,13 +21,13 @@ RSpec.describe SessionsHelper, type: :helper do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988",registry:"123456",
-                         shift:"matutino",parent_id:parent.id} }
+                         shift:"matutino",parent_id:parent.id , bar_code:"123456"} }
 
     let(:alumn1_inputs) { { name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988",registry:"123456",
-                         shift:"matutino" , parent_id: 1 } }
+                         shift:"matutino" , parent_id: 1, bar_code:"123456" } }
 
   	let(:teacher_inputs) { { name:"Victor Hugo",phone:"61983104981",
                          address:"QR 602 Conjunto 06 Casa 05",
@@ -121,7 +121,8 @@ RSpec.describe SessionsHelper, type: :helper do
 																 address:"Rua Vida Casa 15,Taguatinga",
 																 password: "12345678", gender:"M",
 																 birth_date:"07/06/1988",registry:"555456",
-																 shift:"matutino" , parent_id: parent1.id )
+																 shift:"matutino" , parent_id: parent1.id , 
+																 bar_code:"123457")
 
 						cookies[:authorization_token] = alumn1.authorization_token
 						expect(verify_alumn(alumn1.id)).to be true
