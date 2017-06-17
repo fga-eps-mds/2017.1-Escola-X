@@ -15,8 +15,8 @@
 	<div class="container">
 		<br>
     <center>
-      <% if @alumn.photo != nil%>
-        <%= ("<img id =  'profile-image' width = '500' height = '450' alt='image' class= 'list_image' src='data:image/jpg;base64,%s'>" % Base64.encode64(@alumn.photo)).html_safe %><br>
+      <% if @alumn.image_file_name != nil%>
+        <%= image_tag(@alumn.image.url(:original), alt: "", class: "img-responsive") %>
       <% else%>
         <img src="/app/assets/images/foto 250x300.jpg" alt="Foto não cadastrada" height="450" width="500">
       <% end %>
