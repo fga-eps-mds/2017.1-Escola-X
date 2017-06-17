@@ -1,4 +1,4 @@
-class ReaderController < ApplicationController
+class ReaderController < ApplicationController 
 	include SessionsHelper
 	include ReaderHelper
 	
