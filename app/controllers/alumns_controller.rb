@@ -138,6 +138,8 @@
                                   :birth_date,
                                   :password,
                                   :parent_id,
-                                  :classroom_id)
+                                  :classroom_id,
+                                  :photo,
+                                  :bar_code)
   end
 end

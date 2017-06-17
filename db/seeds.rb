@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+photofile = "app/assets/images/boletim.png"
+fin = File.open(photofile, "rb")
+teste = fin.read
+
 Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
                  name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
                  shift: 'Matutino', password_digest: '12345678', birth_date: '03-03-2000',
@@ -43,7 +47,8 @@ Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
 Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '654321', shift: "matutino", gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id)
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+            photo: teste , bar_code: "123456")
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -52,7 +57,7 @@ Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
 Alumn.create(name: 'Evan Junior', address: 'rua do mortandela',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '333123', shift: "matutino",gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id)
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id , bar_code:"485769")
 
 Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -61,7 +66,7 @@ Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
 Alumn.create(name: 'Nick Twisp', address: 'rua do suco tangue',gender:"Masculino",
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '555123', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id)
+            classroom_id: Classroom.last.id , bar_code:"449586")
 
 Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender:"Masculino",
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -70,7 +75,7 @@ Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender
 Alumn.create(name: 'America Hoffman', address: 'rua do leite com tode',gender:"Masculino",
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '098765', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id)
+            classroom_id: Classroom.last.id , bar_code:"222496")
 
 ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)
 
@@ -85,3 +90,4 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               date_strike: "25-12-2015",
               alumn_id: Alumn.last.id,
               employee_id: Employee.last.id)
+
