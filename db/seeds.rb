@@ -55,7 +55,7 @@ Teacher.create(name: 'Alex Lemon', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
                 registry: '363636', employee_cpf: '76992438468',shift:"Diurno")
 
-Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
+Classroom.create(name_classroom: "3G", shift_classroom: "Matutino",classroom_grades_id: ClassroomGrade.last.id, shifts_id: Shift.last.id)
 
 Subject.create(name_subject:"Filosofia", class_level:"2",teacher_id:Teacher.last.id)
 
@@ -109,4 +109,3 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               date_strike: "25-12-2015",
               alumn_id: Alumn.last.id,
               employee_id: Employee.last.id)
-
