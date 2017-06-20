@@ -80,7 +80,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
 
       it "redirects to @suspension page" do
        post :create, params: {suspension: valid_inputs_suspension,alumn_id:alumn.id}
-       expect(response).to redirect_to suspension_path(assigns(:suspension))
+       expect(response).to redirect_to redirect_to alumn_suspension_path((assigns(:alumn)),(assigns(:suspension)))
      end
     end
 
