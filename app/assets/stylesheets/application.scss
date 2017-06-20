@@ -30,7 +30,14 @@ body {
 .btn-roxo{
  background-color: #9768D1;
  color: white;
+}
 
+.txt-branko{
+ color: white;
+  padding-top: 19.5px;
+  padding-bottom: 19.5px;
+  padding-left: 10px;
+  float: right;
 }
 
 .btn-strike{
@@ -188,6 +195,13 @@ fieldset[disabled] .btn-radio.focus {
 @media(min-width:767px) {
   .navbar-nav{
     float: right;
+  }
+  .txt-branko{
+   color: white;
+    padding-top: 19.5px;
+    padding-bottom: 19.5px;
+    padding-left: 10px;
+    float: left;
   }
 }
 

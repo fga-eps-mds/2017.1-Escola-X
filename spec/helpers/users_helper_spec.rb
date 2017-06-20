@@ -23,7 +23,7 @@ let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
                        address:"Rua Vida Casa 15,Taguatinga",
                        password: "12345678", gender:"M",
                        birth_date:"07/06/1988",registry:"123456",
-                       shift:"matutino",parent_id: 1} }
+                       shift:"matutino",parent_id: 1, bar_code:"123493"} }
 #
 # let(:teacher_inputs) { { name: "Michael Cera", phone:"61988885555",
 #                         address:"Rua Vida Casa 15,Taguatinga",
@@ -64,7 +64,7 @@ let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                                address:"Rua Vida Casa 15,Taguatinga",
                                password: "12345678", gender:"M",
                                birth_date:"07/06/1988", registry:"123456",
-                               shift:"matutino",parent_id:parent.id)
+                               shift:"matutino",parent_id:parent.id , bar_code:"185948")
         cookies[:authorization_token] = user.authorization_token
         expect(is_alumn?).to be true
       end
