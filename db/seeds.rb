@@ -67,8 +67,7 @@ Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
 Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '654321', shift: "matutino", gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
-            photo: teste , bar_code: "123456")
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id, bar_code: "123456")
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
