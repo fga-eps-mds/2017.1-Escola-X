@@ -41,7 +41,7 @@
         <h4>Telefone: <%= @alumn.phone %></h4>
         <h4>Sexo: <%= @alumn.gender %></h4>
         <h4>Endereço: <%= @alumn.address %></h4>
-        <h4>Data de Nascimento: <%= @alumn.birth_date.day %>/<%= @alumn.birth_date.month %>/<%= @alumn.birth_date.year %></h4>
+        <h4>Data de Nascimento: <%= @alumn.birth_date.strftime('%d/%m/%Y') %></h4>
         <h4>Turma: <%= @alumn.classroom.name_classroom %></h4>
         <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
         <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class: "btn btn-primary", name: "report_link"  %></h4>
@@ -59,12 +59,12 @@
                   <% @alumn.school_misses.all.reverse.each do |miss| %>
                     <% if (@current_user.is_a?(Principal)) %>
                       <br>
-                      <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %>
+                      <li class="text-danger"><%= miss.date.strftime('%d/%m/%Y') %>
 
                       </li>
                     <% else %>
                       <br>
-                      <li class="text-danger"><%= miss.date.day %>/<%= miss.date.month %>/<%= miss.date.year %></li>
+                      <li class="text-danger"><%= miss.date.strftime('%d/%m/%Y') %></li>
                     <% end %>
                   <% end %>
                 </ul>

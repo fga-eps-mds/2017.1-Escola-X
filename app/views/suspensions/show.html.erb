@@ -23,7 +23,7 @@
           <h3 class="">Título da Suspensão: <%= @suspension.title %></h3>
           <h3 class="">Quantidade de Dias da Suspensão: <%= @suspension.quantity_days %></h3>
           <h3 class="">Descrição da Suspensão: <%= @suspension.description %></h3>
-          <h3 class="">Data da Suspensão: <%= @suspension.date_suspension.day %>/<%= @suspension.date_suspension.month %>/<%= @suspension.date_suspension.year %></h3>
+          <h3 class="">Data da Suspensão: <%= @suspension.date_suspension.strftime('%d/%m/%Y') %></h3>
           <h3 class="">Nome do aluno: <%= @alumn.name %></h3>
           <h3 class="">Matricula do aluno: <%= @alumn.registry %></h3>
           <%if @current_user.is_a?(Principal) %>

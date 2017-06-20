@@ -28,7 +28,7 @@
         <h3><%= @notification.title %></h3>
         <h4>Motivo: <%= @notification.motive %></h4>
         <h5>De: <%= @assignee %></h5>
-        <h5>Criado em: <%= @notification.notification_date.day %>/<%= @notification.notification_date.month %>/<%= @notification.notification_date.year %></h5>
+        <h5>Criado em: <%= @notification.notification_date.strftime('%d/%m/%Y') %></h5>
       </div>
     </div>
   </div>
