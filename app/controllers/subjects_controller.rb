@@ -66,7 +66,7 @@ class SubjectsController < ApplicationController
   	if ( is_principal? )
   		@subject = Subject.find(params[:id])
   		@subject.destroy
-			flash[:alert] = "Turma excluída com sucesso"
+			flash[:alert] = "Matéria excluída com sucesso"
   		redirect_to subjects_path
     else
       redirect_to "/errors/error_500"
@@ -110,9 +110,10 @@ class SubjectsController < ApplicationController
 				@classroom_subject.subject_id = @subject.id
 				@classroom_subject.classroom_id = @classroom.id
 				if @classroom_subject.save
-					redirect_to add_classrooms_path(@classroom)
+					redirect_to classroom_subjects_path(@classroom)
 				end
 			else
+				flash[:alert] = "Matéria não pode ser adicionada ou já existe na turma"
 				redirect_to add_classrooms_path(@classroom)
 			end
     end
