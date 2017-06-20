@@ -9,6 +9,13 @@
       @alumns = @current_user.alumns
     elsif ( is_employee? )
       @alumns = Alumn.all
+      @grades = Array.new
+      @subjects = Subject.all
+      respond_to do |format|
+      format.html
+      format.xls #{ send_data @alumns.to_csv  (col_sep: "\t")}
+
+      end
       if params[:search]
         @alumns = Alumn.search(params[:search]).order("created_at DESC")
         if (@alumns.empty?)

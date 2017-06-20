@@ -18,8 +18,14 @@
 
 <%= render "layouts/feedback_messages" %>
 
+
+
+
 <section class="content-section" id="alumns-list">
   <div class="container">
+    <%if is_principal? or is_secretary? %>
+    <%= link_to '<span class="fa fa-address-card"></span> Gerar XLS'.html_safe, alumns_path(format: "xls"),class: 'btn btn-success pull-right' %>
+    <% end %>
   <% @alumns.each do |alumn| %>
     <div class="row item">
       <div class="col-sm-12 col-md-4">

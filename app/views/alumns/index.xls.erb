@@ -1,0 +1,68 @@
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta>
+<table border="1">
+  <tr>
+    <th>Nome</th>
+    <th>Matrícula</th>
+    <th>Turma</th>
+    <th>Faltas</th>
+    <th>Advertências</th>
+    <th>Suspensões</th>
+    <th>Responsável</th>
+    <%@subjects.each do |subject|%>
+    <th><%=subject.name_subject%> 1°B</th>
+    <%end%>
+    <%@subjects.each do |subject|%>
+    <th><%=subject.name_subject%> 2°B</th>
+    <%end%>
+    <%@subjects.each do |subject|%>
+    <th><%=subject.name_subject%> 3°B</th>
+    <%end%>
+    <%@subjects.each do |subject|%>
+    <th><%=subject.name_subject%> 4°B</th>
+    <%end%>
+    <%@subjects.each do |subject|%>
+    <th><%=subject.name_subject%> Final</th>
+    <%end%>
+  </tr>
+
+  <% @alumns.each do |alumn| %>
+    <tr>
+      <td> <%= alumn.name%></td>
+      <td><%= alumn.registry%></td>
+      <td><%= alumn.classroom.name_classroom%></td>
+      <td><%= alumn.school_misses.count  %>
+      </td>
+      <td><%= alumn.quantity_strike %></td>
+        <td><%= alumn.suspensions.count  %>
+      <td><%= alumn.parent.name %></td>
+      <%alumn.classroom.subjects.each do |subject|%>
+        <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+          <td><%=grade.grade_01%></td>
+        <%end%>
+      <%end%>
+      <%alumn.classroom.subjects.each do |subject|%>
+        <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+          <td><%=grade.grade_02%></td>
+        <%end%>
+      <%end%>
+      <%alumn.classroom.subjects.each do |subject|%>
+        <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+          <td><%=grade.grade_03%></td>
+        <%end%>
+      <%end%>
+      <%alumn.classroom.subjects.each do |subject|%>
+        <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+          <td><%=grade.grade_04%></td>
+        <%end%>
+      <%end%>
+      <%alumn.classroom.subjects.each do |subject|%>
+        <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+          <td><%=grade.grade_final%></td>
+        <%end%>
+      <%end%>
+    </tr>
+  <% end %>
+  <tr>
+    <td><strong>Data</strong></td>
+    <td><%=DateTime.now.to_date%></td>
+  </tr>
