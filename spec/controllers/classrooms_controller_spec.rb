@@ -17,7 +17,7 @@ RSpec.describe ClassroomsController, type: :controller do
                            password: "12345678", gender:"M",
                            birth_date:"07/06/1988", registry:"123456",
                            shift:"matutino",parent_id:parent.id,
-                           classroom_id: "1", bar_code:"123456")
+                           classroom_id: "1", bar_code:nil)
   end
 
   def alumn2
@@ -26,7 +26,7 @@ RSpec.describe ClassroomsController, type: :controller do
                            password: "12345678", gender:"M",
                            birth_date:"07/06/1988", registry:"654321",
                            shift:"matutino",parent_id:parent.id,
-                           classroom_id: "1", bar_code:"485930")
+                           classroom_id: "1", bar_code:nil)
   end
 
   describe "GET new" do
@@ -287,13 +287,13 @@ RSpec.describe ClassroomsController, type: :controller do
                               password: "12345678", gender:"M",
                               birth_date:"07/06/1988", registry:"654321",
                               shift:"matutino",parent_id:parent.id,
-                              classroom_id:classroom.id , bar_code:"483952")
+                              classroom_id:classroom.id)
         alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                               address:"Rua Vida Casa 15,Taguatinga",
                               password: "12345678", gender:"M",
                               birth_date:"07/06/1988", registry:"555123",
                               shift:"matutino",parent_id:parent.id,
-                              classroom_id:classroom.id , bar_code:"586948")
+                              classroom_id:classroom.id)
         classroom.alumns = alumn1, alumn2
         get :add_alumns, params:{:id => classroom.to_param }
         expect(assigns(:alumns)).to match_array([alumn1, alumn2])
@@ -327,13 +327,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"555685")
+                                classroom_id:classroom.id)
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id, bar_code:"339504")
+                                classroom_id:classroom.id)
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => alumn.registry }
           expect(assigns(:alumn).classroom_id).to be(classroom.id)
@@ -346,13 +346,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"495049")
+                                classroom_id:classroom.id)
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"234239")
+                                classroom_id:classroom.id)
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => alumn.registry }
           expect(response).to render_template("add_alumns")
@@ -368,13 +368,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"339405")
+                                classroom_id:classroom.id)
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"3346405")
+                                classroom_id:classroom.id)
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => nil }
           expect(response).to redirect_to(add_alumns_path(assigns(:classroom)))
@@ -387,13 +387,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"3394265")
+                                classroom_id:classroom.id)
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"339555")
+                                classroom_id:classroom.id)
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => nil }
           expect(response).to redirect_to(add_alumns_path(assigns(:classroom)))
@@ -414,13 +414,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id, bar_code:"129405")
+                                classroom_id:classroom.id)
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"616321",
                                 shift:"matutino",parent_id:parent.id,
-                                classroom_id:classroom.id , bar_code:"694405")
+                                classroom_id:classroom.id)
           
         classroom.alumns = alumn1 , alumn2
         post :add_alumn, params:{id: classroom, registry: alumn }

@@ -31,7 +31,7 @@ module Helpers
                            password: "12345678", gender:"Masculino",
                            birth_date:"07/06/1988", registry:"707070",
                            shift:"matutino",parent_id: 5,
-                           classroom_id: 1 , bar_code:"183942")
+                           classroom_id: 1)
     cookies[:authorization_token] = alumn.authorization_token
 
   end
@@ -40,7 +40,7 @@ module Helpers
     alumn = Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12648678', birth_date: '10-10-1991',
             registry: '664523', shift: "matutino", gender:"Masculino",
-            parent_id: 1  , bar_code:"444950")
+            parent_id: 1 )
     cookies[:authorization_token] = parent.authorization_token
   end
 
@@ -57,7 +57,7 @@ module Helpers
                            password: "12345678", gender:"Masculino",
                            birth_date:"07/06/1988", registry:"985679",
                            shift:"matutino",parent_id:parent.id,
-                           classroom_id:classroom.id , bar_code:"283940")
+                           classroom_id:classroom.id)
   end
 
   def employee

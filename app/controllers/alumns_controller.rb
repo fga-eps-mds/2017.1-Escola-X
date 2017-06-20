@@ -21,7 +21,7 @@
         @alumns = Alumn.all.order('created_at DESC')
       end
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -32,7 +32,7 @@
       @alumn = Alumn.find(id)
       Alumn.current = @alumn
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -42,7 +42,7 @@
       @@parent = Parent.find(params[:parent_id])
       @classrooms = Classroom.all.order('name_classroom')
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -51,7 +51,7 @@
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -68,7 +68,7 @@
         render 'new'
       end
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -84,7 +84,7 @@
         render 'edit'
       end
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -102,7 +102,7 @@
       @user = Alumn.find(params[:id])
       render action: "../users/edit_password"
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -115,7 +115,7 @@
         render action: "../users/edit_password"
       end
     else
-      redirect_to "/errors/error_500"
+      redirect_to "/errors/error_500" 
     end
   end
 
@@ -138,8 +138,6 @@
                                   :birth_date,
                                   :password,
                                   :parent_id,
-                                  :classroom_id,
-                                  :photo,
-                                  :bar_code)
+                                  :classroom_id)
   end
 end

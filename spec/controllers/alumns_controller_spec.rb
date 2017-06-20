@@ -10,7 +10,7 @@ RSpec.describe AlumnsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: 1, shift:"matutino",classroom_id:classroom.id , bar_code:"123456"} }
+                         parent_id: 1, shift:"matutino",classroom_id:classroom.id} }
 
   let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",

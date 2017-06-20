@@ -19,33 +19,26 @@
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-sticky-note"></span>
-          Nome da turma
+         Nome da turma
       </span>
-      <%= f.text_field :name_classroom, class:"form-control", placeholder:"Exemplo: D ou A" %>
+      <%= f.text_field :name_classroom, class:"form-control", placeholder:"Exemplo: 3D" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
+    <%= f.label :shift_classroom, class:"sr-only" %>
     <div class="input-group">
       <span class="input-group-addon">
-        <span class="fa fa-television"></span>
-        Série
+        <span class="fa fa-hourglass-half "></span>
+         Turno da turma
       </span>
-      <%= f.select :classroom_grades_id, @classroom_grades.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
+      <%= f.text_field :shift_classroom, class:"form-control", placeholder:"Exemplo: Matutino" %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
-    <div class="input-group">
-      <span class="input-group-addon">
-        <span class="fa fa-clock-o"></span>
-        Turno
-      </span>
-      <%= f.select :shifts_id, @shifts.collect {|shift| [shift.name_shift, shift.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
-    </div>
-  </div>
+
+
+
 
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
   <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>

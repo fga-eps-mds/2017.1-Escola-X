@@ -11,7 +11,7 @@ RSpec.describe SessionsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino",classroom_id:1 , bar_code:"114439"} }
+                         parent_id: parent.id, shift:"matutino",classroom_id:1} }
 
   let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                         address:"Rua Vida Casa 15,Taguatinga",
@@ -32,7 +32,7 @@ RSpec.describe SessionsController, type: :controller do
         expect(assigns(:user)).to eq(alumn)
       end
 
-      it "assigns alumn token to cookie" do
+      it "assings alumn token to cookie" do
         alumn = Alumn.create! alumn_inputs
         post :create, params:{login: alumn.registry, password:alumn.password}
         expect(cookies[:authorization_token]).to eq(alumn.authorization_token)
