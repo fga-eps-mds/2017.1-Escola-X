@@ -62,4 +62,8 @@ class Employee < ApplicationRecord
       self[column]= SecureRandom.urlsafe_base64
     end while Employee.exists?(column => self[column])
   end
+
+  def self.search(search)
+    where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+  end
 end

@@ -5887,6 +5887,10 @@
         330,
         330,
         null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/vagrant/spec/models/grade_history_spec.rb": [
@@ -6283,6 +6287,6 @@
         null
       ]
     },
-    "timestamp": 1497989316
+    "timestamp": 1497993022
   }
 }
