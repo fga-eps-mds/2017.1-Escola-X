@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
   create_table "employees", force: :cascade do |t|
     t.integer  "registry"
     t.string   "employee_cpf"
-    t.string   "admission_date"
+    t.date     "admission_date"
     t.string   "shift"
     t.string   "name"
     t.string   "address"

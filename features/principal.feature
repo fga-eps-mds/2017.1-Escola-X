@@ -192,7 +192,7 @@ Feature: Principal
 		Given I am logged in as principal
 		Then I logged as principal
 		When I press Sair button
-        Then I logged out 
+        Then I logged out
 
     Scenario: Principal can generate reports
     	Given I am logged in as principal
@@ -200,3 +200,29 @@ Feature: Principal
 		When I press "Visualizar" button
 		And I press "Ver Relatório" button
 		Then I see alumn informations
+
+		Scenario: Principal can see principal
+			Given I am logged in as principal
+			Then I logged as principal
+			When I press "Visualizar Diretor" button
+			Then I see principal informations
+
+		Scenario: Principal can edit principal
+			Given I am logged in as principal
+			Then I logged as principal
+			When I press "Visualizar Diretor" button
+			Then I see principal informations
+			When I press "Editar" button
+			And I fill in "Admissão" with "19082001"
+			When I press "Salvar" button
+			Then I see principal informations
+
+		Scenario: Principal can edit principal password
+			Given I am logged in as principal
+			Then I logged as principal
+			When I press "Visualizar Diretor" button
+			Then I see principal informations
+			When I press "Editar Senha" button
+			And I fill in "Senha" with "1234567"
+			When I press "Salvar" button
+			Then I see principal informations
