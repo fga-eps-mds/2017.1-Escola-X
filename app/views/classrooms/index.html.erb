@@ -1,6 +1,29 @@
 <%= render "layouts/navbar" %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Turmas</h1>
 <hr>
+
+<div class="container text-center">
+  <%= form_tag(classrooms_path, :method => "get", id: "search-form") do %>
+    <div class="form-inline">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="fa fa-television"></span>
+          Série
+        </span>
+        <%= select_tag :classroom_grades_id, options_for_select(ClassroomGrade.all.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}), {:class => "form-control", :id => "sel1", :include_blank => true}%>
+        <span class="input-group-addon">
+          <span class="fa fa-clock-o"></span>
+          Turno
+        </span>
+        <%= select_tag :shifts_id, options_for_select(Shift.all.collect {|shift| [shift.name_shift, shift.id]}), {:class => "form-control", :id => "sel1", :include_blank => true}%>
+        <span class="input-group-btn">
+          <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <section class="content-section" id="alunos-desc">
   <% @classrooms.each do |classroom| %>
     <div class="container">
@@ -18,7 +41,8 @@
         </div>
         <div class="col-sm-12 col-md-5">
           <p class="class-name">Nome da Turma: <%= classroom.name_classroom %></p>
-          <h3>Turno: <%= classroom.shift_classroom %></h3>
+          <h3 class="">Série: <%= ClassroomGrade.find_by_id(classroom.classroom_grades_id).name_classroom_grade %></h3>
+          <h3 class="">Turno: <%= Shift.find_by_id(classroom.shifts_id).name_shift %></h3>
         </div>
       </div>
     </div>

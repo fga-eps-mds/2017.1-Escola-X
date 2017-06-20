@@ -40,6 +40,18 @@ Rails.application.routes.draw do
 
   get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
+
+  get '/reader/index' , to: 'reader#index'
+
+  namespace :api, defaults: { format: :json } do
+    resources :alumns
+    resources :strikes
+    resources :suspensions
+    resources :notifications
+    resources :parents
+  end
+
+
   root 'sessions#new'
 
   resources :users

@@ -6,6 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+ClassroomGrade.create(name_classroom_grade: "1° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "2° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "3° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "4° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "5° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "6° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "7° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "8° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "9° Fundamental")
+ClassroomGrade.create(name_classroom_grade: "1° Médio")
+ClassroomGrade.create(name_classroom_grade: "2° Médio")
+ClassroomGrade.create(name_classroom_grade: "3° Médio")
+ClassroomGrade.create(name_classroom_grade: "Supletivo")
+
+Shift.create(name_shift: "Matutino")
+Shift.create(name_shift: "Vespertino")
+Shift.create(name_shift: "Noturno")
+Shift.create(name_shift: "Diurno")
+
+photofile = "app/assets/images/boletim.png"
+fin = File.open(photofile, "rb")
+teste = fin.read
+
 Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
                  name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
                  shift: 'Matutino', password_digest: '12345678', birth_date: '03-03-2000',
@@ -33,7 +56,7 @@ Teacher.create(name: 'Alex Lemon', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
                 registry: '363636', employee_cpf: '76992438468',shift:"Diurno")
 
-Classroom.create(name_classroom: "3G", shift_classroom: "Matutino")
+Classroom.create(name_classroom: "3G", shift_classroom: "Matutino",classroom_grades_id: ClassroomGrade.last.id, shifts_id: Shift.last.id)
 
 Subject.create(name_subject:"Filosofia", class_level:"2",teacher_id:Teacher.last.id)
 
@@ -44,7 +67,8 @@ Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
 Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '654321', shift: "matutino", gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id)
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+            photo: teste , bar_code: "123456")
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -53,7 +77,7 @@ Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
 Alumn.create(name: 'Evan Junior', address: 'rua do mortandela',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '333123', shift: "matutino",gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id)
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id , bar_code:"485769")
 
 Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -62,7 +86,7 @@ Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
 Alumn.create(name: 'Nick Twisp', address: 'rua do suco tangue',gender:"Masculino",
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '555123', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id)
+            classroom_id: Classroom.last.id , bar_code:"449586")
 
 Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender:"Masculino",
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -71,7 +95,7 @@ Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender
 Alumn.create(name: 'America Hoffman', address: 'rua do leite com tode',gender:"Masculino",
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '098765', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id)
+            classroom_id: Classroom.last.id , bar_code:"222496")
 
 ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)
 

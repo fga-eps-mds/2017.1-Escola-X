@@ -13,7 +13,7 @@ RSpec.describe GradesController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino"} }
+                         parent_id: parent.id, shift:"matutino" , bar_code:"238594" } }
 
   let(:valid_inputs){{grade_01:5.0,grade_02:5.0,grade_03:6.0,grade_04:8.0, grade_final:7.0}}
 
@@ -31,7 +31,7 @@ RSpec.describe GradesController, type: :controller do
                                address:"Rua Vida Casa 15,Taguatinga",
                                password: "12345678", gender:"M",
                                birth_date:"07/06/1988", registry:"12345",
-                               parent_id: parent.id, shift:"matutino",classroom_id:@classroom.id)
+                               parent_id: parent.id, shift:"matutino",classroom_id:@classroom.id , bar_code:"333940")
       GradesController.create(alumn2)
     }.to change(Grade, :count).by 1
     end

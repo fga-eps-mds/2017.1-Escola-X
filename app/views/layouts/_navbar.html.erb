@@ -14,6 +14,19 @@
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
       <% end %>
     </div>
+    <div class="txt-branko pull-left nav nav-bar">
+      <% if is_alumn? %>
+        Logado como: Aluno
+      <% elsif is_parent? %>
+        Logado como: Responsável
+      <% elsif is_teacher? %>
+        Logado como: Professor
+      <% elsif is_principal? %>
+        Logado como: Diretor
+      <% else %>
+        Logado como: Secretário
+      <% end %>
+    </div>
     <div class="collapse navbar-collapse" id="coll-nav">
       <ul class="nav navbar-nav">
           <% if is_teacher? %>
@@ -27,8 +40,10 @@
             </li>
           <%end%>
           <% if is_principal? %>
+            <li><%=link_to '<span class="fa fa-address-card-o"></span> Catraca'.html_safe, reader_index_path %></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
+
+              <a href="errors/error_500" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
                 <span class="fa fa-plus"></span> Criar
               </a>
               <ul class="dropdown-menu">
@@ -61,6 +76,7 @@
         <% end %>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        
       </ul>
     </div>
   </div>
