@@ -11,134 +11,35 @@
             Matéria
           </th>
           <th class="text-center">
-            1º Tri
+            1º Bi
           </th>
           <th class="text-center">
-            2º Tri
+            2º Bi
           </th>
           <th class="text-center">
-            3º Tri
+            3º Bi
           </th>
           <th class="text-center">
-            4º Tri
+            4º Bi
           </th>
           <th class="text-center">
             Nota Final
           </th>
-          <th class="text-center">
-            Status
-          </th>
         </tr>
       </thead>
       <tbody>
-      <tr>
-        <td class="text-center">Português</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Matemática</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Geografia</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">4</td>
-        <td class="text-center">REPROVADO</td>
-      </tr>
-            <tr>
-        <td class="text-center">Português</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Matemática</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Geografia</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">4</td>
-        <td class="text-center">REPROVADO</td>
-      </tr>
-            <tr>
-        <td class="text-center">Português</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Matemática</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Geografia</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">4</td>
-        <td class="text-center">REPROVADO</td>
-      </tr>
-            <tr>
-        <td class="text-center">Português</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Matemática</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">7</td>
-        <td class="text-center">APROVADO</td>
-      </tr>
-       <tr>
-        <td class="text-center">Geografia</td>
-        <td class="text-center">8</td>
-        <td class="text-center">6</td>
-        <td class="text-center">5</td>
-        <td class="text-center">4</td>
-        <td class="text-center">4</td>
-        <td class="text-center">REPROVADO</td>
-      </tr>
+
+        <%@alumn.subjects.each do |subject|%>
+        <tr><td class="text-center"><%=subject.name_subject%></td>
+            <%subject.grades.where(alumn_id: @alumn.id).each do |grade|%>
+            <td class="text-center"><%=grade.grade_01%></td>
+            <td class="text-center"><%=grade.grade_02%></td>
+            <td class="text-center"><%=grade.grade_03%></td>
+            <td class="text-center"><%=grade.grade_04%></td>
+            <td class="text-center"><%=grade.grade_final%></td>
+            <%end%>
+        </tr>
+        <%end%>
       </tbody>
     </table>
 
