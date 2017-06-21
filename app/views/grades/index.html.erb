@@ -7,7 +7,6 @@
       <div class="pull-right">
         <%if @current_user.is_a?(Employee) %>
           <%if @current_user.permission=="Secretary" %>
-          	<%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
             <%= link_to '<span class="fa fa-address-card"></span> Visualizar Matérias'.html_safe,show_subjects_path(classroom), class:'btn btn-sm btn-warning' %>
           <% end %>
         <% end %>
