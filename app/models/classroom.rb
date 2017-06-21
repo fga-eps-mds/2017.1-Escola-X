@@ -11,9 +11,9 @@ class Classroom < ApplicationRecord
   accepts_nested_attributes_for :alumns
 
   validates :name_classroom, presence: { message: "não pode estar em branco" },
-           length: { minimum: 2,
+           length: { minimum: 1,
                      maximum: 5,
-                     :too_short => "deve possuir no mínimo 2 caracteres",
+                     :too_short => "deve possuir no mínimo 1 caracter",
                      :too_long => "deve possuir no máximo 5 caracteres" }
 
 end
