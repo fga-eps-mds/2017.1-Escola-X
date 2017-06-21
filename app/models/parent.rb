@@ -6,9 +6,7 @@ class Parent < ApplicationRecord
   validates :parent_cpf, :cpf => false
   has_secure_password
   before_save :validates_password
-  if self.login == nil
-    after_save :set_login
-  end
+  before_save :set_login
 
 
   validates :name, presence: { message: "não pode estar em branco" },
@@ -49,8 +47,6 @@ class Parent < ApplicationRecord
     names = Array.new
     names = self.name.split(' ')
     self.login = names[0]+"."+names[names.length-1]
-    # debugger
-    self.save
   end
 
   def generate_token(column)
