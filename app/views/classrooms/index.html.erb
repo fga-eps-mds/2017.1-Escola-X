@@ -44,8 +44,8 @@
         </div>
         <div class="col-sm-12 col-md-5">
           <p class="class-name">Nome da Turma: <%= classroom.name_classroom %></p>
-          <h3 class="">Série: <%= ClassroomGrade.find_by_id(classroom.classroom_grades_id).name_classroom_grade %></h3>
-          <h3 class="">Turno: <%= Shift.find_by_id(classroom.shifts_id).name_shift %></h3>
+          <h3 class="">Série: <%= classroom.classroom_grade.name_classroom_grade %></h3>
+          <h3 class="">Turno: <%= classroom.shift.name_shift %></h3>
         </div>
       </div>
     </div>
