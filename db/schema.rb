@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
     t.string   "phone"
     t.string   "gender"
     t.date     "birth_date"
-    t.string   "bar_code"
+    t.string   "bar_code"  , unique: true 
     t.string   "registry"
     t.string   "password_digest"
     t.string   "authorization_token"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "classroom_id"
-    t.         "photo"
+    t.binary   "photo"
     t.index ["classroom_id"], name: "index_alumns_on_classroom_id"
     t.index ["parent_id"], name: "index_alumns_on_parent_id"
   end
