@@ -10,12 +10,12 @@
           <span class="fa fa-television"></span>
           Série
         </span>
-        <%= select_tag :classroom_grades_id, options_for_select(ClassroomGrade.all.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}), {:class => "form-control", :id => "sel1", :include_blank => true}%>
+        <%= select_tag :classroom_grade_id, options_for_select(ClassroomGrade.all.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}), {:class => "form-control", :id => "sel1", :include_blank => true}%>
         <span class="input-group-addon">
           <span class="fa fa-clock-o"></span>
           Turno
         </span>
-        <%= select_tag :shifts_id, options_for_select(Shift.all.collect {|shift| [shift.name_shift, shift.id]}), {:class => "form-control", :id => "sel1", :include_blank => true}%>
+        <%= select_tag :shift_id, options_for_select(Shift.all.collect {|shift| [shift.name_shift, shift.id]}), {:class => "form-control", :id => "sel1", :include_blank => true}%>
         <span class="input-group-btn">
           <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %>
         </span>
@@ -29,7 +29,6 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-7 pull-right">
-          <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
           <%if is_employee? %>
             <%if is_principal? %>
               <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
@@ -41,6 +40,8 @@
         </div>
         <div class="col-sm-12 col-md-5">
           <p class="class-name">Nome da Turma: <%= classroom.name_classroom %></p>
+          <h3 class="">Série: <%= ClassroomGrade.find_by_id(classroom.classroom_grade_id).name_classroom_grade %></h3>
+          <h3 class="">Turno: <%= Shift.find_by_id(classroom.shift_id).name_shift %></h3>
         </div>
       </div>
     </div>

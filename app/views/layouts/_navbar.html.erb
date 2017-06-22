@@ -14,20 +14,20 @@
         <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
       <% end %>
     </div>
-    <div class="txt-branko pull-left nav nav-bar">
-      <% if is_alumn? %>
-        Logado como: Aluno
-      <% elsif is_parent? %>
-        Logado como: Responsável
-      <% elsif is_teacher? %>
-        Logado como: Professor
-      <% elsif is_principal? %>
-        Logado como: Diretor
-      <% else %>
-        Logado como: Secretário
-      <% end %>
-    </div>
     <div class="collapse navbar-collapse" id="coll-nav">
+      <div class="txt-branko nav nav-bar">
+        <% if is_alumn? %>
+          Logado como: Aluno
+        <% elsif is_parent? %>
+          Logado como: Responsável
+        <% elsif is_teacher? %>
+          Logado como: Professor
+        <% elsif is_principal? %>
+          Logado como: Diretor
+        <% else %>
+          Logado como: Secretário
+        <% end %>
+      </div>
       <ul class="nav navbar-nav">
           <% if is_teacher? %>
             <li class="dropdown">
@@ -42,7 +42,6 @@
           <% if is_principal? %>
             <li><%=link_to '<span class="fa fa-address-card-o"></span> Catraca'.html_safe, reader_index_path %></li>
             <li class="dropdown">
-
               <a href="errors/error_500" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
                 <span class="fa fa-plus"></span> Criar
               </a>
@@ -71,12 +70,12 @@
               <li><%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path %></li>
               <li><%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path %></li>
               <li><%= link_to '<span class="fa fa-user-circle"></span> Responsáveis'.html_safe, parents_path %></li>
+              <li><%= link_to '<span class="fa fa-user-circle-o"></span> Funcionários'.html_safe, employees_path %></li>
             </ul>
           </li>
         <% end %>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
-        
       </ul>
     </div>
   </div>

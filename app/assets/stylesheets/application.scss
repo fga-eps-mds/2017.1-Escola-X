@@ -27,6 +27,14 @@ body {
   padding-top: 3em;
 }
 
+tr, th, td{
+  border: 1px solid black;
+}
+
+table{
+    border-collapse: collapse;
+}
+
 .btn-roxo{
  background-color: #9768D1;
  color: white;
@@ -37,6 +45,7 @@ body {
   padding-top: 19.5px;
   padding-bottom: 19.5px;
   padding-left: 10px;
+  float: right;
 }
 
 .btn-strike{
@@ -195,6 +204,14 @@ fieldset[disabled] .btn-radio.focus {
   .navbar-nav{
     float: right;
   }
+  .txt-branko{
+   color: white;
+    padding-top: 19.5px;
+    padding-bottom: 19.5px;
+    padding-left: 10px;
+    float: left;
+  }
 }
+
 
 @import "bootswatch/flatly/bootswatch";

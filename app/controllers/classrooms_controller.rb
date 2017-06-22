@@ -7,11 +7,11 @@ class ClassroomsController < ApplicationController
   def index
     if ( is_principal? or is_secretary? )
       @classrooms = Classroom.all.order('name_classroom')
-      unless params[:classroom_grades_id].blank?
-        @classrooms &= Classroom.where(classroom_grades_id: params[:classroom_grades_id])
+      unless params[:classroom_grade_id].blank?
+        @classrooms &= Classroom.where(classroom_grade_id: params[:classroom_grade_id])
       end
-      unless params[:shifts_id].blank?
-        @classrooms &= Classroom.where(shifts_id: params[:shifts_id])
+      unless params[:shift_id].blank?
+        @classrooms &= Classroom.where(shift_id: params[:shift_id])
       end
     else
       redirect_to "/errors/error_500"
@@ -31,8 +31,8 @@ class ClassroomsController < ApplicationController
   def show
     if ( is_principal? or is_secretary?)
       @classroom = Classroom.find(params[:id])
-      @shift = Shift.find_by_id(@classroom.shifts_id)
-      @classroom_grade = ClassroomGrade.find_by_id(@classroom.classroom_grades_id)
+      @shift = Shift.find_by_id(@classroom.shift_id)
+      @classroom_grade = ClassroomGrade.find_by_id(@classroom.classroom_grade_id)
     else
       redirect_to "/errors/error_500"
     end
@@ -123,7 +123,7 @@ end
 private
   def classroom_params
     params.require(:classroom).permit(:name_classroom,
-                                      :shifts_id,
-                                      :classroom_grades_id)
+                                      :shift_id,
+                                      :classroom_grade_id)
   end
 end

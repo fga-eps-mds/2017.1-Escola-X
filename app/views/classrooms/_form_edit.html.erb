@@ -32,7 +32,7 @@
         <span class="fa fa-television"></span>
         Série
       </span>
-      <%= f.select :classroom_grades_id, @classroom_grades.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
+      <%= f.select :classroom_grade_id, @classroom_grades.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
 
@@ -43,10 +43,9 @@
         <span class="fa fa-clock-o"></span>
         Turno
       </span>
-      <%= f.select :shifts_id, @shifts.collect {|shift| [shift.name_shift, shift.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
+      <%= f.select :shift_id, @shifts.collect {|shift| [shift.name_shift, shift.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
 
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
-  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-lg btn-warning' %>
 <% end %>
