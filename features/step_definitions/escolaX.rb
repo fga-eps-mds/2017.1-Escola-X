@@ -440,7 +440,7 @@ And (/^I press "Ver Relatório" button$/) do
 	driver.get('http://localhost:3000/alumns/1/report')
 end
 
-When (/^I press field "Dar Suspensão" button$/) do
+When (/^I press field "Suspender" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
@@ -632,10 +632,6 @@ end
 
 When (/^I press "Sair" button$/) do
 	driver.get('http://localhost:3000/logout')
-end
-
-When (/^I press "Voltar" button$/) do
-	driver.get('http://localhost:3000/users')
 end
 
 When (/^I press "Advertencias" button$/) do

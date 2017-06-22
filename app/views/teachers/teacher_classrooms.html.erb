@@ -5,7 +5,6 @@
   <% @classrooms.each do |classroom| %>
     <div class="container">
       <div class="pull-right">
-        <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, teacher_path, class:'btn btn-sm btn-info' %>
         <%if @current_user.is_a?(Teacher) %>
           <%if @current_user.permission=="Teacher" %>
             <%= link_to '<span class="fa fa-address-card"></span> Matérias'.html_safe, teacher_classroom_subjects_path(params[:id], classroom.id), class:'btn btn-sm btn-warning'%>

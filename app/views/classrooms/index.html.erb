@@ -29,10 +29,6 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-7 pull-right">
-          <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
-	<%if is_principal? or is_secretary? %>
-          <%= link_to '<span class="fa fa-address-card"></span> Gerar XLS'.html_safe, classroom_path(classroom.id,format: "xls"),class: 'btn btn-sm btn-success' %>
-          <% end %>
           <%if is_employee? %>
             <%if is_principal? %>
               <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
