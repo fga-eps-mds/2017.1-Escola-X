@@ -14,6 +14,7 @@ class Alumn < ApplicationRecord
   has_secure_password
   before_create :initialize_strikes
   before_save :validates_password
+  before_save :set_password
 
   has_many :suspensions
   has_attached_file :image, :styles => { :original => "250x300>"},
@@ -85,6 +86,10 @@ class Alumn < ApplicationRecord
       validates :password, presence:true,
       length: { minimum: 8}
     end
+  end
+
+  def set_password
+    self.password = self.registry
   end
 
   def generate_token(column)

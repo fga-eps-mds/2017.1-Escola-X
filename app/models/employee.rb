@@ -60,4 +60,9 @@ class Employee < ApplicationRecord
       self[column]= SecureRandom.urlsafe_base64
     end while Employee.exists?(column => self[column])
   end
+
+  def set_password
+    self.password = self.employee_cpf
+  end
+
 end
