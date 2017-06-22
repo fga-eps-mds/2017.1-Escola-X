@@ -88,13 +88,6 @@ Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
             parent_cpf: '76135936573')
 
-Alumn.create(name: 'America Hoffman', address: 'rua do leite com tode',gender:"Masculino",
-            phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
-            registry: '098765', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id , bar_code:"222496")
-
-ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)
-
 Notification.create(title: "Super Festa Julina em Junho",
                     notification_text: "Na festa vai ter quadrilha, pipoca, quentão e muito cural.",
                     employee_id: Employee.last.id,
@@ -106,3 +99,16 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               date_strike: "25-12-2015",
               alumn_id: Alumn.last.id,
               employee_id: Employee.last.id)
+
+---------------------------------------------------------------
+Classroom.create(name_classroom: "1º A", shift_classroom: "Matutino",classroom_grades_id: ClassroomGrade.last.id, shifts_id: Shift.last.id)
+
+Parent.create(name: 'ASTERSON DE CARVALHO BARBOSA', address: '',
+            phone: '61986228793', password: '', birth_date: '10-10-1990',
+            parent_cpf: '00968977162',gender:'Masculino')
+
+Alumn.create(name: 'ÁDRIAN KEVEN DE CARVALHO FERNANDES', address: 'rua do pao',
+            phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
+            registry: '283202', shift: "matutino", gender:"Masculino",
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+            bar_code: "283202")
