@@ -7,7 +7,7 @@
   <% @strikes.each do |strike| %>
     <div class="row item">
       <div class="col-sm-12 col-md-8 text-capitalize descript">
-        <h2>Data: <%= strike.date_strike.day %>/<%= strike.date_strike.month %>/<%= strike.date_strike.year %></h2>
+        <h2>Data: <%= strike.date_strike.strftime('%d/%m/%Y') %></h2>
         <h4>Descrição: <%= strike.description_strike %> </h4>
         <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_strike_path(strike.alumn, strike), class:'btn btn-info' %>
       </div>
