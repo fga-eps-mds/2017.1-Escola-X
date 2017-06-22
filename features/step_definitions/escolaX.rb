@@ -421,7 +421,7 @@ And (/^I press "Ver Relatório" button$/) do
 	driver.get('http://localhost:3000/alumns/1/report')
 end
 
-When (/^I press field "Dar Suspensão" button$/) do
+When (/^I press field "Suspender" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
@@ -611,10 +611,6 @@ When (/^I press "Sair" button$/) do
 	driver.get('http://localhost:3000/logout')
 end
 
-When (/^I press "Voltar" button$/) do
-	driver.get('http://localhost:3000/users')
-end
-
 When (/^I press "Advertencias" button$/) do
 	advertencia = driver.find_element(:name, 'strikebtn')
 	advertencia.click
@@ -653,11 +649,11 @@ end
 When (/^I press "Criar" button$/) do
 	driver.get('http://localhost:3000/teachers/4')
 end
-   
+
 And (/^I click "Criar Notificação"$/) do
 	driver.get('http://localhost:3000/notifications/new')
 end
-    
+
 Then (/^I see new page notification$/) do
 	driver.get('http://localhost:3000/notifications/new')
 end
@@ -666,12 +662,12 @@ And (/^I fill in "Title" with "Descubra"$/) do
 	notification_title = driver.find_element(:name, 'notification[title]')
 	notification_title.send_keys "Descubra"
 end
-   
+
 And (/^I fill in "Motivo" with "#Descubra"$/) do
 	notification_motive = driver.find_element(:name, 'notification[motive]')
 	notification_motive.send_keys "#Descubra"
 end
-   
+
 And (/^I fill in "Contéudo da notificação" with "To bem cansado"$/) do
 	notification_text = driver.find_element(:name, 'notification[notification_text]')
 	notification_text.send_keys "To bem cansado"
@@ -689,7 +685,7 @@ end
 When (/^I press "Notificações" button$/) do
 	driver.get('http://localhost:3000/notifications')
 end
-    
+
 Then (/^I see notification page$/) do
 	driver.get('http://localhost:3000/notifications')
 end
