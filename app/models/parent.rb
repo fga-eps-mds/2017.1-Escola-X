@@ -7,6 +7,7 @@ class Parent < ApplicationRecord
   has_secure_password
   before_save :validates_password
   before_save :set_login
+  before_save :set_password
 
 
   validates :name, presence: { message: "não pode estar em branco" },
@@ -47,6 +48,14 @@ class Parent < ApplicationRecord
     names = Array.new
     names = self.name.split(' ')
     self.login = names[0]+"."+names[names.length-1]
+  end
+
+  def set_password
+    name = self.name.downcase!
+    names = Array.new
+    names = name.split(' ')
+    
+    self.password = "1234" + names[0][0] + names[names.length-1][0]
   end
 
   def generate_token(column)
