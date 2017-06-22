@@ -2,7 +2,7 @@
   <h1 class="text-uppercase"><%= @alumn.name %></h1>
   <h2>Responsável: <%= @alumn.parent.name %></h2>
   <h3>Matrícula: <%= @alumn.registry %></h3>
-  <h3>Ano e turma: <%= @alumn.classroom.name_classroom %></h3>
+  <h3>Ano e turma: <%= @alumn.classroom.classroom_grade.name_classroom_grade %> <%= @alumn.classroom.name_classroom %></h3>
   <div class="table-responsive">
     <table class="table table-striped table-hover table-bordered">
       <thead>
