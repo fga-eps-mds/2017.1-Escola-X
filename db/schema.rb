@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
     t.string   "phone"
     t.string   "gender"
     t.date     "birth_date"
-    t.string   "bar_code"  , unique: true 
+    t.string   "bar_code"
     t.string   "registry"
     t.string   "password_digest"
     t.string   "authorization_token"

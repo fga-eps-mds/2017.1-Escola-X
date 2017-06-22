@@ -358,7 +358,7 @@ end
 
 And (/^I fill in "Senha" with "1234567"$/) do
 	principal_password = driver.find_element(:name, 'principal[password]')
-	principal_password.send_keys "1234567"
+	principal_password.send_keys "12345678"
 end
 
 ### Initial pages
@@ -391,12 +391,20 @@ When (/^I press "Criar" field$/) do
 	driver.get('http://localhost:3000/parents/new')
 end
 
-When (/^I press "Visualizar Diretor" button/) do
+When (/^I press "Funcionarios" button/) do
+	driver.get('http://localhost:3000/employees')
+end
+
+And (/^I press "Visualizar Diretor" button/) do
 	driver.get('http://localhost:3000/principal/2')
 end
 
-When (/^I press "Editar Senha" button/) do
+When (/^I press "Editar Senha do Diretor" button/) do
 	driver.get('http://localhost:3000/employees/2/edit_password')
+end
+
+When (/^I press "Editar Diretor" button/) do
+	driver.get('http://localhost:3000/principal/2/edit')
 end
 
 And (/^I click in "Responsável e Aluno" I had register one parent and one alumn$/) do
@@ -412,8 +420,18 @@ And (/^I press "Editar Aluno" button$/) do
 end
 
 When (/^I press "Salvar" button$/) do
-	entrar = driver.find_element(:name, 'button')
-	entrar.click
+	salvar = driver.find_element(:name, 'button')
+	salvar.click
+end
+
+When (/^I press "Salvar Senha" button$/) do
+	salvar = driver.find_element(:name, 'commit')
+	salvar.click
+end
+
+When (/^I press "Logout" button$/) do
+	sair = driver.find_element(:name, 'logout')
+	sair.click
 end
 
 When (/^I press "Edit Notification" button$/) do
@@ -444,7 +462,11 @@ When (/^I press field "Suspender" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
-When (/^I press "Visualizar" button$/) do
+When (/^I press "Alunos" button$/) do
+	driver.get('http://localhost:3000/alumns')
+end
+
+And (/^I press "Visualizar" button$/) do
 	driver.get('http://localhost:3000/alumns/1')
 end
 
@@ -761,10 +783,6 @@ end
 
 Then (/^I see "boletim"$/) do
 	driver.get('http://localhost:3000/alumns/1#boletim')
-end
-
-Then (/^I logged out$/) do
-	driver.get('http://localhost:3000/')
 end
 
 Then (/^I back to users/) do

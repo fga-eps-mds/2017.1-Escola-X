@@ -191,38 +191,42 @@ Feature: Principal
 	Scenario: Principal can exit the system
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press Sair button
-        Then I logged out
+		When I press "Logout" button
+    Then I logged out
 
-    Scenario: Principal can generate reports
-    	Given I am logged in as principal
+  Scenario: Principal can generate reports
+  	Given I am logged in as principal
 		Then I logged as principal
-		When I press "Visualizar" button
+		When I press "Alunos" button
+		And I press "Visualizar" button
 		And I press "Ver Relatório" button
 		Then I see alumn informations
 
-		Scenario: Principal can see principal
-			Given I am logged in as principal
-			Then I logged as principal
-			When I press "Visualizar Diretor" button
-			Then I see principal informations
+	Scenario: Only Principal can see principal
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Diretor" button
+		Then I see principal informations
 
-		Scenario: Principal can edit principal
-			Given I am logged in as principal
-			Then I logged as principal
-			When I press "Visualizar Diretor" button
-			Then I see principal informations
-			When I press "Editar" button
-			And I fill in "Admissão" with "19082001"
-			When I press "Salvar" button
-			Then I see principal informations
+	Scenario: Only Principal can edit principal
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Diretor" button
+		Then I see principal informations
+		When I press "Editar Diretor" button
+		And I fill in "Admissão" with "19082001"
+		And I press "Salvar" button
+		Then I see principal informations
 
-		Scenario: Principal can edit principal password
-			Given I am logged in as principal
-			Then I logged as principal
-			When I press "Visualizar Diretor" button
-			Then I see principal informations
-			When I press "Editar Senha" button
-			And I fill in "Senha" with "1234567"
-			When I press "Salvar" button
-			Then I see principal informations
+	Scenario: Only Principal can edit principal password
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Diretor" button
+		Then I see principal informations
+		When I press "Editar Senha do Diretor" button
+		And I fill in "Senha" with "1234567"
+		And I press "Salvar Senha" button
+		Then I see principal informations
