@@ -42,7 +42,6 @@
           <% if is_principal? %>
             <li><%=link_to '<span class="fa fa-address-card-o"></span> Catraca'.html_safe, reader_index_path %></li>
             <li class="dropdown">
-
               <a href="errors/error_500" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
                 <span class="fa fa-plus"></span> Criar
               </a>
@@ -71,12 +70,13 @@
               <li><%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path %></li>
               <li><%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path %></li>
               <li><%= link_to '<span class="fa fa-user-circle"></span> Responsáveis'.html_safe, parents_path %></li>
+              <li><%= link_to '<span class="fa fa-graduation-cap"></span> Professores'.html_safe, teachers_path %></li>
             </ul>
           </li>
         <% end %>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
         <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
-        
+
       </ul>
     </div>
   </div>
