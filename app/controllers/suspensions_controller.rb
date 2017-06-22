@@ -14,7 +14,7 @@ class SuspensionsController < ApplicationController
       redirect_to "/errors/error_500"
     end
   end
-   
+
 	def new
 		if ( is_principal? )
 			@@alumn = Alumn.find(params[:alumn_id])
@@ -40,7 +40,7 @@ class SuspensionsController < ApplicationController
 				@alumn = Alumn.find_by_id(@suspension.alumn_id)
 				if( @alumn.save )
 					flash[:success] = "Suspensão criada com sucesso"
-					redirect_to suspension_path(@suspension)
+					redirect_to alumn_suspension_path(@alumn,@suspension)
 				else
 					render 'suspensions/new'
 				end

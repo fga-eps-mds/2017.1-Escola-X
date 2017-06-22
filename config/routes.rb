@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   resources :grades
   resources :subjects
   resources :school_misses
+  resources :principal, only: [:show, :edit, :update]
   resources :alumns do
     resources :school_misses
   end

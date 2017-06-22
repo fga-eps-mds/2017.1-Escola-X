@@ -349,6 +349,17 @@ And (/^I fill in "Turno da Turma" with "Vespertino"$/) do
 	subject_name.send_keys "Vespertino"
 end
 
+### Data - Edit principal
+
+And (/^I fill in "Admissão" with "19082001"$/) do
+	principal_admission_date = driver.find_element(:name, 'principal[admission_date]')
+	principal_admission_date.send_keys "19082001"
+end
+
+And (/^I fill in "Senha" with "1234567"$/) do
+	principal_password = driver.find_element(:name, 'principal[password]')
+	principal_password.send_keys "1234567"
+end
 
 ### Initial pages
 
@@ -378,6 +389,14 @@ end
 
 When (/^I press "Criar" field$/) do
 	driver.get('http://localhost:3000/parents/new')
+end
+
+When (/^I press "Visualizar Diretor" button/) do
+	driver.get('http://localhost:3000/principal/2')
+end
+
+When (/^I press "Editar Senha" button/) do
+	driver.get('http://localhost:3000/employees/2/edit_password')
 end
 
 And (/^I click in "Responsável e Aluno" I had register one parent and one alumn$/) do
@@ -517,6 +536,10 @@ end
 
 Then (/^I see parent information$/) do
 	driver.get('http://localhost:3000/parents/1')
+end
+
+Then (/^I see principal informations/) do
+	driver.get('http://localhost:3000/principal/2')
 end
 
 Then (/^I see nofications information$/) do

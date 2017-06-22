@@ -78,6 +78,7 @@ class Alumn < ApplicationRecord
     @current_alumn
   end
 
+
   private
   def validates_password
     if self.password_digest.nil?
