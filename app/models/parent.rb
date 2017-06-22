@@ -3,12 +3,13 @@
 #Description:Validates parent's attributes
 class Parent < ApplicationRecord
   has_many :alumns
-  validates :parent_cpf, :cpf => true
+  validates :parent_cpf, :cpf => false
   has_secure_password
   before_save :validates_password
+  if self.login == nil
+    after_save :set_login
+  end
 
-
-  validates :birth_date, presence: { message: "Não pode estar em branco." }
 
   validates :name, presence: { message: "não pode estar em branco" },
             length: { minimum: 5,
@@ -16,7 +17,7 @@ class Parent < ApplicationRecord
                      :too_short => "deve possuir no mínimo 5 caracteres",
                      :too_long => "deve possuir no máximo 64 caracteres" }
 
-  validates :address, presence: { message: "não pode estar em branco" },
+  validates :address,
              length: { minimum: 5,
                        maximum: 64,
                        :too_short => "deve possuir no mínimo 5 caracteres",
@@ -42,6 +43,14 @@ class Parent < ApplicationRecord
       validates :password, presence:true,
       length: { minimum: 8}
     end
+  end
+
+  def set_login
+    names = Array.new
+    names = self.name.split(' ')
+    self.login = names[0]+"."+names[names.length-1]
+    # debugger
+    self.save
   end
 
   def generate_token(column)

@@ -25,9 +25,6 @@ Shift.create(name_shift: "Vespertino")
 Shift.create(name_shift: "Noturno")
 Shift.create(name_shift: "Diurno")
 
-photofile = "app/assets/images/boletim.png"
-fin = File.open(photofile, "rb")
-teste = fin.read
 
 Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
                  name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
@@ -67,7 +64,7 @@ Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '654321', shift: "matutino", gender:"Masculino",
             parent_id: Parent.last.id,classroom_id: Classroom.last.id,
-            photo: teste , bar_code: "123456")
+            bar_code: "123456")
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
