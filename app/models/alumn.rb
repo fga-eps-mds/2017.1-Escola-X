@@ -11,9 +11,8 @@ class Alumn < ApplicationRecord
   has_many :subjects, through: :grades
   has_many :suspensions
 
-  has_secure_password
+  has_secure_password validations: false
   before_create :initialize_strikes
-  before_save :validates_password
   before_save :set_password
 
   has_many :suspensions
@@ -52,16 +51,6 @@ class Alumn < ApplicationRecord
                       :too_short => "deve possuir no mínimo 5 caracteres",
                       :too_long => "deve possuir no máximo 64 caracteres" }
 
-  validates :address, 
-            length: { minimum: 5,
-                      maximum: 64,
-                      :too_short => "deve possuir no mínimo 5 caracteres",
-                      :too_long => "deve possuir no máximo 64 caracteres" }
-
-  validates :phone, length: { in: 10..11,
-                              :too_short => "deve possuir no mínimo 10 dígitos",
-                              :too_long => "deve possuir no máximo 11 dígitos" }
-
   validates :gender, presence: { message: "Não pode estar em branco." }
 
   validates :bar_code, presence: { message: "Não pode estar em branco." },
@@ -81,13 +70,6 @@ class Alumn < ApplicationRecord
   end
 
   private
-  def validates_password
-    if self.password_digest.nil?
-      validates :password, presence:true,
-      length: { minimum: 8}
-    end
-  end
-
   def set_password
     self.password = self.registry
   end
