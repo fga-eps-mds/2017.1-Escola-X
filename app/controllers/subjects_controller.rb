@@ -19,6 +19,7 @@ class SubjectsController < ApplicationController
 
   def new
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
   		@subject = Subject.new
     else
       redirect_to "/errors/error_500"
@@ -27,6 +28,7 @@ class SubjectsController < ApplicationController
 
   def edit
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
     	@subject = Subject.find(params[:id])
     else
       redirect_to "/errors/error_500"
@@ -43,6 +45,7 @@ class SubjectsController < ApplicationController
 
   def create
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
 			@subject = Subject.new(subject_params)
 			@teacher = Teacher.find_by_registry(params[:teacher_registry])
 			if ( @teacher.nil? )
@@ -66,7 +69,7 @@ class SubjectsController < ApplicationController
   	if ( is_principal? )
   		@subject = Subject.find(params[:id])
   		@subject.destroy
-			flash[:alert] = "Turma excluída com sucesso"
+			flash[:alert] = "Matéria excluída com sucesso"
   		redirect_to subjects_path
     else
       redirect_to "/errors/error_500"
@@ -75,6 +78,7 @@ class SubjectsController < ApplicationController
 
   def update
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
 			@subject = Subject.find(params[:id])
 			@teacher = Teacher.find_by_registry(params[:teacher_registry])
 			if ( @teacher.nil? )
@@ -125,6 +129,7 @@ class SubjectsController < ApplicationController
 
   private
   def subject_params
-  	params.require(:subject).permit(:name_subject,:class_level,:teacher_id,:classroom_id,:subject_id)
+  	params.require(:subject).permit(:name_subject,
+		:class_level,:teacher_id,:classroom_id,:subject_id, :classroom_grade_id)
   end
 end

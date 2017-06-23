@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617182757) do
+ActiveRecord::Schema.define(version: 20170623184747) do
 
   create_table "alumns", force: :cascade do |t|
     t.string   "name"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
     t.string   "phone"
     t.string   "gender"
     t.date     "birth_date"
-    t.string   "bar_code"  , unique: true 
+    t.string   "bar_code"
     t.string   "registry"
     t.string   "password_digest"
     t.string   "authorization_token"
@@ -163,8 +163,10 @@ ActiveRecord::Schema.define(version: 20170617182757) do
     t.string   "name_subject"
     t.string   "class_level"
     t.integer  "teacher_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "classroom_grade_id"
+    t.index ["classroom_grade_id"], name: "index_subjects_on_classroom_grade_id"
     t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 

@@ -54,7 +54,7 @@ Teacher.create(name: 'Alex Lemon', address: 'rua do ovo', phone: '6133213030',
 
 Classroom.create(name_classroom: "G", shift_classroom: "Matutino",classroom_grade_id: ClassroomGrade.last.id, shift_id: Shift.last.id)
 
-Subject.create(name_subject:"Filosofia", class_level:"2",teacher_id:Teacher.last.id)
+Subject.create(name_subject:"Filosofia",teacher_id:Teacher.last.id, classroom_grade_id: ClassroomGrade.last.id)
 
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',

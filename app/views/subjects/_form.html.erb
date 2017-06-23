@@ -25,17 +25,17 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :class_level, class:"sr-only" %>
+    <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
     <div class="input-group">
       <span class="input-group-addon">
-        <span class="fa fa-gift"></span>
-         Série
+        <span class="fa fa-television"></span>
+        Série
       </span>
-      <%= f.text_field :class_level, class:"form-control", placeholder:"Ex.: 2º" %>
+      <%= f.select :classroom_grade_id, @classroom_grades.collect {|classroom_grade| [classroom_grade.name_classroom_grade, classroom_grade.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
   <div class="form-group">
-  
+
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-gift"></span>
@@ -45,5 +45,5 @@
     </div>
   </div>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
-  
+
 <% end %>
