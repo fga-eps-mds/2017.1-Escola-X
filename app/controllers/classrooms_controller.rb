@@ -13,6 +13,9 @@ class ClassroomsController < ApplicationController
       unless params[:shift_id].blank?
         @classrooms &= Classroom.where(shift_id: params[:shift_id])
       end
+      if (@classrooms.empty?)
+        flash.now[:feedback] = "Nenhuma Turma encontrada!"
+      end
     else
       redirect_to "/errors/error_500"
     end
