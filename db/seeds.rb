@@ -25,9 +25,25 @@ Shift.create(name_shift: "Vespertino")
 Shift.create(name_shift: "Noturno")
 Shift.create(name_shift: "Diurno")
 
-photofile = "app/assets/images/boletim.png"
+photofile = "app/assets/images/alumns/jean_grey.png"
 fin = File.open(photofile, "rb")
-teste = fin.read
+photo1 = fin.read
+
+photofile = "app/assets/images/alumns/fera.jpg"
+fin = File.open(photofile, "rb")
+photo2 = fin.read
+
+photofile = "app/assets/images/alumns/linceNegra.png"
+fin = File.open(photofile, "rb")
+photo3 = fin.read
+
+photofile = "app/assets/images/alumns/noturno.png"
+fin = File.open(photofile, "rb")
+photo4 = fin.read
+
+photofile = "app/assets/images/alumns/scoot.png"
+fin = File.open(photofile, "rb")
+photo5 = fin.read
 
 Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
                  name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
@@ -63,20 +79,42 @@ Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
             parent_cpf: '00968977162',gender:'Masculino')
 
-Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
+Alumn.create(name: 'Jean Grey', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '654321', shift: "matutino", gender:"Masculino",
             parent_id: Parent.last.id,classroom_id: Classroom.last.id,
-            photo: teste , bar_code: "123456")
+             photo: photo1 , bar_code: "123456")
+
+
+Alumn.create(name: 'Lince Negra', address: 'rua do pao',
+            phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
+            registry: '854321', shift: "matutino", gender:"Masculino",
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+             photo: photo3 , bar_code: "123458")
+
+Alumn.create(name: 'Noturno', address: 'rua do pao',
+            phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
+            registry: '954321', shift: "matutino", gender:"Masculino",
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+             photo: photo4 , bar_code: "123459")
+
+Alumn.create(name: 'Scoot', address: 'rua do pao',
+            phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
+            registry: '354321', shift: "matutino", gender:"Masculino",
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id,
+             photo: photo5 , bar_code: "123450")
+
+
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
             parent_cpf: '22714122264',gender:"Masculino")
 
-Alumn.create(name: 'Evan Junior', address: 'rua do mortandela',
+Alumn.create(name: 'Ferinha', address: 'rua do mortandela',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
             registry: '333123', shift: "matutino",gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id , bar_code:"485769")
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id ,
+             bar_code:"123457" , photo: photo2)
 
 Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
