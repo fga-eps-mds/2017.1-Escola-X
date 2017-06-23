@@ -84,11 +84,6 @@ And (/^I fill in field alumn "Data de Nascimento" with "09071995"$/) do
 	alumn_birth.send_keys '09071995'
 end
 
-And (/^I fill in field alumn "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'alumn_gender_masculino').selected?
-	driver.find_element(:id, 'alumn_gender_masculino').click
-end
-
 ### Data - Alumn - Edit
 
 And (/^I fill in field parent "Endereço" with "Magnífica Mansão no Pedregal"$/) do
@@ -144,9 +139,9 @@ And (/^I fill in "Data de Nascimento" with "01011800"$/) do
 	birthDate.send_keys "01011800"
 end
 
-And (/^I fill in secretary "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'secretary_gender_masculino').selected?
-	driver.find_element(:id, 'secretary_gender_masculino').click
+And (/^I fill in "Sexo" with "Masculino"$/) do
+	gender = driver.find_element(:name, 'btn2')
+	gender.click
 end
 
 ### Data - Teacher
@@ -191,9 +186,9 @@ And (/^I fill in "Data de Nascimento" with "09071995"$/) do
 	birthDate.send_keys "09071995"
 end
 
-And (/^I fill in "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'teacher_gender_masculino').selected?
-	driver.find_element(:id, 'teacher_gender_masculino').click
+And (/^I fill in "Data de Admissao" with "09072005"$/) do
+	admissionDate = driver.find_element(:name, 'teacher[admission_date]')
+	admissionDate.send_keys "09072005"
 end
 
 ### Data - Parent
@@ -226,11 +221,6 @@ end
 And (/^I fill in field parent "Data de Nascimento" with "12121912"$/) do
 	parent_birth = driver.find_element(:name, 'parent[birth_date]')
 	parent_birth.send_keys "12121912"
-end
-
-And (/^I fill in field parent "Sexo" with "Feminino"$/) do
-	driver.find_element(:id, 'parent_gender_feminino').selected?
-	driver.find_element(:id, 'parent_gender_feminino').click
 end
 
 ### Data - Parent - Edit
@@ -344,9 +334,19 @@ And (/^I fill in "Nome da Turma" with "3D"$/) do
 	subject_name.send_keys "3D"
 end
 
-And (/^I fill in "Turno da Turma" with "Vespertino"$/) do
-	subject_name = driver.find_element(:name, 'classroom[shift_classroom]')
-	subject_name.send_keys "Vespertino"
+And (/^I change "Serie da Turma" for "1º Medio"$/) do
+	option = driver.find_element(:name, 'classroom[classroom_grade_id]')
+	option.send_keys "1º Médio"
+end
+
+And (/^I change "Turno da Turma" for "Vespertino"$/) do
+	shift = driver.find_element(:name, 'classroom[shift_id]')
+	shift.send_keys "Vespertino"
+end
+
+Then (/^I press "Salvar Turma" button$/) do
+	salvar = driver.find_element(:name, 'button')
+	salvar.click
 end
 
 ### Data - Edit principal
@@ -573,7 +573,7 @@ Then (/^I see notification created$/) do
 end
 
 Then (/^I see classroom created$/) do
-	driver.get('http://localhost:3000/classrooms/2')
+	driver.get('http://localhost:3000/classrooms')
 end
 
 Then (/^I see all secretaries$/) do

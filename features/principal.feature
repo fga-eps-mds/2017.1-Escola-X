@@ -18,7 +18,7 @@ Feature: Principal
 		And I fill in field parent "Endereço" with "QR 612 Conjunto 12 Casa 21"
 		And I fill in field parent "Telefone" with "6133456382"
 		And I fill in field parent "Data de Nascimento" with "12121912"
-		And I fill in field parent "Sexo" with "Feminino"
+		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register alumn now, I had stay in page alumn new
 		And I fill in field alumn "Nome" with "Leo Arthur"
@@ -28,7 +28,7 @@ Feature: Principal
 		And I fill in field alumn "Endereço" with "QR 602 Conjunto 06 Casa 05"
 		And I fill in field alumn "Telefone" with "61983104981"
 		And I fill in field alumn "Data de Nascimento" with "09071995"
-		And I fill in field alumn "Sexo" with "Masculino"
+		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the alumn and I go to page users
 
@@ -104,9 +104,9 @@ Feature: Principal
 		And I fill in "Endereço" with "QR 602 Conjunto 06 Casa 05"
 		And I fill in "Telefone" with "61983104981"
 		And I fill in "Data de Nascimento" with "09071995"
+		And I fill in "Data de Admissao" with "09072005"
 		And I fill in "Sexo" with "Masculino"
-		When I press "Salvar" button
-		Then I register the teacher and I go to page users
+		Then I press "Salvar" button
 
 	Scenario: Only principal can register secretary valid
 		Given I am logged in as principal
@@ -121,7 +121,7 @@ Feature: Principal
 		And I fill in "Endereço" with "Super República do Gama - Gama Sul"
 		And I fill in "Telefone" with "61983104999"
 		And I fill in "Data de Nascimento" with "01011800"
-		And I fill in secretary "Sexo" with "Masculino"
+		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the secretary and I go to page secretaries
 
@@ -164,11 +164,11 @@ Feature: Principal
 	Scenario: Only principal can create classroom
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press "Criar Turma" button
+	 	And I press "Criar Turma" button
 		And I fill in "Nome da Turma" with "3D"
-		And I fill in "Turno da Turma" with "Vespertino"
-		When I press "Salvar" button
-		Then I see classroom created
+		And I change "Serie da Turma" for "1º Medio"
+		And I change "Turno da Turma" for "Vespertino"
+		Then I press "Salvar Turma" button
 
 	Scenario: Principal can see all secretaries
 		Given I am logged in as principal
