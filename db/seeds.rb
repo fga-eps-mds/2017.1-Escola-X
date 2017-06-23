@@ -38,19 +38,22 @@ Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133
 
 Teacher.create(name: 'McLovin', address: 'rua do ovo', phone: '6133213030',
             permission: 'Teacher', password: '12345678', birth_date: '10-10-1990',
-            registry: '123457', employee_cpf: '02277449180', admission_date: "14/04/1912")
+            registry: '123457', employee_cpf: '02277449180', admission_date: "11-04-1912")
 
 Teacher.create(name: 'Mclovin', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '666333', employee_cpf: '02277449180',shift:"Diurno")
+                registry: '666333', employee_cpf: '02277449180',shift:"Diurno",
+                admission_date: "11-04-1912")
 
 Teacher.create(name: 'Sydney Ward', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '369874', employee_cpf: '71257748220',shift:"Diurno")
+                registry: '369874', employee_cpf: '71257748220',shift:"Diurno",
+                admission_date: "11-04-1912")
 
 Teacher.create(name: 'Alex Lemon', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '363636', employee_cpf: '76992438468',shift:"Diurno")
+                registry: '363636', employee_cpf: '76992438468',shift:"Diurno",
+                admission_date: "11-04-1912")
 
 Classroom.create(name_classroom: "G", shift_classroom: "Matutino",classroom_grade_id: ClassroomGrade.last.id, shift_id: Shift.last.id)
 

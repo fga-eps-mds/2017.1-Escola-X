@@ -450,6 +450,10 @@ When (/^I press "Visualizar Advertencias" button$/) do
 	driver.get('http://localhost:3000/alumns/1/strikes')
 end
 
+And (/^I press "Visualizar Advertencia" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/1')
+end
+
 And (/^I press "Editar Suspensão" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/1/edit')
 end
@@ -472,6 +476,34 @@ end
 
 And (/^I press "Visualizar" button$/) do
 	driver.get('http://localhost:3000/alumns/1')
+end
+
+And (/^I press "Visualizar Aluno" button$/) do
+	driver.get('http://localhost:3000/alumns/2')
+end
+
+When (/^I press "Visualizar Responsáveis" button$/) do
+	driver.get('http://localhost:3000/parents')
+end
+
+And (/^I press "Visualizar Responsável" button$/) do
+	driver.get('http://localhost:3000/parents/8')
+end
+
+And (/^I press "Visualizar Secretário" button$/) do
+	driver.get('http://localhost:3000/secretaries/6')
+end
+
+And (/^I press "Visualizar Professor" button$/) do
+	driver.get('http://localhost:3000/teachers/3')
+end
+
+And (/^I press "Visualizar Suspensão" button$/) do
+	driver.get('http://localhost:3000/suspensions/1')
+end
+
+And (/^I press "Visualizar Advertencia do Aluno" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/3')
 end
 
 When (/^I press "Matéria" button$/) do
@@ -791,4 +823,12 @@ end
 
 Then (/^I back to users/) do
 	driver.get('http://localhost:3000/users')
+end
+
+## Delete options
+
+And (/^I click in "Delete" button$/) do
+	delete = driver.find_element(:name, 'delete')
+	delete.click
+	driver.switch_to.alert.accept
 end

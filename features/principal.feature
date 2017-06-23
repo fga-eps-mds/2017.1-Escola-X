@@ -50,6 +50,38 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I see information
 
+	Scenario: Principal can delete alumns
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar Alunos" button
+		And I press "Visualizar Aluno" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete parents
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar Responsáveis" button
+		And I press "Visualizar Responsável" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete secretaries
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Secretário" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete teachers
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Professor" button
+		And I click in "Delete" button
+		Then I back to users
+
 	Scenario: Only principal can register suspension
 		Given I am logged in as principal
 		Then I logged as principal
@@ -71,6 +103,24 @@ Feature: Principal
 		And I fill in field "Quantidade de Dias" with "15"
 		When I press "Salvar" button
 		Then I see suspension edited
+
+	Scenario: Principal can delete suspensions
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Visualizar Suspensões" button
+		And I press "Visualizar Suspensão" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete strikes
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Visualizar Advertencias" button
+		And I press "Visualizar Advertencia do Aluno" button
+		And I click in "Delete" button
+		Then I back to users
 
 	Scenario: Principal can create strike
 		Given I am logged in as principal

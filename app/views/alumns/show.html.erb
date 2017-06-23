@@ -13,7 +13,7 @@
     <div class="pull-right">
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
-        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' }, name:"delete" %>
         <%= link_to '<span class="fa fa-address-card"></span> Advertir'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-strike' %>
         <%= link_to '<span class="fa fa-address-card"></span> Suspender'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-suspension' %>
       <%end%>
