@@ -446,6 +446,10 @@ And (/^I press "Visualizar Suspensões" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions')
 end
 
+When (/^I press "Visualizar Advertencias" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes')
+end
+
 And (/^I press "Editar Suspensão" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/1/edit')
 end
@@ -773,7 +777,7 @@ end
 Then (/^I edit a notification$/) do
 	driver.get('http://localhost:3000/notifications')
 end
-Then (/^Then I see "notificacoes"$/) do
+Then (/^I see "notificacoes"$/) do
 	driver.get('http://localhost:3000/alumns/1#notificoes')
 end
 
