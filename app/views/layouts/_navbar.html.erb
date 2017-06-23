@@ -57,7 +57,7 @@
               </ul>
             </li>
           <% end %>
-        <%if is_principal? or is_secretary? %>
+        <%if is_principal? or is_secretary? or is_teacher?%>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
               <span class="fa fa-search"></span> Visualizar
@@ -67,10 +67,12 @@
                 <li><%= link_to '<span class="fa fa-user-circle-o"></span> Secretários'.html_safe, secretaries_path %></li>
                 <li><%=link_to '<span class="fa fa-book"></span> Matéria'.html_safe, subjects_path %></li>
               <% end %>
-              <li><%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path %></li>
+              <% if is_principal? or is_secretary?%>
+                <li><%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path %></li>
+                <li><%= link_to '<span class="fa fa-user-circle-o"></span> Funcionários'.html_safe, employees_path %></li>
+              <%end%>
               <li><%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path %></li>
               <li><%= link_to '<span class="fa fa-user-circle"></span> Responsáveis'.html_safe, parents_path %></li>
-              <li><%= link_to '<span class="fa fa-user-circle-o"></span> Funcionários'.html_safe, employees_path %></li>
             </ul>
           </li>
         <% end %>
