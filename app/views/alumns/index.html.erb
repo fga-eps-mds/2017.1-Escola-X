@@ -32,7 +32,11 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2><%= alumn.name %></h2>
         <h4> <%= alumn.address %> </h4>
-        <h4> <%= alumn.birth_date.day %>/<%= alumn.birth_date.month %>/<%= alumn.birth_date.year %> </h4>
+        <h4>Data de Nascimento:  
+          <% if(!alumn.birth_date.nil?)%>
+              <%= alumn.birth_date.strftime("%d/%m/%Y") %>
+          <%end%> 
+        </h4>
         <h4> <%= alumn.gender %> </h4>
         <h4> <%= alumn.phone %> </h4>
         <h4> <%= alumn.registry %></h4>

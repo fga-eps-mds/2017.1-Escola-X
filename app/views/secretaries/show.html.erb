@@ -25,7 +25,11 @@
         <h4>Telefone: <%= @secretary.phone %></h4>
         <h4>Sexo: <%= @secretary.gender %></h4>
         <h4>Endereço: <%= @secretary.address %></h4>
-        <h4>Data de Nascimento: <%= @secretary.birth_date %></h4>
+        <h4>Data de Nascimento:  
+          <% if(!@secretary.birth_date.nil?)%>
+              <%= @secretary.birth_date.strftime("%d/%m/%Y") %>
+          <%end%>
+        </h4>      
       </div>
     </div>
   </div>

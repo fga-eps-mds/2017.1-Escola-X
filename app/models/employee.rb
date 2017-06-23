@@ -2,13 +2,12 @@
 #Class name: Employee
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
-  before_save :validates_password
 
   has_many :strike
   has_many :suspension
   has_many :grade_histories
 
-  has_secure_password
+  has_secure_password validations: false
 
 
   self.inheritance_column = :permission
@@ -48,12 +47,6 @@ class Employee < ApplicationRecord
   }
 
   private
-  def validates_password
-    if self.password_digest.nil?
-      validates :password, presence:true,
-      length: { minimum: 8}
-    end
-  end
 
   def generate_token(column)
     begin
