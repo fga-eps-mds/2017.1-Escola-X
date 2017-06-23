@@ -46,6 +46,16 @@ Given (/^I am logged in as teacher$/) do
 	entrar.click
 end
 
+Given (/^I am logged in as secretary$/) do
+	driver.get('http://localhost:3000/')
+	login = driver.find_element(:name, 'login')
+	login.send_keys "456456"
+	senha = driver.find_element(:name, 'password')
+	senha.send_keys "12345678"
+	entrar = driver.find_element(:name, 'commit')
+	entrar.click
+end
+
 ### Data - Alumn
 
 And (/^I fill in field alumn "Nome" with "Leo Arthur"$/) do
@@ -375,6 +385,9 @@ Then (/^I logged as alumn$/) do
 	driver.get('http://localhost:3000/alumns/1')
 end
 
+Then (/^I logged as secretary$/) do
+	driver.get('http://localhost:3000/users')
+end
 ### Initial status
 
 Given (/^I am on the users in page$/) do
