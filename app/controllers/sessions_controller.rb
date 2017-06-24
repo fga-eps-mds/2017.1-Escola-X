@@ -30,7 +30,9 @@ class SessionsController < ApplicationController
       end
       
       # Se chegou aqui conseguiu fazer o login
-      date = mountCurrentDate()   
+      date = mountCurrentDate() 
+      time = mountCurrentTime()
+      
       data_exists = check_if_date_exits(date)
       if(data_exists == false)
         #create new data
