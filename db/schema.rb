@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "classroom_id"
-    t.binary   "photo"
+    t.         "photo"
     t.index ["classroom_id"], name: "index_alumns_on_classroom_id"
     t.index ["parent_id"], name: "index_alumns_on_parent_id"
   end
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
 
   create_table "parents", force: :cascade do |t|
     t.string   "name"
+    t.string   "login"
     t.string   "address"
     t.string   "phone"
     t.string   "gender"

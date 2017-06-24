@@ -34,7 +34,11 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2><%= secretary.name %></h2>
         <h4> <%= secretary.address %> </h4>
-        <h4> <%= secretary.birth_date.strftime('%d/%m/%Y') %> </h4>
+        <h4>Data de Nascimento:  
+          <% if(!secretary.birth_date.nil?)%>
+              <%= secretary.birth_date.strftime("%d/%m/%Y") %>
+          <%end%>
+        </h4>
         <h4> <%= secretary.gender %> </h4>
         <h4> <%= secretary.phone %> </h4>
         <h4><%= secretary.employee_cpf %></h4>
