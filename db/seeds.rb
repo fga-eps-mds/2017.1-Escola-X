@@ -125,6 +125,8 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               Parent.create(name: 'ROSALI LIMA ARAUJO NEVES')
               Alumn.create(name: 'ARTUR LIMA ARAUJO NEVES', registry: '186638', password: '186638', bar_code: '186638', gender: 'Masculino', parent_id: Parent.last.id, classroom_id: Classroom.last.id, phone: '6186213131')
               Parent.create(name: 'MARIA FILOMENA SOARES DO CARMO')
+            case Rails.env
+            when "production"
               Alumn.create(name: 'BARBARA LINNE SOARES DO CARMO', registry: '23783', password: '23783', bar_code: '23783', gender: 'Feminino', parent_id: Parent.last.id, classroom_id: Classroom.last.id)
               Parent.create(name: 'VITóRIA LUCENA DA SILVA CORDEIRO')
               Alumn.create(name: 'BRENO LUCENA CORDEIRO', registry: '23980', password: '23980', bar_code: '23980', gender: 'Masculino', parent_id: Parent.last.id, classroom_id: Classroom.last.id)
@@ -3691,3 +3693,5 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               Alumn.create(name: 'VITORIA MARIA DANTAS DOS SANTOS', registry: '160847', password: '160847', bar_code: '160847', gender: 'Feminino', parent_id: Parent.last.id, classroom_id: Classroom.last.id)
               Parent.create(name: 'EDINALDA DAS GRACAS DE MENDONCA MACHADO')
               Alumn.create(name: 'VIVIANE DE MENDONCA MACHADO', registry: '24957', password: '24957', bar_code: '24957', gender: 'Feminino', parent_id: Parent.last.id, classroom_id: Classroom.last.id)
+
+            end
