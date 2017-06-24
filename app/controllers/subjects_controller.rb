@@ -114,6 +114,7 @@ class SubjectsController < ApplicationController
 				@classroom_subject.subject_id = @subject.id
 				@classroom_subject.classroom_id = @classroom.id
 				if @classroom_subject.save
+					flash[:success] = "Matéria adicionada com sucesso"
 					redirect_to add_classrooms_path(@classroom)
 				end
 			else
