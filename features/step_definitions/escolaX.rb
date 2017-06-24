@@ -504,7 +504,7 @@ When (/^I press "Visualizar Responsáveis" button$/) do
 end
 
 And (/^I press "Visualizar Responsável" button$/) do
-	driver.get('http://localhost:3000/parents/8')
+	driver.get('http://localhost:3000/parents/5')
 end
 
 And (/^I press "Visualizar Secretário" button$/) do
@@ -821,7 +821,7 @@ And (/^I press "Editar" button$/) do
 end
 
 And (/^I press "Professor editar" button$/) do
-	driver.get('http://localhost:3000/notifications/5/edit')
+	driver.get('http://localhost:3000/notifications/4/edit')
 end
 
 Then (/^I see edit page notification$/) do
