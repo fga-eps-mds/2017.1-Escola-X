@@ -99,12 +99,6 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="field">
-       <p class="text-uppercase"><strong>Imagem</strong></p>
-      <%= f.file_field :image %>
-    </div>
-  </div>
 
   <div class="form-group">
     <%= f.label :bar_code, class:"sr-only" %>
@@ -117,5 +111,12 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <div class="field">
+      <!-- <p class="text-uppercase"><strong>Imagem</strong></p> -->
+      <!-- <%= f.file_field :image, class:"filestyle" %> -->
+      <input type="file" name="alumn[image]" id="alumn_image" class="filestyle" data-buttonBefore="true">
+    </div>
+  </div>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
 <% end %>

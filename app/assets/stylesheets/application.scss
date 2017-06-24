@@ -186,8 +186,72 @@ fieldset[disabled] .btn-radio.focus {
   background-color: #782323;
 }
 
+
+.btn-image-input {
+  color: #2c3e50;
+  background-color: #ecf0f1;
+  border-color: #ECF0F1;
+}
+
+.btn-image-input:focus,
+.btn-image-input.focus {
+  color: #2c3e50;
+  background-color: #ECF0F1;
+}
+
+.btn-image-input:hover {
+  color: #2c3e50;
+  background-color: #ECF0F1;
+}
+
+.btn-image-input:active,
+.btn-image-input.active,
+.open > .dropdown-toggle.btn-image-input {
+  color: #2c3e50;
+  background-color: #ECF0F1;
+}
+
+.btn-image-input:active:hover,
+.btn-image-input.active:hover,
+.open > .dropdown-toggle.btn-image-input:hover,
+.btn-image-input:active:focus,
+.btn-image-input.active:focus,
+.open > .dropdown-toggle.btn-image-input:focus,
+.btn-image-input:active.focus,
+.btn-image-input.active.focus,
+.open > .dropdown-toggle.btn-image-input.focus {
+  background-color: #ECF0F1;
+  color: #2c3e50;
+}
+
+.btn-image-input:active,
+.btn-image-input.active,
+.open > .dropdown-toggle.btn-image-input {
+  background-image: none;
+  color: #2c3e50;
+}
+
+.btn-image-input.disabled:hover,
+.btn-image-input[disabled]:hover,
+fieldset[disabled] .btn-image-input:hover,
+.btn-image-input.disabled:focus,
+.btn-image-input[disabled]:focus,
+fieldset[disabled] .btn-image-input:focus,
+.btn-image-input.disabled.focus,
+.btn-image-input[disabled].focus,
+fieldset[disabled] .btn-image-input.focus {
+  background-color: #ECF0F1;
+  color: #2c3e50;
+}
+
+.btn-image-input .badge {
+  color: #2c3e50;
+  background-color: #ECF0F1;
+  color: #2c3e50;
+}
+
 // -----------------------------------------------------------------------------
-// media queries below this point
+// ONLY media queries below this point
 
 @media(min-width:767px) {
   .navbar-nav{
@@ -215,6 +279,5 @@ fieldset[disabled] .btn-radio.focus {
     height: 12em;
   }
 }
-
 
 @import "bootswatch/flatly/bootswatch";
