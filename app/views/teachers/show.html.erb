@@ -4,7 +4,7 @@
 <% if flash[:notice]%>
  <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
 <% end %>
-<section class="content-section" id="alunos-desc">
+<section class="content-section" id="alumns-desc">
   <div class="container">
     <div class="pull-right">
       <%= link_to '<span class="fa fa-user-plus"></span> Visualizar Minhas Turmas'.html_safe, teacher_classrooms_path(@teacher), class:'btn btn-sm btn-success'%>

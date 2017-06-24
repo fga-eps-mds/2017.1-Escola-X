@@ -1,0 +1,37 @@
+<%= render 'layouts/navbar' %>
+<section class="content-section" id="alumns-desc">
+  <% if flash[:alert]%>
+    <br></br>
+    <br></br>
+   <div class="alert alert-danger" role = "alert"><%= flash[:alert]%></div>
+  <% end %>
+  <% if flash[:success]%>
+   <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+  <% end %>
+  <h1 class="text-uppercase text-center"><span class="fa fa-graduation-cap"></span> Lista de professores</h1>
+  <hr></hr>
+  <% @teachers.each do |teacher|%>
+    <div class="container">
+      <div class="row item">
+        <div class="col-sm-12 col-md-4">
+          <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+        </div>
+        <div class="col-sm-12 col-md-8 text-capitalize descript">
+          <% if (teacher.gender == 'Masculino') %>
+            <h2>Profº. <%= teacher.name %></h2>
+          <% else %>
+            <h2>Profª. <%= teacher.name %></h2>
+          <% end %>
+          <h4>Endereço: <%= teacher.address %> </h4>
+          <h4>Data de Aniversário: <%= teacher.birth_date.day %>/<%= teacher.birth_date.month %>/<%= teacher.birth_date.year %> </h4>
+          <h4>Sexo: <%= teacher.gender %> </h4>
+          <h4>Telefone: <%= teacher.phone %> </h4>
+          <h4>Matrícula: <%= teacher.registry %></h4>
+          <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, teacher_path(teacher), class:'btn btn-success' %>
+          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(teacher), class:'btn btn-default' %>
+        </div>
+      </div>
+      <hr>
+    </div>
+  <% end %>
+</section>
