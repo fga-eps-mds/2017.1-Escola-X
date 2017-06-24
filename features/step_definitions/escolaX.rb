@@ -46,6 +46,16 @@ Given (/^I am logged in as teacher$/) do
 	entrar.click
 end
 
+Given (/^I am logged in as secretary$/) do
+	driver.get('http://localhost:3000/')
+	login = driver.find_element(:name, 'login')
+	login.send_keys "456456"
+	senha = driver.find_element(:name, 'password')
+	senha.send_keys "12345678"
+	entrar = driver.find_element(:name, 'commit')
+	entrar.click
+end
+
 ### Data - Alumn
 
 And (/^I fill in field alumn "Nome" with "Leo Arthur"$/) do
@@ -82,11 +92,6 @@ end
 And (/^I fill in field alumn "Data de Nascimento" with "09071995"$/) do
 	alumn_birth = driver.find_element(:name, 'alumn[birth_date]')
 	alumn_birth.send_keys '09071995'
-end
-
-And (/^I fill in field alumn "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'alumn_gender_masculino').selected?
-	driver.find_element(:id, 'alumn_gender_masculino').click
 end
 
 ### Data - Alumn - Edit
@@ -144,9 +149,9 @@ And (/^I fill in "Data de Nascimento" with "01011800"$/) do
 	birthDate.send_keys "01011800"
 end
 
-And (/^I fill in secretary "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'secretary_gender_masculino').selected?
-	driver.find_element(:id, 'secretary_gender_masculino').click
+And (/^I fill in "Sexo" with "Masculino"$/) do
+	gender = driver.find_element(:name, 'btn2')
+	gender.click
 end
 
 ### Data - Teacher
@@ -191,9 +196,9 @@ And (/^I fill in "Data de Nascimento" with "09071995"$/) do
 	birthDate.send_keys "09071995"
 end
 
-And (/^I fill in "Sexo" with "Masculino"$/) do
-	driver.find_element(:id, 'teacher_gender_masculino').selected?
-	driver.find_element(:id, 'teacher_gender_masculino').click
+And (/^I fill in "Data de Admissao" with "09072005"$/) do
+	admissionDate = driver.find_element(:name, 'teacher[admission_date]')
+	admissionDate.send_keys "09072005"
 end
 
 ### Data - Parent
@@ -226,11 +231,6 @@ end
 And (/^I fill in field parent "Data de Nascimento" with "12121912"$/) do
 	parent_birth = driver.find_element(:name, 'parent[birth_date]')
 	parent_birth.send_keys "12121912"
-end
-
-And (/^I fill in field parent "Sexo" with "Feminino"$/) do
-	driver.find_element(:id, 'parent_gender_feminino').selected?
-	driver.find_element(:id, 'parent_gender_feminino').click
 end
 
 ### Data - Parent - Edit
@@ -344,9 +344,19 @@ And (/^I fill in "Nome da Turma" with "3D"$/) do
 	subject_name.send_keys "3D"
 end
 
-And (/^I fill in "Turno da Turma" with "Vespertino"$/) do
-	subject_name = driver.find_element(:name, 'classroom[shift_classroom]')
-	subject_name.send_keys "Vespertino"
+And (/^I change "Serie da Turma" for "1º Medio"$/) do
+	option = driver.find_element(:name, 'classroom[classroom_grade_id]')
+	option.send_keys "1º Médio"
+end
+
+And (/^I change "Turno da Turma" for "Vespertino"$/) do
+	shift = driver.find_element(:name, 'classroom[shift_id]')
+	shift.send_keys "Vespertino"
+end
+
+Then (/^I press "Salvar Turma" button$/) do
+	salvar = driver.find_element(:name, 'button')
+	salvar.click
 end
 
 ### Data - Edit principal
@@ -356,9 +366,9 @@ And (/^I fill in "Admissão" with "19082001"$/) do
 	principal_admission_date.send_keys "19082001"
 end
 
-And (/^I fill in "Senha" with "1234567"$/) do
+And (/^I fill in "Senha" with "12345678"$/) do
 	principal_password = driver.find_element(:name, 'principal[password]')
-	principal_password.send_keys "1234567"
+	principal_password.send_keys "12345678"
 end
 
 ### Initial pages
@@ -375,6 +385,9 @@ Then (/^I logged as alumn$/) do
 	driver.get('http://localhost:3000/alumns/1')
 end
 
+Then (/^I logged as secretary$/) do
+	driver.get('http://localhost:3000/users')
+end
 ### Initial status
 
 Given (/^I am on the users in page$/) do
@@ -391,12 +404,20 @@ When (/^I press "Criar" field$/) do
 	driver.get('http://localhost:3000/parents/new')
 end
 
-When (/^I press "Visualizar Diretor" button/) do
+When (/^I press "Funcionarios" button/) do
+	driver.get('http://localhost:3000/employees')
+end
+
+And (/^I press "Visualizar Diretor" button/) do
 	driver.get('http://localhost:3000/principal/2')
 end
 
-When (/^I press "Editar Senha" button/) do
+When (/^I press "Editar Senha do Diretor" button/) do
 	driver.get('http://localhost:3000/employees/2/edit_password')
+end
+
+When (/^I press "Editar Diretor" button/) do
+	driver.get('http://localhost:3000/principal/2/edit')
 end
 
 And (/^I click in "Responsável e Aluno" I had register one parent and one alumn$/) do
@@ -412,12 +433,26 @@ And (/^I press "Editar Aluno" button$/) do
 end
 
 When (/^I press "Salvar" button$/) do
-	entrar = driver.find_element(:name, 'button')
-	entrar.click
+	salvar = driver.find_element(:name, 'button')
+	salvar.click
+end
+
+When (/^I press "Salvar Senha" button$/) do
+	salvar = driver.find_element(:name, 'commit')
+	salvar.click
+end
+
+When (/^I press "Logout" button$/) do
+	sair = driver.find_element(:name, 'logout')
+	sair.click
 end
 
 When (/^I press "Edit Notification" button$/) do
 	driver.get('http://localhost:3000/notifications/1/edit')
+end
+
+When (/^I press "Edit Notification Secretary" button$/) do
+	driver.get('http://localhost:3000/notifications/3/edit')
 end
 
 When (/^I had register a suspension$/) do
@@ -426,6 +461,14 @@ end
 
 And (/^I press "Visualizar Suspensões" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions')
+end
+
+When (/^I press "Visualizar Advertencias" button$/) do
+	driver.get('http://localhost:3000/alumns/4/strikes')
+end
+
+And (/^I press "Visualizar Advertencia" button$/) do
+	driver.get('http://localhost:3000/alumns/1/strikes/1')
 end
 
 And (/^I press "Editar Suspensão" button$/) do
@@ -444,8 +487,52 @@ When (/^I press field "Suspender" button$/) do
 	driver.get('http://localhost:3000/alumns/1/suspensions/new')
 end
 
+When (/^I press "Alunos" button$/) do
+	driver.get('http://localhost:3000/alumns')
+end
+
+And (/^I press "Visualizar para excluir" button$/) do
+	driver.get('http://localhost:3000/alumns/4')
+end
+
+And (/^I press "Visualizar Aluno" button$/) do
+	driver.get('http://localhost:3000/alumns/2')
+end
+
+When (/^I press "Visualizar Responsáveis" button$/) do
+	driver.get('http://localhost:3000/parents')
+end
+
+And (/^I press "Visualizar Responsável" button$/) do
+	driver.get('http://localhost:3000/parents/5')
+end
+
+And (/^I press "Visualizar Secretário" button$/) do
+	driver.get('http://localhost:3000/secretaries/7')
+end
+
+And (/^I press "Visualizar Professor" button$/) do
+	driver.get('http://localhost:3000/teachers/3')
+end
+
+And (/^I press "Visualizar Suspensão" button$/) do
+	driver.get('http://localhost:3000/suspensions/1')
+end
+
+And (/^I press "Visualizar Advertencia do Aluno" button$/) do
+	driver.get('http://localhost:3000/alumns/4/strikes/1')
+end
+
 When (/^I press "Visualizar" button$/) do
-	driver.get('http://localhost:3000/alumns/1')
+	driver.get('http://localhost:3000/subjects')
+end
+
+And (/^I press "Matérias da Turma" button$/) do
+	driver.get('http://localhost:3000/classroom/1/classroom_subjects')
+end
+
+And (/^I press "Dar Notas" button$/) do
+	driver.get('http://localhost:3000/classroom/1/subject/1/grades')
 end
 
 When (/^I press "Matéria" button$/) do
@@ -462,6 +549,10 @@ end
 
 When (/^I press "Melhor Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
+end
+
+When (/^I press "Uma Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/3')
 end
 
 And (/^I press "Notificação" button$/) do
@@ -526,6 +617,10 @@ Then (/^I see notification$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
+Then (/^I see a notification$/) do
+	driver.get('http://localhost:3000/notifications/3')
+end
+
 Then (/^I see information$/) do
 	driver.get('http://localhost:3000/alumns/1')
 end
@@ -551,7 +646,7 @@ Then (/^I see notification created$/) do
 end
 
 Then (/^I see classroom created$/) do
-	driver.get('http://localhost:3000/classrooms/2')
+	driver.get('http://localhost:3000/classrooms')
 end
 
 Then (/^I see all secretaries$/) do
@@ -576,6 +671,10 @@ end
 
 Then (/^I see notification edited$/) do
 	driver.get('http://localhost:3000/notifications/1')
+end
+
+Then (/^I see a notification edited$/) do
+	driver.get('http://localhost:3000/notifications/3')
 end
 
 ##Alumn options
@@ -721,6 +820,10 @@ And (/^I press "Editar" button$/) do
 	driver.get('http://localhost:3000/notifications/1/edit')
 end
 
+And (/^I press "Professor editar" button$/) do
+	driver.get('http://localhost:3000/notifications/4/edit')
+end
+
 Then (/^I see edit page notification$/) do
 	driver.get('http://localhost:3000/notifications/1/edit')
 end
@@ -751,7 +854,7 @@ end
 Then (/^I edit a notification$/) do
 	driver.get('http://localhost:3000/notifications')
 end
-Then (/^Then I see "notificacoes"$/) do
+Then (/^I see "notificacoes"$/) do
 	driver.get('http://localhost:3000/alumns/1#notificoes')
 end
 
@@ -763,10 +866,61 @@ Then (/^I see "boletim"$/) do
 	driver.get('http://localhost:3000/alumns/1#boletim')
 end
 
-Then (/^I logged out$/) do
-	driver.get('http://localhost:3000/')
-end
-
 Then (/^I back to users/) do
 	driver.get('http://localhost:3000/users')
+end
+
+Then (/^I back to subjects/) do
+	driver.get('http://localhost:3000/subjects')
+end
+
+Then (/^I back to notifications/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
+## Delete options
+
+And (/^I click in "Delete" button$/) do
+	delete = driver.find_element(:name, 'delete')
+	delete.click
+	driver.switch_to.alert.accept
+end
+
+When (/^I press "Matéria para excluir" button$/) do
+	driver.get('http://localhost:3000/subjects/2')
+end
+
+## Grades options
+
+And (/^I fill in "1º" with "10.0"$/) do
+	grade1 = driver.find_element(:name, 'grade[grade_01]')
+	grade1.clear
+	grade1.send_keys "10.0"
+end
+
+And (/^I fill in "2º" with "10.0"$/) do
+	grade2 = driver.find_element(:name, 'grade[grade_02]')
+	grade2.clear
+	grade2.send_keys "10.0"
+end
+
+And (/^I fill in "3º" with "10.0"$/) do
+	grade3 = driver.find_element(:name, 'grade[grade_03]')
+	grade3.clear
+	grade3.send_keys "10.0"
+end
+
+And (/^I fill in "4º" with "10.0"$/) do
+	grade4 = driver.find_element(:name, 'grade[grade_04]')
+	grade4.clear
+	grade4.send_keys "10.0"
+end
+
+And (/^I click in "Salvar Notas" button$/) do
+	button_save = driver.find_element(:name, 'commit')
+	button_save.click
+end
+
+Then (/^I see saved grades$/) do
+	driver.get('http://localhost:3000/classroom/1/subject/1/grades')
 end

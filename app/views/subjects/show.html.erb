@@ -12,10 +12,10 @@
     <div class="pull-right">
       <%if @current_user.permission=="Principal" %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_subject_path(@subject), class:"btn btn-sm btn-default" %>
-        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' }, name:"delete" %>
       <%end%>
     </div>
-      <div class="row item">    
+      <div class="row item">
         <div class="col-sm-12 col-md-8 text-capitalize descript">
           <h3>Matéria: <%= @subject.name_subject %></h3>
           <h4>Série: <%= @subject.class_level %></h4>

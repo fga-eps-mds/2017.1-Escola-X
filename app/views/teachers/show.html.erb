@@ -10,7 +10,7 @@
       <%= link_to '<span class="fa fa-user-plus"></span> Visualizar Minhas Turmas'.html_safe, teacher_classrooms_path(@teacher), class:'btn btn-sm btn-success'%>
       <%if @current_user.is_a? (Principal) %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_teacher_path(@teacher), class:"btn btn-sm btn-default" %>
-        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+        <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' }, name:"delete"  %>
       <%end%>
     </div>
       <div class="row item">

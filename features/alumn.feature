@@ -13,7 +13,7 @@ Feature: Alumn
     Scenario: Alumn can see your strikes
       Given I am logged in as alumn
       Then I logged as alumn
-      When I press "Advertencias" button
+      When I press "Visualizar Advertencias" button
       Then I see strikes
 
     Scenario: Alumn can see your parent information
