@@ -200,6 +200,70 @@ fieldset[disabled] .btn-radio.focus {
   background-color: #782323;
 }
 
+.btn-file {
+  color: #2C3E50;
+  background-color: #ECF0F1;
+  border-color: #ECF0F1;
+}
+
+.btn-file:focus,
+.btn-file.focus {
+  color: #2C3E50;
+  background-color: #ECF0F1;
+}
+
+.btn-file:hover {
+  color: #2C3E50;
+  background-color: #ECF0F1;
+}
+
+.btn-file:active,
+.btn-file.active,
+.open > .dropdown-toggle.btn-file {
+  color: #2C3E50;
+  background-color: #ECF0F1;
+}
+
+.btn-file:active:hover,
+.btn-file.active:hover,
+.open > .dropdown-toggle.btn-file:hover,
+.btn-file:active:focus,
+.btn-file.active:focus,
+.open > .dropdown-toggle.btn-file:focus,
+.btn-file:active.focus,
+.btn-file.active.focus,
+.open > .dropdown-toggle.btn-file.focus {
+  background-color: #ECF0F1;
+  color: #2C3E50;
+}
+
+.btn-file:active,
+.btn-file.active,
+.open > .dropdown-toggle.btn-file {
+  background-image: none;
+  color: #2C3E50;
+}
+
+.btn-file.disabled:hover,
+.btn-file[disabled]:hover,
+fieldset[disabled] .btn-file:hover,
+.btn-file.disabled:focus,
+.btn-file[disabled]:focus,
+fieldset[disabled] .btn-file:focus,
+.btn-file.disabled.focus,
+.btn-file[disabled].focus,
+fieldset[disabled] .btn-file.focus {
+  background-color: #ECF0F1;
+  color: #2C3E50;
+}
+
+.btn-file .badge {
+  color: #2c3e50;
+  background-color: #ECF0F1;
+  color: #2C3E50;
+}
+
+
 @media(min-width:767px) {
   .navbar-nav{
     float: right;

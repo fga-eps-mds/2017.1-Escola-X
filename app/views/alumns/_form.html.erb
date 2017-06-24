@@ -93,7 +93,6 @@
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>
   </div>
-
   <div class="form-group">
     <div class="input-group">
       <span class="input-group-addon">
@@ -110,15 +109,6 @@
       </div>
     </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :phone, class:"sr-only" %>
-    <div class="field">
-       <p class="text-uppercase"><strong>Imagem</strong></p>
-      <%= f.file_field :image %>
-    </div>
-  </div>
-
   <div class="form-group">
     <%= f.label :bar_code, class:"sr-only" %>
     <div class="input-group">
@@ -129,7 +119,15 @@
       <%= f.text_field :bar_code, class:"form-control", placeholder:"Passe a carteirinha pelo leitor" %>
     </div>
   </div>
-
-
+  <div class="form-group">
+    <%= f.label :phone, class:"sr-only" %>
+    <div class="field">
+      <div class="form-group">
+        <div class="field">
+          <input type="file" name="alumn[image]" id="alumn_image" class="filestyle" data-buttonBefore="true">
+        </div>
+      </div>
+    </div>
+  </div>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
 <% end %>
