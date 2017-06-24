@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
   def create
     if ( !Alumn.find_by_registry(params[:login]).nil? )
       @user = Alumn.find_by_registry(params[:login])
-    elsif ( !Parent.find_by_parent_cpf(params[:login]).nil? )
-      @user = Parent.find_by_parent_cpf(params[:login])
+    elsif ( !Parent.find_by_login(params[:login]).nil? )
+      @user = Parent.find_by_login(params[:login])
     elsif ( !Employee.find_by_registry(params[:login]).nil? )
       @user = Employee.find_by_registry(params[:login])
     end

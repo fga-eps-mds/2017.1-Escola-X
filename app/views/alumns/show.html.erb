@@ -8,20 +8,19 @@
  <% if flash[:notice]%>
   <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
  <% end %>
-<section class="content-section" id="alunos-desc">
+<section class="content-section" id="alumns-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumns_path, class:'btn btn-sm btn-info' %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_alumn_path(@alumn), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
-        <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-strike' %>
+        <%= link_to '<span class="fa fa-address-card"></span> Advertir'.html_safe, new_alumn_strike_path(@alumn), class:'btn btn-sm btn-royal-purple' %>
         <%if @alumn.strikes.any?%>
-        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Advertências'.html_safe, alumn_strikes_path(@alumn), class:"btn btn-sm btn-strike-show" %>
+        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Advertências'.html_safe, alumn_strikes_path(@alumn), class:"btn btn-sm btn-jacarta" %>
         <%end%>
-        <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-suspension' %>
+        <%= link_to '<span class="fa fa-address-card"></span> Suspender'.html_safe, new_alumn_suspension_path(@alumn), class:'btn btn-sm btn-mojo' %>
         <%if @alumn.suspensions.any?%>
-        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-suspension-show" %>
+        <%= link_to '<span class="fa fa-edit"></span"></span> Visualizar Suspensões'.html_safe, alumn_suspensions_path(@alumn), class:"btn btn-sm btn-crown-of-thorns" %>
         <%end%>
       <%end%>
 
@@ -41,7 +40,12 @@
         <h4>Telefone: <%= @alumn.phone %></h4>
         <h4>Sexo: <%= @alumn.gender %></h4>
         <h4>Endereço: <%= @alumn.address %></h4>
-        <h4>Data de Nascimento: <%= @alumn.birth_date.day %>/<%= @alumn.birth_date.month %>/<%= @alumn.birth_date.year %></h4>
+        <h4>Data de Nascimento:  
+          <% if(!@alumn.birth_date.nil?)%>
+              <%= @alumn.birth_date.strftime("%d/%m/%Y") %>
+          <%end%> 
+        </h4>
+
         <h4>Turma: <%= @alumn.classroom.name_classroom %></h4>
         <h4><%=link_to "Responsável: #{@alumn.parent.name}",parent_path(@alumn.parent), class: "btn btn-default" %></h4>
         <h4><%= link_to "Ver relatório", alumn_report_path(@alumn), class: "btn btn-primary", name: "report_link"  %></h4>
@@ -76,10 +80,10 @@
                 <div class="col-sm-12 col-md-8 text-capitalize descript">
                 <ul>
                   <h4>Primeiro Bimestre</h4>
-                <% @alumn.classroom.subjects.each do |subjects| %>
-                  <li class="text-danger"><%= subjects.name_subject%>
-                    <% subjects.grades.each do |grades| %>
-                          <%=   grades.grade_01%></li>
+                <% @alumn.classroom.subjects.each do |subject| %>
+                  <li class="text-danger"><%= subject.name_subject%>
+                    <% subject.grades.where(alumn_id: @alumn.id).each do |grade| %>
+                          <%=   grade.grade_01%></li>
                       <%end%>
                       <%end%>
                   </ul>
@@ -88,11 +92,10 @@
                 <div class="col-sm-12 col-md-8 text-capitalize descript">
                 <ul>
                   <h4>Segundo Bimestre</h4>
-                <% @alumn.classroom.subjects.each do |subjects| %>
-                  <li class="text-danger"><%= subjects.name_subject%>
-
-                    <% subjects.grades.each do |grades| %>
-                          <%=   grades.grade_02%></li>
+                <% @alumn.classroom.subjects.each do |subject| %>
+                  <li class="text-danger"><%= subject.name_subject%>
+                    <% subject.grades.where(alumn_id: @alumn.id).each do |grade| %>
+                          <%=   grade.grade_02%></li>
                       <%end%>
                         <%end%>
                   </ul>
@@ -101,11 +104,10 @@
                 <div class="col-sm-12 col-md-8 text-capitalize descript">
                 <ul>
                   <h4>Terceiro Bimestre</h4>
-                <% @alumn.classroom.subjects.each do |subjects| %>
-                  <li class="text-danger"><%= subjects.name_subject%>
-
-                    <% subjects.grades.each do |grades| %>
-                          <%=   grades.grade_03%></li>
+                <% @alumn.classroom.subjects.each do |subject| %>
+                  <li class="text-danger"><%= subject.name_subject%>
+                    <% subject.grades.where(alumn_id: @alumn.id).each do |grade| %>
+                          <%=   grade.grade_03%></li>
                       <%end%>
                       <%end%>
                   </ul>
@@ -114,15 +116,27 @@
                 <div class="col-sm-12 col-md-8 text-capitalize descript">
                 <ul>
                   <h4>Quarto Bimestre</h4>
-                <% @alumn.classroom.subjects.each do |subjects| %>
-                  <li class="text-danger"><%= subjects.name_subject%>
-
-                    <% subjects.grades.each do |grades| %>
-                          <%=   grades.grade_04%></li>
+                <% @alumn.classroom.subjects.each do |subject| %>
+                  <li class="text-danger"><%= subject.name_subject%>
+                    <% subject.grades.where(alumn_id: @alumn.id).each do |grade| %>
+                          <%=   grade.grade_04%></li>
                       <%end%>
                       <%end%>
                   </ul>
                 </div>
+
+                <div class="col-sm-12 col-md-8 text-capitalize descript">
+                <ul>
+                  <h4>Nota Final</h4>
+                <% @alumn.classroom.subjects.each do |subject| %>
+                  <li class="text-danger"><%= subject.name_subject%>
+                    <% subject.grades.where(alumn_id: @alumn.id).each do |grade| %>
+                          <%=   grade.grade_final%></li>
+                      <%end%>
+                        <%end%>
+                  </ul>
+                </div>
+                
                 </div>
             </div>
         </div>

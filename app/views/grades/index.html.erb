@@ -1,13 +1,12 @@
 <%= render "layouts/navbar" %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Turmas</h1>
 <hr>
-<section class="content-section" id="alunos-desc">
+<section class="content-section" id="alumns-desc">
   <% @classrooms.each do |classroom| %>
     <div class="container">
       <div class="pull-right">
         <%if @current_user.is_a?(Employee) %>
           <%if @current_user.permission=="Secretary" %>
-          	<%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
             <%= link_to '<span class="fa fa-address-card"></span> Visualizar Matérias'.html_safe,show_subjects_path(classroom), class:'btn btn-sm btn-warning' %>
           <% end %>
         <% end %>

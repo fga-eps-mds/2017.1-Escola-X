@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta>
+  </head>
+  <body>
+    <table border="1">
+        <tr>
+        <th colspan="6"><h1>Relatório Turma <%=@classroom_grade.name_classroom_grade%> <%=@classroom.name_classroom%> <%=@shift.name_shift%></h1></th>
+        </tr>
+
+        <tr>
+        <th colspan="6"><h3>Data de Emissão:<%=DateTime.now.to_date%></h3></th>
+        </tr>
+        <tr>
+        <th colspan="6"></th>
+          <% @classroom.subjects.each do |subject|%>
+          <th colspan="5"><%= subject.name_subject%></th>
+          <%end%>
+        </tr>
+        <tr>
+        <th>Matrícula</th>
+        <th>Nome</th>
+        <th>Responsável</th>
+        <th>Faltas</th>
+        <th>Advertências</th>
+        <th>Suspensões</th>
+          <% @classroom.subjects.each do |subject|%>
+          <th >1°</th>
+          <th >2°</th>
+          <th >3°</th>
+          <th >4°</th>
+          <th >Nota Final</th>
+          <%end%>
+        </tr>
+    </thead>
+    <tbody>
+      <% @classroom.alumns.each do |alumn|%>
+        <tr>
+          <td><%= alumn.registry%></td>
+          <td><%= alumn.name%></td>
+          <td><%=alumn.parent.name%></td>
+          <td><%=alumn.school_misses.count%></td>
+          <td><%= alumn.quantity_strike %></td>
+          <td><%= alumn.suspensions.count %></td>
+          <%alumn.classroom.subjects.each do |subject|%>
+            <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+              <td><%=grade.grade_01%></td>
+            <%end%>
+          <%end%>
+          <%alumn.classroom.subjects.each do |subject|%>
+            <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+              <td><%=grade.grade_02%></td>
+            <%end%>
+          <%end%>
+          <%alumn.classroom.subjects.each do |subject|%>
+            <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+              <td><%=grade.grade_03%></td>
+            <%end%>
+          <%end%>
+          <%alumn.classroom.subjects.each do |subject|%>
+            <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+              <td><%=grade.grade_04%></td>
+            <%end%>
+          <%end%>
+          <%alumn.classroom.subjects.each do |subject|%>
+            <%subject.grades.where(alumn_id: alumn.id).each do |grade|%>
+              <td><%=grade.grade_final%></td>
+            <%end%>
+          <%end%>
+        </tr>
+      <% end%>
+    </tbody>
+        </table>
+  </body>
+</html>

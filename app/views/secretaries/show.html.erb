@@ -7,10 +7,9 @@
  <% if flash[:success]%>
   <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
  <% end %>
-<section class="content-section" id="alunos-desc">
+<section class="content-section" id="alumns-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, secretaries_path, class:'btn btn-sm btn-info' %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_secretary_path(@secretary), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza que deseja excluir esse cadastro?' } %>
@@ -25,7 +24,11 @@
         <h4>Telefone: <%= @secretary.phone %></h4>
         <h4>Sexo: <%= @secretary.gender %></h4>
         <h4>Endereço: <%= @secretary.address %></h4>
-        <h4>Data de Nascimento: <%= @secretary.birth_date %></h4>
+        <h4>Data de Nascimento:  
+          <% if(!@secretary.birth_date.nil?)%>
+              <%= @secretary.birth_date.strftime("%d/%m/%Y") %>
+          <%end%>
+        </h4>      
       </div>
     </div>
   </div>

@@ -1,0 +1,102 @@
+<%= form_for (@principal) do |f| %>
+  <% if @principal.errors.any? %>
+    <div class="container">
+      <div class="text-danger text-justify">
+        <div id="error_explanation">
+          <h2 class=""><%= pluralize(@principal.errors.count, "erro") %> proibiram este formulario de ser salvo:</h2>
+          <ul>
+          <% @principal.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-user"></span>
+         Nome
+      </span>
+      <%= f.text_field :name, class:"form-control", placeholder:"Nome do usuário" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :registry, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-id-badge"></span>
+        Matrícula
+      </span>
+      <%= f.number_field :registry, class:"form-control", placeholder:"Ex.: 153456" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :employee_cpf, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-id-badge"></span>
+        CPF
+      </span>
+      <%= f.text_field :employee_cpf, class:"form-control", placeholder:"Ex.: 99999999999" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-phone"></span>
+         Telefone
+      </span>
+      <%= f.text_field :phone, class:"form-control", placeholder:'Somente números com DDD.' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :birth_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-gift"></span>
+         Data de nascimento
+      </span>
+      <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :admission_date, class:"sr-only" %>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+         Admissão
+      </span>
+      <%= f.date_field :admission_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-venus-mars"></span>
+         Sexo
+      </span>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-radio">
+          <%= f.radio_button(:gender,"Feminino") %> Feminino
+        </label>
+        <label class="btn btn-radio">
+          <%= f.radio_button(:gender,"Masculino") %> Masculino
+        </label>
+      </div>
+    </div>
+  </div>
+  <%= f.hidden_field :permission, :value => "Principal"%>
+  <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
+  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, principal_path(@principal), class:'btn btn-lg btn-warning' %>
+<% end %>

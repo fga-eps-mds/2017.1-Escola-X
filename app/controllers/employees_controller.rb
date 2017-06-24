@@ -5,7 +5,6 @@
 class EmployeesController < UsersController
 	include SessionsHelper
 
-	
 	def index
     	if ( is_employee? )
       		@employees = Employee.all

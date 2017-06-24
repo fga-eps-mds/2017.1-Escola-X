@@ -2,13 +2,12 @@
 #Class name: Employee
 #Description:Validates employee's attributes
 class Employee < ApplicationRecord
-  before_save :validates_password
 
   has_many :strike
   has_many :suspension
   has_many :grade_histories
 
-  has_secure_password
+  has_secure_password validations: false
 
 
   self.inheritance_column = :permission
@@ -24,8 +23,6 @@ class Employee < ApplicationRecord
                       :too_short => "deve possuir no mínimo 6 caracteres",
                       :too_long => "deve possuir no máximo 11 caracteres" }
 
-  validates :birth_date, presence: { message: "não pode estar em branco." }
-
   validates :gender, presence: { message: "Não pode estar em branco." }
 
   validates :name, presence: { message: "não pode estar em branco" },
@@ -34,7 +31,7 @@ class Employee < ApplicationRecord
                       :too_short => "deve possuir no mínimo 5 caracteres",
                       :too_long => "deve possuir no máximo 64 caracteres" }
 
-  validates :address, presence: { message: "não pode estar em branco" },
+  validates :address,
             length: { minimum: 5,
                       maximum: 64,
                       :too_short => "deve possuir no mínimo 5 caracteres",
@@ -50,16 +47,18 @@ class Employee < ApplicationRecord
   }
 
   private
-  def validates_password
-    if self.password_digest.nil?
-      validates :password, presence:true,
-      length: { minimum: 8}
-    end
-  end
 
   def generate_token(column)
     begin
       self[column]= SecureRandom.urlsafe_base64
     end while Employee.exists?(column => self[column])
+  end
+
+  def set_password
+    self.password = self.employee_cpf
+  end
+    
+  def self.search(search)
+    where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
   end
 end

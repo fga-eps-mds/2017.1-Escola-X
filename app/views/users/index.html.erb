@@ -1,7 +1,7 @@
 <%= render "layouts/navbar" %>
-<br>
-<br>
 <% if flash[:alert]%>
+  <br>
+  <br>
  <div class="alert alert-danger" role = "alert"><%= flash[:alert]%></div>
 <% end %>
 <% if flash[:success]%>
@@ -15,31 +15,32 @@
       <h3 class="text-muted text-center">
         Olá, Diretor!<br>
         <small class="visible-md visible-lg">Coloque o mouse para exibir opções</small>
+        <small class="visible-sm visible-xs">Menu de acesso rápido</small>
       </h3>
-      <div class="visible-md visible-lg" id="hub-grid">
+      <div class="" id="hub-grid">
         <div class="row">
-          <div class="col-xs-6 col-md-3 hub-item">
+          <div class="col-xs-12 col-md-3 hub-item">
             <%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path, class:"btn btn-block btn-lg btn-success" %>
           </div>
-          <div class="col-xs-6 col-md-3 hub-item">
+          <div class="col-xs-12 col-md-3 hub-item">
             <%= link_to '<span class="fa fa-user-circle-o"></span> Responsáveis'.html_safe, parents_path, class:"btn btn-block btn-lg btn-warning" %>
           </div>
-          <div class="col-xs-6 col-md-3 hub-item">
+          <div class="col-xs-12 col-md-3 hub-item">
             <%= link_to '<span class="fa fa-id-card"></span> Funcionários'.html_safe, employees_path, class:"btn btn-block btn-lg btn-info" %>
           </div>
-          <div class="col-xs-6 col-md-3 hub-item">
-            <%= link_to '<span class="fa fa-sticky-note"></span> Avisos'.html_safe, notifications_path, class:"btn btn-block btn-lg btn-roxo" %>
+          <div class="col-xs-12 col-md-3 hub-item">
+            <%= link_to '<span class="fa fa-sticky-note"></span> Avisos'.html_safe, notifications_path, class:"btn btn-block btn-lg btn-purple" %>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6 col-md-4 hub-item">
-            <%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path, class:"btn btn-block btn-lg btn-suspension-show" %>
+          <div class="col-xs-12 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path, class:"btn btn-block btn-lg btn-crown-of-thorns" %>
           </div>
-          <div class="col-xs-6 col-md-4 hub-item">
-            <%= link_to '<span class="fa fa-book"></span> Matérias'.html_safe, subjects_path, class:"btn btn-block btn-lg btn-strike-show" %>
+          <div class="col-xs-12 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-book"></span> Matérias'.html_safe, subjects_path, class:"btn btn-block btn-lg btn-jacarta" %>
           </div>
-          <div class="col-xs-6 col-md-4 hub-item">
-            <%= link_to '<span class="fa fa-graduation-cap"></span> Professores'.html_safe, teachers_path, class:"btn btn-block btn-lg btn-suspension" %>
+          <div class="col-xs-12 col-md-4 hub-item">
+            <%= link_to '<span class="fa fa-graduation-cap"></span> Professores'.html_safe, teachers_path, class:"btn btn-block btn-lg btn-mojo" %>
           </div>
         </div>
       </div>

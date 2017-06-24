@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-style">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coll-nav" aria-expanded="false">
+        <span class="fa fa-angle-down"></span>
+      </button>
+      <%= link_to image_tag("Logo_Escola_X_50x50.png", :alt => "logo"), users_path %>
+    </div>
+    <div class="collapse navbar-collapse" id="coll-nav">
+      <ul class="nav navbar-nav">
+          <% if is_teacher? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
+                <span class="fa fa-plus"></span> Criar
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
+              </ul>
+            </li>
+          <%end%>
+          <% if is_principal? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
+                <span class="fa fa-plus"></span> Criar
+              </a>
+              <ul class="dropdown-menu">
+                <li><%=link_to '<span class="fa fa-book"></span> Criar Matéria'.html_safe, subjects_path %></li>
+                <%if is_principal? %>
+                  <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Responsável e Aluno'.html_safe, new_parent_path %></li>
+                  <li><%= link_to '<span class="fa fa-user-circle-o"></span> Criar Secretário'.html_safe, new_secretary_path %></li>
+                  <li><%= link_to '<span class="fa fa-user-plus"></span> Criar Professor'.html_safe, new_teacher_path %></li>
+                  <li><%= link_to '<span class="fa fa-users"></span> Criar Turma'.html_safe, new_classroom_path %></li>
+                  <li><%= link_to '<span class="fa fa-paper-plane-o"></span> Criar Notificação'.html_safe, new_notification_path %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        <%if is_principal? or is_secretary? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hospopup="true" aria-expanded="false">
+              <span class="fa fa-search"></span> Visualizar
+            </a>
+            <ul class="dropdown-menu">
+              <% if is_principal? %>
+                <li><%= link_to '<span class="fa fa-user-circle-o"></span> Secretários'.html_safe, secretaries_path %></li>
+                <li><%=link_to '<span class="fa fa-book"></span> Matéria'.html_safe, subjects_path %></li>
+              <% end %>
+              <li><%= link_to '<span class="fa fa-users"></span> Turmas'.html_safe, classrooms_path %></li>
+              <li><%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path %></li>
+              <li><%= link_to '<span class="fa fa-user-circle"></span> Responsáveis'.html_safe, parents_path %></li>
+            </ul>
+          </li>
+        <% end %>
+        <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
+        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="content-section" id="alumns-desc">
+  <div class="container">
+    <div class="pull-right">
+      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-crown-of-thorns' %>
+      <%if is_principal? %>
+        <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_principal_path(@principal), class:"btn btn-sm btn-default" %>
+        <%= link_to '<span class="fa fa-edit"></span> Editar Senha'.html_safe, edit_password_employee_path(@principal), class:"btn btn-sm btn-default" %>
+      <%end%>
+    </div>
+    <div class="row item">
+      <div class="col-sm-12 col-md-4">
+        <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+      </div>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h3>Nome: <%= @principal.name %></h3>
+        <h4>Telefone: <%= @principal.phone %></h4>
+        <h4>Sexo: <%= @principal.gender %></h4>
+        <h4>Endereço: <%= @principal.address %></h4>
+        <h4>Matrícula: <%= @principal.registry %></h4>
+        <h4>CPF: <%= @principal.employee_cpf %></h4>
+        <h4>Data de Nascimento: <%= @principal.birth_date.day %>/<%= @principal.birth_date.month %>/<%= @principal.birth_date.year %></h4>
+        <h4>Admissão: <%= @principal.admission_date.day %>/<%= @principal.admission_date.month %>/<%= @principal.admission_date.year %></h4>
+      </div>
+    </div>
+  </div>
+</section>
