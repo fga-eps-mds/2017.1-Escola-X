@@ -17,7 +17,8 @@
 
       end
       if params[:search]
-        @alumns = Alumn.search(params[:search]).order("created_at DESC")
+        string_to_search = params[:search]
+        @alumns = Alumn.search(string_to_search.strip.upcase!).order("created_at DESC")
         if (@alumns.empty?)
            flash.now[:feedback] = "Nenhum(a) aluno(a) encontrado!"
         elsif (params[:search].blank?)

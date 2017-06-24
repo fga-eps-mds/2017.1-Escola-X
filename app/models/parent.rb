@@ -47,4 +47,8 @@ class Parent < ApplicationRecord
     end while Parent.exists?(column => self[column])
   end
 
+  def self.search(search)
+    where(" name LIKE ?",  "%#{search}%")
+  end
+
 end
