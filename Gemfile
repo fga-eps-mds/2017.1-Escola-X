@@ -31,8 +31,6 @@ gem 'bootswatch-rails'
 
 gem 'font-awesome-rails'
 
-gem 'carrierwave', '~> 0.10.0'
-
 gem 'mini_magick', '~> 4.3'
 
 gem "paperclip-dropbox", ">= 1.1.7"
