@@ -60,7 +60,7 @@
         <span class="fa fa-users"></span>
         Turma
       </span>
-      <%= f.select :classroom_id, @classrooms.collect {|classroom| [classroom.name_classroom, classroom.id]},{:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
+      <%= f.select :classroom_id, @classrooms.collect {|classroom| [classroom.classroom_grade.name_classroom_grade + " " + classroom.name_classroom, classroom.id]},{:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
   <div class="form-group">
