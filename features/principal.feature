@@ -53,7 +53,7 @@ Feature: Principal
 	Scenario: Only principal can register suspension
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press field "Dar Suspensão" button
+		When I press field "Suspender" button
 		And I fill in field "Motivo da Suspensão" with "Bater na Professora"
 		And I fill in field "Quantidade de Dias" with "10"
 		And I fill in field "Descrição da Suspensão" with "Chutou o bebe da professora"

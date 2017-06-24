@@ -7,13 +7,6 @@
 <section class="content-section" id="alumns-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, alumn_path, class:'btn btn-sm btn-info' %>
-      <%if is_alumn? %>
-      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, alumn_path, class:'btn btn-sm btn-info' %>
-      <%end%>
-      <%if is_parent? %>
-      <%= link_to '<span class="fa fa-arrow-left"></span>Voltar'.html_safe, parents_path, class:'btn btn-sm btn-info' %>
-      <%end%>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_parent_path(@parent), class:"btn btn-sm btn-default" %>
         <%= link_to 'Adicionar aluno', new_parent_alumn_path(@parent), class:"btn btn-sm btn-roxo"%>

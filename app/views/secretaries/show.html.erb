@@ -10,7 +10,6 @@
 <section class="content-section" id="alumns-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, secretaries_path, class:'btn btn-sm btn-info' %>
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_secretary_path(@secretary), class:"btn btn-sm btn-default" %>
         <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza que deseja excluir esse cadastro?' } %>

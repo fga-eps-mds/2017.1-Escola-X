@@ -39,8 +39,8 @@
         <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, alumn_path(alumn), class:'btn btn-info' %>
         <%if is_principal? %>
         <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_alumn_path(alumn), class:'btn btn-default' %>
-        <%= link_to '<span class="fa fa-address-card"></span> Dar advertência'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
-        <%= link_to '<span class="fa fa-address-card"></span> Dar Suspensão'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-danger' %>
+        <%= link_to '<span class="fa fa-address-card"></span> Advertir'.html_safe, new_alumn_strike_path(alumn), class:'btn btn-warning' %>
+        <%= link_to '<span class="fa fa-address-card"></span> Suspender'.html_safe, new_alumn_suspension_path(alumn), class:'btn btn-danger' %>
         <% end %>
       </div>
     </div>

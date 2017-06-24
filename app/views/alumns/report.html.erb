@@ -2,7 +2,7 @@
   <h1 class="text-uppercase"><%= @alumn.name %></h1>
   <h2>Responsável: <%= @alumn.parent.name %></h2>
   <h3>Matrícula: <%= @alumn.registry %></h3>
-  <h3>Ano e turma: <%= @alumn.classroom.name_classroom %></h3>
+  <h3>Ano e turma: <%= @alumn.classroom.classroom_grade.name_classroom_grade %> <%= @alumn.classroom.name_classroom %></h3>
   <div class="table-responsive">
     <table class="table table-striped table-hover table-bordered">
       <thead>
@@ -65,5 +65,4 @@
     <h4>Data: <%=DateTime.now.day %>/<%=DateTime.now.month %>/<%=DateTime.now.year%></h4>
   </div>
   <h6 class="text-muted text-right">Obs.: Este relatório não é um documento oficial.</h6>
-  <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, alumn_path(@alumn), class:'btn btn-sm btn-info hidden-print' %>
 </div>

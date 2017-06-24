@@ -8,51 +8,36 @@
 <% if flash[:success]%>
  <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
 <% end %>
-  <% @employees.each do |employee|%>
-    <div class="container">
-      <div class="row item">
+<h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Funcionários</h1>
+<hr>
+<section class="content-section" id="alumns-list">
+  <% @employees.each do |employee| %>
+  <div class="container">
+    <div class="row item">
+      <div class="col-sm-12 col-md-4">
+        <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
+      </div>
+      <div class="col-sm-12 col-md-8 text-capitalize descript">
+        <h2><%= employee.name %></h2>
+        <h4> <%= employee.address %> </h4>
+        <h4> <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
+        <h4> <%= employee.gender %> </h4>
+        <h4> <%= employee.phone %> </h4>
+        <h4><%= employee.registry %></h4>
+        <% if (employee.is_a?(Teacher)) %>
+          <h5 class="text-warning">Professor</h5>
+          <%= link_to '<span class="fa fa-search"></span> Visualizar'.html_safe, teacher_path(employee), class:'btn btn-info' %>
+        <% end %>
         <% if (employee.is_a?(Principal)) %>
-          <div class="col-sm-12 col-md-4">
-            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-          </div>
-          <div class="col-sm-12 col-md-8 text-capitalize descript">
-            <h2><%= employee.name %></h2>
-            <h6 class="text-muted">Diretor</h6>
-            <h4>Endereço: <%= employee.address %> </h4>
-            <h4>Data de Aniversário: <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
-            <h4>Sexo: <%= employee.gender %> </h4>
-            <h4>Telefone: <%= employee.phone %> </h4>
-            <h4>Matrícula: <%= employee.registry %></h4>
-            <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, principal_path(employee), class:'btn btn-suspension-show' %>
-            <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(employee), class:'btn btn-default' %>
-          </div>
-        <% else %>
-          <div class="col-sm-12 col-md-4">
-            <%= image_tag("avatar_250x300.png", alt: "", class: "img-responsive" ) %>
-          </div>
-          <div class="col-sm-12 col-md-8 text-capitalize descript">
-            <h2><%= employee.name %></h2>
-            <% if employee.is_a?(Teacher) %>
-              <h6 class="text-danger">Professor</h6>
-            <% elsif employee.is_a?(Secretary) %>
-              <h6 class="text-warning">Secretário</h6>
-            <% elsif is_principal? %>
-              <h6 class="text-muted">Diretor</h6>
-            <%end%>
-            <h4>Endereço: <%= employee.address %> </h4>
-            <h4>Data de Aniversário: <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
-            <h4>Sexo: <%= employee.gender %> </h4>
-            <h4>Telefone: <%= employee.phone %> </h4>
-            <h4>Matrícula: <%= employee.registry %></h4>
-            <% if employee.is_a?(Teacher) %>
-              <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, teacher_path(employee), class:'btn btn-info' %>
-            <% elsif employee.is_a?(Secretary) %>
-              <%= link_to '<span class="fa fa-search-plus"></span> Visualizar'.html_safe, secretary_path(employee), class:'btn btn-info' %>
-            <%end%>
-            <% if is_principal? %>
-              <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(employee), class:'btn btn-default' %>
-            <%end%>
-          </div>
+          <h5 class="text-warning">Diretor</h5>
+          <%= link_to '<span class="fa fa-search"></span> Visualizar'.html_safe, principal_path(employee), class:'btn btn-info' %>
+        <% end %>
+        <% if (employee.is_a?(Secretary)) %>
+          <h5 class="text-warning">Secretário</h5>
+          <%= link_to '<span class="fa fa-search"></span> Visualizar'.html_safe, secretary_path(employee), class:'btn btn-info' %>
+        <% end %>
+        <%if is_principal? %>
+          <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(employee), class:'btn btn-default' %>
         <% end %>
       </div>
       <hr>
