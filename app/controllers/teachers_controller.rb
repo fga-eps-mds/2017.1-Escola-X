@@ -58,7 +58,7 @@ class TeachersController < ApplicationController
       @shifts = Shift.all
       @teacher = Teacher.find(params[:id])
       if ( @teacher.update(teacher_params) )
-        flash[:now] = "Professor(a) alterado(a) com sucesso"
+        flash[:notice] = "Professor(a) alterado(a) com sucesso"
         redirect_to @teacher
       else
         render 'edit'
