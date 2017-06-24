@@ -118,6 +118,7 @@ class SubjectsController < ApplicationController
 					redirect_to add_classrooms_path(@classroom)
 				end
 			else
+				flash[:alert] = "Matéria não pode ser adicionada ou já existe na turma"
 				redirect_to add_classrooms_path(@classroom)
 			end
     end

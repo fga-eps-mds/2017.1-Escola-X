@@ -1,8 +1,14 @@
 <%= render "layouts/navbar" %>
-<br>
-<br>
+
 <% if flash[:success]%>
- <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+<br>
+<br>
+<div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+<% end %>
+<% if flash[:alert]%>
+<br>
+<br>
+ <div class="alert alert-danger" role = "alert"><%= flash[:alert]%></div>
 <% end %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="fa fa-sticky-note text-left"></span> Lista de Matérias</h1>
 <hr>

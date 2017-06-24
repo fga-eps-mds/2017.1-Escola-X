@@ -22,75 +22,76 @@
 
 @import "bootstrap";
 
-// Add space for fixed navbar to correctly be shown
+// remember: bootstrap is a 'mobile first' framework
+
 body {
   padding-top: 3em;
 }
 
-tr, th, td{
+tr,
+th,
+td{
   border: 1px solid black;
 }
 
 table{
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
-.btn-roxo{
+.btn-purple{
  background-color: #9768D1;
  color: white;
 }
 
-.txt-branko{
- color: white;
+.custom-white-txt{
+  color: white;
   padding-top: 19.5px;
   padding-bottom: 19.5px;
   padding-left: 10px;
   float: right;
 }
 
-.btn-strike{
+.btn-royal-purple{
  color: white;
  background-color: #673aa8;
 }
 
-.btn-strike-show{
+.btn-jacarta{
  color: white;
  background-color: #452b6e;
 }
 
-.btn-suspension{
+.btn-mojo{
  color: white;
  background-color: #c73f3f;
 }
 
-.btn-suspension-show{
+.btn-crown-of-thorns{
  background-color: #782323;
  color: white;
 }
 
-.btn-strike:hover{
+.btn-royal-purple:hover{
  background-color: #45188e;
  color: white;
 }
 
-.btn-strike-show:hover{
+.btn-jacarta:hover{
  background-color: #23094c;
  color: white;
 }
 
-.btn-suspension:hover{
+.btn-mojo:hover{
  background-color: #a51d1d;
  color: white;
 }
 
-.btn-suspension-show:hover{
+.btn-crown-of-thorns:hover{
  background-color: #560101;
  color: white;
 }
 
-
-.btn-roxo:hover{
- // background-color: #9768D1;
+.btn-purple:hover{
  background-color: #7B52AB;
 }
 
@@ -100,13 +101,11 @@ table{
 }
 
 .btn-shades{
- // background-color: #aaa;
  background-color: #555;
  color: white;
 }
 
 .btn-shades:hover{
- // background-color: #555;
  background-color: #aaa;
  color: white;
 }
@@ -114,19 +113,6 @@ table{
 .hub-item{
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-}
-
-#hub #hub-grid{
-  overflow: hidden;
-  opacity: 0;
-  height: 0;
-  transition: all 0.7s linear;
-  transition-delay: 0.2s;
-}
-
-#hub:hover #hub-grid{
-  opacity: 1;
-  height: 12em;
 }
 
 .class-name{
@@ -263,17 +249,33 @@ fieldset[disabled] .btn-file.focus {
   color: #2C3E50;
 }
 
+// -----------------------------------------------------------------------------
+// media queries below this point
 
 @media(min-width:767px) {
   .navbar-nav{
     float: right;
   }
-  .txt-branko{
+
+  .custom-white-txt{
    color: white;
     padding-top: 19.5px;
     padding-bottom: 19.5px;
     padding-left: 10px;
     float: left;
+  }
+
+  #hub #hub-grid{
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    transition: all 0.7s linear;
+    transition-delay: 0.2s;
+  }
+
+  #hub:hover #hub-grid{
+    opacity: 1;
+    height: 12em;
   }
 }
 

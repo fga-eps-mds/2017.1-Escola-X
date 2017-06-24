@@ -8,7 +8,8 @@ class SecretariesController < ApplicationController
     if ( is_principal? )
       @secretaries = Secretary.all
       if params[:search]
-        @secretaries = Secretary.search(params[:search]).order("created_at DESC")
+        string_to_search = params[:search].strip.upcase!
+        @secretaries = Secretary.search(string_to_search).order("created_at DESC")
         if (@secretaries.empty?)
           flash.now[:feedback] = "Nenhum secretário(a) encontrado!"
         end

@@ -34,17 +34,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :password, class:"sr-only" %>
-    <div class="input-group">
-      <span class="input-group-addon">
-      <span class="glyphicon glyphicon-lock"></span>
-        Senha
-      </span>
-      <%= f.password_field :password, class:"form-control", plaeholder:'Senha de mínimo 8 digitos.' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
+    <%= f.label :shift, class:"sr-only" %>
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-clock-o"></span>
@@ -100,10 +90,10 @@
          Sexo
       </span>
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-radio">
+        <label class="btn btn-radio" name="btn1">
           <%= f.radio_button(:gender,"Feminino") %> Feminino
         </label>
-        <label class="btn btn-radio">
+        <label class="btn btn-radio" name="btn2">
           <%= f.radio_button(:gender,"Masculino") %> Masculino
         </label>
       </div>

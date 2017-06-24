@@ -12,9 +12,9 @@ class Alumn < ApplicationRecord
   has_many :subjects, through: :grades
   has_many :suspensions
 
-  has_secure_password
+  has_secure_password validations: false
   before_create :initialize_strikes
-  before_save :validates_password
+  before_save :set_password
 
   has_many :suspensions
   has_attached_file :image, :styles => { :original => "250x300>"},
@@ -38,24 +38,11 @@ class Alumn < ApplicationRecord
                        :too_short => "deve possuir no mínimo 5 caracteres",
                        :too_long => "deve possuir no máximo 6 caracteres" }
 
-
-  validates :birth_date, presence: { message: "Não pode estar em branco." }
-
   validates :name, presence: { message: "não pode estar em branco" },
             length: { minimum: 5,
                       maximum: 64,
                       :too_short => "deve possuir no mínimo 5 caracteres",
                       :too_long => "deve possuir no máximo 64 caracteres" }
-
-  validates :address, presence: { message: "não pode estar em branco" },
-            length: { minimum: 5,
-                      maximum: 64,
-                      :too_short => "deve possuir no mínimo 5 caracteres",
-                      :too_long => "deve possuir no máximo 64 caracteres" }
-
-  validates :phone, length: { in: 10..11,
-                              :too_short => "deve possuir no mínimo 10 dígitos",
-                              :too_long => "deve possuir no máximo 11 dígitos" }
 
   validates :gender, presence: { message: "Não pode estar em branco." }
 
@@ -75,11 +62,8 @@ class Alumn < ApplicationRecord
 
 
   private
-  def validates_password
-    if self.password_digest.nil?
-      validates :password, presence:true,
-      length: { minimum: 8}
-    end
+  def set_password
+    self.password = self.registry
   end
 
   def generate_token(column)

@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20170624012553) do
 
   create_table "parents", force: :cascade do |t|
     t.string   "name"
+    t.string   "login"
     t.string   "address"
     t.string   "phone"
     t.string   "gender"

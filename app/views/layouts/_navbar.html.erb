@@ -15,7 +15,7 @@
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="coll-nav">
-      <div class="txt-branko nav nav-bar">
+      <div class="custom-white-txt nav nav-bar">
         <% if is_alumn? %>
           Logado como: Aluno
         <% elsif is_parent? %>
@@ -73,11 +73,13 @@
               <%end%>
               <li><%= link_to '<span class="fa fa-user"></span> Alunos'.html_safe, alumns_path %></li>
               <li><%= link_to '<span class="fa fa-user-circle"></span> Responsáveis'.html_safe, parents_path %></li>
+              <li><%= link_to '<span class="fa fa-graduation-cap"></span> Professores'.html_safe, teachers_path %></li>
+              <li><%= link_to '<span class="fa fa-user-circle-o"></span> Funcionários'.html_safe, employees_path %></li>
             </ul>
           </li>
         <% end %>
         <li><%=link_to '<span class="fa fa-sticky-note-o"></span> Avisos'.html_safe, notifications_path %></li>
-        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path %></li>
+        <li><%=link_to '<span class="fa fa-sign-out"></span> Sair'.html_safe, logout_path, name:"logout" %></li>
       </ul>
     </div>
   </div>
