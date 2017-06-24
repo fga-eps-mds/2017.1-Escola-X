@@ -27,34 +27,34 @@ Shift.create(name_shift: "Diurno")
 
 Secretary.create(permission: 'Secretary', registry: '456456', employee_cpf: '44662111676',
                  name: "Tia Hillary", address: "Beco dos Desiludidos", gender: "Feminino",
-                 shift: 'Matutino', password_digest: '12345678', birth_date: '03-03-2000',
-                 admission_date: '03-03-2001', phone: '06133713601')
+                 password_digest: '12345678', birth_date: '03-03-2000',
+                 admission_date: '03-03-2001', phone: '06133713601', shift_id: Shift.last.id)
 
 Principal.create(name: 'Francois Dillinger', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', admission_date: '10-05-2000',
                 gender:"Masculino", registry: '123456',
-                employee_cpf: '73117438262',shift:"Diurno")
+                employee_cpf: '73117438262')
 
 
 Teacher.create(name: 'McLovin', address: 'rua do ovo', phone: '6133213030',
             permission: 'Teacher', password: '12345678', birth_date: '10-10-1990',
-            registry: '123457', employee_cpf: '02277449180', admission_date: "14/04/1912")
+            registry: '123457', employee_cpf: '02277449180', admission_date: "14/04/1912", shift_id: Shift.last.id)
 
 Teacher.create(name: 'Mclovin', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '666333', employee_cpf: '02277449180',shift:"Diurno")
+                registry: '666333', employee_cpf: '02277449180', shift_id: Shift.last.id)
 
 Teacher.create(name: 'Sydney Ward', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '369874', employee_cpf: '71257748220',shift:"Diurno")
+                registry: '369874', employee_cpf: '71257748220', shift_id: Shift.last.id)
 
 Teacher.create(name: 'Alex Lemon', address: 'rua do ovo', phone: '6133213030',
                 password: '12345678', birth_date: '10-10-1990', gender:"Masculino",
-                registry: '363636', employee_cpf: '76992438468',shift:"Diurno")
+                registry: '363636', employee_cpf: '76992438468', shift_id: Shift.last.id)
 
 Classroom.create(name_classroom: "G", shift_classroom: "Matutino",classroom_grade_id: ClassroomGrade.last.id, shift_id: Shift.last.id)
 
-Subject.create(name_subject:"Filosofia",teacher_id:Teacher.last.id, classroom_grade_id: ClassroomGrade.last.id)
+Subject.create(name_subject:"Filosofia", teacher_id: Teacher.last.id, classroom_grade_id: ClassroomGrade.last.id)
 
 Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -62,9 +62,9 @@ Parent.create(name: 'Nicholas OLeary', address: 'rua do mantega',
 
 Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
-            registry: '654321', shift: "matutino", gender:"Masculino",
+            registry: '654321', gender:"Masculino",
             parent_id: Parent.last.id,classroom_id: Classroom.last.id,
-            bar_code: "123456")
+            bar_code: "123456", shift_id: Shift.last.id)
 
 Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -72,8 +72,8 @@ Parent.create!(name: 'George-Michael Bluth', address: 'rua do iorgut batravo',
 
 Alumn.create(name: 'Evan Junior', address: 'rua do mortandela',
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
-            registry: '333123', shift: "matutino",gender:"Masculino",
-            parent_id: Parent.last.id,classroom_id: Classroom.last.id , bar_code:"485769")
+            registry: '333123',gender:"Masculino",
+            parent_id: Parent.last.id,classroom_id: Classroom.last.id , bar_code:"485769", shift_id: Shift.last.id)
 
 Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -81,8 +81,8 @@ Parent.create!(name: 'Scott Pilgrim', address: 'rua do apresuntada',
 
 Alumn.create(name: 'Nick Twisp', address: 'rua do suco tangue',gender:"Masculino",
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
-            registry: '555123', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id , bar_code:"449586")
+            registry: '555123', parent_id: Parent.last.id,
+            classroom_id: Classroom.last.id , bar_code:"449586", shift_id: Shift.last.id)
 
 Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender:"Masculino",
             phone: '6155501234', password: '12345678', birth_date: '10-10-1990',
@@ -90,8 +90,8 @@ Parent.create!(name: 'Chuck Barris', address: 'rua do regueijão ibamté',gender
 
 Alumn.create(name: 'America Hoffman', address: 'rua do leite com tode',gender:"Masculino",
             phone: '6140028922', password: '12345678', birth_date: '10-10-1991',
-            registry: '098765', shift: "matutino", parent_id: Parent.last.id,
-            classroom_id: Classroom.last.id , bar_code:"222496")
+            registry: '098765', parent_id: Parent.last.id,
+            classroom_id: Classroom.last.id , bar_code:"222496", shift_id: Shift.last.id)
 
 ClassroomSubject.create(classroom_id:Classroom.last.id, subject_id:Subject.last.id)
 

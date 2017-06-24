@@ -45,6 +45,7 @@
 
   def new
     if ( is_principal? )
+      @shifts = Shift.all
       @alumn = Alumn.new
       @@parent = Parent.find(params[:parent_id])
       @classrooms = Classroom.all.order('name_classroom')
@@ -55,6 +56,7 @@
 
   def edit
     if ( is_principal? )
+      @shifts = Shift.all
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
     else
@@ -64,6 +66,7 @@
 
   def create
     if ( is_principal? )
+      @shifts = Shift.all
       @alumn = Alumn.new(alumn_params)
       @alumn.parent_id = @@parent.id
       @classrooms = Classroom.all.order('name_classroom')
@@ -81,6 +84,7 @@
 
   def update
     if ( is_principal? )
+      @shifts = Shift.all
       @alumn = Alumn.find(params[:id])
       @classrooms = Classroom.all.order('name_classroom')
       if @alumn.update alumn_params
@@ -147,6 +151,7 @@
                                   :parent_id,
                                   :classroom_id,
                                   :photo,
-                                  :bar_code)
+                                  :bar_code,
+                                  :shift_id)
   end
 end

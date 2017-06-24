@@ -4,6 +4,7 @@
 class Alumn < ApplicationRecord
   belongs_to :parent
   belongs_to :classroom
+  belongs_to :shift
 
   has_many :strikes
   has_many :school_misses
@@ -36,12 +37,6 @@ class Alumn < ApplicationRecord
                        maximum: 6,
                        :too_short => "deve possuir no mínimo 5 caracteres",
                        :too_long => "deve possuir no máximo 6 caracteres" }
-
-  validates :shift, presence: { message: "não pode estar em branco" },
-            length: { minimum: 7,
-                      maximum: 11,
-                      :too_short => "deve possuir no mínimo 7 caracteres",
-                      :too_long => "deve possuir no máximo 11 caracteres" }
 
 
   validates :birth_date, presence: { message: "Não pode estar em branco." }

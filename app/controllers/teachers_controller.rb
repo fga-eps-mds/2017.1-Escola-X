@@ -22,6 +22,7 @@ class TeachersController < ApplicationController
 
   def new
     if ( is_principal? )
+      @shifts = Shift.all
       @teacher = Teacher.new
     else
       redirect_to "/errors/error_500"
@@ -30,6 +31,7 @@ class TeachersController < ApplicationController
 
   def edit
     if ( is_principal? )
+      @shifts = Shift.all
       @teacher = Teacher.find(params[:id])
     else
       redirect_to "/errors/error_500"
@@ -38,6 +40,7 @@ class TeachersController < ApplicationController
 
   def create
     if ( is_principal? )
+      @shifts = Shift.all
       @teacher = Teacher.new(teacher_params)
       if (@teacher.save)
         flash[:success] = "Professor(a) criado(a) com sucesso"
@@ -52,6 +55,7 @@ class TeachersController < ApplicationController
 
   def update
     if ( is_principal? )
+      @shifts = Shift.all
       @teacher = Teacher.find(params[:id])
       if ( @teacher.update(teacher_params) )
         flash[:now] = "Professor(a) alterado(a) com sucesso"
@@ -112,6 +116,7 @@ private
                                    :phone,
                                    :gender,
                                    :birth_date,
-                                   :admission_date)
+                                   :admission_date,
+                                   :shift_id)
   end
 end

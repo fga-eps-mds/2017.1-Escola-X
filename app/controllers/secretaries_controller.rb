@@ -34,6 +34,7 @@ class SecretariesController < ApplicationController
 
   def new
     if ( is_principal? )
+			@shifts = Shift.all
       @secretary = Secretary.new
     else
       redirect_to "/errors/error_500"
@@ -42,6 +43,7 @@ class SecretariesController < ApplicationController
 
   def edit
     if ( is_principal? )
+			@shifts = Shift.all
       @secretary = Secretary.find(params[:id])
     else
       redirect_to "/errors/error_500"
@@ -50,6 +52,7 @@ class SecretariesController < ApplicationController
 
   def create
     if ( is_principal? )
+			@shifts = Shift.all
       @secretary = Secretary.new(secretary_params)
       if (@secretary.save)
         flash[:success] = "Secretário(a) criado(a) com sucesso"
@@ -64,6 +67,7 @@ class SecretariesController < ApplicationController
 
   def update
     if ( is_principal? )
+			@shifts = Shift.all
       @secretary = Secretary.find(params[:id])
       if @secretary.update secretary_params
         flash[:notice] = "Secretário(a) alterado(a) com sucesso"
@@ -100,6 +104,7 @@ class SecretariesController < ApplicationController
 								       :birth_date,
 								       :permission,
 								       :password,
-											 :registry)
+											 :registry,
+											 :shift_id)
   end
 end
