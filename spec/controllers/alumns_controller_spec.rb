@@ -227,7 +227,7 @@ RSpec.describe AlumnsController, type: :controller do
           end
           it "does not find alumns with no matching params" do
             alumn = Alumn.create!(valid_inputs)
-            get :index, params:{search: "!*"}
+            get :index, params:{search: "jai3j0"}
             expect(assigns(:alumns)).to match_array(nil)
             expect(flash[:feedback]).to be_present
           end
