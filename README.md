@@ -56,7 +56,7 @@ Acesse a aplicação através do link: http://0.0.0.0:3000
 
 ## Como contribuir
 
-Os contribuintes podem colaborar para manter e evoluir o sistema através da correção de bugs e implementação de novas funcionalidades, para tal o projeto deve ser clonado do repositório oficial.
+Os contribuintes podem colaborar para manter e evoluir o sistema através da correção de bugs e implementação de novas funcionalidades, que estão listados na pipeline "Opened Issues" no zenhub <a href= "https://github.com/fga-gpp-mds/2017.1-Escola-X#boards?repos=84881923">Boards</a>. Para contribuir o projeto deve ser clonado do repositório oficial.
 
 ## Documentação 
 
