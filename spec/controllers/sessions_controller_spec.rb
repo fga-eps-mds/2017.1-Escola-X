@@ -48,19 +48,19 @@ RSpec.describe SessionsController, type: :controller do
     describe "login as parent" do
       it "assigns parent to @user" do
         parent = Parent.create! parent_inputs
-        post :create, params:{login: parent.parent_cpf, password:parent.password}
+        post :create, params:{login: parent.login, password:parent.password}
         expect(assigns(:user)).to eq(parent)
       end
 
       it "assings parent token to cookie" do
         parent = Parent.create! parent_inputs
-        post :create, params:{login: parent.parent_cpf, password:parent.password}
+        post :create, params:{login: parent.login, password:parent.password}
         expect(cookies[:authorization_token]).to eq(parent.authorization_token)
       end
 
       it "redirects to parents alumns path" do
         parent = Parent.create! parent_inputs
-        post :create, params:{login: parent.parent_cpf, password:parent.password}
+        post :create, params:{login: parent.login, password:parent.password}
         expect(response).to redirect_to parent_alumns_path(assigns(:user))
       end
     end

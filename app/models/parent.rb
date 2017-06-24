@@ -25,16 +25,20 @@ class Parent < ApplicationRecord
 
   private
   def set_login
-    names = Array.new
-    names = self.name.split(' ')
-    self.login = names[0]+"."+names[names.length-1]
+    # if(self.name != nil)
+      names = Array.new
+      names = self.name.split(' ')
+      self.login = names[0]+"."+names[names.length-1]
+    # end
   end
 
   def set_password
-    name = self.name.downcase!
-    names = Array.new
-    names = name.split(' ')  
-    self.password = "1234" + names[0][0] + names[names.length-1][0]
+    if(self.name != nil)
+      name = self.name.downcase!
+      names = Array.new
+      names = name.split(' ')  
+      self.password = "1234" + names[0][0] + names[names.length-1][0]
+    end
   end
 
   def generate_token(column)
