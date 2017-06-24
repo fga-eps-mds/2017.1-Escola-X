@@ -17,7 +17,7 @@ Escola X foi desenvolvido com a finalidade de atender a demanda e necessidade do
 Se tem o interesse em contribuir para a Escola X, confira o guia de contribuições.
 
 
-# Instalação
+## Instalação
 
 Os comandos abaixo foram voltados para usuários que utilizam o sistema operacional Linux.
 
@@ -40,7 +40,7 @@ Para rodar o servidor localmente:
 Acesse a aplicação através do link: http://0.0.0.0:3000
 
 
-# Principais funcionalidades
+## Principais funcionalidades
 
 - Gerenciamento de alunos
 - Manter funcionário
@@ -53,3 +53,11 @@ Acesse a aplicação através do link: http://0.0.0.0:3000
 - Manter suspensão
 - Manter advertência
 - Enviar SMS    
+
+## Como contribuir
+
+Os contribuintes podem colaborar para manter e evoluir o sistema através da correção de bugs e implementação de novas funcionalidades, para tal o projeto deve ser clonado do repositório oficial.
+
+## Documentação 
+
+Toda a documentação pode ser acessada através da wiki do projeto <a href="https://github.com/fga-gpp-mds/2017.1-Escola-X/wiki">aqui</a>.
