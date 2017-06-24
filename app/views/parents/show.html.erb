@@ -9,7 +9,7 @@
     <div class="pull-right">
       <%if is_principal? %>
         <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_parent_path(@parent), class:"btn btn-sm btn-default" %>
-        <%= link_to 'Adicionar aluno', new_parent_alumn_path(@parent), class:"btn btn-sm btn-roxo"%>
+        <%= link_to 'Adicionar aluno', new_parent_alumn_path(@parent), class:"btn btn-sm btn-jacarta"%>
         <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.'}, name:"delete"  %>
       <%end%>
     </div>
@@ -22,7 +22,9 @@
         <h4 class="">Telefone: <%= @parent.phone %></h4>
         <h4 class="">Sexo: <%= @parent.gender %></h4>
         <h4 class="">Endereço: <%= @parent.address %></h4>
-        <h4 class="">Data de Nascimento: <%= @parent.birth_date.strftime('%d/%m/%Y') %></h4>
+        <% unless @parent.birth_date.blank? %>
+          <h4 class="">Data de Nascimento: <%= @parent.birth_date.strftime('%d/%m/%Y') %></h4>
+        <% end%>
         <h4 class="">CPF: <%= @parent.parent_cpf %></h4>
         <% @parent.alumns.each do |alumn| %>
           <h4><%=link_to "Aluno: #{alumn.name}",alumn_path(alumn), class: "btn btn-default" %></h4>
