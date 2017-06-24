@@ -58,6 +58,7 @@ class ParentsController < ApplicationController
       @parent = Parent.new(parent_params)
 
       if (@parent.save)
+        flash[:success] = "Responsável criado(a) com sucesso"
         redirect_to new_parent_alumn_path(@parent)
       else
         render 'new'

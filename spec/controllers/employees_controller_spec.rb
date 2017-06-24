@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 require 'helper_module_spec'
 
 RSpec.configure do |c|
@@ -10,17 +10,17 @@ RSpec.describe EmployeesController, type: :controller do
   let(:valid_inputs) { { name:"Victor Hugo",phone:"61983104981",
                          address:"QR 602 Conjunto 06 Casa 05",
                          registry:"654321",employee_cpf:"02951294174",
-                         admission_date:"15/04/2012",shift:"Matutino",
+                         admission_date:"15/04/2012",
                          gender:"Masculino",birth_date:"09/07/1995",
                          password:"12345678"} }
   let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino"} }
+                         parent_id: parent.id} }
 
   describe "edit password" do
-    describe "with right permissions" do 
+    describe "with right permissions" do
       before(:each) do
         login_principal
       end
@@ -34,14 +34,14 @@ RSpec.describe EmployeesController, type: :controller do
         get :edit_password_employee, params:{id: employee}
         expect(response).to render_template("../users/edit_password")
       end
-    end 
+    end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
 
-      it "redirect to error_500" do 
+      it "redirect to error_500" do
         employee = Employee.create!(valid_inputs)
         get :edit_password_employee, params:{id: employee}
         expect(response).to redirect_to("/errors/error_500")
@@ -69,14 +69,14 @@ RSpec.describe EmployeesController, type: :controller do
         get :edit_password_employee, params:{id: employee}
         expect(response).to render_template("../users/edit_password")
       end
-    end 
+    end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
 
-      it "renders to error_500 page" do 
+      it "renders to error_500 page" do
         employee = Employee.create!(valid_inputs)
         get :edit_password_employee, params:{id: employee}
         expect(response).to redirect_to("/errors/error_500")
@@ -86,7 +86,7 @@ RSpec.describe EmployeesController, type: :controller do
   end
 
   describe "GET index" do
-    describe "with right permissions" do 
+    describe "with right permissions" do
       before(:each) do
         login_principal
       end
@@ -94,14 +94,14 @@ RSpec.describe EmployeesController, type: :controller do
         get :index
         expect(assigns(:employees)).to match_array(Employee.all)
       end
-    end 
+    end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
 
-      it "redirect to error_500 page" do 
+      it "redirect to error_500 page" do
         get :index
         expect(request).to redirect_to('/errors/error_500')
       end

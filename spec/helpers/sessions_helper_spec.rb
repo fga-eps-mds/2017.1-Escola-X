@@ -15,24 +15,24 @@ RSpec.describe SessionsHelper, type: :helper do
                              address:"Rua Vida Casa 15,Taguatinga",
                              password: "12345678", gender:"M",
                              birth_date:"07/06/1988", registry:"123456",
-                             employee_cpf:"06057577124",shift:"diurno"} }
+                             employee_cpf:"06057577124"} }
 
   	let(:alumn_inputs) { { name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988",registry:"123456",
-                         shift:"matutino",parent_id:parent.id , bar_code:"123456"} }
+                         parent_id:parent.id , bar_code:"123456"} }
 
     let(:alumn1_inputs) { { name: "Michael Cera", phone:"61988885555",
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988",registry:"123456",
-                         shift:"matutino" , parent_id: 1, bar_code:"123456" } }
+                         parent_id: 1, bar_code:"123456" } }
 
   	let(:teacher_inputs) { { name:"Victor Hugo",phone:"61983104981",
                          address:"QR 602 Conjunto 06 Casa 05",
                          registry:"654321",employee_cpf:"02951294174",
-                         admission_date:"15/04/2012",shift:"Matutino",
+                         admission_date:"15/04/2012",
                          gender:"Masculino",birth_date:"09/07/1995",
                          password:"12345678"} }
 
@@ -42,7 +42,7 @@ RSpec.describe SessionsHelper, type: :helper do
                          birth_date:"08/10/1989",parent_cpf:"06057577124"} }
 
   	let(:secretary_inputs) { { employee_cpf: "06057577124", admission_date: "03/01/1996",
-                       	 shift: "Matutino", name: "Jose Apolinario da Silva",
+                       	 name: "Jose Apolinario da Silva",
                 			   address: "Rua Laranjeiras 456", phone: "60991907175",
                 			   gender: "Masculino", birth_date: "02/02/2012",
                 			   password: "12345678", permission:"Secretary", registry:"555444"} }
@@ -121,7 +121,7 @@ RSpec.describe SessionsHelper, type: :helper do
 																 address:"Rua Vida Casa 15,Taguatinga",
 																 password: "12345678", gender:"M",
 																 birth_date:"07/06/1988",registry:"555456",
-																 shift:"matutino" , parent_id: parent1.id , 
+																 parent_id: parent1.id , 
 																 bar_code:"123457")
 
 						cookies[:authorization_token] = alumn1.authorization_token

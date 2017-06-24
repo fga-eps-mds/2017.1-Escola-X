@@ -44,18 +44,21 @@ class EmployeesController < UsersController
 
   def new
     if ( is_principal? )
+			@shifts = Shift.all
       @employee = Employee.new
     end
   end
 
   def edit
     if ( is_principal? )
+			@shifts = Shift.all
       @employee = Employee.find(params[:id])
     end
   end
 
   def create
     if ( is_principal? )
+			@shifts = Shift.all
       @employee = Employee.new(employee_params)
 
       if (@employee.save)
@@ -66,6 +69,7 @@ class EmployeesController < UsersController
 
   def update
     if ( is_principal? )
+			@shifts = Shift.all
       @employee = Employee.find(params[:id])
       if ( @employee.update(employee_params) )
         redirect_to @employee
@@ -95,7 +99,8 @@ private
 																			:address,
 																			:phone,
 																			:gender,
-																			:birth_date)
+																			:birth_date,
+																			:shift_id)
 
   	end
 end

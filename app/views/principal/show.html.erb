@@ -57,8 +57,13 @@
     </div>
   </div>
 </nav>
-
+<% if flash[:notice]%>
+<br>
+<br>
+ <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+<% end %>
 <section class="content-section" id="alumns-desc">
+
   <div class="container">
     <div class="pull-right">
       <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-crown-of-thorns' %>

@@ -19,6 +19,7 @@ class SubjectsController < ApplicationController
 
   def new
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
   		@subject = Subject.new
     else
       redirect_to "/errors/error_500"
@@ -27,6 +28,7 @@ class SubjectsController < ApplicationController
 
   def edit
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
     	@subject = Subject.find(params[:id])
     else
       redirect_to "/errors/error_500"
@@ -43,6 +45,7 @@ class SubjectsController < ApplicationController
 
   def create
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
 			@subject = Subject.new(subject_params)
 			@teacher = Teacher.find_by_registry(params[:teacher_registry])
 			if ( @teacher.nil? )
@@ -75,6 +78,7 @@ class SubjectsController < ApplicationController
 
   def update
   	if ( is_principal? )
+			@classroom_grades = ClassroomGrade.all
 			@subject = Subject.find(params[:id])
 			@teacher = Teacher.find_by_registry(params[:teacher_registry])
 			if ( @teacher.nil? )
@@ -110,7 +114,8 @@ class SubjectsController < ApplicationController
 				@classroom_subject.subject_id = @subject.id
 				@classroom_subject.classroom_id = @classroom.id
 				if @classroom_subject.save
-					redirect_to classroom_subjects_path(@classroom)
+					flash[:success] = "Matéria adicionada com sucesso"
+					redirect_to add_classrooms_path(@classroom)
 				end
 			else
 				flash[:alert] = "Matéria não pode ser adicionada ou já existe na turma"
@@ -126,6 +131,7 @@ class SubjectsController < ApplicationController
 
   private
   def subject_params
-  	params.require(:subject).permit(:name_subject,:class_level,:teacher_id,:classroom_id,:subject_id)
+  	params.require(:subject).permit(:name_subject,
+		:class_level,:teacher_id,:classroom_id,:subject_id, :classroom_grade_id)
   end
 end

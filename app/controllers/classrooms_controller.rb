@@ -13,6 +13,9 @@ class ClassroomsController < ApplicationController
       unless params[:shift_id].blank?
         @classrooms &= Classroom.where(shift_id: params[:shift_id])
       end
+      if (@classrooms.empty?)
+        flash.now[:notice] = "Nenhuma Turma encontrada!"
+      end
     else
       redirect_to "/errors/error_500"
     end
@@ -81,6 +84,7 @@ def update
     @classroom_grades = ClassroomGrade.all
     @shifts = Shift.all
     if @classroom.update(classroom_params)
+      flash[:notice] = "Turma alterada com sucesso"
       redirect_to classroom_path(@classroom)
     else
       render "classrooms/edit"

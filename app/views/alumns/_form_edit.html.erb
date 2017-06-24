@@ -32,13 +32,13 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :shift, class:"sr-only" %>
+    <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-clock-o"></span>
         Turno
       </span>
-      <%= f.text_field :shift, class:"form-control", placeholder:"Ex.: matutino" %>
+      <%= f.select :shift_id, @shifts.collect {|shift| [shift.name_shift, shift.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
   <div class="form-group">
@@ -48,7 +48,7 @@
         <span class="fa fa-users"></span>
         Turma
       </span>
-      <%= f.select :classroom_id, @classrooms.collect {|classroom| [classroom.name_classroom, classroom.id]},{:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
+      <%= f.select :classroom_id, @classrooms.collect {|classroom| [classroom.classroom_grade.name_classroom_grade + " " + classroom.name_classroom, classroom.id]},{:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
   <div class="form-group">
@@ -81,7 +81,6 @@
       <%= f.date_field :birth_date, class:"form-control", placeholder:"Ex.: dd/mm/aaaa" %>
     </div>
   </div>
-
   <div class="form-group">
     <div class="input-group">
       <span class="input-group-addon">
@@ -98,14 +97,6 @@
       </div>
     </div>
   </div>
-
-  <div class="form-group">
-    <div class="field">
-       <p class="text-uppercase"><strong>Imagem</strong></p>
-      <%= f.file_field :image %>
-    </div>
-  </div>
-
   <div class="form-group">
     <%= f.label :bar_code, class:"sr-only" %>
     <div class="input-group">
@@ -116,6 +107,10 @@
       <%= f.text_field :bar_code, class:"form-control", placeholder:"Passe a carteirinha pelo leitor" %>
     </div>
   </div>
-
+  <div class="form-group">
+    <div class="field">
+     <input type="file" name="alumn[image]" id="alumn_image" class="filestyle" data-buttonBefore="true">
+    </div>
+  </div>
   <%= f.button '<span class="fa fa-check"></span> Salvar'.html_safe, type:"submit", class:'btn btn-lg btn-success' %>
 <% end %>

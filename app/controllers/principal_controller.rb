@@ -18,6 +18,7 @@ class PrincipalController < ApplicationController
     if ( is_principal? )
       @principal = Employee.find(params[:id])
       if ( @principal.update(principal_params) )
+        flash[:notice] = "Diretor(a) alterado(a) com sucesso"
         redirect_to @principal
       else
         render 'edit'

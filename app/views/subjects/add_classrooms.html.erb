@@ -1,4 +1,10 @@
 <%= render "layouts/navbar" %>
+
+<% if flash[:success]%>
+<br>
+<br>
+<div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+<% end %>
 <% if flash[:alert]%>
 <br>
 <br>

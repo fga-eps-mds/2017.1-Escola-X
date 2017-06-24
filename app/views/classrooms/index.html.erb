@@ -1,4 +1,9 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+<% if flash[:notice]%>
+ <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+<% end %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Turmas</h1>
 <hr>
 
@@ -29,10 +34,13 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-7 pull-right">
+          <%if is_principal? or is_secretary? %>
+          <%= link_to '<span class="fa fa-address-card"></span> Gerar XLS'.html_safe, classroom_path(classroom.id,format: "xls"),class: 'btn btn-sm btn-success' %>
+          <% end %>
           <%if is_employee? %>
             <%if is_principal? %>
               <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(classroom), class:"btn btn-sm btn-default" %>
-              <%= link_to '<span class="fa fa-times"></span> Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+              <%= link_to '<span class="fa fa-search"></span> Visualizar'.html_safe, classroom_path(classroom), class:'btn btn-sm btn-info'%>
               <%= link_to '<span class="fa fa-user-plus"></span> Adicionar Alunos'.html_safe, add_alumns_path(classroom), class:"btn btn-sm btn-warning" %>
             <% end %>
             <%= link_to '<span class="fa fa-address-card"></span> Matérias'.html_safe, classroom_subjects_path(classroom), class:'btn btn-sm btn-primary' %>

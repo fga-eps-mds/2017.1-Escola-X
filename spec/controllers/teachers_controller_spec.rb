@@ -9,20 +9,20 @@ RSpec.describe TeachersController, type: :controller do
 	let(:valid_inputs) { { name:"Victor Hugo",phone:"61983104981",
                          address:"QR 602 Conjunto 06 Casa 05",
                          registry:"654321",employee_cpf:"02951294174",
-                         admission_date:"15/04/2012",shift:"Matutino",
+                         admission_date:"15/04/2012",
                          gender:"Masculino",birth_date:"09/07/1995",
                          password:"12345678"} }
   let(:valid_inputs_update) { { name:"Bolt",phone:"61983104981",
                          address:"QR 602 Conjunto 06 Casa 05",
                          registry:"654321",employee_cpf:"02951294174",
-                         admission_date:"15/04/2012",shift:"Matutino",
+                         admission_date:"15/04/2012",
                          gender:"M",birth_date:"09/07/1995",
                          password:"12345678"} }
 
   let(:invalid_inputs) { { name:"Nai",phone:"1234",
                            address:"QR 05",
                            registry:"12443",employee_cpf:"77777777",
-                           shift:"Diurno", gender:"F",
+                           gender:"F",
                            birth_date:"23 de maio de 1994",
                            password:"12348",admission_date:""} }
 
@@ -30,7 +30,7 @@ RSpec.describe TeachersController, type: :controller do
     teacher = Teacher.create(name:"Victor Hugo",phone:"61983104981",
                            	 address:"QR 602 Conjunto 06 Casa 05",
                            	 registry:"654321",employee_cpf:"02951294174",
-                           	 admission_date:"15/04/2012",shift:"Matutino",
+                           	 admission_date:"15/04/2012",
                            	 gender:"M",birth_date:"09/07/1995",
                              password:"12345678")
   end

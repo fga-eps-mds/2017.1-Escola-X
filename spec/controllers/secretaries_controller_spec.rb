@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe SecretariesController, type: :controller do
 
 	let(:valid_inputs) { { employee_cpf: "06057577124", admission_date: "03/01/1996",
-						   shift: "Matutino", name: "Jose Apolinario da Silva",
+						   name: "Jose Apolinario da Silva",
 						   address: "Rua Laranjeiras 456", phone: "60991907175",
 						   gender: "Masculino", birth_date: "02/02/2012",
 						   password: "12345678", permission:"Secretary", registry:"555444"} }
 
 	let(:invalid_inputs) { { employee_cpf: "8", admission_date: "03/01/1996",
-						   shift: "Matutino", name: "Jose Apolinario da Silva",
+							 name: "Jose Apolinario da Silva",
 						   address: "Rua Laranjeiras 456", phone: "60991907175",
 						   gender: "Masculino", birth_date: "02/02/2012",permission:" ", registry:"1"} }
 
