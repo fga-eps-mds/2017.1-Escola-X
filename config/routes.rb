@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   get '/alumns/:id/report', to: 'alumns#report', as: 'alumn_report'
 
-
+  get '/login_helper', to: 'sessions#login_helper', as: 'login_helper'
   get '/reader/index' , to: 'reader#index'
 
   namespace :api, defaults: { format: :json } do
