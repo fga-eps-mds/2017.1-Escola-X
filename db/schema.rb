@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170624012553) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "classroom_id"
+    t.         "photo"
     t.integer  "shift_id"
     t.index ["classroom_id"], name: "index_alumns_on_classroom_id"
     t.index ["parent_id"], name: "index_alumns_on_parent_id"
