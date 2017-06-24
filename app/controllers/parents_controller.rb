@@ -106,7 +106,6 @@ class ParentsController < ApplicationController
                                    :address,
                                    :phone,
                                    :gender,
-                                   :birth_date,
-                                   :password)
+                                   :birth_date)
   end
 end

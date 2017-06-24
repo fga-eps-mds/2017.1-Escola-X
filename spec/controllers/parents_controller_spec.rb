@@ -12,11 +12,14 @@ RSpec.describe ParentsController, type: :controller do
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", parent_cpf:"06057577124"} }
 
-  let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
+  let(:invalid_inputs) { { name: nil, phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr",parent_cpf:"77777777"} }
 
-  let(:invalid_inputs_password) { { password: "123"} }
+  let(:invalid_inputs_password) { { name: "Michael Cera", phone:"61988885555",
+                         address:"Rua Vida Casa 15,Taguatinga",
+                         gender:"M",birth_date:"07/06/1988", parent_cpf:"06057577124",
+                         password: "123"} }
 
   describe "GET new" do
     before(:each) do
@@ -236,7 +239,7 @@ RSpec.describe ParentsController, type: :controller do
     end
 
     describe "with invalid params" do
-      it "assigns the alumn as @alumn" do
+      it "assigns the parent as @user" do
         parent = Parent.create! valid_inputs
         put :update_password_parent, params:{id: parent.to_param, parent: invalid_inputs_password }
         expect(assigns(:user)).to eq(parent)

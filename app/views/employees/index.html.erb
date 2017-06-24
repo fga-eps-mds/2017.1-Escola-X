@@ -20,7 +20,11 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2><%= employee.name %></h2>
         <h4> <%= employee.address %> </h4>
-        <h4> <%= employee.birth_date.day %>/<%= employee.birth_date.month %>/<%= employee.birth_date.year %> </h4>
+        <h4>Data de Nascimento:  
+          <% if(!employee.birth_date.nil?)%>
+              <%= employee.birth_date.strftime("%d/%m/%Y") %>
+          <%end%>
+        </h4>     
         <h4> <%= employee.gender %> </h4>
         <h4> <%= employee.phone %> </h4>
         <h4><%= employee.registry %></h4>
