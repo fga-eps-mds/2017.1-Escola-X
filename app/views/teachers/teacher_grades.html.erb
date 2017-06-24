@@ -1,7 +1,7 @@
 <%= render "layouts/navbar" %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de alunos</h1>
 <hr>
-<section class="content-section" id="alunos-desc">
+<section class="content-section" id="alumns-desc">
   <div class="container">
     <table class="table table-bordered">
       <thead>
@@ -27,8 +27,5 @@
     </table>
   </div>
 <hr>
-  <div align="center">
-    <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, teacher_classroom_subjects_path(params[:teacher_id], params[:classroom_id]), class:'btn btn-info' %>
-  </div>
 </section>
 

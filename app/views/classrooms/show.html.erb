@@ -7,10 +7,9 @@
  <% if flash[:notice]%>
   <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
  <% end %>
-<section class="content-section" id="alunos-desc">
+<section class="content-section" id="alumns-desc">
   <div class="container">
     <div class="pull-right">
-      <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, :back, class:'btn btn-sm btn-info' %>
       <%if @current_user.is_a?(Employee) %>
         <%if @current_user.permission=="Principal" %>
           <%= link_to '<span class="fa fa-edit"></span> Editar'.html_safe, edit_classroom_path(@classroom), class:"btn btn-sm btn-default" %>

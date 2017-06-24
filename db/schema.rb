@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 20170617182757) do
   create_table "classrooms", force: :cascade do |t|
     t.string   "name_classroom"
     t.string   "shift_classroom"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "classroom_grades_id"
-    t.integer  "shifts_id"
-    t.index ["classroom_grades_id"], name: "index_classrooms_on_classroom_grades_id"
-    t.index ["shifts_id"], name: "index_classrooms_on_shifts_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "classroom_grade_id"
+    t.integer  "shift_id"
+    t.index ["classroom_grade_id"], name: "index_classrooms_on_classroom_grade_id"
+    t.index ["shift_id"], name: "index_classrooms_on_shift_id"
   end
 
   create_table "day_of_classes", force: :cascade do |t|
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
   create_table "employees", force: :cascade do |t|
     t.integer  "registry"
     t.string   "employee_cpf"
-    t.string   "admission_date"
+    t.date     "admission_date"
     t.string   "shift"
     t.string   "name"
     t.string   "address"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170617182757) do
 
   create_table "parents", force: :cascade do |t|
     t.string   "name"
+    t.string   "login"
     t.string   "address"
     t.string   "phone"
     t.string   "gender"

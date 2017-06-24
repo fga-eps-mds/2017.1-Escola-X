@@ -78,9 +78,9 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
         expect(assigns(:alumn)).to be_persisted
       end
 
-      it "redirects to @suspension page" do
+      it "redirects to @alumn page" do
        post :create, params: {suspension: valid_inputs_suspension,alumn_id:alumn.id}
-       expect(response).to redirect_to suspension_path(assigns(:suspension))
+       expect(response).to redirect_to alumn_path(assigns(:alumn))
      end
     end
 
