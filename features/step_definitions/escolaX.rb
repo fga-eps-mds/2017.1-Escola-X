@@ -366,7 +366,7 @@ And (/^I fill in "Admissão" with "19082001"$/) do
 	principal_admission_date.send_keys "19082001"
 end
 
-And (/^I fill in "Senha" with "1234567"$/) do
+And (/^I fill in "Senha" with "12345678"$/) do
 	principal_password = driver.find_element(:name, 'principal[password]')
 	principal_password.send_keys "12345678"
 end
@@ -451,6 +451,10 @@ When (/^I press "Edit Notification" button$/) do
 	driver.get('http://localhost:3000/notifications/1/edit')
 end
 
+When (/^I press "Edit Notification Secretary" button$/) do
+	driver.get('http://localhost:3000/notifications/3/edit')
+end
+
 When (/^I had register a suspension$/) do
 	driver.get('http://localhost:3000/suspensions/1')
 end
@@ -460,7 +464,7 @@ And (/^I press "Visualizar Suspensões" button$/) do
 end
 
 When (/^I press "Visualizar Advertencias" button$/) do
-	driver.get('http://localhost:3000/alumns/1/strikes')
+	driver.get('http://localhost:3000/alumns/4/strikes')
 end
 
 And (/^I press "Visualizar Advertencia" button$/) do
@@ -487,8 +491,8 @@ When (/^I press "Alunos" button$/) do
 	driver.get('http://localhost:3000/alumns')
 end
 
-And (/^I press "Visualizar" button$/) do
-	driver.get('http://localhost:3000/alumns/1')
+And (/^I press "Visualizar para excluir" button$/) do
+	driver.get('http://localhost:3000/alumns/4')
 end
 
 And (/^I press "Visualizar Aluno" button$/) do
@@ -504,7 +508,7 @@ And (/^I press "Visualizar Responsável" button$/) do
 end
 
 And (/^I press "Visualizar Secretário" button$/) do
-	driver.get('http://localhost:3000/secretaries/6')
+	driver.get('http://localhost:3000/secretaries/7')
 end
 
 And (/^I press "Visualizar Professor" button$/) do
@@ -516,10 +520,10 @@ And (/^I press "Visualizar Suspensão" button$/) do
 end
 
 And (/^I press "Visualizar Advertencia do Aluno" button$/) do
-	driver.get('http://localhost:3000/alumns/1/strikes/3')
+	driver.get('http://localhost:3000/alumns/4/strikes/1')
 end
 
-When (/^I press "Matéria" button$/) do
+When (/^I press "Visualizar" button$/) do
 	driver.get('http://localhost:3000/subjects')
 end
 
@@ -529,6 +533,10 @@ end
 
 And (/^I press "Dar Notas" button$/) do
 	driver.get('http://localhost:3000/classroom/1/subject/1/grades')
+end
+
+When (/^I press "Matéria" button$/) do
+	driver.get('http://localhost:3000/subjects')
 end
 
 And (/^I press "Nova Matéria" button$/) do
@@ -541,6 +549,10 @@ end
 
 When (/^I press "Melhor Notificação" button$/) do
 	driver.get('http://localhost:3000/notifications/1')
+end
+
+When (/^I press "Uma Notificação" button$/) do
+	driver.get('http://localhost:3000/notifications/3')
 end
 
 And (/^I press "Notificação" button$/) do
@@ -605,6 +617,10 @@ Then (/^I see notification$/) do
 	driver.get('http://localhost:3000/notifications/1')
 end
 
+Then (/^I see a notification$/) do
+	driver.get('http://localhost:3000/notifications/3')
+end
+
 Then (/^I see information$/) do
 	driver.get('http://localhost:3000/alumns/1')
 end
@@ -655,6 +671,10 @@ end
 
 Then (/^I see notification edited$/) do
 	driver.get('http://localhost:3000/notifications/1')
+end
+
+Then (/^I see a notification edited$/) do
+	driver.get('http://localhost:3000/notifications/3')
 end
 
 ##Alumn options
@@ -800,6 +820,10 @@ And (/^I press "Editar" button$/) do
 	driver.get('http://localhost:3000/notifications/1/edit')
 end
 
+And (/^I press "Professor editar" button$/) do
+	driver.get('http://localhost:3000/notifications/5/edit')
+end
+
 Then (/^I see edit page notification$/) do
 	driver.get('http://localhost:3000/notifications/1/edit')
 end
@@ -846,12 +870,24 @@ Then (/^I back to users/) do
 	driver.get('http://localhost:3000/users')
 end
 
+Then (/^I back to subjects/) do
+	driver.get('http://localhost:3000/subjects')
+end
+
+Then (/^I back to notifications/) do
+	driver.get('http://localhost:3000/notifications')
+end
+
 ## Delete options
 
 And (/^I click in "Delete" button$/) do
 	delete = driver.find_element(:name, 'delete')
 	delete.click
 	driver.switch_to.alert.accept
+end
+
+When (/^I press "Matéria para excluir" button$/) do
+	driver.get('http://localhost:3000/subjects/2')
 end
 
 ## Grades options

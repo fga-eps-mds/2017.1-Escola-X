@@ -1,8 +1,8 @@
 
 Feature: Teacher
 
-	To better manage the college, 
-	the principal must be able 
+	To better manage the college,
+	the principal must be able
 	to register a teacher.
 
 	Scenario: Teacher can see your home page
@@ -55,11 +55,10 @@ Feature: Teacher
   Scenario: Teacher can edit a notification
     Given I am logged in as teacher
     Then I logged as teacher
-    When I choose "Descubra" notification
-    And I press "Editar" button
-    Then I see edit page notification
+    When I press "Avisos" button
+    And I press "Professor editar" button
     And I fill in "Title" with "SOU UM FRACASSO"
     And I fill in "Motivo" with "POR FAVOR"
     And I fill in "Contéudo da notificação" with "NÃO É COISA DE MOMENTO, RAIVA PASSAGEIRA."
     And I click in "Salvar" button in edit page
-    Then I edit a notification    
+    Then I edit a notification

@@ -66,14 +66,6 @@ Feature: Principal
 		And I click in "Delete" button
 		Then I back to users
 
-	Scenario: Principal can delete secretaries
-		Given I am logged in as principal
-		Then I logged as principal
-		When I press "Funcionarios" button
-		And I press "Visualizar Secretário" button
-		And I click in "Delete" button
-		Then I back to users
-
 	Scenario: Principal can delete teachers
 		Given I am logged in as principal
 		Then I logged as principal
@@ -116,7 +108,7 @@ Feature: Principal
 	Scenario: Principal can delete strikes
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press "Visualizar" button
+		When I press "Visualizar para excluir" button
 		And I press "Visualizar Advertencias" button
 		And I press "Visualizar Advertencia do Aluno" button
 		And I click in "Delete" button
@@ -141,6 +133,14 @@ Feature: Principal
 		And I fill in fiend subject "Matrícula do Professor" with "369874"
 		When I press "Salvar" button
 		Then I register the subject
+
+	Scenario: Principal can delete subjects
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Matéria" button
+		And I press "Matéria para excluir" button
+		And I click in "Delete" button
+		Then I back to subjects
 
 	Scenario: Only principal can register teacher valid
 		Given I am logged in as principal
@@ -174,6 +174,14 @@ Feature: Principal
 		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the secretary and I go to page secretaries
+
+	Scenario: Principal can delete secretaries
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Secretário" button
+		And I click in "Delete" button
+		Then I back to users
 
 	Scenario: Principal can create notification
 		Given I am logged in as principal
@@ -210,6 +218,14 @@ Feature: Principal
 		And I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas, aventuras e divertimentos."
 		When I press "Salvar" button
 		Then I see notification edited
+
+	Scenario: Principal can delete a notification
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Avisos" button
+		And I press "Melhor Notificação" button
+		And I click in "Delete" button
+		Then I back to notifications
 
 	Scenario: Only principal can create classroom
 		Given I am logged in as principal
@@ -277,6 +293,6 @@ Feature: Principal
 		And I press "Visualizar Diretor" button
 		Then I see principal informations
 		When I press "Editar Senha do Diretor" button
-		And I fill in "Senha" with "1234567"
+		And I fill in "Senha" with "12345678"
 		And I press "Salvar Senha" button
 		Then I see principal informations

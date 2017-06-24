@@ -27,20 +27,20 @@ Feature: Secretary
 		Given I am logged in as secretary
 		Then I logged as secretary
 		When I press "Avisos" button
-		And I press "Melhor Notificação" button
-		Then I see nofications information
+		And I press "Uma Notificação" button
+		Then I see a nofication
 
 	Scenario: Secretary can edit a notification
 		Given I am logged in as secretary
 		Then I logged as secretary
 		When I press "Avisos" button
-		And I press "Melhor Notificação" button
-		When I press "Edit Notification" button
+		And I press "Uma Notificação" button
+		When I press "Edit Notification Secretary" button
 		And I fill in "Título" with "Super Gincana Beneficiente - Parte 2"
 		And I fill in "Motivo" with "Arrecadar fundos pra formatura do pessoal de Softy e de Aero"
 		And I fill in "Conteúdo da Notificação" with "Muitos jogos, gincanas, aventuras e divertimentos."
 		When I press "Salvar" button
-		Then I see notification edited
+		Then I see a notification edited
 
 	Scenario: Secretary can see all secretaries
 		Given I am logged in as secretary
