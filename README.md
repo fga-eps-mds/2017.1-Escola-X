@@ -10,7 +10,7 @@
 
 # 2017.1 - Escola Centro de Ensino Médio 01 do Gama (CG).
 
-Escola X é um software livre de gerenciamento e controle de presenças de alunos e notificação aos respectivos responsáveis. (aos pais) O sistema foi inicialmente desenvolvido por estudantes do curso de Engenharia de Software da UnB-Gama como projeto das disciplinas Método de Desenvolvimento de Software e Gerência de Gestão de Portifólios e Projetos de Software.
+<p align="justify">Escola X é um software livre de gerenciamento e controle de presenças de alunos e notificação aos respectivos responsáveis. O sistema foi inicialmente desenvolvido por estudantes do curso de Engenharia de Software da UnB-Gama como projeto das disciplinas Método de Desenvolvimento de Software e Gerência de Gestão de Portifólios e Projetos de Software.</p>
 
 Escola X foi desenvolvido com a finalidade de atender a demanda e necessidade do Centro de Ensino Médio 01 (CG), escola localizada na cidade do Gama - DF.
 
@@ -25,7 +25,7 @@ Primeiro passo para a instalação do projeto é baixar o repositório com o seg
 
 ```git clone https://github.com/fga-gpp-mds/2017.1-Escola-X.git```
 
-Após clonar o repositório, configure o vangrat seguindo o tutorial do plano de gerenciamento de configuração (https://github.com/fga-gpp-mds/2017.1-Escola-X/wiki/Plano-de-Gerenciamento-de-Configura%C3%A7%C3%A3o#21-instala%C3%A7%C3%A3o-do-vagrant)
+<p align="justify">Após clonar o repositório, configure o vangrat seguindo o tutorial do plano de gerenciamento de configuração <a href="https://github.com/fga-gpp-mds/2017.1-Escola-X/wiki/Plano-de-Gerenciamento-de-Configura%C3%A7%C3%A3o#21-instala%C3%A7%C3%A3o-do-vagrant">aqui</a>.</p>
 
 Após configurar o vangrat, rode os seguintes comandos na máquina virtual. 
 
@@ -40,7 +40,16 @@ Para rodar o servidor localmente:
 Acesse a aplicação através do link: http://0.0.0.0:3000
 
 
+# Principais funcionalidades
 
-# Principais features
-
-
+- Gerenciamento de alunos
+- Manter funcionário
+- Gerenciar turma
+- Controle de Presença e Notas
+- Gerar boletim
+- Relatório Geral
+- Notificação aos Pais
+- Manter notificação
+- Manter suspensão
+- Manter advertência
+- Enviar SMS    
