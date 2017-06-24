@@ -26,7 +26,6 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2> <%= parent.name %></h2>
         <h4> <%= parent.address %> </h4>
-        <h4>Data de Nascimento:  
           <% if(!parent.birth_date.nil?)%>
               <%= parent.birth_date.strftime("%d/%m/%Y") %>
           <%end%> 
