@@ -20,11 +20,11 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2><%= employee.name %></h2>
         <h4> <%= employee.address %> </h4>
-        <h4>Data de Nascimento:  
+        <h4>Data de Nascimento:
           <% if(!employee.birth_date.nil?)%>
               <%= employee.birth_date.strftime("%d/%m/%Y") %>
           <%end%>
-        </h4>     
+        </h4>
         <h4> <%= employee.gender %> </h4>
         <h4> <%= employee.phone %> </h4>
         <h4><%= employee.registry %></h4>
@@ -39,7 +39,7 @@
         <% if (employee.is_a?(Secretary)) %>
           <h5 class="text-warning">Secretário</h5>
           <%= link_to '<span class="fa fa-search"></span> Visualizar'.html_safe, secretary_path(employee), class:'btn btn-info' %>
-        <% end %
+        <% end %>
         <%if is_principal? %>
           <%= link_to '<span class="fa fa-unlock"></span> Resetar senha'.html_safe, edit_password_employee_path(employee), class:'btn btn-default' %>
         <% end %>
