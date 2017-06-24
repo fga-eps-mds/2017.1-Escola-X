@@ -65,3 +65,16 @@ Feature: Secretary
 		Then I logged as secretary
 		When I press "Logout" button
     Then I logged out
+
+	Scenario: Secretary can give a grade for an alumn
+		Given I am logged in as secretary
+		Then I logged as secretary
+		When I press "Visualizar Turmas" button
+		And I press "Matérias da Turma" button
+		And I press "Dar Notas" button
+		And I fill in "1º" with "10.0"
+		And I fill in "2º" with "10.0"
+		And I fill in "3º" with "10.0"
+		And I fill in "4º" with "10.0"
+		And I click in "Salvar Notas" button
+		Then I see saved grades

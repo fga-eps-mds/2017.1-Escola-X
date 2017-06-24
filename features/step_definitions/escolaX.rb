@@ -523,6 +523,14 @@ When (/^I press "Matéria" button$/) do
 	driver.get('http://localhost:3000/subjects')
 end
 
+And (/^I press "Matérias da Turma" button$/) do
+	driver.get('http://localhost:3000/classroom/1/classroom_subjects')
+end
+
+And (/^I press "Dar Notas" button$/) do
+	driver.get('http://localhost:3000/classroom/1/subject/1/grades')
+end
+
 And (/^I press "Nova Matéria" button$/) do
 	driver.get('http://localhost:3000/subjects/new')
 end
@@ -844,4 +852,39 @@ And (/^I click in "Delete" button$/) do
 	delete = driver.find_element(:name, 'delete')
 	delete.click
 	driver.switch_to.alert.accept
+end
+
+## Grades options
+
+And (/^I fill in "1º" with "10.0"$/) do
+	grade1 = driver.find_element(:name, 'grade[grade_01]')
+	grade1.clear
+	grade1.send_keys "10.0"
+end
+
+And (/^I fill in "2º" with "10.0"$/) do
+	grade2 = driver.find_element(:name, 'grade[grade_02]')
+	grade2.clear
+	grade2.send_keys "10.0"
+end
+
+And (/^I fill in "3º" with "10.0"$/) do
+	grade3 = driver.find_element(:name, 'grade[grade_03]')
+	grade3.clear
+	grade3.send_keys "10.0"
+end
+
+And (/^I fill in "4º" with "10.0"$/) do
+	grade4 = driver.find_element(:name, 'grade[grade_04]')
+	grade4.clear
+	grade4.send_keys "10.0"
+end
+
+And (/^I click in "Salvar Notas" button$/) do
+	button_save = driver.find_element(:name, 'commit')
+	button_save.click
+end
+
+Then (/^I see saved grades$/) do
+	driver.get('http://localhost:3000/classroom/1/subject/1/grades')
 end
