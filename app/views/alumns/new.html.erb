@@ -1,4 +1,9 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+ <% if flash[:success]%>
+  <div class="alert alert-success" role = "alert"><%= flash[:success]%></div>
+ <% end %>
 <section class="content-section" id="create">
   <div class="container">
     <div class="row">

@@ -1,4 +1,9 @@
 <%= render "layouts/navbar" %>
+<br>
+<br>
+<% if flash[:notice]%>
+ <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+<% end %>
 <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Turmas</h1>
 <hr>
 
@@ -23,8 +28,6 @@
     </div>
   <% end %>
 </div>
-<br>
-<%= render "layouts/feedback_messages" %>
 
 <section class="content-section" id="alunos-desc">
   <% @classrooms.each do |classroom| %>
