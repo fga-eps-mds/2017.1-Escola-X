@@ -25,17 +25,18 @@ class Parent < ApplicationRecord
   private
   def set_login
     # if(self.name != nil)
+      jao =  self.name.downcase
       names = Array.new
-      names = self.name.split(' ')
+      names = jao.split(' ')
       self.login = names[0]+"."+names[names.length-1]
     # end
   end
 
   def set_password
     if(self.name != nil)
-      name = self.name.downcase!
+      name = self.name.downcase
       names = Array.new
-      names = name.split(' ')  
+      names = name.split(' ')
       self.password = "1234" + names[0][0] + names[names.length-1][0]
     end
   end
