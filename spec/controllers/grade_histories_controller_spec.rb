@@ -13,10 +13,10 @@ RSpec.describe GradeHistoriesController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino"} }
+                         parent_id: parent.id} }
 
   let(:secretary_inputs) { { employee_cpf: "06057577124", admission_date: "03/01/1996",
-  						   shift: "Matutino", name: "Jose Apolinario da Silva",
+                 name: "Jose Apolinario da Silva",
   						   address: "Rua Laranjeiras 456", phone: "60991907175",
   						   gender: "Masculino", birth_date: "02/02/2012",
   						   password: "12345678", permission:"Secretary", registry:"555444"} }
@@ -52,7 +52,7 @@ RSpec.describe GradeHistoriesController, type: :controller do
     before(:each) do
       login_principal
     end
-    
+
     it "assigns all grade histories to @grade_histories" do
       alumn = Alumn.create alumn_inputs
       subject = Subject.create subject_inputs

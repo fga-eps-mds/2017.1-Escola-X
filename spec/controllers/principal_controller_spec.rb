@@ -8,14 +8,14 @@ end
 RSpec.describe PrincipalController, type: :controller do
   let(:valid_inputs) { { name: "Michael Cera", phone:"61988885555",
                          password: "12345678", gender:"M",
-                         birth_date:"07/06/1970", shift: "diurno",
+                         birth_date:"07/06/1970",
                          admission_date: "08/09/2007",
                          address: "samambaia Norte", employee_cpf: "26184391208",
                          registry:"123456",} }
 
   let(:invalid_inputs) { { name: "Michael Cera", phone:"61988885555",
                          password: "12345678", gender:"M",
-                         birth_date:"07/06/1970", shift: "",
+                         birth_date:"07/06/1970",
                          admission_date: "08/09/2007",
                          address: "samambaia Norte", employee_cpf: "",
                          registry:"1234",} }

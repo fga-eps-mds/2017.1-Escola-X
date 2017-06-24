@@ -4,7 +4,7 @@ module Helpers
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"834958",
-                            employee_cpf:"06057577124",shift:"Diurno")
+                            employee_cpf:"06057577124")
     cookies[:authorization_token] = user.authorization_token
   end
 
@@ -13,7 +13,7 @@ module Helpers
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"036528",
-                            employee_cpf:"06057577124",shift:"Matutino")
+                            employee_cpf:"06057577124")
     cookies[:authorization_token] = secretary.authorization_token
   end
 
@@ -30,7 +30,7 @@ module Helpers
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"Masculino",
                            birth_date:"07/06/1988", registry:"707070",
-                           shift:"matutino",parent_id: 5,
+                           parent_id: 5,
                            classroom_id: 1 , bar_code:"183942")
     cookies[:authorization_token] = alumn.authorization_token
 
@@ -39,7 +39,7 @@ module Helpers
   def login_alumn
     alumn = Alumn.create(name: 'Paul Bleeker', address: 'rua do pao',
             phone: '6140028922', password: '12648678', birth_date: '10-10-1991',
-            registry: '664523', shift: "matutino", gender:"Masculino",
+            registry: '664523', gender:"Masculino",
             parent_id: 1  , bar_code:"444950")
     cookies[:authorization_token] = parent.authorization_token
   end
@@ -56,7 +56,7 @@ module Helpers
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"Masculino",
                            birth_date:"07/06/1988", registry:"985679",
-                           shift:"matutino",parent_id:parent.id,
+                           parent_id:parent.id,
                            classroom_id:classroom.id , bar_code:"283940")
   end
 
@@ -65,7 +65,7 @@ module Helpers
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"049561",
-                            employee_cpf:"06057577124",shift:"Vespertino")
+                            employee_cpf:"06057577124")
   end
 
   def secretary
@@ -73,7 +73,7 @@ module Helpers
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"036528",
-                            employee_cpf:"06057577124",shift:"Matutino")
+                            employee_cpf:"06057577124")
   end
 
   def teacher
@@ -81,14 +81,14 @@ module Helpers
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"224569",
-                            employee_cpf:"06057577124",shift:"matutino")
+                            employee_cpf:"06057577124")
   end
   def teacher2
     @teacher = Teacher.create(name: "Teacher insano", phone:"61988885555",
                             address:"Rua Vida Casa 15,Taguatinga",
                             password: "12345678", gender:"Masculino",
                             birth_date:"07/06/1988",registry:"951357",
-                            employee_cpf:"46247602391",shift:"matutino")
+                            employee_cpf:"46247602391")
   end
 
   def classroom

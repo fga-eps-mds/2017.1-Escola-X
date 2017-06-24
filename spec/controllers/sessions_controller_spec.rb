@@ -11,7 +11,7 @@ RSpec.describe SessionsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: parent.id, shift:"matutino",classroom_id:1 , bar_code:"114439"} }
+                         parent_id: parent.id, classroom_id:1 , bar_code:"114439"} }
 
   let(:parent_inputs) { { name: "Michael Cera", phone:"61988885555",
                         address:"Rua Vida Casa 15,Taguatinga",
@@ -19,7 +19,7 @@ RSpec.describe SessionsController, type: :controller do
                         birth_date:"07/06/1988", parent_cpf:"06057577124"} }
 
   let(:employee_inputs) { { employee_cpf: "06057577124", admission_date: "03/01/1996",
-                         shift: "Matutino", name: "Jose Apolinario da Silva",
+                         name: "Jose Apolinario da Silva",
                          address: "Rua Laranjeiras 456", phone: "60991907175",
                          gender: "Masculino", birth_date: "02/02/2012",
                          password: "12345678", permission:"Secretary", registry:"555444"} }

@@ -6,12 +6,12 @@ let(:valid_inputs_alumn) { { name:"Victor Hugo",phone:"6133593994",
 		  											 address:"QR 602 Conjunto 06 Casa 05",
 		  											 password:"12345678",gender:"M",
 		  											 birth_date:"09/07/1995", registry:"135795",
-		  											 parent_id: 1,shift:"Matutino" , bar_code:"184956"} }
+		  											 parent_id: 1, bar_code:"184956"} }
 
 let(:invalid_inputs_alumn) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
 			                           password: "12345", gender:"adfsd",
 			                           birth_date:"50 abr",registry:"8",
-			                           parent_id: -1, shift:"matutino", bar_code: "5"} }
+			                           parent_id: -1, bar_code: "5"} }
 
 let(:valid_inputs_suspension) { { title: "Trolando ao vivo", description: "Ao vivo",
 																	quantity_days: 4,date_suspension:"15/04/1912",alumn_id:alumn.id,employee_id:employee.id}}
@@ -34,7 +34,7 @@ let(:updated_inputs) { { title: "Não vai da não", description: "Sério não va
   											 address:"QR 602 Conjunto 06 Casa 05",
   											 password:"12345678",gender:"M",
   											 birth_date:"09/07/1995", registry:"135795",
-  											 parent_id: 1,shift:"Matutino" , bar_code:"285930")
+  											 parent_id: 1, bar_code:"285930")
   end
 
   def suspension
