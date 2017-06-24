@@ -3,7 +3,7 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
     create_table :employees do |t|
       t.integer :registry
       t.string :employee_cpf
-      t.string :admission_date
+      t.date :admission_date
       t.string :shift
 
       t.string :name

@@ -37,14 +37,6 @@ class Alumn < ApplicationRecord
                        :too_short => "deve possuir no mínimo 5 caracteres",
                        :too_long => "deve possuir no máximo 6 caracteres" }
 
-  validates :shift, presence: { message: "não pode estar em branco" },
-            length: { minimum: 7,
-                      maximum: 11,
-                      :too_short => "deve possuir no mínimo 7 caracteres",
-                      :too_long => "deve possuir no máximo 11 caracteres" }
-
-
-
   validates :name, presence: { message: "não pode estar em branco" },
             length: { minimum: 5,
                       maximum: 64,
@@ -53,9 +45,7 @@ class Alumn < ApplicationRecord
 
   validates :gender, presence: { message: "Não pode estar em branco." }
 
-  validates :bar_code, presence: { message: "Não pode estar em branco." },
-                        length: {minimum: 5,
-                                 :too_short => "Deve possuir no minimo 5 digitos"}
+  validates :bar_code, uniqueness: true
 
   def get_age
     DateTime.now.year - self.birth_date.year
@@ -68,6 +58,7 @@ class Alumn < ApplicationRecord
   def self.current
     @current_alumn
   end
+
 
   private
   def set_password

@@ -8,7 +8,6 @@ class Parent < ApplicationRecord
   before_save :set_login
   before_save :set_password
 
-
   validates :name, presence: { message: "não pode estar em branco" },
             length: { minimum: 5,
                       maximum: 64,

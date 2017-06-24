@@ -57,5 +57,8 @@ class Employee < ApplicationRecord
   def set_password
     self.password = self.employee_cpf
   end
-
+    
+  def self.search(search)
+    where("registry LIKE ? OR name LIKE ?", "#{search}", "%#{search}%")
+  end
 end
