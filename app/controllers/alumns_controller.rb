@@ -1,6 +1,6 @@
 # File name: alumns_controller.rb
 # Class name: AlumnsController
-# Description: Controller used to communicate with the proprietary view of alumns
+# Description: Controller used to communicate with the proprietary view of alumns 
  class AlumnsController < ApplicationController
   include SessionsHelper
 
@@ -8,25 +8,27 @@
     if ( is_parent? )
       @alumns = @current_user.alumns
     elsif ( is_employee? )
-      @alumns = Alumn.all
+      #@alumns = Alumn.all
+      @alumns = Alumn.paginate(:page => params[:page], :per_page => 10)
       @grades = Array.new
       @subjects = Subject.all
       respond_to do |format|
-      format.html
-      format.xls #{ send_data @alumns.to_csv  (col_sep: "\t")}
-
+        format.html
+        format.xls #{ send_data @alumns.to_csv  (col_sep: "\t")}
       end
+
       if params[:search]
         string_to_search = params[:search]
-        @alumns = Alumn.search(string_to_search.strip.upcase!).order("created_at DESC")
+        @alumns = Alumn.search(string_to_search.strip.upcase!).order("created_at ASC").
+                                                              paginate(:page => params[:page], :per_page => 10)
         if (@alumns.empty?)
            flash.now[:feedback] = "Nenhum(a) aluno(a) encontrado!"
         elsif (params[:search].blank?)
-           @alumns = Alumn.all.order('created_at DESC')
+           @alumns = Alumn.paginate(:page => params[:page], :per_page => 10)
           flash.now[:feedback_warning] = "Digite algo para pesquisar!"
         end
       else
-        @alumns = Alumn.all.order('created_at DESC')
+        @alumns = @alumns.all.order('created_at ASC')
       end
     else
       redirect_to "/errors/error_500"

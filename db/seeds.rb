@@ -115,8 +115,6 @@ Parent.create(name: 'KLEDEA MELãO FONTINELE DA SILVA')
 Alumn.create(name: 'ANA JULIA FONTINELES DA SILVA', registry: '541754', password: '541754', bar_code: '541754', gender: 'Feminino', classroom_id: Classroom.last.id, parent_id: Parent.last.id)
 Parent.create(name: 'MARIA BEATRIZ ARNETZ GALANTE SANTOS')
 Alumn.create(name: 'ANNA LOUISA ARNEITZ GALANTE SANTOS', registry: '23773', password: '23773', bar_code: '23773', gender: 'Masculino', classroom_id: Classroom.last.id, parent_id: Parent.last.id)
-case Rails.env
-when "production"
 Parent.create(name: 'NEUGILDA SOUSA DE FRANçA')
 Alumn.create(name: 'ANTONIA ISTEFFANY SOUSA COSTA ARAUJO', registry: '27292', password: '27292', bar_code: '27292', gender: 'Feminino', classroom_id: Classroom.last.id, parent_id: Parent.last.id)
 Parent.create(name: 'MARIA DE JESUS DA PAZ SOUSA', phone: '6185496605')
@@ -154,6 +152,8 @@ Alumn.create(name: 'GUILHERME FERNANDES BELARMINO', registry: '198511', password
 Parent.create(name: 'LUZIA MARIA DE BARROS', phone: '6199327135')
 Alumn.create(name: 'HUGO CARLOS DE BARROS', registry: '298595', password: '298595', bar_code: '298595', gender: 'Masculino', classroom_id: Classroom.last.id, parent_id: Parent.last.id, phone: '6199327135')
 Parent.create(name: 'CLEOMAR DA SILVA FALCAO RAMOS', phone: '6191846671')
+case Rails.env
+when "production"
 Alumn.create(name: 'ISAAC RAMOS COSTA NETO', registry: '23915', password: '23915', bar_code: '23915', gender: 'Masculino', classroom_id: Classroom.last.id, parent_id: Parent.last.id, phone: '6191846671')
 Parent.create(name: 'VANUSA MENDES DE PAIVA', phone: '6121921491')
 Alumn.create(name: 'JULIA KRISTINA MENDES DE SOUSA', registry: '630365', password: '630365', bar_code: '630365', gender: 'Feminino', classroom_id: Classroom.last.id, parent_id: Parent.last.id, phone: '6121921491')
