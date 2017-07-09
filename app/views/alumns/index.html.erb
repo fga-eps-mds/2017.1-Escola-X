@@ -15,6 +15,11 @@
    <% end %>
    <br>
 </div>
+<center>
+<div class="digg_pagination">
+      <%= will_paginate @alumns, :container => true %>
+</div>
+</center>
 <%= render "layouts/feedback_messages" %>
 <section class="content-section" id="alumns-list">
   <div class="container">
@@ -51,5 +56,9 @@
     <hr>
   <% end %>
   </div>
+  <center>
+    <div class="digg_pagination">
+      <%= will_paginate @alumns, :container => true %>
+    </div>   
+  </center>
 </section>
-<%= will_paginate @alumns %>        
