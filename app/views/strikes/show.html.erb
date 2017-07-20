@@ -13,12 +13,12 @@
       <div class="pull-right">
         <%if is_principal? %>
           <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_strike_path(@strike), class:"btn btn-sm btn-default" %>
-          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.'}, name:"delete"  %>
         <% end %>
       </div>
       <div class="row item">
         <div class="col-sm-12 col-md-8 descript">
-          <h3 class="">Data da advertência: <%= @strike.date_strike.day %>/<%= @strike.date_strike.month %>/<%= @strike.date_strike.year %></h3>
+          <h3 class="">Data da advertência: <%= @strike.date_strike.strftime('%d/%m/%Y') %></h3>
           <h3 class="">Descrição da advertência: <%= @strike.description_strike %></h3>
           <h3 class="">Quantidade de advertências do aluno: <%= @alumn.quantity_strike %></h3>
           <h3 class="">Nome do aluno: <%= @alumn.name %></h3>

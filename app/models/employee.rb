@@ -6,6 +6,7 @@ class Employee < ApplicationRecord
   has_many :strike
   has_many :suspension
   has_many :grade_histories
+  belongs_to :shift
 
   has_secure_password validations: false
 
@@ -17,11 +18,6 @@ class Employee < ApplicationRecord
 
   validates :employee_cpf, :cpf => true
 
-  validates :shift, presence: { message: "não pode estar em branco" },
-            length: { minimum: 6,
-                      maximum: 11,
-                      :too_short => "deve possuir no mínimo 6 caracteres",
-                      :too_long => "deve possuir no máximo 11 caracteres" }
 
   validates :gender, presence: { message: "Não pode estar em branco." }
 

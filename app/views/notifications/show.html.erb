@@ -10,13 +10,13 @@
 <section class="content-section" id="notification">
   <div class="container">
     <div class="text-center">
-      
+
       <%if is_employee? %>
         <%if @current_user.id == @notification.employee_id %>
           <%= link_to '<span class="fa fa-edit"></span>Editar'.html_safe, edit_notification_path(@notification), class:"btn btn-sm btn-default" %>
         <%end%>
         <%if is_principal? %>
-          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' } %>
+          <%= link_to '<span class="fa fa-times"></span>Excluir'.html_safe, "", method: :delete, class:'btn btn-sm btn-danger', data: { confirm: 'Tem certeza? Essa alteração não pode ser desfeita.' }, name:"delete" %>
         <% end %>
       <% end %>
     </div>
@@ -28,7 +28,7 @@
         <h3><%= @notification.title %></h3>
         <h4>Motivo: <%= @notification.motive %></h4>
         <h5>De: <%= @assignee %></h5>
-        <h5>Criado em: <%= @notification.notification_date.day %>/<%= @notification.notification_date.month %>/<%= @notification.notification_date.year %></h5>
+        <h5>Criado em: <%= @notification.notification_date.strftime('%d/%m/%Y') %></h5>
       </div>
     </div>
   </div>

@@ -57,8 +57,13 @@
     </div>
   </div>
 </nav>
-
+<% if flash[:notice]%>
+<br>
+<br>
+ <div class="alert alert-warning" role = "alert"><%= flash[:notice]%></div>
+<% end %>
 <section class="content-section" id="alumns-desc">
+
   <div class="container">
     <div class="pull-right">
       <%= link_to '<span class="fa fa-arrow-left"></span> Voltar'.html_safe, users_path, class:'btn btn-sm btn-crown-of-thorns' %>
@@ -78,8 +83,8 @@
         <h4>Endereço: <%= @principal.address %></h4>
         <h4>Matrícula: <%= @principal.registry %></h4>
         <h4>CPF: <%= @principal.employee_cpf %></h4>
-        <h4>Data de Nascimento: <%= @principal.birth_date.day %>/<%= @principal.birth_date.month %>/<%= @principal.birth_date.year %></h4>
-        <h4>Admissão: <%= @principal.admission_date.day %>/<%= @principal.admission_date.month %>/<%= @principal.admission_date.year %></h4>
+        <h4>Data de Nascimento: <%= @principal.birth_date.strftime('%d/%m/%Y') %></h4>
+        <h4>Admissão: <%= @principal.admission_date.strftime('%d/%m/%Y') %></h4>
       </div>
     </div>
   </div>

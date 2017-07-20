@@ -61,16 +61,16 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :shift, class:"sr-only" %>
+    <%= f.label :classroom_id, class:"sr-only", id: "sel1" %>
     <div class="input-group">
       <span class="input-group-addon">
         <span class="fa fa-clock-o"></span>
         Turno
       </span>
-      <%= f.text_field :shift, class:"form-control", placeholder:"Ex.: matutino" %>
+      <%= f.select :shift_id, @shifts.collect {|shift| [shift.name_shift, shift.id]}, {:include_blank => false}, {:class => "form-control", :id => "sel1"}%>
     </div>
   </div>
-
+  
   <div class="form-group">
     <%= f.label :address, class:"sr-only" %>
     <div class="input-group">
@@ -111,10 +111,10 @@
          Sexo
       </span>
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-radio">
+        <label class="btn btn-radio" name="btn1" >
           <%= f.radio_button(:gender,"Feminino") %> Feminino
         </label>
-        <label class="btn btn-radio">
+        <label class="btn btn-radio" name="btn2" >
           <%= f.radio_button(:gender,"Masculino") %> Masculino
         </label>
       </div>

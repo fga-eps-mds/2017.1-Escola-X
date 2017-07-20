@@ -2,7 +2,7 @@
 #Class name: Parent
 #Description:Validates parent's attributes
 class Parent < ApplicationRecord
-  has_many :alumns
+  has_many :alumns, dependent: :destroy
   validates :parent_cpf, :cpf => false
   has_secure_password validations: false
   before_save :set_login
@@ -25,17 +25,18 @@ class Parent < ApplicationRecord
   private
   def set_login
     # if(self.name != nil)
+      jao =  self.name.downcase
       names = Array.new
-      names = self.name.split(' ')
+      names = jao.split(' ')
       self.login = names[0]+"."+names[names.length-1]
     # end
   end
 
   def set_password
     if(self.name != nil)
-      name = self.name.downcase!
+      name = self.name.downcase
       names = Array.new
-      names = name.split(' ')  
+      names = name.split(' ')
       self.password = "1234" + names[0][0] + names[names.length-1][0]
     end
   end
@@ -44,6 +45,10 @@ class Parent < ApplicationRecord
     begin
       self[column]= SecureRandom.urlsafe_base64
     end while Parent.exists?(column => self[column])
+  end
+
+  def self.search(search)
+    where(" name LIKE ?",  "%#{search}%")
   end
 
 end

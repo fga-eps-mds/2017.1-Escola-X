@@ -16,7 +16,7 @@ RSpec.describe ClassroomsController, type: :controller do
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
                            birth_date:"07/06/1988", registry:"123456",
-                           shift:"matutino",parent_id:parent.id,
+                           parent_id:parent.id,
                            classroom_id: "1", bar_code:"123456")
   end
 
@@ -25,7 +25,7 @@ RSpec.describe ClassroomsController, type: :controller do
                            address:"Rua Vida Casa 15,Taguatinga",
                            password: "12345678", gender:"M",
                            birth_date:"07/06/1988", registry:"654321",
-                           shift:"matutino",parent_id:parent.id,
+                           parent_id:parent.id,
                            classroom_id: "1", bar_code:"485930")
   end
 
@@ -41,7 +41,7 @@ RSpec.describe ClassroomsController, type: :controller do
       end
     end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
@@ -49,7 +49,7 @@ RSpec.describe ClassroomsController, type: :controller do
         get :new, {}
         expect(request).to redirect_to('/errors/error_500')
 
-      end 
+      end
     end
   end
 
@@ -70,14 +70,14 @@ RSpec.describe ClassroomsController, type: :controller do
         get :index
         expect(response).to render_template("index")
       end
-    end 
+    end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
 
-      it "redirect to wrong permissions" do 
+      it "redirect to wrong permissions" do
         get :index
         expect(response).to redirect_to("/errors/error_500")
       end
@@ -99,13 +99,13 @@ RSpec.describe ClassroomsController, type: :controller do
         get :show, params:{id: classroom.to_param, template: 'classrooms/:id'}
         expect(response).to render_template("show")
       end
-    end 
+    end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
-      it "redirect to error_500" do 
+      it "redirect to error_500" do
         classroom = Classroom.create!(valid_inputs)
         get :show, params:{id: classroom.to_param, template: 'classrooms/:id'}
         expect(response).to redirect_to("/errors/error_500")
@@ -125,11 +125,11 @@ RSpec.describe ClassroomsController, type: :controller do
       end
     end
 
-    describe "with wrong permissions" do 
-      before (:each) do 
+    describe "with wrong permissions" do
+      before (:each) do
         login_parent
       end
-      it "redirect to error_500" do 
+      it "redirect to error_500" do
         classroom = Classroom.create!(valid_inputs)
         get :edit, params:{id: classroom.to_param}
         expect(request).to redirect_to('/errors/error_500')
@@ -138,7 +138,7 @@ RSpec.describe ClassroomsController, type: :controller do
   end
 
   describe "POST create" do
-    
+
     describe "with right permissions" do
       before(:each) do
         login_principal
@@ -187,7 +187,7 @@ RSpec.describe ClassroomsController, type: :controller do
         login_parent
       end
 
-      it "redirect to error_500" do 
+      it "redirect to error_500" do
         post :create, params: {classroom: valid_inputs}
           expect(response).to redirect_to "/errors/error_500"
       end
@@ -195,7 +195,7 @@ RSpec.describe ClassroomsController, type: :controller do
   end
 
   describe "DELETE delete" do
-     
+
     before(:each) do
       login_principal
     end
@@ -205,11 +205,11 @@ RSpec.describe ClassroomsController, type: :controller do
         delete :destroy, params:{id: classroom}
       }.to change(Classroom, :count).by(-1)
     end
-    
+
   end
 
   describe "PUT update" do
-    describe "with right permissions" do 
+    describe "with right permissions" do
       before(:each) do
         login_principal
       end
@@ -255,12 +255,12 @@ RSpec.describe ClassroomsController, type: :controller do
       end
     end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
 
-      it "redirect to error_500" do 
+      it "redirect to error_500" do
         classroom = Classroom.create! valid_inputs
           put :update, params:{id: classroom.to_param, classroom: valid_inputs}
           expect(response).to redirect_to "/errors/error_500"
@@ -269,7 +269,7 @@ RSpec.describe ClassroomsController, type: :controller do
   end
 
   describe "GET add_alumns" do
-    describe "with right permissions" do 
+    describe "with right permissions" do
       before(:each) do
         login_principal
       end
@@ -286,13 +286,13 @@ RSpec.describe ClassroomsController, type: :controller do
                               address:"Rua Vida Casa 15,Taguatinga",
                               password: "12345678", gender:"M",
                               birth_date:"07/06/1988", registry:"654321",
-                              shift:"matutino",parent_id:parent.id,
+                              parent_id:parent.id,
                               classroom_id:classroom.id , bar_code:"483952")
         alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                               address:"Rua Vida Casa 15,Taguatinga",
                               password: "12345678", gender:"M",
                               birth_date:"07/06/1988", registry:"555123",
-                              shift:"matutino",parent_id:parent.id,
+                              parent_id:parent.id,
                               classroom_id:classroom.id , bar_code:"586948")
         classroom.alumns = alumn1, alumn2
         get :add_alumns, params:{:id => classroom.to_param }
@@ -300,12 +300,12 @@ RSpec.describe ClassroomsController, type: :controller do
       end
     end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_alumn
       end
 
-      it "redirects to error_500" do 
+      it "redirects to error_500" do
         get :add_alumns , params:{id: 1}
         expect(request).to redirect_to "/errors/error_500"
       end
@@ -314,7 +314,7 @@ RSpec.describe ClassroomsController, type: :controller do
   end
 
   describe "POST add_alumn" do
-    describe "with right permissions" do 
+    describe "with right permissions" do
       before(:each) do
         login_principal
       end
@@ -326,13 +326,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"555685")
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id, bar_code:"339504")
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => alumn.registry }
@@ -345,13 +345,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"495049")
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"234239")
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => alumn.registry }
@@ -367,13 +367,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"339405")
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"3346405")
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => nil }
@@ -386,13 +386,13 @@ RSpec.describe ClassroomsController, type: :controller do
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"3394265")
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"555123",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"339555")
           classroom.alumns = alumn1, alumn2
           post :add_alumn, params:{:id => classroom.to_param, :registry => nil }
@@ -400,28 +400,28 @@ RSpec.describe ClassroomsController, type: :controller do
         end
 
       end
-    end 
+    end
 
-    describe "with wrong permissions" do 
+    describe "with wrong permissions" do
       before(:each) do
         login_parent
       end
 
-      it  "redirects error_500 page" do 
+      it  "redirects error_500 page" do
         classroom = Classroom.create!(valid_inputs)
           alumn1 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"654321",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id, bar_code:"129405")
           alumn2 = Alumn.create!(name: "Michael Cera", phone:"61988885555",
                                 address:"Rua Vida Casa 15,Taguatinga",
                                 password: "12345678", gender:"M",
                                 birth_date:"07/06/1988", registry:"616321",
-                                shift:"matutino",parent_id:parent.id,
+                                parent_id:parent.id,
                                 classroom_id:classroom.id , bar_code:"694405")
-          
+
         classroom.alumns = alumn1 , alumn2
         post :add_alumn, params:{id: classroom, registry: alumn }
         expect(response).to redirect_to "/errors/error_500"

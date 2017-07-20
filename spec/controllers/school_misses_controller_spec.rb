@@ -51,7 +51,7 @@ RSpec.describe SchoolMissesController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"123456",
-                         parent_id: 1, shift:"matutino" , bar_code:"295849")
+                         parent_id: 1, bar_code:"295849")
 			  Alumn.current = alumn
       end
       describe "With valid params" do
@@ -88,7 +88,7 @@ RSpec.describe SchoolMissesController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"123456",
-                         parent_id: 1, shift:"matutino" , bar_code:"384950")
+                         parent_id: 1, bar_code:"384950")
         Alumn.current = alumn
       end
 
@@ -125,7 +125,7 @@ RSpec.describe SchoolMissesController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"123456",
-                         parent_id: 1, shift:"matutino" , bar_code:"384958")
+                         parent_id: 1, bar_code:"384958")
         Alumn.current = alumn
       end
       describe "With valid params" do

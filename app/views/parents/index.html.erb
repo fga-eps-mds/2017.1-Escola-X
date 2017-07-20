@@ -2,7 +2,20 @@
 <div class="container text-center">
   <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Responsáveis</h1>
   <hr>
+  <%= form_tag(parents_path, :method => "get", id: "search-form") do %>
+      <div class="form-inline">
+        <div class="input-group">
+           <%= text_field_tag :search, params[:search], placeholder: "Digite o nome do responsável", class: "form-control", :size=>"50"%>
+           <span class="input-group-btn">
+             <%= button_to 'Buscar'.html_safe, nil, class: "btn btn-default" %>
+           </span>
+        </div>
+      </div>
+   <% end %>
+   <br>
 </div>
+
+<%= render "layouts/feedback_messages" %>
 <section class="content-section" id="parents-list">
   <div class="container">
   <% @parents.each do |parent| %>
@@ -13,7 +26,6 @@
       <div class="col-sm-12 col-md-8 text-capitalize descript">
         <h2> <%= parent.name %></h2>
         <h4> <%= parent.address %> </h4>
-        <h4>Data de Nascimento:  
           <% if(!parent.birth_date.nil?)%>
               <%= parent.birth_date.strftime("%d/%m/%Y") %>
           <%end%> 

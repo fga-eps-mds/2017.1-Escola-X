@@ -28,9 +28,9 @@ class SessionsController < ApplicationController
       elsif (is_principal?)
         redirect_to users_path
       end
-      
+
       # Se chegou aqui conseguiu fazer o login
-      date = mountCurrentDate()   
+      date = mountCurrentDate()
       data_exists = check_if_date_exits(date)
       if(data_exists == false)
         #create new data
@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
         DayOfClass.create(date:date)
       else
         #data already exists
-        #nothing to do 
+        #nothing to do
       end
 
 
@@ -63,8 +63,11 @@ class SessionsController < ApplicationController
         data_exists = true;
       end
     end
-  
-    return data_exists    
+
+    return data_exists
+  end
+
+  def login_helper
   end
 
 end

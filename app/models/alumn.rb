@@ -4,6 +4,7 @@
 class Alumn < ApplicationRecord
   belongs_to :parent
   belongs_to :classroom
+  belongs_to :shift
 
   has_many :strikes
   has_many :school_misses

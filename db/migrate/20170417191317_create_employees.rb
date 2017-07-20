@@ -4,7 +4,6 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.integer :registry
       t.string :employee_cpf
       t.date :admission_date
-      t.string :shift
 
       t.string :name
       t.string :address

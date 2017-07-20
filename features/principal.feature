@@ -18,7 +18,7 @@ Feature: Principal
 		And I fill in field parent "Endereço" with "QR 612 Conjunto 12 Casa 21"
 		And I fill in field parent "Telefone" with "6133456382"
 		And I fill in field parent "Data de Nascimento" with "12121912"
-		And I fill in field parent "Sexo" with "Feminino"
+		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register alumn now, I had stay in page alumn new
 		And I fill in field alumn "Nome" with "Leo Arthur"
@@ -28,7 +28,7 @@ Feature: Principal
 		And I fill in field alumn "Endereço" with "QR 602 Conjunto 06 Casa 05"
 		And I fill in field alumn "Telefone" with "61983104981"
 		And I fill in field alumn "Data de Nascimento" with "09071995"
-		And I fill in field alumn "Sexo" with "Masculino"
+		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the alumn and I go to page users
 
@@ -49,6 +49,30 @@ Feature: Principal
 		And I fill in field parent "Endereço" with "Magnífica Mansão no Pedregal"
 		When I press "Salvar" button
 		Then I see information
+
+	Scenario: Principal can delete alumns
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar Alunos" button
+		And I press "Visualizar Aluno" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete parents
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar Responsáveis" button
+		And I press "Visualizar Responsável" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete teachers
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Professor" button
+		And I click in "Delete" button
+		Then I back to users
 
 	Scenario: Only principal can register suspension
 		Given I am logged in as principal
@@ -72,6 +96,24 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I see suspension edited
 
+	Scenario: Principal can delete suspensions
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar" button
+		And I press "Visualizar Suspensões" button
+		And I press "Visualizar Suspensão" button
+		And I click in "Delete" button
+		Then I back to users
+
+	Scenario: Principal can delete strikes
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Visualizar para excluir" button
+		And I press "Visualizar Advertencias" button
+		And I press "Visualizar Advertencia do Aluno" button
+		And I click in "Delete" button
+		Then I back to users
+
 	Scenario: Principal can create strike
 		Given I am logged in as principal
 		Then I logged as principal
@@ -92,6 +134,14 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I register the subject
 
+	Scenario: Principal can delete subjects
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Matéria" button
+		And I press "Matéria para excluir" button
+		And I click in "Delete" button
+		Then I back to subjects
+
 	Scenario: Only principal can register teacher valid
 		Given I am logged in as principal
 		Then I logged as principal
@@ -104,9 +154,9 @@ Feature: Principal
 		And I fill in "Endereço" with "QR 602 Conjunto 06 Casa 05"
 		And I fill in "Telefone" with "61983104981"
 		And I fill in "Data de Nascimento" with "09071995"
+		And I fill in "Data de Admissao" with "09072005"
 		And I fill in "Sexo" with "Masculino"
-		When I press "Salvar" button
-		Then I register the teacher and I go to page users
+		Then I press "Salvar" button
 
 	Scenario: Only principal can register secretary valid
 		Given I am logged in as principal
@@ -121,9 +171,17 @@ Feature: Principal
 		And I fill in "Endereço" with "Super República do Gama - Gama Sul"
 		And I fill in "Telefone" with "61983104999"
 		And I fill in "Data de Nascimento" with "01011800"
-		And I fill in secretary "Sexo" with "Masculino"
+		And I fill in "Sexo" with "Masculino"
 		When I press "Salvar" button
 		Then I register the secretary and I go to page secretaries
+
+	Scenario: Principal can delete secretaries
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Secretário" button
+		And I click in "Delete" button
+		Then I back to users
 
 	Scenario: Principal can create notification
 		Given I am logged in as principal
@@ -161,14 +219,22 @@ Feature: Principal
 		When I press "Salvar" button
 		Then I see notification edited
 
+	Scenario: Principal can delete a notification
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Avisos" button
+		And I press "Melhor Notificação" button
+		And I click in "Delete" button
+		Then I back to notifications
+
 	Scenario: Only principal can create classroom
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press "Criar Turma" button
+	 	And I press "Criar Turma" button
 		And I fill in "Nome da Turma" with "3D"
-		And I fill in "Turno da Turma" with "Vespertino"
-		When I press "Salvar" button
-		Then I see classroom created
+		And I change "Serie da Turma" for "1º Medio"
+		And I change "Turno da Turma" for "Vespertino"
+		Then I press "Salvar Turma" button
 
 	Scenario: Principal can see all secretaries
 		Given I am logged in as principal
@@ -191,38 +257,42 @@ Feature: Principal
 	Scenario: Principal can exit the system
 		Given I am logged in as principal
 		Then I logged as principal
-		When I press Sair button
-        Then I logged out
+		When I press "Logout" button
+    Then I logged out
 
-    Scenario: Principal can generate reports
-    	Given I am logged in as principal
+  Scenario: Principal can generate reports
+  	Given I am logged in as principal
 		Then I logged as principal
-		When I press "Visualizar" button
+		When I press "Alunos" button
+		And I press "Visualizar" button
 		And I press "Ver Relatório" button
 		Then I see alumn informations
 
-		Scenario: Principal can see principal
-			Given I am logged in as principal
-			Then I logged as principal
-			When I press "Visualizar Diretor" button
-			Then I see principal informations
+	Scenario: Only Principal can see principal
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Diretor" button
+		Then I see principal informations
 
-		Scenario: Principal can edit principal
-			Given I am logged in as principal
-			Then I logged as principal
-			When I press "Visualizar Diretor" button
-			Then I see principal informations
-			When I press "Editar" button
-			And I fill in "Admissão" with "19082001"
-			When I press "Salvar" button
-			Then I see principal informations
+	Scenario: Only Principal can edit principal
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Diretor" button
+		Then I see principal informations
+		When I press "Editar Diretor" button
+		And I fill in "Admissão" with "19082001"
+		And I press "Salvar" button
+		Then I see principal informations
 
-		Scenario: Principal can edit principal password
-			Given I am logged in as principal
-			Then I logged as principal
-			When I press "Visualizar Diretor" button
-			Then I see principal informations
-			When I press "Editar Senha" button
-			And I fill in "Senha" with "1234567"
-			When I press "Salvar" button
-			Then I see principal informations
+	Scenario: Only Principal can edit principal password
+		Given I am logged in as principal
+		Then I logged as principal
+		When I press "Funcionarios" button
+		And I press "Visualizar Diretor" button
+		Then I see principal informations
+		When I press "Editar Senha do Diretor" button
+		And I fill in "Senha" with "12345678"
+		And I press "Salvar Senha" button
+		Then I see principal informations

@@ -1,4 +1,5 @@
-<%= render "layouts/navbar" %>
+<%= render "layouts/navbar" %> 
+
 <div class="container text-center">
   <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Alunos</h1>
   <hr>
@@ -17,9 +18,6 @@
 <%= render "layouts/feedback_messages" %>
 <section class="content-section" id="alumns-list">
   <div class="container">
-    <%if is_principal? or is_secretary? %>
-    <%= link_to '<span class="fa fa-file-excel-o"></span> Gerar XLS'.html_safe, alumns_path(format: "xls"),class: 'btn btn-success pull-right' %>
-    <% end %>
   <% @alumns.each do |alumn| %>
     <div class="row item">
       <div class="col-sm-12 col-md-4">

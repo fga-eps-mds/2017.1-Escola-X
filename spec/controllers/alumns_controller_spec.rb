@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 require 'helper_module_spec'
 
 RSpec.configure do |c|
@@ -10,12 +10,12 @@ RSpec.describe AlumnsController, type: :controller do
                          address:"Rua Vida Casa 15,Taguatinga",
                          password: "12345678", gender:"M",
                          birth_date:"07/06/1988", registry:"12345",
-                         parent_id: 1, shift:"matutino",classroom_id:classroom.id , bar_code:"123456"} }
+                         parent_id: 1,classroom_id:classroom.id , bar_code:"123456"} }
 
   let(:invalid_inputs) { { name: "Ayu", phone:"25460", address:"Ali Casa 2",
                            password: "12345", gender:"adfsd",
                            birth_date:"50 abr",registry:"8",
-                           parent_id: -1, shift:"matutino"} }
+                           parent_id: -1} }
 
  let(:subject_inputs) { { name_subject:"Filosofia", class_level:"2", teacher_id: teacher.id } }
  let(:classroom_inputs) { { name_classroom: "3G", shift_classroom: "matutino" } }
@@ -46,7 +46,7 @@ RSpec.describe AlumnsController, type: :controller do
       it "render the error template" do
         get :new, params:{parent:parent}
         expect(response).to redirect_to '/errors/error_500'
-        
+
       end
     end
   end
@@ -103,7 +103,7 @@ RSpec.describe AlumnsController, type: :controller do
       end
     end
     describe "with wrong permissions" do
-      before(:each) do 
+      before(:each) do
         login_alumn
       end
 
@@ -227,7 +227,7 @@ RSpec.describe AlumnsController, type: :controller do
           end
           it "does not find alumns with no matching params" do
             alumn = Alumn.create!(valid_inputs)
-            get :index, params:{search: "!*"}
+            get :index, params:{search: "jai3j0"}
             expect(assigns(:alumns)).to match_array(nil)
             expect(flash[:feedback]).to be_present
           end
