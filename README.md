@@ -27,9 +27,9 @@ Primeiro passo para a instalação do projeto é baixar o repositório com o seg
 
 <p align="justify">Após clonar o repositório, configure o vangrat seguindo o tutorial do plano de gerenciamento de configuração <a href="https://github.com/fga-gpp-mds/2017.1-Escola-X/wiki/Plano-de-Gerenciamento-de-Configura%C3%A7%C3%A3o#21-instala%C3%A7%C3%A3o-do-vagrant">aqui</a>.</p>
 
-Após configurar o vangrat, rode os seguintes comandos na máquina virtual. 
+Após configurar o vangrant, rode os seguintes comandos na máquina virtual. 
 
-Para estruturar o banco de dados: 
+Para estruturar o banco de dados:
 
 ```rails db:migrate```
 
@@ -58,6 +58,6 @@ Acesse a aplicação através do link: http://0.0.0.0:3000
 
 Os contribuintes podem colaborar para manter e evoluir o sistema através da correção de bugs e implementação de novas funcionalidades, que estão listados na pipeline "Opened Issues" no zenhub <a href= "https://github.com/fga-gpp-mds/2017.1-Escola-X#boards?repos=84881923">Boards</a>. Para contribuir o projeto deve ser clonado do repositório oficial.
 
-## Documentação 
+## Documentação
 
 Toda a documentação pode ser acessada através da wiki do projeto <a href="https://github.com/fga-gpp-mds/2017.1-Escola-X/wiki">aqui</a>.

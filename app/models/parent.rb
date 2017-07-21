@@ -2,7 +2,7 @@
 #Class name: Parent
 #Description:Validates parent's attributes
 class Parent < ApplicationRecord
-  has_many :alumns
+  has_many :alumns, dependent: :destroy
   validates :parent_cpf, :cpf => false
   has_secure_password validations: false
   before_save :set_login
