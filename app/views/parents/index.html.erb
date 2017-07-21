@@ -17,6 +17,11 @@
 
 <%= render "layouts/feedback_messages" %>
 <section class="content-section" id="parents-list">
+<center>
+    <div class="digg_pagination">
+      <%= will_paginate @alumns, :container => true %>
+    </div>   
+  </center>
   <div class="container">
   <% @parents.each do |parent| %>
     <div class="row item">
@@ -42,4 +47,9 @@
     <hr>
   <% end %>
   </div>
+  <center>
+    <div class="digg_pagination">
+      <%= will_paginate @alumns, :container => true %>
+    </div>   
+  </center>
 </section>

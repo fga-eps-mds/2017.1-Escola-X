@@ -6,21 +6,20 @@ class ParentsController < ApplicationController
 
   def index
     if ( is_employee? )
-      @parents = Parent.all
+      #@parents = Parent.all
+      @parents = Parent.paginate(:page => params[:page], :per_page => 10)
       if params[:search]
         string_to_search = params[:search].strip.upcase!
-        puts "AQUI TEM O PARENT"
-        puts string_to_search
-        @parents = Parent.search(string_to_search).order("created_at DESC")
+        @parents = Parent.search(string_to_search).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
         if (@parents.empty?)
           flash.now[:feedback] = "Nenhum secretário(a) encontrado!"
         end
         if params[:search].blank?
-          @parents = Parent.all.order('created_at DESC')
+          @parents = Parent.paginate(:page => params[:page], :per_page => 10)
           flash.now[:feedback_warning] = "Digite algo para pesquisar!"
         end
       else
-        @parents = Parent.all.order('created_at DESC')
+        @parents = Parent.paginate(:page => params[:page], :per_page => 10)
       end
     else
       redirect_to "/errors/error_500"
