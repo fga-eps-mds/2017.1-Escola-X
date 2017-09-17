@@ -4,9 +4,12 @@
     <title>Escola X - The application</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#782323">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#782323">
+    <meta name="msapplication-navbutton-color" content="#782323">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!-- reminder: ADD FAVICON == STATUS BOOST x8000 -->
+    <%= stylesheet_link_tag 'application', media: 'all',
+        'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <%= yield %>
@@ -15,6 +18,7 @@
       <p>&copy; GPL-v.3</p>
     </div>
   </footer>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-eval' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload',
+      'data-turbolinks-eval' => false %>
   </body>
 </html>
