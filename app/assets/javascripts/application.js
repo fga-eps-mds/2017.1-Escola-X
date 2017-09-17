@@ -21,8 +21,3 @@
 //= require jquery.inputmask.date.extensions
 //= require bootstrap-sprockets
 //= require_tree .
-/*!
- * Jasny Bootstrap v3.1.0 (http://jasny.github.com/bootstrap)
- * Copyright 2011-2014 Arnold Daniels.
- * Licensed under Apache-2.0 (https://github.com/jasny/bootstrap/blob/master/LICENSE)
- */
