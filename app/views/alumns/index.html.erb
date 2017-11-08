@@ -1,4 +1,4 @@
-<%= render "layouts/navbar" %> 
+<%= render "layouts/navbar" %>
 
 <div class="container text-center">
   <h1 class="text-uppercase text-center" id="title-list"><span class="glyphicon glyphicon-list text-left"></span> Lista de Alunos</h1>
@@ -17,7 +17,8 @@
 </div>
 <center>
 <div class="digg_pagination">
-      <%= will_paginate @alumns, :container => true %>
+  <%= will_paginate @alumns, :container => true, :page_gap =>"auauau",
+   :previous_label => "Anterior" ,:next_label => "Próximo"  %>
 </div>
 </center>
 <%= render "layouts/feedback_messages" %>
@@ -59,6 +60,6 @@
   <center>
     <div class="digg_pagination">
       <%= will_paginate @alumns, :container => true %>
-    </div>   
+    </div>
   </center>
 </section>
