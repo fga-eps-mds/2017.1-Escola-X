@@ -101,4 +101,4 @@ Strike.create(description_strike: "Afogou o peixe dourado do coleguinha.",
               employee_id: Employee.last.id)
 
     
-end
+# end
